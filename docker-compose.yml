@@ -1,0 +1,21 @@
+version: '3.6'
+
+services:
+  jupyter:
+    image: jupyter/datascience-notebook
+    container_name: jupyterlab
+    ports:
+      - 127.0.0.1:44306:8888
+    volumes:
+      - /data/lbsn/jupyter:/home/jovyan/
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - RESTARTABLE=yes
+    networks:
+      - lbsn-network
+
+      
+networks:
+  lbsn-network:
+    name: lbsn-network
+    external: true
