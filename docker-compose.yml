@@ -11,8 +11,10 @@ services:
       - 127.0.0.1:${JUPYTER_WEBPORT:-8888}:8888
     volumes:
       - ${JUPYTER_HOME:-/data/lbsn/jupyter}:/home/jovyan/work
+      - ${PWD}/start_jupyter.sh:/start_jupyter.sh
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-d3f4u1tp455w0Rd}
+      - JUPYTER_WEBURL=${JUPYTER_WEBURL:-https://jupyterlab.example.org}
     networks:
       - lbsn-network
 
