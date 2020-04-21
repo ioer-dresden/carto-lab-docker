@@ -3,10 +3,9 @@
 variables:
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: "/certs"
+  DOCKER_HOST: unix:///var/run/docker.sock
 
 docker-build-master:
-  # Official docker image.
-  image: docker:latest
   stage: build
   services:
     - docker:dind
@@ -18,8 +17,6 @@ docker-build-master:
     - master
 
 docker-build:
-  # Official docker image.
-  image: docker:latest
   stage: build
   services:
     - docker:dind
