@@ -4,7 +4,7 @@ services:
 
   jupyterlab:
     build: .
-    image: lbsn/jupyterlab
+    image: registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab
     container_name: ${CONTAINER_NAME:-lbsn-jupyterlab}
     restart: unless-stopped
     ports:
