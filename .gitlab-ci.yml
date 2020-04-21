@@ -4,7 +4,7 @@ variables:
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: "/certs"
 
-image: docker:dind
+image: docker:latest
 
 services:
   - docker:dind
