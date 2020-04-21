@@ -6,8 +6,10 @@ docker-build-master:
   services:
     - docker:dind
   before_script:
-    - docker login -u gitlab-ci-token "$CI_REGISTRY" --password-stdin
+    - echo "$CI_JOB_TOKEN" "$CI_REGISTRY"
+    - docker login -u gitlab-ci-token -p "$CI_JOB_TOKEN" "$CI_REGISTRY"
   script:
+    - echo "$CI_REGISTRY_IMAGE"
     - docker build --pull -t "$CI_REGISTRY_IMAGE" .
     - docker push "$CI_REGISTRY_IMAGE"
   only:
@@ -20,7 +22,7 @@ docker-build:
   services:
     - docker:dind
   before_script:
-    - docker login -u gitlab-ci-token "$CI_REGISTRY" --password-stdin
+    - docker login -u gitlab-ci-token -p "$CI_JOB_TOKEN" "$CI_REGISTRY"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
