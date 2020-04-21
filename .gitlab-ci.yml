@@ -6,6 +6,9 @@ variables:
 
 image: docker:dind
 
+services:
+  - docker:dind
+
 docker-build-master:
   stage: build
   script:
