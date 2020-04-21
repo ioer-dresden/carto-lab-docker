@@ -9,8 +9,6 @@ RUN conda update -y -n base -c defaults conda \
         descartes mapclassify jupyter_contrib_nbextensions \
         xarray python-dotenv psycopg2
 
-RUN ["/bin/bash", "-c", "echo hello all in one string"]
-
 # install additional optional dependencies to env
 # spellchecker and auto-toc
 RUN ["/bin/bash", "-c", "conda init bash"]  \
