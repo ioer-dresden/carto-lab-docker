@@ -1,5 +1,8 @@
 FROM continuumio/miniconda3:latest
 
+# select default shell
+SHELL ["/bin/bash", "-c"] 
+
 RUN conda update -y -n base -c defaults conda \
     && conda create -y -n worker_env -c conda-forge \
     && conda config --set channel_priority strict \
@@ -8,16 +11,17 @@ RUN conda update -y -n base -c defaults conda \
         geopandas jupyterlab "geoviews-core=1.8.1" \
         descartes mapclassify jupyter_contrib_nbextensions \
         xarray python-dotenv psycopg2
-
-# install additional optional dependencies to env
+        
+# init conda shell and
+# install additional optional dependencies to worker_env:
 # spellchecker and auto-toc
-RUN ["/bin/bash", "-c", "conda init bash"]  \
-    && ["/bin/bash", "-c", "source ~/.bashrc"]  \
-    && ["/bin/bash", "-c", "conda activate worker_env"] \
-    && conda install nodejs jupyter_contrib_nbextensions jupyter_nbextensions_configurator -c conda-forge \
+RUN conda init bash \
+    && source ~/.bashrc  \
+    && conda activate worker_env \
+    && conda install nodejs jupyter_contrib_nbextensions \
+        jupyter_nbextensions_configurator -c conda-forge \
     && jupyter labextension install @ijmbarr/jupyterlab_spellchecker \
     && jupyter nbextensions_configurator enable --user
 
-
 # start jupyter lab
-CMD [ "/bin/bash", "/start_jupyter.sh" ]
+CMD /start_jupyter.sh
