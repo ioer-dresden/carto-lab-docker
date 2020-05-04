@@ -7,3 +7,9 @@ This repository is a [Docker]-project, that starts an instance of [JupyterLab]. 
 [rawdb]: https://gitlab.vgiscience.de/lbsn/databases/rawdb
 [hlldb]: https://gitlab.vgiscience.de/lbsn/databases/hlldb
 [full-stack-lbsn]: https://gitlab.vgiscience.de/lbsn/tools/full-stack-lbsn
+
+After starting the container, to be able to connect, you need to get the token from the Docker logs:
+
+```bash
+docker logs lbsn-jupyterlab 2>&1 | grep "?token="
+```
