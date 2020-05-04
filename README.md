@@ -10,6 +10,4 @@ This repository is a [Docker]-project, that starts an instance of [JupyterLab]. 
 
 After starting the container, to be able to connect, you need to get the token from the Docker logs:
 
-```bash
-docker logs lbsn-jupyterlab 2>&1 | grep "?token="
-```
+    docker-compose logs | grep -m 1 token
