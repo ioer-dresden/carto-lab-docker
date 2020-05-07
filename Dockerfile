@@ -26,6 +26,7 @@ RUN conda init bash \
         nodejs \
         jupyter_contrib_nbextensions \
         jupyter_nbextensions_configurator \
+        ipywidgets \
  && jupyter labextension install \
         @ijmbarr/jupyterlab_spellchecker \
  && jupyter nbextensions_configurator enable --user
