@@ -9,6 +9,7 @@ RUN conda update --channel defaults --name base --yes conda \
  && conda install --channel conda-forge --name worker_env --yes \
         geopandas \
         jupyterlab \
+        ipython-sql \
         "geoviews-core=1.8.1" \
         descartes \
         mapclassify \
