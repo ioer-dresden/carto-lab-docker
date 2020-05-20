@@ -37,17 +37,17 @@ RUN source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
  && jupyter lab clean -y \
  && npm cache clean --force
 
-# set default env var
-ENV JUPYTER_WEBURL http://localhost:8888
-
+# configure password login, if set
+# configure web url, if set
 # start jupyter lab
 CMD source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH; \
+    jupyter notebook --generate-config; \
     [[ "$JUPYTER_PASSWORD" ]] \
     && PW_HASH=$(python -c "from notebook.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))") \
-    && jupyter notebook --generate-config \
     && echo "c.NotebookApp.password=u'$PW_HASH'" >>/root/.jupyter/jupyter_notebook_config.py; \
+    [[ "$JUPYTER_WEBURL" ]] \
+    && echo "c.NotebookApp.custom_display_url=u'${JUPYTER_WEBURL}'" >>/root/.jupyter/jupyter_notebook_config.py; \
     jupyter lab \
     --ip=0.0.0.0 \
     --allow-root \
-    --NotebookApp.custom_display_url="$JUPYTER_WEBURL" \
     --NotebookApp.notebook_dir=/home/jovyan/work
