@@ -3,6 +3,9 @@ FROM continuumio/miniconda3:latest
 # select default shell
 SHELL ["/bin/bash", "-c"]
 
+# setup conda environment
+# install additional packages from conda-forge
+# cleanup image
 RUN conda update --channel defaults --name base --yes conda \
  && conda create --channel conda-forge --name worker_env --yes \
  && conda config --set channel_priority strict \
@@ -19,20 +22,19 @@ RUN conda update --channel defaults --name base --yes conda \
         jupyter_contrib_nbextensions \
         jupyter_nbextensions_configurator \
         'ipywidgets=7.5.*' \
-&& conda clean --all --force-pkgs-dirs --yes
+ && conda clean --all --force-pkgs-dirs --yes
 
+# create conda paths to be sourced
 ENV CONDA_ACTIVATE_PATH=/opt/conda/bin/activate \
     WORKER_ENV_PATH=/opt/conda/envs/worker_env/
 
-# init conda shell and
-# install additional jupyter extensions to worker_env:
-# spellchecker, ipywidgets and auto-toc
+# install additional jupyter extensions
+# cleanup image
 RUN source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
  && jupyter labextension install \
         @ijmbarr/jupyterlab_spellchecker \
         @jupyter-widgets/jupyterlab-manager@^2.0.0 --no-build \
  && jupyter nbextensions_configurator enable --user \
- # container cleanup
  && jupyter lab build -y \
  && jupyter lab clean -y \
  && npm cache clean --force
