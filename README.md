@@ -8,10 +8,18 @@ This repository is a [Docker]-project, that starts an instance of [JupyterLab]. 
 [hlldb]: https://gitlab.vgiscience.de/lbsn/databases/hlldb
 [full-stack-lbsn]: https://gitlab.vgiscience.de/lbsn/tools/full-stack-lbsn
 
-After starting the container, to be able to connect, you need to get the token from the Docker logs:
+## Container start
 
-    docker-compose logs | grep -m 1 token
+Copy `.env.example` and edit default values.
 
-or, assuming the container name is `lbsn-jupyterlab`:
+To start the docker container use:
 
-    docker logs lbsn-jupyterlab 2>&1 | grep -m 1 token
+    docker-compose up -d
+
+You need to get the token from the Docker logs to open up JupyterLab in your browser:
+
+    docker-compose logs | grep "?token=" | tail -n 2
+
+To rebuild the container:
+
+    docker-compose down && docker-compose up --build --detach && docker-compose logs --follow
