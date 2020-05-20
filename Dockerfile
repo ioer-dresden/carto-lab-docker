@@ -19,13 +19,14 @@ RUN conda update --channel defaults --name base --yes conda \
         jupyter_nbextensions_configurator \
         'ipywidgets=7.5.*' \
 && conda clean --all --force-pkgs-dirs --yes
-        
+
+ENV CONDA_ACTIVATE_PATH=/opt/conda/bin/activate \
+    WORKER_ENV_PATH=/opt/conda/envs/worker_env/
+
 # init conda shell and
 # install additional jupyter extensions to worker_env:
 # spellchecker, ipywidgets and auto-toc
-RUN conda init bash \
- && source ~/.bashrc  \
- && conda activate worker_env \
+RUN source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
  && jupyter labextension install \
         @ijmbarr/jupyterlab_spellchecker \
         @jupyter-widgets/jupyterlab-manager@^2.0.0 --no-build \
@@ -39,10 +40,12 @@ RUN conda init bash \
 ENV JUPYTER_WEBURL http://localhost:8888
 
 # start jupyter lab
-CMD conda init bash \
- && source ~/.bashrc \
- && conda activate worker_env \
- && jupyter lab \
+CMD source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH; \
+    [[ "$JUPYTER_PASSWORD" ]] \
+    && PW_HASH=$(python -c "from notebook.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))") \
+    && jupyter notebook --generate-config \
+    && echo "c.NotebookApp.password=u'$PW_HASH'" >>/root/.jupyter/jupyter_notebook_config.py; \
+    jupyter lab \
     --ip=0.0.0.0 \
     --allow-root \
     --NotebookApp.custom_display_url="$JUPYTER_WEBURL" \

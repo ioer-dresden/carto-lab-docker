@@ -14,6 +14,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-d3f4u1tp455w0Rd}
       - JUPYTER_WEBURL=${JUPYTER_WEBURL:-https://jupyterlab.example.org}
+      - JUPYTER_PASSWORD=${JUPYTER_PASSWORD}
     networks:
       - lbsn-network
 
