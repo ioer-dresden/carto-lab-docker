@@ -10,7 +10,7 @@ services:
     ports:
       - 127.0.0.1:${JUPYTER_WEBPORT:-8888}:8888
     volumes:
-      - ${JUPYTER_HOME:-/data/lbsn/notebooks}:/home/jovyan/work
+      - ${JUPYTER_NOTEBOOKS:-/data/lbsn/notebooks}:/home/jovyan/work
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-d3f4u1tp455w0Rd}
       - JUPYTER_WEBURL=${JUPYTER_WEBURL:-http://localhost:8888}
