@@ -18,7 +18,6 @@ RUN conda update --channel defaults --name base --yes conda \
         mapclassify \
         xarray \
         psycopg2 \
-        nodejs \
         jupyter_contrib_nbextensions \
         jupyter_nbextensions_configurator \
         'ipywidgets=7.5.*' \
@@ -28,12 +27,20 @@ RUN conda update --channel defaults --name base --yes conda \
 ENV CONDA_ACTIVATE_PATH=/opt/conda/bin/activate \
     WORKER_ENV_PATH=/opt/conda/envs/worker_env/
 
+# install nodejs and npm globally
+# from source, see
+# github.com/nodesource/distributions/blob/master/README.md#debinstall
+RUN apt update \
+ && apt-get install curl --yes \
+ && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
+ && apt-get install nodejs --yes
+
 # install additional jupyter extensions
 # cleanup image
 RUN source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
  && jupyter labextension install \
         @ijmbarr/jupyterlab_spellchecker \
-        @jupyter-widgets/jupyterlab-manager@^2.0.0 --no-build \
+        @jupyter-widgets/jupyterlab-manager@2.0 --no-build \
  && jupyter nbextensions_configurator enable --user \
  && jupyter lab build -y \
  && jupyter lab clean -y \
