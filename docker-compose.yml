@@ -3,7 +3,6 @@ version: '3.6'
 services:
 
   jupyterlab:
-    build: .
     image: registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab
     container_name: ${CONTAINER_NAME:-lbsn-jupyterlab}
     restart: unless-stopped
