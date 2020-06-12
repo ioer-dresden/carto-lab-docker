@@ -30,9 +30,11 @@ ENV CONDA_ACTIVATE_PATH=/opt/conda/bin/activate \
 # install nodejs and npm globally
 # from source, see
 # github.com/nodesource/distributions/blob/master/README.md#debinstall
-RUN apt update \
- && apt-get install curl --yes \
- && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
+RUN apt-get update \
+ && apt-get install curl gnupg --yes \
+ && curl --silent https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - \
+ && echo 'deb https://deb.nodesource.com/node_14.x buster main' > /etc/apt/sources.list.d/nodesource.list \
+ && apt-get update \
  && apt-get install nodejs --yes
 
 # install additional jupyter extensions
