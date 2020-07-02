@@ -45,3 +45,5 @@ In your Apache configuration, you need to also proxypass websockets:
     ProxyPassReverse    /api/kernels/  ws://localhost:8888/api/kernels/
     ProxyPass           /  http://localhost:8888/
     ProxyPassReverse    /  http://localhost:8888/
+
+This requires the Apache modules `proxy` and `wstunnel` to be enabled on the host.
