@@ -21,6 +21,7 @@ RUN conda update --channel defaults --name base --yes conda \
         jupyter_contrib_nbextensions \
         jupyter_nbextensions_configurator \
         'ipywidgets=7.5.*' \
+        memory_profiler \
  && conda clean --all --force-pkgs-dirs --yes
 
 # create conda paths to be sourced
