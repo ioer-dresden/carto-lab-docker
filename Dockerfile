@@ -23,6 +23,7 @@ RUN conda update --channel defaults --name base --yes conda \
         'ipywidgets=7.5.*' \
         memory_profiler \
         seaborn \
+        matplotlib-venn \
  && conda clean --all --force-pkgs-dirs --yes
 
 # create conda paths to be sourced
