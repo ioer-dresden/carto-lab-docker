@@ -10,20 +10,20 @@ RUN conda update --channel defaults --name base --yes conda \
  && conda create --channel conda-forge --name worker_env --yes \
  && conda config --set channel_priority strict \
  && conda install --quiet --channel conda-forge --name worker_env --yes \
-        geopandas \
-        jupyterlab \
-        ipython-sql \
         "geoviews-core=1.8.1" \
+        'ipywidgets=7.5.*' \
         descartes \
-        mapclassify \
-        xarray \
-        psycopg2 \
+        geopandas \
+        ipython-sql \
         jupyter_contrib_nbextensions \
         jupyter_nbextensions_configurator \
-        'ipywidgets=7.5.*' \
-        memory_profiler \
-        seaborn \
+        jupyterlab \
+        mapclassify \
         matplotlib-venn \
+        memory_profiler \
+        psycopg2 \
+        seaborn \
+        xarray \
  && conda clean --all --force-pkgs-dirs --yes
 
 # create conda paths to be sourced
