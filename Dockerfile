@@ -47,7 +47,6 @@ RUN source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
  && jupyter labextension install \
         @ijmbarr/jupyterlab_spellchecker \
         @jupyter-widgets/jupyterlab-manager@2.0 --no-build \
-        jupyterlab-jupytext \
  && jupyter serverextension enable jupytext \
  && jupyter nbextensions_configurator enable --user \
  && jupyter lab build -y \
