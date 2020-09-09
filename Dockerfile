@@ -18,6 +18,7 @@ RUN conda update --channel defaults --name base --yes conda \
         jupyter_contrib_nbextensions \
         jupyter_nbextensions_configurator \
         jupyterlab \
+        jupytext \
         mapclassify \
         matplotlib-venn \
         memory_profiler \
@@ -46,6 +47,8 @@ RUN source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
  && jupyter labextension install \
         @ijmbarr/jupyterlab_spellchecker \
         @jupyter-widgets/jupyterlab-manager@2.0 --no-build \
+        jupyterlab-jupytext \
+ && jupyter serverextension enable jupytext \
  && jupyter nbextensions_configurator enable --user \
  && jupyter lab build -y \
  && jupyter lab clean -y \
