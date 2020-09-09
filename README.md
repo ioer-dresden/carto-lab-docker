@@ -20,9 +20,11 @@ You need to get the token from the Docker logs to open up JupyterLab in your bro
 
     docker-compose logs | grep "?token=" | tail -n 2
 
-To rebuild the container:
+The docker image is pulled from remote gitlab registry. If you update the Dockerfile, check if local build is possible with:
 
-    docker-compose down && docker-compose up --build --detach && docker-compose logs --follow
+    docker build .
+
+Then push changes to Gitlab, which will recreate the registry image based on the new Dockerfile.
 
 ## Run on a dedicated domain on the web
 
