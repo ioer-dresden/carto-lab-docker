@@ -22,6 +22,7 @@ RUN conda update --channel defaults --name base --yes conda \
         mapclassify \
         matplotlib-venn \
         memory_profiler \
+        papermill \
         psycopg2 \
         seaborn \
         xarray \
