@@ -24,6 +24,7 @@ RUN conda update --channel defaults --name base --yes conda \
         memory_profiler \
         papermill \
         psycopg2 \
+        python-dotenv \
         seaborn \
         xarray \
  && conda clean --all --force-pkgs-dirs --yes
