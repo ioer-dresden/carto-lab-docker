@@ -3,30 +3,15 @@ FROM continuumio/miniconda3:latest
 # select default shell
 SHELL ["/bin/bash", "-c"]
 
+# add environment.yml for worker_env specs
+ADD environment.yml environment.yml
+
 # setup conda environment
 # install additional packages from conda-forge
 # cleanup image
 RUN conda update --channel defaults --name base --yes conda \
- && conda create --channel conda-forge --name worker_env --yes \
  && conda config --set channel_priority strict \
- && conda install --quiet --channel conda-forge --name worker_env --yes \
-        "geoviews-core=1.8.1" \
-        'ipywidgets=7.5.*' \
-        descartes \
-        geopandas \
-        ipython-sql \
-        jupyter_contrib_nbextensions \
-        jupyter_nbextensions_configurator \
-        jupyterlab \
-        jupytext \
-        mapclassify \
-        matplotlib-venn \
-        memory_profiler \
-        papermill \
-        psycopg2 \
-        python-dotenv \
-        seaborn \
-        xarray \
+ && conda env create conda-forge --quiet --file environment.yml \
  && conda clean --all --force-pkgs-dirs --yes
 
 # create conda paths to be sourced

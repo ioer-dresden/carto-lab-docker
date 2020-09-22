@@ -1,0 +1,24 @@
+name: worker_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.7
+  - pip
+  - 'geoviews-core=1.8.1'
+  - 'ipywidgets=7.5.*'
+  - descartes
+  - geopandas
+  - ipython-sql
+  - jupyter_contrib_nbextensions
+  - jupyter_nbextensions_configurator
+  - jupyterlab
+  - jupytext
+  - mapclassify
+  - matplotlib-venn
+  - memory_profiler
+  - papermill
+  - psycopg2
+  - python-dotenv
+  - seaborn
+  - xarray
