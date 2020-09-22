@@ -51,7 +51,7 @@ CMD source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH; \
     && PW_HASH=$(python -c "from notebook.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))") \
     && echo "c.NotebookApp.password=u'$PW_HASH'" >>$JUPYTER_CONFIG; \
     [[ "$JUPYTER_WEBURL" ]] \
-    && echo "c.NotebookApp.custom_display_url=u'${JUPYTER_WEBURL}'" >>$JUPYTER_CONFIG; \
+    && echo "c.NotebookApp.custom_display_url=u'${JUPYTER_WEBURL}'" >>$JUPYTER_CONFIG \
     && echo "c.ContentsManager.allow_hidden=True" >>$JUPYTER_CONFIG; \
     jupyter lab \
     --ip=0.0.0.0 \
