@@ -26,6 +26,19 @@ The docker image is pulled from remote gitlab registry. If you update the Docker
 
 Then push changes to Gitlab, which will recreate the registry image based on the new Dockerfile.
 
+## Updating dependencies
+
+Packages are installed from [environment.yml](environment.yml) to `worker_env`.
+
+* do not change the name `worker_env`
+* to add additional packages to `worker_env`:
+    * temporarily: open a terminal in Jupyter Lab
+        * type `bash`
+        * type `conda activate worker_env`
+        * install your dependencies (e.g. `conda install hdbscan`
+    * permanently: edit the `environment.yml` and build image with `docker build .`
+        * make sure you're running your local image, not the remote, by removing the `image:`-line in `docker-compose.yml`
+
 ## Run on a dedicated domain on the web
 
 If you want to run this in production on a webserver, you can add an environment variable `JUPYTER_WEBURL` with the URL to your `.env` file:
