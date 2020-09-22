@@ -42,14 +42,17 @@ RUN source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
 
 # configure password login, if set
 # configure web url, if set
+# configure show hidden files
 # start jupyter lab
+ENV JUPYTER_CONFIG=/root/.jupyter/jupyter_notebook_config.py
 CMD source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH; \
     jupyter notebook --generate-config; \
     [[ "$JUPYTER_PASSWORD" ]] \
     && PW_HASH=$(python -c "from notebook.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))") \
-    && echo "c.NotebookApp.password=u'$PW_HASH'" >>/root/.jupyter/jupyter_notebook_config.py; \
+    && echo "c.NotebookApp.password=u'$PW_HASH'" >>$JUPYTER_CONFIG; \
     [[ "$JUPYTER_WEBURL" ]] \
-    && echo "c.NotebookApp.custom_display_url=u'${JUPYTER_WEBURL}'" >>/root/.jupyter/jupyter_notebook_config.py; \
+    && echo "c.NotebookApp.custom_display_url=u'${JUPYTER_WEBURL}'" >>$JUPYTER_CONFIG; \
+    && echo "c.ContentsManager.allow_hidden=True" >>$JUPYTER_CONFIG; \
     jupyter lab \
     --ip=0.0.0.0 \
     --allow-root \
