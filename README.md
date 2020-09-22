@@ -37,7 +37,8 @@ Packages are installed from [environment.yml](environment.yml) to `worker_env`.
         * type `conda activate worker_env`
         * install your dependencies (e.g. `conda install hdbscan`
     * permanently: edit the `environment.yml` and build image with `docker build .`
-        * make sure you're running your local image, not the remote, by removing the `image:`-line in `docker-compose.yml`
+        * make sure you're running your local image, not the remote
+        * by replacing the `image:`-line in `docker-compose.yml` with `build: .`
 
 ## Run on a dedicated domain on the web
 
