@@ -30,11 +30,7 @@ All other dependencies for working in jupyter lab are installed to `worker_env`.
 
 When running a notebook, choose `worker_env` as your Kernel after starting jupyter lab.
 
-<figure class="video_container">
-  <video controls="true" allowfullscreen="true" poster="assets/sel_kernel_env.png">
-    <source src="assets/sel_kernel_env.webm" type="video/webm">
-  </video>
-</figure>
+![Select Kernel](assets/sel_kernel_env.webm)
 
 ## Updating dependencies
 
