@@ -32,7 +32,7 @@ When running a notebook, choose `worker_env` as your Kernel after starting jupyt
 
 ![Select Kernel](assets/sel_kernel_env.webm)
 
-## Updating dependencies
+## Updating packages
 
 If you need to change/update packages in `worker_env`, edit [environment_default.yml](environment.yml):
 
