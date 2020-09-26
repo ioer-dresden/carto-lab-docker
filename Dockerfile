@@ -1,22 +1,11 @@
 FROM continuumio/miniconda3:latest
 
+# build time args
+ARG ENVIRONMENT_FILE
+ARG WORKER_ENV_NAME
+
 # select default shell
 SHELL ["/bin/bash", "-c"]
-
-# add environment.yml for worker_env specs
-ADD environment.yml environment.yml
-
-# setup conda environment
-# install additional packages from conda-forge
-# cleanup image
-RUN conda update --channel defaults --name base --yes conda \
- && conda config --set channel_priority strict \
- && conda env create conda-forge --quiet --file environment.yml \
- && conda clean --all --force-pkgs-dirs --yes
-
-# create conda paths to be sourced
-ENV CONDA_ACTIVATE_PATH=/opt/conda/bin/activate \
-    WORKER_ENV_PATH=/opt/conda/envs/worker_env/
 
 # install nodejs and npm globally
 # from source, see
@@ -27,10 +16,28 @@ RUN apt-get update \
  && echo 'deb https://deb.nodesource.com/node_14.x buster main' > /etc/apt/sources.list.d/nodesource.list \
  && apt-get update \
  && apt-get install nodejs --yes
+ 
+# add environment.yml for worker_env specs
+# add user env file
+ADD environment_jupyter.yml environment_jupyter.yml
+ADD $ENVIRONMENT_FILE $ENVIRONMENT_FILE
+
+# setup conda jupyter environment (jupyter_env)
+# install additional packages from conda-forge
+# cleanup image
+RUN conda update --channel defaults --name base --yes conda \
+ && conda config --set channel_priority strict \
+ && conda env create --file environment_jupyter.yml --name jupyter_env --quiet \
+ && conda clean --all --force-pkgs-dirs --yes
+
+# create conda paths to be sourced
+ENV CONDA_ACTIVATE_PATH=/opt/conda/bin/activate \
+    JUPYTER_ENV_PATH=/opt/conda/envs/jupyter_env/ \
+    WORKER_ENV_PATH=/opt/conda/envs/$WORKER_ENV_NAME/
 
 # install additional jupyter extensions
 # cleanup image
-RUN source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
+RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH \
  && jupyter labextension install \
         @ijmbarr/jupyterlab_spellchecker \
         @jupyter-widgets/jupyterlab-manager@2.0 --no-build \
@@ -38,14 +45,23 @@ RUN source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
  && jupyter nbextensions_configurator enable --user \
  && jupyter lab build -y \
  && jupyter lab clean -y \
- && npm cache clean --force
+ && npm cache clean --force \
+ && conda deactivate
 
+# install user kernel environment (worker_env)
+RUN conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME --quiet  \
+ && source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
+ && conda install ipykernel --channel conda-forge \
+ && ipython kernel install --user --name=$WORKER_ENV_NAME \
+ && conda clean --all --force-pkgs-dirs --yes \
+ && conda deactivate
+ 
 # configure password login, if set
 # configure web url, if set
 # configure show hidden files
 # start jupyter lab
 ENV JUPYTER_CONFIG=/root/.jupyter/jupyter_notebook_config.py
-CMD source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH; \
+CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     jupyter notebook --generate-config; \
     [[ "$JUPYTER_PASSWORD" ]] \
     && PW_HASH=$(python -c "from notebook.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))") \

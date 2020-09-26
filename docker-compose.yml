@@ -4,7 +4,11 @@ services:
 
   jupyterlab:
     image: registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab
-    build: .
+    build:
+      context: .
+      args:
+        - ENVIRONMENT_FILE=${ENVIRONMENT_FILE:-environment_default.yml}
+        - WORKER_ENV_NAME=${WORKER_ENV_NAME:-worker_env}
     container_name: ${CONTAINER_NAME:-lbsn-jupyterlab}
     restart: unless-stopped
     ports:
@@ -13,8 +17,8 @@ services:
       - ${JUPYTER_NOTEBOOKS:-/data/lbsn/notebooks}:/home/jovyan/work
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-d3f4u1tp455w0Rd}
-      - JUPYTER_WEBURL=${JUPYTER_WEBURL:-http://localhost:8888}
       - JUPYTER_PASSWORD=${JUPYTER_PASSWORD}
+      - JUPYTER_WEBURL=${JUPYTER_WEBURL:-http://localhost:8888}
     networks:
       - lbsn-network
 

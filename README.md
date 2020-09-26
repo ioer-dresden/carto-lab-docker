@@ -15,10 +15,40 @@ Copy `.env.example` and edit default values.
 To start the docker container use:
 
     docker-compose up -d
+    
+and then open [http://localhost:8888/](http://localhost:8888/) in your browser.
 
-You need to get the token from the Docker logs to open up JupyterLab in your browser:
+If you did not provide a password in `.env`, get the token from the Docker logs to login:
 
     docker-compose logs | grep "?token=" | tail -n 2
+
+## Run Notebook
+
+The container uses conda to manage environments. Jupyter is automatically started from `jupyter_env`.
+
+All other dependencies for working in jupyter lab are installed to `worker_env`.
+
+When running a notebook, choose `worker_env` as your Kernel after starting jupyter lab.
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true" poster="assets/sel_kernel_env.png">
+    <source src="assets/sel_kernel_env.webm" type="video/webm">
+  </video>
+</figure>
+
+## Updating dependencies
+
+If you need to change/update packages in `worker_env`, edit [environment_default.yml](environment.yml):
+
+* temporarily: open a terminal in Jupyter Lab
+    * type `bash`
+    * type `conda activate worker_env`
+    * install your dependencies (e.g. `conda install hdbscan`
+    * or, create a new env and install ipykernel to it
+* permanently: edit the `environment_default.yml` and build image with `docker-compose build .`
+    * make sure you're running your local image, not the remote
+
+## Developers
 
 The docker image is pulled from remote gitlab registry. If you update the Dockerfile, check if local build is possible with:
 
@@ -26,21 +56,7 @@ The docker image is pulled from remote gitlab registry. If you update the Docker
 
 Then push changes to Gitlab, which will recreate the registry image based on the new Dockerfile.
 
-## Updating dependencies
-
-Packages are installed from [environment.yml](environment.yml) to `worker_env`.
-
-* do not change the name `worker_env`
-* to add additional packages to `worker_env`:
-    * temporarily: open a terminal in Jupyter Lab
-        * type `bash`
-        * type `conda activate worker_env`
-        * install your dependencies (e.g. `conda install hdbscan`
-    * permanently: edit the `environment.yml` and build image with `docker build .`
-        * make sure you're running your local image, not the remote
-        * by replacing the `image:`-line in `docker-compose.yml` with `build: .`
-
-## Run on a dedicated domain on the web
+### Run on a dedicated domain on the web
 
 If you want to run this in production on a webserver, you can add an environment variable `JUPYTER_WEBURL` with the URL to your `.env` file:
 
