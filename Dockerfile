@@ -1,8 +1,8 @@
 FROM continuumio/miniconda3:latest
 
 # build time args
-ARG ENVIRONMENT_FILE
-ARG WORKER_ENV_NAME
+ARG ENVIRONMENT_FILE=environment_default.yml
+ARG WORKER_ENV_NAME=worker_env
 
 # select default shell
 SHELL ["/bin/bash", "-c"]
