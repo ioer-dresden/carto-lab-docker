@@ -11,4 +11,5 @@ dependencies:
   - jupyterlab
   - jupyterlab-git
   - jupytext
+  - nbconvert=5.6.1 # pin, until template issue fixed
   - papermill
