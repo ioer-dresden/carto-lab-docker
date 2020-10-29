@@ -8,6 +8,15 @@ This repository is a [Docker]-project, that starts an instance of [JupyterLab]. 
 [hlldb]: https://gitlab.vgiscience.de/lbsn/databases/hlldb
 [full-stack-lbsn]: https://gitlab.vgiscience.de/lbsn/tools/full-stack-lbsn
 
+## Multi-user setup
+
+The jupyter lab app allows multiple users to work concurrently, with the following restrictions:
+
+- other users will see other users´ open notebooks
+- notebooks will be shut down automatically, if the kernel has been idle for 30 Minutes. It is 
+  recommended to shutdown notebooks manually after use, e.g. right-click notebook & select "Shutdown Kernel"
+- it is not possible to work concurrently on the same notebook
+
 ## Container start
 
 Copy `.env.example` and edit default values.
