@@ -43,6 +43,7 @@ RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH \
         @jupyter-widgets/jupyterlab-manager@2.0 --no-build \
  && jupyter serverextension enable jupytext \
  && jupyter nbextensions_configurator enable --user \
+ && jupyter nbextension enable toc2/main \
  && jupyter lab build -y \
  && jupyter lab clean -y \
  && npm cache clean --force \
