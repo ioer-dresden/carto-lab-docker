@@ -1,8 +1,8 @@
 FROM continuumio/miniconda3:latest
 
 # build time args
-ARG ENVIRONMENT_FILE=environment_default.yml
-ARG WORKER_ENV_NAME=worker_env
+ARG ENVIRONMENT_FILE
+ARG WORKER_ENV_NAME
 
 # select default shell
 SHELL ["/bin/bash", "-c"]
@@ -43,6 +43,7 @@ RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH \
         @jupyter-widgets/jupyterlab-manager@2.0 --no-build \
  && jupyter serverextension enable jupytext \
  && jupyter nbextensions_configurator enable --user \
+ && jupyter nbextension enable toc2/main \
  && jupyter lab build -y \
  && jupyter lab clean -y \
  && npm cache clean --force \
@@ -68,6 +69,10 @@ CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     && echo "c.NotebookApp.password=u'$PW_HASH'" >>$JUPYTER_CONFIG; \
     [[ "$JUPYTER_WEBURL" ]] \
     && echo "c.NotebookApp.custom_display_url=u'${JUPYTER_WEBURL}'" >>$JUPYTER_CONFIG \
+    && echo "c.LabApp.shutdown_no_activity_timeout=1800" >>$JUPYTER_CONFIG \
+    && echo "c.NotebookApp.shutdown_no_activity_timeout=1800" >>$JUPYTER_CONFIG \
+    && echo "c.MappingKernelManager.cull_interval=600" >>$JUPYTER_CONFIG \
+    && echo "c.MappingKernelManager.cull_idle_timeout=1800" >>$JUPYTER_CONFIG \
     && echo "c.ContentsManager.allow_hidden=True" >>$JUPYTER_CONFIG; \
     jupyter lab \
     --ip=0.0.0.0 \

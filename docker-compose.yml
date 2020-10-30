@@ -7,8 +7,8 @@ services:
     build:
       context: .
       args:
-        - ENVIRONMENT_FILE=${ENVIRONMENT_FILE}
-        - WORKER_ENV_NAME=${WORKER_ENV_NAME}
+        - ENVIRONMENT_FILE=${ENVIRONMENT_FILE:-environment_default.yml}
+        - WORKER_ENV_NAME=${WORKER_ENV_NAME:-worker_env}
     container_name: ${CONTAINER_NAME:-lbsn-jupyterlab}
     restart: unless-stopped
     ports:
