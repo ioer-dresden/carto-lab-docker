@@ -50,7 +50,7 @@ If you need to change/update packages in `worker_env`, edit [environment_default
     * type `conda activate worker_env`
     * install your dependencies (e.g. `conda install hdbscan`
     * or, create a new env and install ipykernel to it
-* permanently: edit the `environment_default.yml` and build image with `docker-compose build .`
+* permanently: edit the `environment_default.yml` and start image with `docker-compose build && docker-compose up -d --force-recreate`
     * make sure you're running your local image, not the remote
 
 ## Developers
