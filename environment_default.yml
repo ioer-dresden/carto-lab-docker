@@ -19,5 +19,3 @@ dependencies:
   - seaborn
   - xarray
   - selenium
-  - firefox
-  - geckodriver
