@@ -9,6 +9,7 @@ dependencies:
   - 'geoviews-core=1.8.1'
   - 'ipywidgets=7.5.*'
   - descartes
+  - geoalchemy2
   - geopandas
   - ipython-sql
   - mapclassify
@@ -20,3 +21,4 @@ dependencies:
   - xarray
   - selenium
   - geckodriver
+  - python-chromedriver-binary
