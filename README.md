@@ -8,6 +8,18 @@ This repository is a [Docker]-project, that starts an instance of [JupyterLab]. 
 [hlldb]: https://gitlab.vgiscience.de/lbsn/databases/hlldb
 [full-stack-lbsn]: https://gitlab.vgiscience.de/lbsn/tools/full-stack-lbsn
 
+**tl:dr**
+
+To Start the docker container locally:
+
+```bash
+git clone git@gitlab.vgiscience.de:lbsn/tools/jupyterlab.git
+cd jupyterlab
+cp .env.example .env
+# optionally: adjust parameters in .env
+docker-compose up -d
+```
+
 ## Multi-user setup
 
 The jupyter lab app allows multiple users to work concurrently, with the following restrictions:
@@ -41,7 +53,8 @@ When running a notebook, choose `worker_env` as your Kernel after starting jupyt
 
 ![Select Kernel](assets/sel_kernel_env.webm)
 
-## Updating packages
+## Conda Environments
+### Updating packages
 
 If you need to change/update packages in `worker_env`, edit [environment_default.yml](environment.yml):
 
@@ -52,6 +65,20 @@ If you need to change/update packages in `worker_env`, edit [environment_default
     * or, create a new env and install ipykernel to it
 * permanently: edit the `environment_default.yml` and start image with `docker-compose build && docker-compose up -d --force-recreate`
     * make sure you're running your local image, not the remote
+
+### Add your own environment.yml
+
+In `.env`, update the link to use when building worker_env, e.g:
+
+```env
+ENVIRONMENT_FILE=envs/environment_jupyter_workshop.yml
+```
+
+Afterwards, rebuild the Docker container.
+
+- Make sure that the path is within the repository
+- Use a Symlink/Hardlink to include `environment.yml`'s from elsewhere
+- The `env/` directory is excluded from git through .gitignore
 
 ## Developers
 
