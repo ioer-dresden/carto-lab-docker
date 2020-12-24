@@ -5,6 +5,7 @@ channels:
 dependencies:
   - python>=3.7
   - pip
+  - contextily
   - colorcet
   - 'geoviews-core=1.8.1'
   - 'ipywidgets=7.5.*'
@@ -15,6 +16,7 @@ dependencies:
   - mapclassify
   - matplotlib-venn
   - memory_profiler
+  - mmh3
   - psycopg2
   - python-dotenv
   - seaborn
@@ -22,3 +24,5 @@ dependencies:
   - selenium
   - geckodriver
   - python-chromedriver-binary
+  - pip:
+    - python-hll
