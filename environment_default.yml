@@ -12,6 +12,7 @@ dependencies:
   - descartes
   - geoalchemy2
   - geopandas
+  - geopy
   - ipython-sql
   - mapclassify
   - matplotlib-venn
