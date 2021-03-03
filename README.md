@@ -71,10 +71,10 @@ If you need to change/update packages in `worker_env`, edit [environment_default
 In `.env`, update the link to use when building worker_env, e.g:
 
 ```env
-ENVIRONMENT_FILE=envs/environment_jupyter_workshop.yml
+ENVIRONMENT_FILE=envs/environment_custom.yml
 ```
 
-Afterwards, rebuild the Docker container.
+Afterwards, rebuild the Docker container (`docker-compose build`).
 
 - Make sure that the path is within the repository
 - Use a Symlink/Hardlink to include `environment.yml`'s from elsewhere
