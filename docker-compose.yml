@@ -10,7 +10,7 @@ services:
         - ENVIRONMENT_FILE=${ENVIRONMENT_FILE:-environment_default.yml}
         - WORKER_ENV_NAME=${WORKER_ENV_NAME:-worker_env}
     container_name: ${CONTAINER_NAME:-lbsn-jupyterlab}
-    restart: unless-stopped
+    restart: "no"
     ports:
       - 127.0.0.1:${JUPYTER_WEBPORT:-8888}:8888
     volumes:
