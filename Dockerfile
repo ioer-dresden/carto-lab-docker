@@ -16,25 +16,6 @@ RUN apt-get update \
  && echo 'deb https://deb.nodesource.com/node_14.x buster main' > /etc/apt/sources.list.d/nodesource.list \
  && apt-get update \
  && apt-get install nodejs --yes
- 
-# Firefox (bokeh svg/png output)
-RUN apt-get update --yes \
- && apt-get install firefox-esr --yes \
- && apt-get install chromium --yes
-
-# Chrome (alternative svg/png output)
-RUN apt-get update \
- && apt-get install --yes curl unzip xvfb libxi6 libgconf-2-4 \
- && curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
- && echo "deb [arch=amd64]  http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
- && apt-get update --yes \
- && apt-get install google-chrome-stable --yes \
- && wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip \
- && unzip chromedriver_linux64.zip \
- && mv chromedriver /usr/bin/chromedriver \
- && chown root:root /usr/bin/chromedriver \
- && chmod +x /usr/bin/chromedriver \
- && rm chromedriver_linux64.zip
 
 # add environment.yml for worker_env specs
 # add user env file
