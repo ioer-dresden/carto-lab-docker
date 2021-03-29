@@ -22,8 +22,5 @@ dependencies:
   - python-dotenv
   - seaborn
   - xarray
-  - selenium
-  - geckodriver
-  - python-chromedriver-binary
   - pip:
     - python-hll
