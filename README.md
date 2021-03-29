@@ -22,6 +22,11 @@ cp .env.example .env
 docker-compose up -d
 ```
 
+## Branches
+
+- `master` branch: Latest version of container (Jupyter Lab 3.\*)
+- `master-stable` branch: Stable, tested container (Jupyter Lab 2.\*)
+
 ## Multi-user setup
 
 The jupyter lab app allows multiple users to work concurrently, with the following 
