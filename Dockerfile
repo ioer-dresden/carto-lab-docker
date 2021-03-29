@@ -40,7 +40,6 @@ ENV CONDA_ACTIVATE_PATH=/opt/conda/bin/activate \
 RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH \
  && jupyter labextension install \
         @ijmbarr/jupyterlab_spellchecker \
-        @jupyter-widgets/jupyterlab-manager@2.0 --no-build \
  && jupyter serverextension enable jupytext \
  && jupyter nbextensions_configurator enable --user \
  && jupyter nbextension enable toc2/main \
@@ -61,16 +60,16 @@ RUN conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME --quiet  \
 # configure web url, if set
 # configure show hidden files
 # start jupyter lab
-ENV JUPYTER_CONFIG=/root/.jupyter/jupyter_notebook_config.py
+ENV JUPYTER_CONFIG=/root/.jupyter/jupyter_server_config.py
 CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
-    jupyter notebook --generate-config; \
+    jupyter lab --generate-config; \
     [[ "$JUPYTER_PASSWORD" ]] \
     && PW_HASH=$(python -c "from notebook.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))") \
-    && echo "c.NotebookApp.password=u'$PW_HASH'" >>$JUPYTER_CONFIG; \
+    && echo "c.ServerApp.password=u'$PW_HASH'" >>$JUPYTER_CONFIG; \
     [[ "$JUPYTER_WEBURL" ]] \
-    && echo "c.NotebookApp.custom_display_url=u'${JUPYTER_WEBURL}'" >>$JUPYTER_CONFIG \
+    && echo "c.ServerApp.custom_display_url=u'${JUPYTER_WEBURL}'" >>$JUPYTER_CONFIG \
     && echo "c.LabApp.shutdown_no_activity_timeout=1800" >>$JUPYTER_CONFIG \
-    && echo "c.NotebookApp.shutdown_no_activity_timeout=1800" >>$JUPYTER_CONFIG \
+    && echo "c.ServerApp.shutdown_no_activity_timeout=1800" >>$JUPYTER_CONFIG \
     && echo "c.MappingKernelManager.cull_interval=600" >>$JUPYTER_CONFIG \
     && echo "c.MappingKernelManager.cull_idle_timeout=1800" >>$JUPYTER_CONFIG \
     && echo "c.ContentsManager.allow_hidden=True" >>$JUPYTER_CONFIG; \
