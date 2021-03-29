@@ -8,7 +8,7 @@ dependencies:
   - contextily
   - colorcet
   - 'geoviews-core=1.8.1'
-  - 'ipywidgets=8.*'
+  - 'ipywidgets=7.6.*'
   - descartes
   - geoalchemy2
   - geopandas
