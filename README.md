@@ -8,7 +8,7 @@ download/clone and run [all of these services as a bundle][lbsn-ctl].
 [JupyterLab]: https://jupyterlab.readthedocs.io
 [rawdb]: https://gitlab.vgiscience.de/lbsn/databases/rawdb
 [hlldb]: https://gitlab.vgiscience.de/lbsn/databases/hlldb
-[full-stack-lbsn]: https://gitlab.vgiscience.de/lbsn/tools/lbsnctl
+[lbsn-ctl]: https://gitlab.vgiscience.de/lbsn/tools/lbsnctl
 
 **tl:dr**
 
