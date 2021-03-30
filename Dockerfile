@@ -7,16 +7,6 @@ ARG WORKER_ENV_NAME=worker_env
 # select default shell
 SHELL ["/bin/bash", "-c"]
 
-# install nodejs and npm globally
-# from source, see
-# github.com/nodesource/distributions/blob/master/README.md#debinstall
-RUN apt-get update \
- && apt-get install curl gnupg --yes \
- && curl --silent https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - \
- && echo 'deb https://deb.nodesource.com/node_14.x buster main' > /etc/apt/sources.list.d/nodesource.list \
- && apt-get update \
- && apt-get install nodejs --yes
-
 # add environment.yml for worker_env specs
 # add user env file
 ADD environment_jupyter.yml environment_jupyter.yml
