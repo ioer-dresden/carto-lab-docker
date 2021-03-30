@@ -18,6 +18,7 @@ dependencies:
   - matplotlib-venn
   - memory_profiler
   - mmh3
+  - pyepsg
   - psycopg2
   - python-dotenv
   - seaborn
