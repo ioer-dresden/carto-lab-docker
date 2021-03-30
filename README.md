@@ -20,6 +20,10 @@ cp .env.example .env
 docker-compose up -d
 ```
 
+Then open `http://localhost:8888` and use the password (default: `eX4mP13p455w0Rd`) to use Jupyter.
+
+By default, notebooks will be made available inside the docker from your `$HOME/notebooks` folder.
+
 ## Branches
 
 - [`master`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master) branch: Stable, tested container (Jupyter Lab 2.\*) 
