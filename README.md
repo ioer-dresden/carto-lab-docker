@@ -24,8 +24,8 @@ docker-compose up -d
 
 ## Branches
 
-- `master` branch: Latest version of container (Jupyter Lab 3.\*)
-- `master-stable` branch: Stable, tested container (Jupyter Lab 2.\*)
+- [`master`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master) branch: Stable, tested container (Jupyter Lab 2.\*) 
+- [`master-latest`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master-latest) branch: Latest version of container (Jupyter Lab 3.\*) 
 
 ## Multi-user setup
 
