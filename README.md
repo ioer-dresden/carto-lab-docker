@@ -28,8 +28,8 @@ By default, notebooks will be made available inside the docker from your `$HOME/
 
 ## Branches
 
-- [`master`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master) branch: Stable, tested container (Jupyter Lab 2.\*) 
-- [`master-latest`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master-latest) branch: Latest version of container (Jupyter Lab 3.\*) 
+- [`master`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master) branch: Stable, tested container
+- [`master-latest`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master-latest) branch: Latest version of container
 
 ## Multi-user setup
 
