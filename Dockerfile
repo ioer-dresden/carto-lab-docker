@@ -35,19 +35,6 @@ ENV CONDA_ACTIVATE_PATH=/opt/conda/bin/activate \
     JUPYTER_ENV_PATH=/opt/conda/envs/jupyter_env/ \
     WORKER_ENV_PATH=/opt/conda/envs/$WORKER_ENV_NAME/
 
-# install additional jupyter extensions
-# cleanup image
-RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH \
- && jupyter labextension install \
-        @ijmbarr/jupyterlab_spellchecker \
- && jupyter serverextension enable jupytext \
- && jupyter nbextensions_configurator enable --user \
- && jupyter nbextension enable toc2/main \
- && jupyter lab build -y \
- && jupyter lab clean -y \
- && npm cache clean --force \
- && conda deactivate
-
 # install user kernel environment (worker_env)
 RUN conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME --quiet  \
  && source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \

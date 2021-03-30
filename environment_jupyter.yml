@@ -17,3 +17,5 @@ dependencies:
   - selenium
   - geckodriver
   - firefox
+  - pip:
+    - jupyterlab-spellchecker
