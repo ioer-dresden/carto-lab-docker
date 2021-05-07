@@ -14,5 +14,6 @@ dependencies:
   - nbconvert=5.6.1 # pin, until template issue fixed
   - nbclassic # for backwards compatibility
   - papermill
+  - pyviz_comms
   - pip:
     - jupyterlab-spellchecker
