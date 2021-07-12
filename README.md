@@ -43,6 +43,7 @@ By default, notebooks will be made available inside the docker from your `$HOME/
       <li> <a href="https://contextily.readthedocs.io/en/latest/">Contextily</a></li>
       <li> <a href="https://colorcet.holoviz.org/">Colorcet</a></li>
       <li> <a href="https://scitools.org.uk/cartopy/docs/latest/">Cartopy</a></li>
+      <li> <a href="https://flopy.readthedocs.io/">flopy</a></li>
       <li> <a href="https://shapely.readthedocs.io/en/stable/manual.html">Shapely</a></li>
       <li> <a href="https://pyproj4.github.io/pyproj/stable/">Pyproj</a></li>
       <li> <a href="https://github.com/rhattersley/pyepsg">pyepsg</a></li>

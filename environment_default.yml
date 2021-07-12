@@ -15,6 +15,7 @@ dependencies:
   - geoalchemy2
   - geopandas
   - geopy
+  - flopy
   - ipython-sql
   - mapclassify
   - matplotlib-venn
