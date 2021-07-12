@@ -2,6 +2,18 @@
 
 <!--next-version-placeholder-->
 
+## v0.5.0 (2021-07-12)
+### Feature
+* Add pyepsg package to worker_env ([`2f9bba1`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/2f9bba1cd40eb51fba14a94c6720953c73589f8b))
+
+### Fix
+* Remove nodejs not needed anymore for Jupyter Lab 3.0 ([`a0e91a6`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/a0e91a67281277ac79cf4fd2b22d254cb3977f5a))
+* Do not use nbextensions install in jupyterlab 3.0 ([`995c9fa`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/995c9fa1618bb81aac9ccefcb1505431c23e9a34))
+* Ipywidgets not yet released ([`bc2bf95`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/bc2bf95f2291efd94c7da0ce5605e530ad35e305))
+
+### Documentation
+* Remove Jupyter lab version in Readme ([`56cbf04`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/56cbf0446f0974f993ecdd7c1f72b35cda3fa428))
+
 ## v0.4.0 (2021-03-29)
 
 ### Feature
