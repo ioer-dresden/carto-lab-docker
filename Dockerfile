@@ -45,7 +45,6 @@ CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     && echo "c.ServerApp.password=u'$PW_HASH'" >>$JUPYTER_CONFIG; \
     [[ "$JUPYTER_WEBURL" ]] \
     && echo "c.ServerApp.custom_display_url=u'${JUPYTER_WEBURL}'" >>$JUPYTER_CONFIG \
-    && echo "c.LabApp.shutdown_no_activity_timeout=1800" >>$JUPYTER_CONFIG \
     && echo "c.ServerApp.shutdown_no_activity_timeout=1800" >>$JUPYTER_CONFIG \
     && echo "c.MappingKernelManager.cull_interval=600" >>$JUPYTER_CONFIG \
     && echo "c.MappingKernelManager.cull_idle_timeout=1800" >>$JUPYTER_CONFIG \
@@ -53,4 +52,4 @@ CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     jupyter lab \
     --ip=0.0.0.0 \
     --allow-root \
-    --NotebookApp.notebook_dir=/home/jovyan/work
+    --ServerApp.notebook_dir=/home/jovyan/work

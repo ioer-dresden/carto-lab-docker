@@ -26,6 +26,40 @@ Then open `http://localhost:8888` and use the password (default: `eX4mP13p455w0R
 
 By default, notebooks will be made available inside the docker from your `$HOME/notebooks` folder.
 
+<details><summary><strong>See the list of packages made available via the default <code>worker_env</code></strong></summary>
+    <br>
+    The default <code>worker_env</code> environment is prepared for spatial data processing/ cartography, and SQL/HyperLogLog (HLL). 
+    <br>
+    The following is a list of the most important packages, with references to documentation:
+    <ul>
+      <li><a href="https://geoviews.org/user_guide/index.html">Geoviews</a></li>
+      <li><a href="https://holoviews.org/">Holoviews</a></li>
+      <li><a href="https://docs.bokeh.org/en/latest/index.html">Bokeh</a></li>
+      <li> <a href="https://hvplot.holoviz.org/">hvPlot</a></li>
+      <li> <a href="https://geopandas.org/">Geopandas</a></li>
+      <li> <a href="https://pandas.pydata.org/">Pandas</a></li>
+      <li> <a href="https://numpy.org/">Numpy</a></li>
+      <li> <a href="https://matplotlib.org/">Matplotlib</a></li>
+      <li> <a href="https://contextily.readthedocs.io/en/latest/">Contextily</a></li>
+      <li> <a href="https://colorcet.holoviz.org/">Colorcet</a></li>
+      <li> <a href="https://scitools.org.uk/cartopy/docs/latest/">Cartopy</a></li>
+      <li> <a href="https://flopy.readthedocs.io/">flopy</a></li>
+      <li> <a href="https://shapely.readthedocs.io/en/stable/manual.html">Shapely</a></li>
+      <li> <a href="https://pyproj4.github.io/pyproj/stable/">Pyproj</a></li>
+      <li> <a href="https://github.com/rhattersley/pyepsg">pyepsg</a></li>
+      <li> <a href="https://pysal.org/notebooks/viz/mapclassify/intro.html">Mapclassify</a></li>
+      <li> <a href="https://seaborn.pydata.org/">Seaborn</a></li>  
+      <li> <a href="http://xarray.pydata.org/en/stable/">Xarray</a></li>  
+      <li> <a href="https://ad.vgiscience.org/tagmaps/docs/">Tagmaps</a></li>  
+      <li> <a href="https://lbsn.vgiscience.org/">lbsnstructure</a></li>    
+      <li> <a href="https://sgillies.net/2010/04/27/descartes-1-0.html">Descartes</a></li>  
+      <li> <a href="https://geoalchemy-2.readthedocs.io/en/latest/">geoalchemy2</a></li>  
+      <li> <a href="https://datashader.org/">Datashader</a></li>  
+      <li> <a href="https://github.com/konstantint/matplotlib-venn">matplotlib-venn</a></li>  
+      <li> <a href="https://github.com/AdRoll/python-hll">python-hll</a></li>  
+    </ul>
+</details>
+
 ## Branches
 
 - [`master`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master) branch: Stable, tested container

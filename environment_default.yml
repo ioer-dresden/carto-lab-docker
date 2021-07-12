@@ -5,14 +5,17 @@ channels:
 dependencies:
   - python>=3.7
   - pip
+  - adjusttext
   - contextily
   - colorcet
   - 'geoviews-core=1.8.1'
   - 'ipywidgets=7.6.*'
+  - datashader
   - descartes
   - geoalchemy2
   - geopandas
   - geopy
+  - flopy
   - ipython-sql
   - mapclassify
   - matplotlib-venn
