@@ -15,6 +15,7 @@ dependencies:
   - geoalchemy2
   - geopandas
   - geopy
+  - hvplot
   - flopy
   - ipython-sql
   - mapclassify
@@ -25,6 +26,7 @@ dependencies:
   - psycopg2
   - python-dotenv
   - seaborn
+  - 'shapely=1.7.1'
   - xarray
   - pip:
     - python-hll
