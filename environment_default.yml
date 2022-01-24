@@ -10,6 +10,7 @@ dependencies:
   - colorcet
   - 'geoviews-core=1.8.1'
   - 'ipywidgets=7.6.*'
+  - ipyleaflet
   - datashader
   - descartes
   - geoalchemy2
