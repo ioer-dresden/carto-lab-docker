@@ -10,6 +10,10 @@ download/clone and run [all of these services as a bundle][lbsn-ctl].
 [hlldb]: https://gitlab.vgiscience.de/lbsn/databases/hlldb
 [lbsn-ctl]: https://gitlab.vgiscience.de/lbsn/tools/lbsnctl
 
+------
+
+> :warning: **We aim for compatibility of all included geo-packages by pinning specific versions**, but once in a while new releases may require updates to these pinnings in [environment_default.yml](environment_default.yml).
+
 **tl:dr**
 
 To Start the docker container locally:
