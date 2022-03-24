@@ -4,6 +4,11 @@
 
 ## v0.6.1 (2022-03-24)
 
+### Fix
+* Incompatible geoviews package for latest holoviews release ([`5baa575`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/5baa575acfcff1ec6c861adfc700f7aaf8a46865))
+
+### Documentation
+* Add warning to update pinnings regularly ([`5b40fbc`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/5b40fbcea47ecfbe90027844899e086400ab31a7))
 
 ## v0.6.0 (2021-07-12)
 ### Feature
