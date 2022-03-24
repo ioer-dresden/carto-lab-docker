@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.1 (2022-03-24)
+
+
 ## v0.6.0 (2021-07-12)
 ### Feature
 * Add flopy to default packages ([`e92819b`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/e92819b0688f079ca80830e4df9fcad014b3cb33))
