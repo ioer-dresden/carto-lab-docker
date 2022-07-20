@@ -69,6 +69,19 @@ By default, notebooks will be made available inside the docker from your `$HOME/
 - [`master`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master) branch: Stable, tested container
 - [`master-latest`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master-latest) branch: Latest version of container
 
+## Docker Images & Tags
+
+There are three tags:
+
+- [`jupyterlab:stable`](registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:stable)
+- [`jupyterlab:latest`](registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:latest)
+- [`jupyterlab:mapnik`](registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:mapnik)
+    - Uses [./mapnik/Dockerfile](mapnik/Dockerfile)
+    - Manually build with: `docker-compose -f docker-compose.mapnik.yml build && docker-compose -f docker-compose.mapnik.yml up -d`
+    - Mapnik is installed to the system-python installation, not conda. Refer to Mapnik with 
+      explicit python-reference, e.g. `/usr/bin/python3 -c "import mapnik;print(mapnik.__file__)"`
+      and verify the verson with `mapnik-config -v`: > 3.0.23
+
 ## Multi-user setup
 
 The jupyter lab app allows multiple users to work concurrently, with the following 

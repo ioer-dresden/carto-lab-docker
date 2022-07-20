@@ -15,12 +15,21 @@ build and push latest:
     - docker push $CI_REGISTRY_IMAGE:latest
   only:
     - master-latest
-    
+
 build and push stable:
   stage: build
   script:
     - docker login --username gitlab-ci-token --password $CI_JOB_TOKEN $CI_REGISTRY
     - docker build --pull --tag $CI_REGISTRY_IMAGE:stable .
     - docker push $CI_REGISTRY_IMAGE:stable
+  only:
+    - master
+
+build and push mapnik:
+  stage: build
+  script:
+    - docker login --username gitlab-ci-token --password $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build --pull --tag $CI_REGISTRY_IMAGE:mapnik ./mapnik
+    - docker push $CI_REGISTRY_IMAGE:mapnik
   only:
     - master
