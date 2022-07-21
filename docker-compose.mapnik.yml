@@ -1,0 +1,26 @@
+version: '3.6'
+
+services:
+
+  jupyterlab:
+    image: registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:mapnik
+    build:
+      context: ./mapnik
+    container_name: ${CONTAINER_NAME:-lbsn-jupyterlab}
+    restart: "no"
+    ports:
+      - 127.0.0.1:${JUPYTER_WEBPORT:-8888}:8888
+    volumes:
+      - ${JUPYTER_NOTEBOOKS:-~/notebooks}:/home/jovyan/work
+      - ${MAPNIK_FONTS:-/usr/share/fonts}:/fonts
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-eX4mP13p455w0Rd}
+      - JUPYTER_PASSWORD=${JUPYTER_PASSWORD:-eX4mP13p455w0Rd}
+      - JUPYTER_WEBURL=${JUPYTER_WEBURL:-http://localhost:8888}
+    networks:
+      - lbsn-network
+
+networks:
+  lbsn-network:
+    name: ${NETWORK_NAME:-lbsn-network}
+    external: true
