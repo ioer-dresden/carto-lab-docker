@@ -11,7 +11,7 @@ dependencies:
   # - jupyterlab-git
   - jupytext
   - jupyterlab_widgets
-  - nbconvert=5.6.1 # pin, until template issue fixed
+  - nbconvert=6.5.0 # nbconvert often has issues with latest release candidates, pin to stable
   - nbclassic # for backwards compatibility
   - papermill
   - pyviz_comms
