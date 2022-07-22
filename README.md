@@ -15,11 +15,11 @@ download/clone and run [all of these services as a bundle][lbsn-ctl].
 ------
 
 > :warning: **We aim for compatibility of all included geo-packages by pinning specific versions**, but once in a while new releases may require updates to these pinnings in [environment_default.yml](environment_default.yml).
-> It is recommended to use the docker images available in [our registry](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/container_registry), if the current Dockerfile has build issues.
+> It is recommended to use the tested docker images available in [our registry](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/container_registry), if the current Dockerfile has build issues.
 
 **tl:dr**
 
-To Start the docker container locally:
+To start the docker container locally:
 
 ```bash
 git clone git@gitlab.vgiscience.de:lbsn/tools/jupyterlab.git
