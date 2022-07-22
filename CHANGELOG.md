@@ -2,6 +2,19 @@
 
 <!--next-version-placeholder-->
 
+## v0.7.0 (2022-07-22)
+### Feature
+* Add Mapnik docker and tag ([`3ce9d06`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/3ce9d064a4829ef2870fb6ee9c6009d8d6c1d49e))
+
+### Fix
+* Nbconvert pinned to old version ([`fb611fc`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/fb611fc04ef08db9e222597ca92e27e9d6623d54))
+* Incompatible geoviews package for latest holoviews release ([`5baa575`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/5baa575acfcff1ec6c861adfc700f7aaf8a46865))
+
+### Documentation
+* Update readme to include collaborative editing feature ([`7b40eb9`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/7b40eb97dd38b83b95566476d6cf924711fe3f38))
+* Add note to use registry images in readme ([`05528e4`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/05528e481c4dce7ed41346e45c02d2354efe50d9))
+* Add warning to update pinnings regularly ([`5b40fbc`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/5b40fbcea47ecfbe90027844899e086400ab31a7))
+
 ## v0.6.1 (2022-03-24)
 
 ### Fix
