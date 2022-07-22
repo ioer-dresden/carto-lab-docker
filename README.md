@@ -1,4 +1,4 @@
-![version](https://img.shields.io/badge/dynamic/json?color=blue&label=Version&query=%24%5B%3A1%5D.name&url=https%3A%2F%2Fgitlab.vgiscience.de%2Fapi%2Fv4%2Fprojects%2F373%2Frepository%2Ftags) [![pipeline status](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/badges/master-latest/pipeline.svg)](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commits/master-latest)
+[![version](https://img.shields.io/badge/dynamic/json?color=blue&label=Version&query=%24%5B%3A1%5D.name&url=https%3A%2F%2Fgitlab.vgiscience.de%2Fapi%2Fv4%2Fprojects%2F373%2Frepository%2Ftags)](CHANGELOG.md) [![pipeline status](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/badges/master-latest/pipeline.svg)](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commits/master-latest)
 
 # JupyterLab
 
