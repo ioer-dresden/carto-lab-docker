@@ -92,7 +92,7 @@ restrictions:
 - notebooks will be shut down automatically, if the kernel has been idle for 30 Minutes. 
 - It is recommended to shutdown notebooks manually after use, e.g. right-click notebook 
   & select "Shutdown Kernel"
-- it is not possible to work concurrently on the same notebook
+- it is possible to work concurrently on the same notebook, since Jupyter Lab 3.1, see [the docs](https://jupyterlab.readthedocs.io/en/stable/user/rtc.html)
 
 ## Container start
 
