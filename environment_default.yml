@@ -8,6 +8,7 @@ dependencies:
   - adjusttext
   - contextily
   - colorcet
+  - esda
   - 'geoviews-core=1.9.5'
   - 'holoviews=1.14.8'
   - 'ipywidgets=7.6.*'
