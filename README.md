@@ -43,6 +43,7 @@ By default, notebooks will be made available inside the docker from your `$HOME/
       <li><a href="https://holoviews.org/">Holoviews</a></li>
       <li><a href="https://docs.bokeh.org/en/latest/index.html">Bokeh</a></li>
       <li><a href="https://pysal.org/esda/index.html">PySal ESDA</a></li>
+      <li><a href="https://hdbscan.readthedocs.io/">hdbscan</a></li>
       <li> <a href="https://hvplot.holoviz.org/">hvPlot</a></li>
       <li> <a href="https://geopandas.org/">Geopandas</a></li>
       <li> <a href="https://pandas.pydata.org/">Pandas</a></li>

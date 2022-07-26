@@ -30,6 +30,7 @@ dependencies:
   - python-dotenv
   - seaborn
   - 'shapely=1.7.1'
+  - tagmaps
   - xarray
   - pip:
     - python-hll
