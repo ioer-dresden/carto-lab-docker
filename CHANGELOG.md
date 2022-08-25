@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v0.8.1 (2022-08-25)
+
+
 ## v0.7.0 (2022-07-22)
 ### Feature
 * Add Mapnik docker and tag ([`3ce9d06`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/3ce9d064a4829ef2870fb6ee9c6009d8d6c1d49e))
