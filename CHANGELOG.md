@@ -4,6 +4,8 @@
 
 ## v0.8.1 (2022-08-25)
 
+### CI
+* Automatic versioning of registry images
 
 ## v0.7.0 (2022-07-22)
 ### Feature
