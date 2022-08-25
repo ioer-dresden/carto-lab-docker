@@ -23,6 +23,7 @@ dependencies:
   - ipython-sql
   - mapclassify
   - matplotlib-venn
+  - matplotlib-scalebar
   - memory_profiler
   - mmh3
   - pyepsg
