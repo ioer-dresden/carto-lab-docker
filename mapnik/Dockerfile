@@ -1,4 +1,6 @@
-FROM registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:latest
+ARG APP_VERSION=latest
+
+FROM registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:$APP_VERSION
 
 ENV PYTHON_BINDINGS=" \
     autoconf \

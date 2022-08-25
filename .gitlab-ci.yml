@@ -32,7 +32,7 @@ build and push mapnik:
   script:
     - VERSION=v$(cat .version | cut -d"'" -f 2)
     - docker login --username gitlab-ci-token --password $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build --pull --tag $CI_REGISTRY_IMAGE:mapnik_$VERSION --tag $CI_REGISTRY_IMAGE:mapnik ./mapnik
+    - docker build --pull --build-arg APP_VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:mapnik_$VERSION --tag $CI_REGISTRY_IMAGE:mapnik ./mapnik
     - docker push $CI_REGISTRY_IMAGE --all-tags
   only:
     - master-latest
