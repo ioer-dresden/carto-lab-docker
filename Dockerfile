@@ -9,8 +9,8 @@ SHELL ["/bin/bash", "-c"]
 
 # add environment.yml for worker_env specs
 # add user env file
-ADD environment_jupyter.yml environment_jupyter.yml
-ADD $ENVIRONMENT_FILE $ENVIRONMENT_FILE
+COPY environment_jupyter.yml environment_jupyter.yml .version
+COPY $ENVIRONMENT_FILE $ENVIRONMENT_FILE
 
 # setup conda jupyter environment (jupyter_env)
 # install additional packages from conda-forge
