@@ -1,6 +1,6 @@
 [![version](https://img.shields.io/badge/dynamic/json?color=blue&label=Version&query=%24%5B%3A1%5D.name&url=https%3A%2F%2Fgitlab.vgiscience.de%2Fapi%2Fv4%2Fprojects%2F373%2Frepository%2Ftags)](CHANGELOG.md) [![pipeline status](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/badges/master-latest/pipeline.svg)](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commits/master-latest)
 
-# A JupyterLab Docker Container for Open Source Cartography
+# Carto-Lab - A JupyterLab Docker Container for Open Source Cartography
 
 This repository is a [Docker]-project, that starts an instance of [JupyterLab]. It 
 is supposed to be utilized together with [rawdb] and [hlldb] databases. You can also 
