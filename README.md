@@ -172,7 +172,7 @@ Then push changes to Gitlab, which will recreate the registry image based on the
 new Dockerfile.
 
 To manually build the Mapnik image,
-optionally add a specific `APP_VERSION` to your ``.env, then:
+optionally add a specific `APP_VERSION` to your `.env`, then:
 ```bash
 docker-compose -f docker-compose.mapnik.yml build \
         --no-cache --progress=plain \
