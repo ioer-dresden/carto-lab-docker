@@ -82,22 +82,15 @@ There are three tags:
 - [`jupyterlab:latest`](registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:latest)
 - [`jupyterlab:mapnik`](registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:mapnik)
 
-Carto-Lab Docker Images are versioned, so you can pull any specific version (recommended!):
+Carto-Lab Docker Images are versioned, so you can pull any specific version (recommended!), e.g.:
 ```
 registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:mapnik_v0.8.1
 ```
 
-Mapnik uses [./mapnik/Dockerfile](mapnik/Dockerfile)
-
-- Manually build with: 
-```
-docker-compose -f docker-compose.mapnik.yml build \
-        --no-cache --progress=plain \
-    && docker-compose -f docker-compose.mapnik.yml up -d
-```
-- Mapnik is installed to the system-python installation, not conda. Refer to Mapnik with 
-  explicit python-reference, e.g. `/usr/bin/python3 -c "import mapnik;print(mapnik.__file__)"`
-  and verify the verson with `mapnik-config -v`: > 3.0.23
+Mapnik uses [./mapnik/Dockerfile](mapnik/Dockerfile), to extend the standard container with
+Mapnik. It is installed to the system-python installation, not conda. Refer to Mapnik with 
+explicit python-reference, e.g. `/usr/bin/python3 -c "import mapnik;print(mapnik.__file__)"`
+and verify the verson with `mapnik-config -v`: > 3.0.23.
 
 ## Multi-user setup
 
@@ -178,6 +171,14 @@ check if local build is possible with:
 Then push changes to Gitlab, which will recreate the registry image based on the 
 new Dockerfile.
 
+To manually build the Mapnik image,
+optionally add a specific `APP_VERSION` to your ``.env, then:
+```bash
+docker-compose -f docker-compose.mapnik.yml build \
+        --no-cache --progress=plain \
+    && docker-compose -f docker-compose.mapnik.yml up -d
+```
+  
 ### Run on a dedicated domain on the web
 
 If you want to run this in production on a webserver, you can add an environment 
