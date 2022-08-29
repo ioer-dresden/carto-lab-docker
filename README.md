@@ -147,6 +147,11 @@ edit [environment_default.yml](environment.yml):
     * and start image with `docker-compose build && docker-compose up -d --force-recreate`
     * make sure you're running your local image, not the remote
 
+We have also added a [small guide](docs/add-selenium.md) to add Selenium and webdriver to the image.
+
+If you need specific dependencies and always want to get the most recent updates,
+create a chained Dockerfile off this image.
+
 ### Add your own environment.yml
 
 In `.env`, update the link to use when building worker_env, e.g:
