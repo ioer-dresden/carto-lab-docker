@@ -49,6 +49,7 @@ chmod +x /usr/bin/chromedriver
 4. Use in Jupyter
 
 ```python
+from bokeh.io import export_svgs
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
