@@ -24,7 +24,9 @@ apt-get -y update
 apt-get -y install google-chrome-stable
 ```
 
-3. Install Chromedriver
+3. Optional: Install Chromedriver
+
+This is an optional step, since `webdriver_manager` will automatically install the matching Chromedriver (see below).
 
 Get the Chrome version and install the matching Chromedriver
 
