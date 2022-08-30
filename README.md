@@ -2,8 +2,11 @@
 
 # Carto-Lab - A JupyterLab Docker Container for Open Source Cartography
 
-This repository is a [Docker]-project, that starts an instance of [JupyterLab]. It 
-is supposed to be utilized together with [rawdb] and [hlldb] databases. You can also 
+This repository is a [Docker]-project, that starts an instance of [JupyterLab]. 
+It comes with a python environment (`worker_env`) that contains the most important
+packages for Python Open Source Cartography.
+
+The container is compatible with [rawdb] and [hlldb] databases. You can also 
 download/clone and run [all of these services as a bundle][lbsn-ctl].
 
 [Docker]: https:/www.docker.com
