@@ -29,7 +29,7 @@ git clone git@gitlab.vgiscience.de:lbsn/tools/jupyterlab.git
 cd jupyterlab
 cp .env.example .env
 # optionally: adjust parameters in .env
-docker-compose up -d
+docker-compose pull && docker-compose up -d
 ```
 
 Then open `http://localhost:8888` and use the password (default: `eX4mP13p455w0Rd`) to use Jupyter.
