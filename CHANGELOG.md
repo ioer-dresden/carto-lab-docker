@@ -2,6 +2,20 @@
 
 <!--next-version-placeholder-->
 
+## v0.9.0 (2022-08-30)
+### Feature
+* Add .version to Dockerfile, to be able to get the Container version at runtime ([`31ed7cb`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/31ed7cbe4337020fd7eebd540dd00d88a182ca79))
+
+### Fix
+* Ipywidgets compatibility ([`bb1c0be`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/bb1c0beaa8718ffaba49e282da81df979d291ca7))
+* CI extract version from file ([`9d10722`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/9d10722215ae99394294ded3005c0dafa2cb8eb7))
+* Use master-latest for versioned releases ([`6d390ef`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/6d390ef36ac9316b3a423a2ba5c3c6c49c30b259))
+
+### Documentation
+* Add instructions to install selenium and webdriver ([`cb4038a`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/cb4038a19bdd849a9abdd9bae4d7ae566fc4ddf0))
+* Add COMPOSE_FILE to .env examples ([`5cf73a2`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/5cf73a2654a869dce9d394a1f1951cd057ce64e9))
+* Update header ([`c57caa3`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/c57caa3c0a7b2e43fc24b593ec852b909e790eb8))
+
 ## v0.8.1 (2022-08-25)
 
 ### CI
