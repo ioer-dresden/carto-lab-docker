@@ -147,11 +147,7 @@ edit [environment_default.yml](environment.yml):
     * or, create a new env and install ipykernel to it
 * permanently: 
     * edit the `environment_default.yml`
-    * and start image with 
-      ```bash
-      docker-compose -f docker-compose.build.yml build \
-        && docker-compose -f docker-compose.build.yml up -d --force-recreate
-      ```
+    * and start image with `docker-compose build && docker-compose up -d --force-recreate`
     * make sure you're running your local image, not the remote
 
 We have also added a [small guide](docs/add-selenium.md) to add Selenium and webdriver to the image.
