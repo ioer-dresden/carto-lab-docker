@@ -29,6 +29,7 @@ git clone git@gitlab.vgiscience.de:lbsn/tools/jupyterlab.git
 cd jupyterlab
 cp .env.example .env
 # optionally: adjust parameters in .env
+docker network create lbsn-network
 docker-compose pull && docker-compose up -d
 ```
 
