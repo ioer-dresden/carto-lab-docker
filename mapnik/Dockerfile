@@ -20,7 +20,7 @@ ENV PYTHON_BINDINGS=" \
 RUN apt-get update \
     && apt install -y --no-install-recommends \
         $PYTHON_BINDINGS
-        
+
 RUN git clone --depth 1 \
         https://gitlab.vgiscience.de/ad/mapnik_cli.git \
         /mapnik_cli \
