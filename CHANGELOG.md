@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v0.10.0 (2022-12-21)
+### Feature
+* Bump nbconvert from 6.5.* to 7.2.* ([`ee20a57`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/ee20a5744569ec5163ed46192ebc0a827b6a2988))
+
+### Documentation
+* Add explicit docker network create ([`023e4c7`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/023e4c7497c0cb5ad5d7b71ec193b06a4cfebaed))
+* Suggest to pull registry image, to prevent build of image by default ([`0879b51`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/0879b513b7aa555f1a31637e7bd2bd51fd26ec2f))
+* Clarify steps to setup svg_export ([`cbb888e`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/cbb888e26a69ee4d39cf31ca4f22a69215588f5d))
+* Update readme header ([`5e26d21`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/5e26d21dee3b875d48fb6b779ac078382b948003))
+
 ## v0.9.0 (2022-08-30)
 ### Feature
 * Add .version to Dockerfile, to be able to get the Container version at runtime ([`31ed7cb`](https://gitlab.com/lbsn/tools/jupyterlab/-/commit/31ed7cbe4337020fd7eebd540dd00d88a182ca79))
