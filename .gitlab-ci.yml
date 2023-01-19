@@ -7,8 +7,13 @@ variables:
 services:
   - docker:dind
 
+stages:
+  - build-stable
+  - build-latest
+  - build-mapnik
+
 build and push latest:
-  stage: build
+  stage: build-latest
   script:
     # get latest version from file, so we do not need to install git
     - VERSION=v$(cat .version | cut -d"'" -f 2)
@@ -19,7 +24,7 @@ build and push latest:
     - master-latest
 
 build and push stable:
-  stage: build
+  stage: build-stable
   script:
     - docker login --username gitlab-ci-token --password $CI_JOB_TOKEN $CI_REGISTRY
     - docker build --pull --tag $CI_REGISTRY_IMAGE:stable .
@@ -28,7 +33,7 @@ build and push stable:
     - master
 
 build and push mapnik:
-  stage: build
+  stage: build-mapnik
   script:
     - VERSION=v$(cat .version | cut -d"'" -f 2)
     - docker login --username gitlab-ci-token --password $CI_JOB_TOKEN $CI_REGISTRY
