@@ -2,7 +2,7 @@ version: '3.6'
 
 services:
   jupyterlab:
-    image: registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:mapnik
+    image: registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:${TAG:-mapnik}
     build:
       context: ./mapnik
       args:
