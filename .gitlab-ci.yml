@@ -26,18 +26,21 @@ build and push latest:
 build and push stable:
   stage: build-stable
   script:
+    - if [ $CI_COMMIT_TAG == null ]; then exit 0 fi
+    - echo $TAG
     - docker login --username gitlab-ci-token --password $CI_JOB_TOKEN $CI_REGISTRY
     - docker build --pull --tag $CI_REGISTRY_IMAGE:stable .
     - docker push $CI_REGISTRY_IMAGE:stable
-  rules:
-    - if: '$CI_COMMIT_REF_NAME == "master" && $CI_COMMIT_TAG != null'
+  only:
+    - master
 
 build and push mapnik:
   stage: build-mapnik
   script:
+    - if [ $CI_COMMIT_TAG == null ]; then exit 0 fi
     - VERSION=v$(cat .version | cut -d"'" -f 2)
     - docker login --username gitlab-ci-token --password $CI_JOB_TOKEN $CI_REGISTRY
     - docker build --pull --build-arg APP_VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:mapnik_$VERSION --tag $CI_REGISTRY_IMAGE:mapnik ./mapnik
     - docker push $CI_REGISTRY_IMAGE --all-tags
-  rules:
-    - if: '$CI_COMMIT_REF_NAME == "master-latest" && $CI_COMMIT_TAG != null'
+  only:
+    - master-latest
