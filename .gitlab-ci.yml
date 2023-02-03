@@ -30,7 +30,7 @@ build and push stable:
     - docker build --pull --tag $CI_REGISTRY_IMAGE:stable .
     - docker push $CI_REGISTRY_IMAGE:stable
   rules:
-    - if: '$CI_COMMIT_REF_NAME == "master" $CI_COMMIT_TAG != null'
+    - if: '$CI_COMMIT_REF_NAME == "master" && $CI_COMMIT_TAG != null'
 
 build and push mapnik:
   stage: build-mapnik
