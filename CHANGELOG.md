@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.12.1 (2023-02-03)
+### Fix
+* Ci-commit-tag empty for push-commits ([`659d74d`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/659d74de7d95537347ba9b55572eb613a160f029))
+
 ## v0.12.0 (2023-02-03)
 
 
