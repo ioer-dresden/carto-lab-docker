@@ -2,6 +2,9 @@
 
 <!--next-version-placeholder-->
 
+## v0.12.0 (2023-02-03)
+
+
 ## v0.11.0 (2023-02-03)
 ### Feature
 * Add TAG environemnt-variable to pin specific versions in docker-compose.yml ([`e8144b8`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/e8144b87a6601e8a550c81b67a79f36fe05ea23c))
