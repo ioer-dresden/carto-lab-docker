@@ -31,6 +31,8 @@ build and push stable:
     - docker push $CI_REGISTRY_IMAGE:stable
   only:
     - master
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
 
 build and push mapnik:
   stage: build-mapnik
@@ -41,3 +43,5 @@ build and push mapnik:
     - docker push $CI_REGISTRY_IMAGE --all-tags
   only:
     - master-latest
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
