@@ -2,6 +2,14 @@
 
 <!--next-version-placeholder-->
 
+## v0.11.0 (2023-02-03)
+### Feature
+* Add TAG environemnt-variable to pin specific versions in docker-compose.yml ([`e8144b8`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/e8144b87a6601e8a550c81b67a79f36fe05ea23c))
+
+### Fix
+* YAML syntax ([`da3a8e8`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/da3a8e81ec510808b355bddc146c4482042100d4))
+* YAML syntax ([`daed0fe`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/daed0febac9329202fd21c10cc11b2e110a29c8f))
+
 ## v0.10.0 (2022-12-21)
 ### Feature
 * Bump nbconvert from 6.5.* to 7.2.* ([`ee20a57`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/ee20a5744569ec5163ed46192ebc0a827b6a2988))
