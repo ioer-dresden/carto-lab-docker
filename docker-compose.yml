@@ -11,6 +11,7 @@ services:
     volumes:
       - ${JUPYTER_NOTEBOOKS:-~/notebooks}:/home/jovyan/work
     environment:
+      - READONLY_USER_PASSWORD=${READONLY_USER_PASSWORD:-eX4mP13p455w0Rd}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-eX4mP13p455w0Rd}
       - JUPYTER_PASSWORD=${JUPYTER_PASSWORD:-eX4mP13p455w0Rd}
       - JUPYTER_WEBURL=${JUPYTER_WEBURL:-http://localhost:8888}
