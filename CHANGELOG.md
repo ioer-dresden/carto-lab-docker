@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.12.3 (2023-02-21)
+### Fix
+* Incompatibility between numpy>1.2 and Shapely<1.8 ([`6dcade0`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6dcade084283712bc5631fec46dc9360e1bffd4a))
+
+### Documentation
+* Update reference to docker-compose build with explicit compose file ([`80d4cd9`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/80d4cd953255690d63880f17258db7413e40773c))
+
 ## v0.12.2 (2023-02-03)
 ### Fix
 * Ci-commit-tag empty for push-commits ([`ae3786d`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/ae3786dfc2736a3ca154635f0ab86e921d501d70))
