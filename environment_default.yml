@@ -21,6 +21,7 @@ dependencies:
   - hvplot
   - flopy
   - ipython-sql
+  - 'numpy<1.23' # Shapely 1.7.1 compatibility
   - mapclassify
   - matplotlib-venn
   - matplotlib-scalebar
