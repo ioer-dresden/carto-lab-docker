@@ -37,7 +37,7 @@ RUN conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME --quiet  \
 # disable announcements by default
 # https://jupyterlab.readthedocs.io/en/stable/user/announcements.html
 RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
-    && jupyter labextension disable \
+    jupyter labextension disable \
     "@jupyterlab/apputils-extension:announcements"
 
 # configure password login, if set
