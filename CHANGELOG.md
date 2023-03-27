@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v0.13.0 (2023-03-27)
+### Feature
+* Add default persistent environment path and update docs ([`9b85dd5`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/9b85dd5d45a39be9717c4108725df5739c88972b))
+
+### Fix
+* Disable Jupyter news ([`8811623`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/88116236186b4680247c7aba607e10eb6d6b5d32))
+
+### Documentation
+* Clarify pinning of tag via .env ([`0f4f16e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0f4f16eaf938c577ce75d8fae3172bb84f383e12))
+
 ## v0.12.3 (2023-02-21)
 ### Fix
 * Incompatibility between numpy>1.2 and Shapely<1.8 ([`6dcade0`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6dcade084283712bc5631fec46dc9360e1bffd4a))
