@@ -161,7 +161,8 @@ If you need to change/update packages in `worker_env`, you have two main options
     * in JupyterLab, install a new environment with the prefix:
 
         * open a terminal in Jupyter Lab, type `bash`
-        * create an envrionment using conda:
+        * create an envrionment using conda
+        * make sure to install `ipykernel` as a package (below we use `pip numpy pandas` as example packages)
 
         ```bash
         conda create \
@@ -169,7 +170,9 @@ If you need to change/update packages in `worker_env`, you have two main options
             --channel conda-forge \
             pip numpy pandas ipykernel
         conda activate /envs/example_env
-        # link the kernel to Jupyter/ IPython
+        ```
+        - afterwards, link the env kernel to Jupyter/ IPython
+        ```
         /opt/conda/envs/jupyter_env/bin/python \
         	-m ipykernel install --user --name=example_env
         conda deactivate
