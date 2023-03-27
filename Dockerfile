@@ -33,7 +33,12 @@ RUN conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME --quiet  \
  && ipython kernel install --user --name=$WORKER_ENV_NAME \
  && conda clean --all --force-pkgs-dirs --yes \
  && conda deactivate
- 
+
+# disable announcements by default
+# https://jupyterlab.readthedocs.io/en/stable/user/announcements.html
+RUN jupyter labextension disable \
+    "@jupyterlab/apputils-extension:announcements"
+
 # configure password login, if set
 # configure web url, if set
 # configure show hidden files
