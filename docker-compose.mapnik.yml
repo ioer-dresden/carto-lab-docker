@@ -14,6 +14,7 @@ services:
     volumes:
       - ${JUPYTER_NOTEBOOKS:-~/notebooks}:/home/jovyan/work
       - ${MAPNIK_FONTS:-/usr/share/fonts}:/fonts
+      - ${CONDA_ENVS:-~/envs}:/envs
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-eX4mP13p455w0Rd}
       - JUPYTER_PASSWORD=${JUPYTER_PASSWORD:-eX4mP13p455w0Rd}

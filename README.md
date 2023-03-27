@@ -114,7 +114,7 @@ Copy `.env.example` and edit default values.
 To start the docker container use:
 
     docker-compose up -d
-    
+
 and then open [http://localhost:8888/](http://localhost:8888/) in your browser.
 
 If you did not provide a password in `.env`, get the token from the Docker logs to 
@@ -136,39 +136,81 @@ lab.
 ![Select Kernel](assets/sel_kernel_env.webm)
 
 ## Conda Environments
-### Updating packages
 
-If you need to change/update packages in `worker_env`, 
-edit [environment_default.yml](environment.yml):
+- There is a base environment prepared with the name `worker_env`. You can select this environment in the list of known Kernels (e.g. through the top-right corner in a JupyterLab notebook).
 
-* temporarily: open a terminal in Jupyter Lab
-    * type `bash`
+- The Jupyter Server is installed in a separate environment called `jupyter_env`
+
+### Updating packages and custom envs
+
+If you need to change/update packages in `worker_env`, you have two main options:
+
+* temporarily: 
+  
+    * open a terminal in Jupyter Lab, type `bash`
     * type `conda activate worker_env`
-    * install your dependencies (e.g. `conda install hdbscan`
-    * or, create a new env and install ipykernel to it
-* permanently: 
-    * edit the `environment_default.yml`
-    * and start image with `docker-compose -f docker-compose.build.yml build --no-cache && docker-compose up -d --force-recreate`
-    * make sure you're running your local image, not the remote
+    * install your dependencies (e.g. `conda install hdbscan`)
+    
+* persistently, create your own environment in a bind-mount and install the IPKernel:
 
-We have also added a [small guide](docs/add-selenium.md) to add Selenium and webdriver to the image.
+    * you can install additional environments to `/env` folder, which is bind-mounted
+        to `${HOME}/envs` (by default) using the environment variable `CONDA_ENVS`, see `.env` and the `docker-compose.yml`
 
-If you need specific dependencies and always want to get the most recent updates,
-create a chained Dockerfile off this image.
+    * optionally update `CONDA_ENVS` in `.env` with a bind-path to your needs
 
-### Add your own environment.yml
+    * in JupyterLab, install a new environment with the prefix:
 
-In `.env`, update the link to use when building worker_env, e.g:
+        * open a terminal in Jupyter Lab, type `bash`
+        * create an envrionment using conda:
 
-```env
-ENVIRONMENT_FILE=envs/environment_custom.yml
-```
+        ```bash
+        conda create \
+            --prefix /envs/example_env \
+            --channel conda-forge \
+            pip numpy pandas ipykernel
+        conda activate /envs/example_env
+        # link the kernel to Jupyter/ IPython
+        /opt/conda/envs/jupyter_env/bin/python \
+        	-m ipykernel install --user --name=example_env
+        conda deactivate
+        ```
 
-Afterwards, rebuild the Docker container (`docker-compose -f docker-compose.build.yml build`).
+    * refresh with <kbd>F5</kbd>, open a notebook and select the new environment
 
-- Make sure that the path is within the repository
-- Use a Symlink/Hardlink to include `environment.yml`'s from elsewhere
-- The `env/` directory is excluded from git through .gitignore
+    * remember:
+
+        * Every time you reset/pull new versions of CartoLab-Docker, you will need to re-link kernels
+        * You are responsible for upgrading or backing up your environment, it is not maintained within the Docker container
+
+#### Further options for package installation
+
+For specific purposes, a number of alternatives are possible:
+
+- If you need specific dependencies and always want to get the most recent updates,
+  create a chained Dockerfile off this image. Have a look how we implemented chaining with the [mapnik/Dockerfile](mapnik/Dockerfile).
+  
+- Modify `worker_env` persistently:
+  - edit the [environment.yml](environment.yml):
+  - and start image with `docker-compose -f docker-compose.build.yml build --no-cache && docker-compose up -d --force-recreate`
+  - make sure you're running your local image, not the remote
+  
+- Add your own `environment.yml`
+  
+  - In `.env`, update the link to use when building worker_env, e.g:
+  
+  ```env
+  ENVIRONMENT_FILE=envs/environment_custom.yml
+  ```
+  
+  - Afterwards, rebuild the Docker container (`docker-compose -f docker-compose.build.yml build`).
+  
+    - Make sure that the path is within the repository
+  
+    - Use a Symlink/Hardlink to include `environment.yml`'s from elsewhere
+  
+    - The `env/` directory is excluded from git through .gitignore
+
+- We have added a [small guide](docs/add-selenium.md) to add Selenium and webdriver to the Docker and `worker_env` environment.
 
 ## Developers
 
@@ -187,7 +229,7 @@ docker-compose -f docker-compose.mapnik.yml build \
         --no-cache --progress=plain \
     && docker-compose -f docker-compose.mapnik.yml up -d
 ```
-  
+
 ### Run on a dedicated domain on the web
 
 If you want to run this in production on a webserver, you can add an environment 
@@ -206,7 +248,7 @@ In your Apache configuration, you need to also proxypass websockets:
     RewriteCond %{HTTP:Connection} Upgrade [NC]
     RewriteCond %{HTTP:Upgrade} websocket [NC]
     RewriteRule /(.*) ws://localhost:8888/$1 [P,L]
-
+    
     ProxyPass           /api/kernels/  ws://localhost:8888/api/kernels/
     ProxyPassReverse    /api/kernels/  ws://localhost:8888/api/kernels/
     ProxyPass           /  http://localhost:8888/
