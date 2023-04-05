@@ -172,8 +172,9 @@ If you need to change/update packages in `worker_env`, you have two main options
         conda activate /envs/example_env
         ```
         - afterwards, link the env kernel to Jupyter/ IPython
+        - this only needs to be done once
         ```
-        /opt/conda/envs/jupyter_env/bin/python \
+        /envs/example_env/bin/python \
         	-m ipykernel install --user --name=example_env
         conda deactivate
         ```
