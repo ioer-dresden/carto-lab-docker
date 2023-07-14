@@ -9,6 +9,8 @@ packages for Python Open Source Cartography.
 The container is compatible with [rawdb] and [hlldb] databases. You can also 
 download/clone and run [all of these services as a bundle][lbsn-ctl].
 
+The current version of Carto-Lab docker is based on Jupyter Lab 4.x.
+
 [Docker]: https:/www.docker.com
 [JupyterLab]: https://jupyterlab.readthedocs.io
 [rawdb]: https://gitlab.vgiscience.de/lbsn/databases/rawdb
