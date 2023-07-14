@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.14.0 (2023-07-14)
+### Feature
+* Update Jupyter Lab to 4.0 ([`5af1cc1`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5af1cc1a5bf426513921598b6c62f82f166b5b9a))
+
+### Documentation
+* Clarify python executable to be used for installing ipykernel spec ([`8e52943`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8e529435c753a95b8e86f2d0de77eea0b3636b5b))
+
 ## v0.13.0 (2023-03-27)
 ### Feature
 * Add default persistent environment path and update docs ([`9b85dd5`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/9b85dd5d45a39be9717c4108725df5739c88972b))
