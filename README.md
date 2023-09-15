@@ -238,6 +238,14 @@ docker-compose -f docker-compose.mapnik.yml build \
     && docker-compose -f docker-compose.mapnik.yml up -d
 ```
 
+To manually test bump a new semantic version:
+```bash
+semantic-release -vv --noop version
+semantic-release -vv --noop publish
+```
+
+Remove `-vv --noop` afterwards to make a public release.
+
 ### Run on a dedicated domain on the web
 
 If you want to run this in production on a webserver, you can add an environment 
