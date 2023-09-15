@@ -12,9 +12,8 @@ match = "(master-latest)"
 name = "origin"
 type = "gitlab"
 ignore_token_for_push = false
-hvcs = "gitlab"
-hvcs_domain = "gitlab.vgiscience.de"
-hvcs_api_domain = "gitlab.example.com/api/v4"
+domain = "gitlab.vgiscience.de"
+api_domain = "gitlab.example.com/api/v4"
 
 [tool.semantic_release.remote.token]
 env = "GL_TOKEN"
