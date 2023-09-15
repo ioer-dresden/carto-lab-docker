@@ -2,6 +2,13 @@
 
 
 
+## v0.15.7 (2023-09-15)
+
+### Fix
+
+* fix: correct new path to passwd ([`cf725ff`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/cf725ff9572d880541038a5ee1e04084bd8979db))
+
+
 ## v0.15.6 (2023-09-15)
 
 ### Fix
