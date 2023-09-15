@@ -13,7 +13,7 @@ name = "origin"
 type = "gitlab"
 ignore_token_for_push = false
 domain = "gitlab.vgiscience.de"
-api_domain = "gitlab.example.com/api/v4"
+api_domain = "gitlab.vgiscience.de/api/v4"
 
 [tool.semantic_release.remote.token]
 env = "GL_TOKEN"
