@@ -48,7 +48,7 @@ ENV JUPYTER_CONFIG=/root/.jupyter/jupyter_server_config.py
 CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     jupyter lab --generate-config; \
     [[ "$JUPYTER_PASSWORD" ]] \
-    && PW_HASH=$(python -c "from notebook.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))") \
+    && PW_HASH=$(python -c "from jupyter_server.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))") \
     && echo "c.ServerApp.password=u'$PW_HASH'" >>$JUPYTER_CONFIG; \
     [[ "$JUPYTER_WEBURL" ]] \
     && echo "c.ServerApp.custom_display_url=u'${JUPYTER_WEBURL}'" >>$JUPYTER_CONFIG \
