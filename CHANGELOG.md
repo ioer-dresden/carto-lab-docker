@@ -2,6 +2,13 @@
 
 
 
+## v0.15.6 (2023-09-15)
+
+### Fix
+
+* fix: password authentication not working ([`4b9f8fa`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/4b9f8fae7db3fff1bfbff0a3c242b32c8b794c48))
+
+
 ## v0.15.5 (2023-09-15)
 
 ### Fix
