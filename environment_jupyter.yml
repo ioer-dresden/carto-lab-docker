@@ -15,3 +15,4 @@ dependencies:
   - pyviz_comms
   - pip:
     - jupyterlab-spellchecker
+    - notebook==6.5.5 # needed for passwd in Dockerfile
