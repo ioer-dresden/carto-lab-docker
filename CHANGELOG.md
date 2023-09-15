@@ -2,6 +2,13 @@
 
 
 
+## v0.15.2 (2023-09-15)
+
+### Fix
+
+* fix: update api_domain for semantic-release ([`5fb60b1`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5fb60b1b2949b1f6384d113f0890887ec9e18bdd))
+
+
 ## v0.15.1 (2023-09-15)
 
 ### Fix
