@@ -30,6 +30,7 @@ dependencies:
   - pyepsg
   - psycopg2
   - python-dotenv
+  - rasterio
   - seaborn
   - 'shapely=1.7.1'
   - tagmaps
