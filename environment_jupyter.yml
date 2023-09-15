@@ -5,9 +5,7 @@ channels:
 dependencies:
   - python>=3.9
   - pip
-  - jupyter_contrib_nbextensions
-  - jupyter_nbextensions_configurator
-  - jupyterlab>=3
+  - jupyterlab>=4
   # - jupyterlab-git
   - jupytext
   - jupyterlab_widgets
