@@ -16,6 +16,9 @@ hvcs = "gitlab"
 hvcs_domain = "gitlab.vgiscience.de"
 hvcs_api_domain = "gitlab.example.com/api/v4"
 
+[tool.semantic_release.remote.token]
+env = "GL_TOKEN"
+
 [tool.semantic_release.publish]
 dist_glob_patterns = []
 upload_to_vcs_release = false
