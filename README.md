@@ -70,8 +70,10 @@ By default, notebooks will be made available inside the docker from your `$HOME/
       <li> <a href="https://sgillies.net/2010/04/27/descartes-1-0.html">Descartes</a></li>  
       <li> <a href="https://geoalchemy-2.readthedocs.io/en/latest/">geoalchemy2</a></li>  
       <li> <a href="https://datashader.org/">Datashader</a></li>  
-      <li> <a href="https://github.com/konstantint/matplotlib-venn">matplotlib-venn</a></li>  
+      <li> <a href="https://github.com/konstantint/matplotlib-venn">matplotlib-venn</a></li> 
       <li> <a href="https://github.com/AdRoll/python-hll">python-hll</a></li>  
+      <li> <a href="https://rasterio.readthedocs.io/">rasterio</a></li>
+      <li> <a href="https://geopy.readthedocs.io/">geopy</a></li>
     </ul>
 </details>
 
