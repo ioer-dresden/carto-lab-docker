@@ -12,7 +12,7 @@ match = "(master-latest)"
 name = "origin"
 type = "gitlab"
 ignore_token_for_push = false
-domain = "gitlab.vgiscience.de/lbsn/tools/"
+domain = "gitlab.vgiscience.de/lbsn/tools"
 api_domain = "gitlab.vgiscience.de/api/v4"
 
 [tool.semantic_release.remote.token]
