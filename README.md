@@ -32,7 +32,7 @@ cd jupyterlab
 cp .env.example .env
 # optionally: adjust parameters in .env
 docker network create lbsn-network
-docker-compose pull && docker-compose up -d
+docker compose pull && docker compose up -d
 ```
 
 Then open `http://localhost:8888` and use the password (default: `eX4mP13p455w0Rd`) to use Jupyter.
@@ -117,14 +117,14 @@ Copy `.env.example` and edit default values.
 
 To start the docker container use:
 
-    docker-compose up -d
+    docker compose up -d
 
 and then open [http://localhost:8888/](http://localhost:8888/) in your browser.
 
 If you did not provide a password in `.env`, get the token from the Docker logs to 
 login:
 
-    docker-compose logs | grep "?token=" | tail -n 2
+    docker compose logs | grep "?token=" | tail -n 2
 
 ## Run Notebook
 
@@ -199,7 +199,7 @@ For specific purposes, a number of alternatives are possible:
   
 - Modify `worker_env` persistently:
   - edit the [environment.yml](environment.yml):
-  - and start image with `docker-compose -f docker-compose.build.yml build --no-cache && docker-compose up -d --force-recreate`
+  - and start image with `docker compose -f docker-compose.build.yml build --no-cache && docker compose up -d --force-recreate`
   - make sure you're running your local image, not the remote
   
 - Add your own `environment.yml`
@@ -210,7 +210,7 @@ For specific purposes, a number of alternatives are possible:
   ENVIRONMENT_FILE=envs/environment_custom.yml
   ```
   
-  - Afterwards, rebuild the Docker container (`docker-compose -f docker-compose.build.yml build`).
+  - Afterwards, rebuild the Docker container (`docker compose -f docker-compose.build.yml build`).
   
     - Make sure that the path is within the repository
   
@@ -225,7 +225,15 @@ For specific purposes, a number of alternatives are possible:
 The docker image is pulled from remote gitlab registry. If you update the Dockerfile, 
 check if local build is possible with:
 
-    docker build .
+```bash
+docker build .
+```
+ 
+or use the compose equivalent:
+
+```bash
+docker compose -f docker-compose.build.yml --progress plain build
+```
 
 Then push changes to Gitlab, which will recreate the registry image based on the 
 new Dockerfile.
@@ -233,9 +241,9 @@ new Dockerfile.
 To manually build the Mapnik image,
 optionally add a specific `APP_VERSION` to your `.env`, then:
 ```bash
-docker-compose -f docker-compose.mapnik.yml build \
+docker compose -f docker-compose.mapnik.yml build \
         --no-cache --progress=plain \
-    && docker-compose -f docker-compose.mapnik.yml up -d
+    && docker compose -f docker-compose.mapnik.yml up -d
 ```
 
 To manually test bump a new semantic version:
