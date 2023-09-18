@@ -5,6 +5,7 @@ channels:
 dependencies:
   - python>=3.9
   - pip
+  - notebook<7.0.0 # pin until https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator/issues/165 is solved
   - jupyterlab>=4
   # - jupyterlab-git
   - jupytext
@@ -15,3 +16,4 @@ dependencies:
   - pyviz_comms
   - pip:
     - jupyterlab-spellchecker
+    - jupyter_contrib_nbextensions # https://github.com/ipython-contrib/jupyter_contrib_nbextensions/issues/1650
