@@ -1,9 +1,7 @@
-version: '3.6'
-
 services:
 
   jupyterlab:
-    image: registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:${TAG:-latest}
+    # image: registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:${TAG:-latest}
     build:
       context: .
       args:
