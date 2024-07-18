@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.16.1 (2024-07-18)
+
+### Fix
+
+* fix: manual bump ([`0e83810`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0e8381073f984ca9217dbc843bd12c93f48343b4))
+
 ## v0.16.0 (2024-07-18)
 
 ### Chore
