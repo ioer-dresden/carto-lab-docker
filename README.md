@@ -235,6 +235,11 @@ or use the compose equivalent:
 docker compose -f docker-compose.build.yml --progress plain build
 ```
 
+Test with:
+```bash
+docker compose -f docker-compose.build.yml up -d
+```
+
 Then push changes to Gitlab, which will recreate the registry image based on the 
 new Dockerfile.
 
