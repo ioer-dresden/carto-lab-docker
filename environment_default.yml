@@ -3,17 +3,18 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python>=3.7
+  - python>=3.8
   - pip
   - adjusttext
   - contextily
   - colorcet
   - esda
-  - 'geoviews-core=1.9.5'
-  - 'holoviews=1.14.8'
-  - 'ipywidgets=8.0.*'
+  - geoviews-core
+  - holoviews
+  - ipywidgets
   - ipyleaflet
   - datashader
+  - dask
   - descartes
   - geoalchemy2
   - geopandas
@@ -21,19 +22,20 @@ dependencies:
   - hvplot
   - flopy
   - ipython-sql
-  - 'numpy<1.23' # Shapely 1.7.1 compatibility
+  - numpy
   - mapclassify
   - matplotlib-venn
   - matplotlib-scalebar
   - memory_profiler
   - mmh3
+  - pyarrow
   - pyepsg
   - psycopg2
   - python-dotenv
   - rasterio
   - seaborn
-  - 'shapely=1.7.1'
+  - shapely
   - tagmaps
   - xarray
   - pip:
-    - python-hll
+    - python-hll2
