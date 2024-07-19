@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v0.16.3 (2024-07-19)
+
+### Fix
+
+* fix: Mapnik Dockerfile build
+
+The reason for this file is pip-system install, which should indeed be avoided. However, mapnik-cli has no dependencies and is quite lightweight. We skip this check now in the Dockerfile. ([`5ec99c5`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5ec99c5942c763dd560586b5130508db6a33dba3))
+
 ## v0.16.2 (2024-07-18)
 
 ### Fix
