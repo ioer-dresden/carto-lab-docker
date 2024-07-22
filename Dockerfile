@@ -42,6 +42,10 @@ RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     jupyter labextension disable \
     "@jupyter/collaboration-extension"
 
+# fix proj env missing
+RUN sed -i '/"display_name": "worker_env",/a "env":{"PROJ_LIB": "/opt/conda/envs/worker_env/share/proj"},' \
+    /root/.local/share/jupyter/kernels/worker_env/kernel.json
+
 # configure password login, if set
 # configure web url, if set
 # configure show hidden files
