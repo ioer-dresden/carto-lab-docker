@@ -11,6 +11,9 @@ stages:
   - build-stable
   - build-latest
   - build-mapnik
+  - artifacts
+  - mkdocs
+  - deploydocs
 
 build and push latest:
   stage: build-latest
@@ -43,3 +46,61 @@ build and push mapnik:
   only:
     - master-latest
 
+artifacts:
+  image: "registry.gitlab.vgiscience.org/tud_ifk/miniconda-cidefault:0.5.1"
+  before_script:
+    # initialize conda shell
+    - conda init bash
+    - source ~/.bashrc
+    # activate default ci_env from registry image
+    # contains anybadge
+    - conda activate ci_env
+  stage: artifacts
+  script:
+    - cp CHANGELOG.md docs/changelog.md
+    # create badges
+    - version_var=$(sed -n "s#__version__ =\s*'\(.*\)'#\1#p" .version)
+    - echo "Version for badges $version_var"
+    - anybadge -l version --value="${version_var}" --file=pypi.svg --color=blue
+    - anybadge -l mkdocs --value="Documentation" --file=documentation.svg --color=green
+  artifacts:
+    paths:
+      # quote because * is a
+      # special character in YAML
+      - '*.svg'
+      - docs/changelog.md
+  rules:
+    # always execute on master or ci-test
+    - if:
+        $CI_COMMIT_BRANCH == "master-latest" ||
+        $CI_COMMIT_BRANCH == "ci-test"
+
+mkdocs:
+  stage: mkdocs
+  image: registry.gitlab.vgiscience.org/tud_ifk/alpine-mkdocs
+  script:
+    - cp *.svg "_site/"
+    # build docs
+    - mkdocs build
+    - mv site/* "_site"
+  artifacts:
+    name: _site
+    paths:
+    - _site
+  rules:
+    # only execute on master
+    - if:
+        $CI_COMMIT_BRANCH == "master-latest"
+
+deploydocs:
+  stage: deploydocs
+  image: "registry.gitlab.vgiscience.org/tud_ifk/rsync-ssh-alpine:alpine3.17-r0-v4"
+  before_script:
+  - eval $(ssh-agent -s)
+  - echo "${SSH_PRIVKEY}" | ssh-add -
+  - mkdir -p ~/.ssh
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+  - rsync -avu -zz --no-perms --omit-dir-times --chown=www-data:www-data --chmod=D775,F664 _site/ "${PRODUCTION_DESTINATION}"/public/cartolab/
+  only:
+    - master-latest
