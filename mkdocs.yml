@@ -1,0 +1,41 @@
+site_name: Carto-Lab Docker Documentation
+site_url: https://cartolab.theplink.org/
+site_author: Alexander Dunkel
+copyright: CC BY 4.0, Alexander Dunkel, Marc Löchner, vgiscience.org and contributors
+
+repo_url: https://gitlab.vgiscience.de/lbsn/tools/jupyterlab
+site_dir: site
+docs_dir: docs
+
+theme:
+  name: 'readthedocs'
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - python
+    - bash
+  collapse_navigation: true
+  custom_dir: docs/overrides
+
+markdown_extensions:
+    - toc:
+        permalink: true
+    - admonition
+    - fenced_code
+    - sane_lists
+
+plugins:
+    - search
+
+nav:
+    - Introduction: index.md
+    - User Guide:
+        - Quick-Start: setup.md
+        - Example Tasks: use-cases.md
+        - Example Notebooks: notebooks.md
+        - Additional resources: resources.md
+    - Developers:
+        - Configuration: configuration.md
+        - Use Cases: developers.md
+        - Changelog: changelog.md
+    - About: about.md
