@@ -25,7 +25,7 @@ build and push latest:
     - docker push $CI_REGISTRY_IMAGE --all-tags
   rules:
     - if:
-      $CI_COMMIT_BRANCH == "master-latest"
+        $CI_COMMIT_BRANCH == "master-latest"
     - changes:
       - Dockerfile # Dockerfile changed
       - "mapnik/Dockerfile" # Mapnik Dockerfile changed
@@ -50,7 +50,7 @@ build and push mapnik:
     - docker push $CI_REGISTRY_IMAGE --all-tags
   rules:
     - if:
-      $CI_COMMIT_BRANCH == "master-latest"
+        $CI_COMMIT_BRANCH == "master-latest"
     - changes:
       - Dockerfile # Dockerfile changed
       - "mapnik/Dockerfile" # Mapnik Dockerfile changed
