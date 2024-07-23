@@ -89,14 +89,13 @@ mkdocs:
   stage: mkdocs
   image: registry.gitlab.vgiscience.org/tud_ifk/alpine-mkdocs
   script:
-    - cp *.svg "_site/"
     # build docs
     - mkdocs build
-    - mv site/* "_site"
+    - cp *.svg "site/"
   artifacts:
-    name: _site
+    name: site
     paths:
-    - _site
+    - site
   rules:
     # only execute on master
     - if:
@@ -111,6 +110,6 @@ deploydocs:
   - mkdir -p ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   script:
-  - rsync -avu -zz --no-perms --omit-dir-times --chown=www-data:www-data --chmod=D775,F664 _site/ "${PRODUCTION_DESTINATION}"/public/cartolab/
+  - rsync -avu -zz --no-perms --omit-dir-times --chown=www-data:www-data --chmod=D775,F664 site/ "${PRODUCTION_DESTINATION}"/public/cartolab/
   only:
     - master-latest
