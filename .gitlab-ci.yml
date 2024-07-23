@@ -23,8 +23,13 @@ build and push latest:
     - docker login --username gitlab-ci-token --password $CI_JOB_TOKEN $CI_REGISTRY
     - docker build --pull --tag $CI_REGISTRY_IMAGE:$VERSION --tag $CI_REGISTRY_IMAGE:latest .
     - docker push $CI_REGISTRY_IMAGE --all-tags
-  only:
-    - master-latest
+  rules:
+    - if:
+      $CI_COMMIT_BRANCH == "master-latest"
+    - changes:
+      - Dockerfile # Dockerfile changed
+      - "mapnik/Dockerfile" # Mapnik Dockerfile changed
+      - "*.yml" # any yml changes
 
 build and push stable:
   stage: build-stable
@@ -43,8 +48,13 @@ build and push mapnik:
     - docker login --username gitlab-ci-token --password $CI_JOB_TOKEN $CI_REGISTRY
     - docker build --pull --build-arg APP_VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:mapnik_$VERSION --tag $CI_REGISTRY_IMAGE:mapnik ./mapnik
     - docker push $CI_REGISTRY_IMAGE --all-tags
-  only:
-    - master-latest
+  rules:
+    - if:
+      $CI_COMMIT_BRANCH == "master-latest"
+    - changes:
+      - Dockerfile # Dockerfile changed
+      - "mapnik/Dockerfile" # Mapnik Dockerfile changed
+      - "*.yml" # any yml changes
 
 artifacts:
   image: "registry.gitlab.vgiscience.org/tud_ifk/miniconda-cidefault:0.5.1"
