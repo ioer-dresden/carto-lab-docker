@@ -1,4 +1,6 @@
-[![version](https://img.shields.io/badge/dynamic/json?color=blue&label=Version&query=%24%5B%3A1%5D.name&url=https%3A%2F%2Fgitlab.vgiscience.de%2Fapi%2Fv4%2Fprojects%2F373%2Frepository%2Ftags)](CHANGELOG.md) [![pipeline status](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/badges/master-latest/pipeline.svg#2)](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commits/master-latest)
+[![version](https://cartolab.theplink.org/version.svg)](CHANGELOG.md) [![pipeline status](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/badges/master-latest/pipeline.svg#2)](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commits/master-latest) [![Documentation](https://cartolab.theplink.org/documentation.svg)](https://cartolab.theplink.org/)
+
+
 
 # Carto-Lab - A JupyterLab Docker Container for Open Source Cartography
 

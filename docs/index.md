@@ -1,3 +1,5 @@
+[![version](https://cartolab.theplink.org/version.svg)](https://cartolab.theplink.org/changelog/)
+
 **Carto-Lab Docker** is a container that runs a JupyterLab server, with a prepared Python environment for _cartographic visualization_.
 
 <p align="center"><img src="logo.svg">
