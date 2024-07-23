@@ -26,10 +26,10 @@ build and push latest:
   rules:
     - if:
         $CI_COMMIT_BRANCH == "master-latest"
-    - changes:
-      - Dockerfile # Dockerfile changed
-      - "mapnik/Dockerfile" # Mapnik Dockerfile changed
-      - "*.yml" # any yml changes
+      changes:
+        - Dockerfile # Dockerfile changed
+        - "mapnik/Dockerfile" # Mapnik Dockerfile changed
+        - "*.yml" # any yml changes
 
 build and push stable:
   stage: build-stable
@@ -49,12 +49,12 @@ build and push mapnik:
     - docker build --pull --build-arg APP_VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:mapnik_$VERSION --tag $CI_REGISTRY_IMAGE:mapnik ./mapnik
     - docker push $CI_REGISTRY_IMAGE --all-tags
   rules:
-    - if:
-        $CI_COMMIT_BRANCH == "master-latest"
-    - changes:
-      - Dockerfile # Dockerfile changed
-      - "mapnik/Dockerfile" # Mapnik Dockerfile changed
-      - "*.yml" # any yml changes
+    - if: 
+        $CI_COMMIT_BRANCH == "master-latest"'
+      changes:
+        - Dockerfile # Dockerfile changed
+        - "mapnik/Dockerfile" # Mapnik Dockerfile changed
+        - "*.yml" # any yml changes
 
 artifacts:
   image: "registry.gitlab.vgiscience.org/tud_ifk/miniconda-cidefault:0.5.1"
