@@ -1,5 +1,9 @@
 # Example tasks
 
+!!! note
+    Some of the tasks described below are only available if you self-host Carto-Lab Docker. 
+    These tasks require knowledge with Docker and WSL.
+
 ## Updating packages and custom envs
 
 If you need to change/update packages in `worker_env`, you have two main options:
