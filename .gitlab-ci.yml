@@ -28,7 +28,7 @@ build and push latest:
       changes:
         - ".gitlab-ci.yml"
         - "mkdocs.yml"
-        when: never
+      when: never
     - if: $CI_COMMIT_BRANCH == "master-latest"
       changes:
         - Dockerfile # Dockerfile changed
@@ -57,7 +57,7 @@ build and push mapnik:
       changes:
         - ".gitlab-ci.yml"
         - "mkdocs.yml"
-        when: never
+      when: never
     - if: $CI_COMMIT_BRANCH == "master-latest"
       changes:
         - Dockerfile # Dockerfile changed
