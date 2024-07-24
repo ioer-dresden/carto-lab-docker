@@ -24,11 +24,11 @@ build and push latest:
     - docker build --pull --tag $CI_REGISTRY_IMAGE:$VERSION --tag $CI_REGISTRY_IMAGE:latest .
     - docker push $CI_REGISTRY_IMAGE --all-tags
   rules:
-    - changes:
+    - if: $CI_COMMIT_BRANCH == "master-latest"
+      changes:
         - ".gitlab-ci.yml"
         - "mkdocs.yml"
         when: never
-    - if: $CI_COMMIT_BRANCH == "master-latest"
       changes:
         - Dockerfile # Dockerfile changed
         - "mapnik/Dockerfile" # Mapnik Dockerfile changed
@@ -52,11 +52,11 @@ build and push mapnik:
     - docker build --pull --build-arg APP_VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:mapnik_$VERSION --tag $CI_REGISTRY_IMAGE:mapnik ./mapnik
     - docker push $CI_REGISTRY_IMAGE --all-tags
   rules:
-    - changes:
+    - if: $CI_COMMIT_BRANCH == "master-latest"
+      changes:
         - ".gitlab-ci.yml"
         - "mkdocs.yml"
         when: never
-    - if: $CI_COMMIT_BRANCH == "master-latest"
       changes:
         - Dockerfile # Dockerfile changed
         - "mapnik/Dockerfile" # Mapnik Dockerfile changed
