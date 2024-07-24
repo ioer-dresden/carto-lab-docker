@@ -32,9 +32,11 @@ plugins:
 
 nav:
     - Introduction: index.md
+    - Quick-Start: quickstart.md
     - User Guide:
-        - Quick-Start: setup.md
-        - Example Tasks: use-cases.md
+        - Docker Container Setup: docker.md
+        - JupyterLab: jupyter.md
+        - Tasks Guide: use-cases.md
         - Example Notebooks: notebooks.md
         - Additional resources: resources.md
     - Developers:
