@@ -23,6 +23,8 @@ extra_css:
 markdown_extensions:
     - toc:
         permalink: true
+    - markdown_include.include:
+        base_path: docs
     - admonition
     - fenced_code
     - sane_lists
