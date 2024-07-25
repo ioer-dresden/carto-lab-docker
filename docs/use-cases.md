@@ -8,7 +8,7 @@
 
 If you need to change/update packages in `worker_env`, you have two main options:
 
-## Temporary package installs
+### 1. Temporary package installs
   
 * open a terminal in Jupyter Lab, type `bash`
 * type `conda activate worker_env`
@@ -17,7 +17,7 @@ If you need to change/update packages in `worker_env`, you have two main options
 !!! note
     The `worker_env` will be reset once the Carto-Lab Docker container is restarted.
 
-## Persistent package installs
+### 2. Persistent package installs
 
 There are several options to do this. See the [Jupyter introduction](/jupyter/#creating-a-custom-environment) for
 a quick way to create a new environment.
@@ -28,60 +28,75 @@ persistent information such as custom environments.
 
 ### Create your own environment in a bind-mount and install the IPKernel
 
-* you can install additional environments to `/env` folder, which is bind-mounted
-    to `${HOME}/envs` (by default) using the environment variable `CONDA_ENVS`, see `.env` and the `docker-compose.yml`
-* optionally update `CONDA_ENVS` in `.env` with a bind-path to your needs
-* in JupyterLab, install a new environment with the prefix:
-    * open a terminal in Jupyter Lab, type `bash`
-    * create an envrionment using conda
-    * make sure to install `ipykernel` as a package (below we use `pip numpy pandas` as example packages)
-    ```bash
-    conda create \
-        --prefix /envs/example_env \
-        --channel conda-forge \
-        pip numpy pandas ipykernel
-    conda activate /envs/example_env
-    ```
-    - afterwards, link the env kernel to Jupyter/ IPython
-    - this only needs to be done once
-    ```
-    /envs/example_env/bin/python \
-    	-m ipykernel install --user --name=example_env
-    conda deactivate
-    ```
-* refresh with <kbd>F5</kbd>, open a notebook and select the new environment
+You can install additional environments to `/env` folder, which is bind-mounted
+to `${HOME}/envs` (by default) using the environment variable `CONDA_ENVS`, see `.env` and the `docker-compose.yml`.
+
+Optionally update `CONDA_ENVS` in `.env` with a bind-path to your needs.
+
+In JupyterLab, install a new environment with the prefix:
+
+1. Open a terminal in Jupyter Lab, type `bash`
+2. Create an envrionment using conda
+3. Make sure to install `ipykernel` as a package (below we use `pip numpy pandas` as example packages)
+
+```bash
+conda create \
+    --prefix /envs/example_env \
+    --channel conda-forge \
+    pip numpy pandas ipykernel
+conda activate /envs/example_env
+```
+
+5. Afterwards, link the env kernel to Jupyter/ IPython
+6. This only needs to be done once
+    
+```
+/envs/example_env/bin/python \
+	-m ipykernel install --user --name=example_env
+conda deactivate
+```
+    
+7. Refresh with <kbd>F5</kbd>, open a notebook and select the new environment
 
 !!! warning
     * Every time you reset/pull new versions of CartoLab-Docker, you will need to re-link kernels
     * You are responsible for upgrading or backing up your environment, it is not maintained within the Docker container
 
-## Further options for package installation
+### Further options for package installation
 
-For specific purposes, a number of alternatives are possible:
+For specific purposes, a number of alternatives are possible.
 
-- If you need specific dependencies and always want to get the most recent updates,
-  create a chained Dockerfile off this image. Have a look how we implemented chaining with the [mapnik/Dockerfile](mapnik/Dockerfile).
-  
-- Modify `worker_env` persistently:
-    - edit the [environment.yml](environment.yml):
-    - and start image with `docker compose -f docker-compose.build.yml build --no-cache && docker compose up -d --force-recreate`
-    - make sure you're running your local image, not the remote
-  
-- Add your own `environment.yml`
-    
-    - In `.env`, update the link to use when building worker_env, e.g:
-    
-    ```
-    ENVIRONMENT_FILE=envs/environment_custom.yml
-    ```
-    
-    - Afterwards, rebuild the Docker container (`docker compose -f docker-compose.build.yml build`).
-    
-        - Make sure that the path is within the repository
+**Multi-stage Dockerfile**
 
-        - Use a Symlink/Hardlink to include `environment.yml`'s from elsewhere
+If you need specific dependencies and always want to get the most recent updates,
+create a chained Dockerfile off this image. Have a look how we 
+implemented chaining with the [mapnik/Dockerfile](mapnik/Dockerfile):
 
-        - The `env/` directory is excluded from git through .gitignore
+```yaml
+{!../mapnik/Dockerfile!}
+```
+
+**Persistent modification of `worker_env`**
+
+- edit the [environment.yml](environment.yml):
+- and start image with `docker compose -f docker-compose.build.yml build --no-cache && docker compose up -d --force-recreate`
+- make sure you're running your local image, not the remote
+
+**Add your own `environment.yml`**
+
+In `.env`, update the link to use when building worker_env, e.g:
+
+```
+ENVIRONMENT_FILE=envs/environment_custom.yml
+```
+
+Afterwards, rebuild the Docker container with `docker compose -f docker-compose.build.yml build`.
+
+- Make sure that the path is within the repository
+
+- Use a Symlink/Hardlink to include `environment.yml`'s from elsewhere
+
+- The `env/` directory is excluded from git through `.gitignore`
 
 ## Add selenium and webdriver
 

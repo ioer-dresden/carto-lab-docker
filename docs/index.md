@@ -8,7 +8,7 @@
 
 -----
 
-Working with JupyterLab, virtual environments, and a set of Python cartographic package dependencies can be complex. Carto-Lab Docker aims to make life easier for beginners and intermediate users who want to start using JupyterLab and Python cartographic packages.
+Working with JupyterLab, virtual environments, and a set of Python cartographic package dependencies can be daunting. Carto-Lab Docker aims to make life easier for beginners and intermediate users who want to start using JupyterLab and Python cartographic packages.
 
 -----
 
@@ -17,6 +17,8 @@ Carto-Lab Docker helps with the following tasks:
 - Full reproducibility with a versioned virtual Python environment
 - Pre-built with several JupyterLab extensions, such as [Jupytext](https://jupytext.readthedocs.io/), [Collaboration](https://github.com/jupyterlab/jupyter-collaboration), [Spellchecker](https://github.com/jupyterlab-contrib/spellchecker), [Jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git), [ipywidgets](https://github.com/jupyter-widgets/ipywidgets), or [Papermill](https://papermill.readthedocs.io/en/latest/)
 - Integrated with Docker containers from the [LBSN-Structure](https://lbsn.vgiscience.org/) (Postgres, HyperLogLog)  
+
+Carto-Lab Docker is aimed at researchers and practitioners who value transparency, reproducibility, and reusability by using, developing and sharing open source code for visual analysis and mapping tasks.
 
 -----
 
@@ -52,6 +54,8 @@ The default environment currently includes the following major packages:
 - [python-hll](https://github.com/AdRoll/python-hll)
 - [rasterio](https://rasterio.readthedocs.io/)
 - [geopy](https://geopy.readthedocs.io/) 
+
+Carto-Lab Docker also includes [Mapnik](https://mapnik.org/), the [openstreetmap.org](https://www.openstreetmap.org/) renderer.
 
 These packages can be expanded as needed. We offer several starter guides for different visual analytics tasks.
 
