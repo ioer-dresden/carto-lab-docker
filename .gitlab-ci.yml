@@ -34,6 +34,8 @@ build and push latest:
         - Dockerfile # Dockerfile changed
         - "mapnik/Dockerfile" # Mapnik Dockerfile changed
         - "*.yml" # any yml changes
+    - if: $CI_COMMIT_BRANCH == "master-latest"
+      when: manual
 
 build and push stable:
   stage: build-stable
@@ -63,6 +65,8 @@ build and push mapnik:
         - Dockerfile # Dockerfile changed
         - "mapnik/Dockerfile" # Mapnik Dockerfile changed
         - "*.yml" # any yml changes
+    - if: $CI_COMMIT_BRANCH == "master-latest"
+      when: manual
 
 artifacts:
   image: "registry.gitlab.vgiscience.org/tud_ifk/miniconda-cidefault:0.5.1"
