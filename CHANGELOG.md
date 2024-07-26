@@ -1,5 +1,89 @@
 # CHANGELOG
 
+## v0.17.0 (2024-07-26)
+
+### Chore
+
+* chore: add mkdocs config ([`f28b32c`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f28b32c2a9d8a6734d96f4f433e1b8e179c21cc9))
+
+* chore: update .gitignore ([`441d416`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/441d416a93c6292a9beda8e27a17563905bd61db))
+
+* chore: fix missing backslash in Dockerfile ([`3efc5a7`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/3efc5a79422cbbfc9f8e302616d642b5a40daf52))
+
+### Ci
+
+* ci: add markdown include to mkdocs.yml ([`6672d79`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6672d791d3a1576eded09ddcc6ed65f856d7642d))
+
+* ci: fix gitlab-ci ([`b4ae095`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/b4ae095b2be62f56a5a6f6ef605981b8a7c2cc86))
+
+* ci: fix gitlab-ci ([`3e00c7f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/3e00c7fbad8e8f7890614441aeb89e2595b7e8c6))
+
+* ci: fix gitlab-ci ([`2c819f4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2c819f447266e18a2420bdd87b1de630865d5aff))
+
+* ci: fix gitlab-ci ([`3eea538`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/3eea538df03cb0161191df2a47d524ff2efc3ece))
+
+* ci: exclude container build for gitlab-ci and mkdocs.yml changes ([`7ad29a4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7ad29a49b89d81bdfe6a307cdd3e0af2c4d9b57f))
+
+* ci: typo in version.svg ([`f4d4b7b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f4d4b7bd2153f8e8f1e673df5f475205a36d8089))
+
+* ci: try to get the if and changes following AND expression ([`b04109a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/b04109a94ba6122af0e1b9ac46ee48e648f4ec3f))
+
+* ci: try to get the if and changes following AND expression ([`2c55511`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2c55511feeeae6fa33999bbed327c841a05195b9))
+
+* ci: fix changes yml tag not working as expected ([`ad917e0`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/ad917e01a23e62679b56b7d878e7cbc666f34243))
+
+* ci: fix changes yml tag not working as expected ([`95784c1`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/95784c1185d89c2c33f3c3b5bfa1822a61d76dfe))
+
+* ci: fix changes yml tag not working as expected ([`4c8b2c5`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/4c8b2c52d580b433013ef49fa8b3763f18ed447b))
+
+* ci: fix typo ([`35caf5b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/35caf5be3650ba74b97e0d5ee645f7e82d2c113a))
+
+* ci: fix mkdocs build ([`defe308`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/defe308fab7f614a0edfcb57a8b1d75a6a4c06ed))
+
+* ci: do not build images if no changes happened ([`04265ac`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/04265aca99a6ae9188336e3e5681f64a0b424c25))
+
+* ci: add gitlab-ci workflow to build and deploy the docs ([`39cca9b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/39cca9b682ffc54056b85d3c7f1ec0e87722e423))
+
+### Documentation
+
+* docs: use https git clone, for broader applicability ([`e0cf5ce`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/e0cf5ce2cb2bd56dfc4041dc3984931f3e3a711b))
+
+* docs: minor rephrasing ([`2992c1e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2992c1eca34b55837a3b0c477b0fbf3ebcfa1dd7))
+
+* docs: cleanup and reorganize docs ([`a12fb8f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a12fb8f456c6a1ebe2c0ba340ff4f6efc7335464))
+
+* docs: cleanup Readme.md ([`4e05daa`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/4e05daaad9bf32f930b6c8c4403989f0ab0ecb65))
+
+* docs: add note to use cases ([`d970407`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/d970407560b1664ce3a2ed2cbb5d24ca1e2327e6))
+
+* docs: prepare initial mkdocs ([`6fc86d3`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6fc86d33c64e0fccc999fc16d60094b5d13f5685))
+
+### Feature
+
+* feat: add JUPYTER_AUTOSHUTDOWN_TIMEOUT to environment variables, so that users can disable auto-shutdown ([`d149be2`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/d149be2a8c26f8a65e64eb3f0573a92affa83a67))
+
+### Fix
+
+* fix: PROJ error
+
+fixes #3 ([`13d5438`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/13d54380bb7ed0e44368e96a92f4fbd752484419))
+
+* fix: jupytext and collaboration feature cannot be activated together
+
+Deactivate collaboration for the meantime ([`2acc71e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2acc71eceb18478acb301c9d151b17d234260a64))
+
+### Style
+
+* style: change blue colors in badges and docs ([`bce28f5`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/bce28f59f1194429eb6f8cd37e7caea84f885e88))
+
+### Unknown
+
+* Merge branch &#39;master-latest&#39; of gitlab.vgiscience.de:lbsn/tools/jupyterlab into master-latest ([`f063e45`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f063e455d938847f395102feff7a58f8282fe31a))
+
+* Fix chmod ([`ef09b49`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/ef09b49ae36f898c6e8ac90104ce5b3da17ec938))
+
+* Update .gitignore ([`78901d9`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/78901d930b4f33900780dd8613fb229eb61efa55))
+
 ## v0.16.3 (2024-07-19)
 
 ### Fix
