@@ -30,7 +30,7 @@ The current version of Carto-Lab docker is based on Jupyter Lab 4.x.
 To start the docker container locally:
 
 ```bash
-git clone git@gitlab.vgiscience.de:lbsn/tools/jupyterlab.git
+git clone https://gitlab.vgiscience.de/lbsn/tools/jupyterlab.git
 cd jupyterlab
 cp .env.example .env
 # optionally: adjust parameters in .env
