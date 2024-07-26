@@ -12,7 +12,7 @@ docker build .
 or use the compose equivalent:
 
 ```bash
-docker compose -f docker-compose.build.yml --progress plain build
+BUILDKIT_PROGRESS=plain docker compose -f docker-compose.build.yml build
 ```
 
 Test with:

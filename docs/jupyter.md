@@ -15,11 +15,15 @@ and creating a new notebook.
 <video class="content bg" style="object-fit: cover;height: 100%;width: 100%;left: 0%;top:0%" aria-hidden="true" playsinline="" autoplay="" muted="" loop="" id="tagmapsvideo"> 
 <source src="/sel_kernel_env.webm" type="video/webm"></video>
 
-## Conda Environments
+Also have a look at the excellent [Jupyter Docs](https://jupyterhub.readthedocs.io/en/stable/howto/configuration/config-user-env.html).
 
-- There is a base environment prepared with the name `worker_env`. You can select this environment in the list of known Kernels (e.g. through the top-right corner in a JupyterLab notebook).
+Takeaway:
 
-- The Jupyter Server is installed in a separate environment called `jupyter_env`
+- There is a base environment prepared with the name `worker_env`. You can select 
+this environment from the list of known kernels (e.g. from the top right corner in 
+a JupyterLab notebook).
+
+- The Jupyter server is installed in a separate environment named `jupyter_env`.
 
 ## Creating a custom environment
 
