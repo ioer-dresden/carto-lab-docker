@@ -11,6 +11,9 @@ stages:
   - build-stable
   - build-latest
   - build-mapnik
+  - artifacts
+  - mkdocs
+  - deploydocs
 
 build and push latest:
   stage: build-latest
@@ -20,8 +23,17 @@ build and push latest:
     - docker login --username gitlab-ci-token --password $CI_JOB_TOKEN $CI_REGISTRY
     - docker build --pull --tag $CI_REGISTRY_IMAGE:$VERSION --tag $CI_REGISTRY_IMAGE:latest .
     - docker push $CI_REGISTRY_IMAGE --all-tags
-  only:
-    - master-latest
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master-latest"
+      changes:
+        - ".gitlab-ci.yml"
+        - "mkdocs.yml"
+      when: never
+    - if: $CI_COMMIT_BRANCH == "master-latest"
+      changes:
+        - Dockerfile # Dockerfile changed
+        - "mapnik/Dockerfile" # Mapnik Dockerfile changed
+        - "*.yml" # any yml changes
 
 build and push stable:
   stage: build-stable
@@ -40,6 +52,72 @@ build and push mapnik:
     - docker login --username gitlab-ci-token --password $CI_JOB_TOKEN $CI_REGISTRY
     - docker build --pull --build-arg APP_VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:mapnik_$VERSION --tag $CI_REGISTRY_IMAGE:mapnik ./mapnik
     - docker push $CI_REGISTRY_IMAGE --all-tags
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master-latest"
+      changes:
+        - ".gitlab-ci.yml"
+        - "mkdocs.yml"
+      when: never
+    - if: $CI_COMMIT_BRANCH == "master-latest"
+      changes:
+        - Dockerfile # Dockerfile changed
+        - "mapnik/Dockerfile" # Mapnik Dockerfile changed
+        - "*.yml" # any yml changes
+
+artifacts:
+  image: "registry.gitlab.vgiscience.org/tud_ifk/miniconda-cidefault:0.5.1"
+  before_script:
+    # initialize conda shell
+    - conda init bash
+    - source ~/.bashrc
+    # activate default ci_env from registry image
+    # contains anybadge
+    - conda activate ci_env
+  stage: artifacts
+  script:
+    - cp CHANGELOG.md docs/changelog.md
+    # create badges
+    - version_var=$(sed -n "s#__version__ =\s*'\(.*\)'#\1#p" .version)
+    - echo "Version for badges $version_var"
+    - anybadge -l version --value="${version_var}" --file=version.svg --color=#03A6F0
+    - anybadge -l mkdocs --value="Documentation" --file=documentation.svg --color=green
+  artifacts:
+    paths:
+      # quote because * is a
+      # special character in YAML
+      - '*.svg'
+      - docs/changelog.md
+  rules:
+    # always execute on master or ci-test
+    - if:
+        $CI_COMMIT_BRANCH == "master-latest" ||
+        $CI_COMMIT_BRANCH == "ci-test"
+
+mkdocs:
+  stage: mkdocs
+  image: registry.gitlab.vgiscience.org/tud_ifk/alpine-mkdocs
+  script:
+    # build docs
+    - mkdocs build
+    - cp *.svg "site/"
+  artifacts:
+    name: site
+    paths:
+    - site
+  rules:
+    # only execute on master
+    - if:
+        $CI_COMMIT_BRANCH == "master-latest"
+
+deploydocs:
+  stage: deploydocs
+  image: "registry.gitlab.vgiscience.org/tud_ifk/rsync-ssh-alpine:alpine3.17-r0-v4"
+  before_script:
+  - eval $(ssh-agent -s)
+  - echo "${SSH_PRIVKEY}" | ssh-add -
+  - mkdir -p ~/.ssh
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+  - rsync -avu -zz --no-perms --omit-dir-times --chown=www-data:www-data --chmod=D775,F664 site/ "${PRODUCTION_DESTINATION}"/public/cartolab/
   only:
     - master-latest
-
