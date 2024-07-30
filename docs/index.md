@@ -22,6 +22,10 @@ Carto-Lab Docker is aimed at researchers and practitioners who value transparenc
 
 -----
 
+## Packages
+
+![Packages Summary Graphic](/packages.png)
+
 The default environment currently includes the following major packages:  
 
 - [Geoviews](https://geoviews.org/user_guide/index.html)
@@ -60,4 +64,5 @@ Carto-Lab Docker also includes [Mapnik](https://mapnik.org/), the [openstreetmap
 These packages can be expanded as needed. We offer several starter guides for different visual analytics tasks.
 
 !!! note
-    Carto-Lab Docker is research software and infrequently maintained.
+    Carto-Lab Docker is research software and is maintained infrequently, when there is time or specific need.
+    
