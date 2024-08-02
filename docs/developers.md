@@ -64,3 +64,15 @@ In your Apache configuration, you need to also proxypass websockets:
     ProxyPassReverse    /  http://localhost:8888/
 
 This requires the Apache modules `proxy` and `wstunnel` to be enabled on the host.
+
+## Security
+
+Carto-Lab Docker is build to run as root. We want users to be able to fully modify the system
+during runtime. This means that the Docker System that hosts Carto-Lab Docker _should not_ run as
+root.
+
+Rootless Docker should be considered the default. Have a look at the [Docker docs](https://docs.docker.com/engine/security/rootless/)
+or [this blog post](https://du.nkel.dev/blog/2023-12-12_mastodon-docker-rootless/#docker-rootless-setup) on how to setup rootless Docker.
+
+!!! warning
+    You should never run untrusted code or notebooks that you don't know the source of.
