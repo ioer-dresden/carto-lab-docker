@@ -47,13 +47,19 @@ By default, notebooks will be made available inside the docker from your `$HOME/
 - [`master`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master) branch: Stable, tested container
 - [`master-latest`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master-latest) branch: Latest version of container
 
-## Docker Images & Tags
+## Container versions
 
-There are three tags:
+The container is versioned and tagged, as a means to support different use cases.
+
+There are four tags:
 
 - [`jupyterlab:stable`](registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:stable)
 - [`jupyterlab:latest`](registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:latest)
 - [`jupyterlab:mapnik`](registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:mapnik)
+- [`jupyterlab:rstudio`](registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:rstudio)
+
+`:mapnik` and `rstudio` are images that extend: `:latest`. If you want to use Mapnik, use the `mapnik` image. If you want to use R, use the `rstudio` image.
+All images include the default Python `worker_env`.
 
 Carto-Lab Docker Images are versioned, so you can pull any specific version (recommended!), e.g.:
 ```
