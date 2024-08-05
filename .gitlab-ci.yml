@@ -27,13 +27,7 @@ build and push latest:
   rules:
     - if: $CI_COMMIT_BRANCH == "master-latest"
       changes:
-        - ".gitlab-ci.yml"
-        - "mkdocs.yml"
-      when: never
-    - if: $CI_COMMIT_BRANCH == "master-latest"
-      changes:
         - Dockerfile # Dockerfile changed
-        - "mapnik/Dockerfile" # Mapnik Dockerfile changed
         - "*.yml" # any yml changes
 
 build and push stable:
@@ -56,11 +50,6 @@ build and push mapnik:
   rules:
     - if: $CI_COMMIT_BRANCH == "master-latest"
       changes:
-        - ".gitlab-ci.yml"
-        - "mkdocs.yml"
-      when: never
-    - if: $CI_COMMIT_BRANCH == "master-latest"
-      changes:
         - Dockerfile # Dockerfile changed
         - "mapnik/Dockerfile" # Mapnik Dockerfile changed
         - "*.yml" # any yml changes
@@ -75,13 +64,8 @@ build and push rstudio:
   rules:
     - if: $CI_COMMIT_BRANCH == "master-latest"
       changes:
-        - ".gitlab-ci.yml"
-        - "mkdocs.yml"
-      when: never
-    - if: $CI_COMMIT_BRANCH == "master-latest"
-      changes:
         - Dockerfile # Dockerfile changed
-        - "rstudio/Dockerfile" # Mapnik Dockerfile changed
+        - "rstudio/Dockerfile" # RStudio Dockerfile changed
         - "*.yml" # any yml changes
 
 artifacts:
