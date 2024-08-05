@@ -38,7 +38,7 @@ nav:
     - User Guide:
         - Docker Container Setup: docker.md
         - JupyterLab: jupyter.md
-        - Python packagews: python.md
+        - Python: python.md
         - RStudio: rstudio.md
         - Mapnik: mapnik.md
         - Tasks: use-cases.md
