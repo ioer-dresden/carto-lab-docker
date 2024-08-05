@@ -1,5 +1,37 @@
 # CHANGELOG
 
+## v0.18.0 (2024-08-05)
+
+### Ci
+
+* ci: add rstudio build ([`1e3fe39`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/1e3fe39215696ef8df7b21ed866478c3dfd59be5))
+
+* ci: remove manual trigger, as it does not work as intended ([`7804a88`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7804a88980923013444bcb1f416299942f531276))
+
+* ci: fix order of build priorities ([`e946bd3`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/e946bd3a58d004251ef8333ed39bea53ce5da6d1))
+
+* ci: build docker images when manual pipeline trigged ([`faf43c9`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/faf43c992a1c906fc28cc21625ecbdb3ca066620))
+
+### Documentation
+
+* docs: add rstudio version description ([`5fbe070`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5fbe0701634323218c759b5f4e2535cd90ed5642))
+
+* docs: add security note ([`b843fb7`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/b843fb7dab169d00fb81fd2fcb8b0fa62a5bf8ae))
+
+* docs: add packages graphic ([`0bd44c8`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0bd44c8eb37ae762faaf944b6885a23e20a675f5))
+
+* docs: minor updates to the docs ([`8e51793`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8e517934d17fb7f8c0c8cafcbe7a98667f673ae2))
+
+### Feature
+
+* feat: add RStudio Dockerfile extended image, push to extra registry tag ([`9f4ad88`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/9f4ad8841f857beb4b8c21e0f9631e49ad4af75b))
+
+### Style
+
+* style: fix transparency in logo ([`633929c`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/633929cf608773f8bf21ac8210498bcc687863c4))
+
+* style: slighly improve logo ([`83115f5`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/83115f56bda6eb7ec19742c9d2a3ee439b4be067))
+
 ## v0.17.0 (2024-07-26)
 
 ### Chore
