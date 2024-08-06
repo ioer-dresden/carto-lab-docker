@@ -65,4 +65,4 @@ CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     jupyter lab \
     --ip=0.0.0.0 \
     --allow-root \
-    --ServerApp.notebook_dir=/home/jovyan/work
+    --ServerApp.root_dir=/home/jovyan/work
