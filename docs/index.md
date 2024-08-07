@@ -1,6 +1,6 @@
 [![version](https://cartolab.theplink.org/version.svg)](https://cartolab.theplink.org/changelog/)
 
-**Carto-Lab Docker** is a container that runs a JupyterLab server, with a prepared Python environment for _cartographic visualization_.
+**Carto-Lab Docker** is a container that runs a JupyterLab server, with two prepared Python and R environments for _cartographic visualization_.
 
 <p align="center"><img src="logo.svg">
 
@@ -26,7 +26,11 @@ Carto-Lab Docker is aimed at researchers and practitioners who value transparenc
 
 ![Packages Summary Graphic](/packages.png)
 
-The default environment currently includes the following major packages:  
+!!! info
+    The two default environments provided in CartoLab-Docker for Python and R are for convenience only and do not claim to be complete. 
+    See this documentation for several ways to extend the environments or create your own.
+
+The default Python environment currently includes the following major packages:  
 
 - [Geoviews](https://geoviews.org/user_guide/index.html)
 - [Holoviews](https://holoviews.org/)
@@ -58,6 +62,22 @@ The default environment currently includes the following major packages:
 - [python-hll](https://github.com/AdRoll/python-hll)
 - [rasterio](https://rasterio.readthedocs.io/)
 - [geopy](https://geopy.readthedocs.io/) 
+
+The default R environment currently includes the following major packages:  
+- [caret](https://topepo.github.io/caret/)
+- [dplyr](https://dplyr.tidyverse.org/)
+- [forecast](https://www.rdocumentation.org/packages/forecast/versions/8.23.0)
+- [ggplot2](https://ggplot2.tidyverse.org/)
+- [hexbin](https://r-graph-gallery.com/100-high-density-scatterplot-with-binning.html)
+- [maps](https://r-graph-gallery.com/278-the-maps-library.html)
+- [mapdata](https://r-graph-gallery.com/278-the-maps-library.html)
+- [tmap](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html)
+- [randomforest](https://www.rdocumentation.org/packages/randomForest/versions/4.7-1.1/topics/randomForest)
+- [rcolorbrewer](https://r-graph-gallery.com/38-rcolorbrewers-palettes.html)
+- [stringr](https://stringr.tidyverse.org/)
+- [shiny](https://shiny.posit.co/)
+- [tidymodels](https://www.tidymodels.org/)
+- [tidyverse](https://www.tidyverse.org/)
 
 Carto-Lab Docker also includes [Mapnik](https://mapnik.org/), the [openstreetmap.org](https://www.openstreetmap.org/) renderer.
 
