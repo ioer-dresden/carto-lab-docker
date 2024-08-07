@@ -39,7 +39,7 @@ nav:
         - Docker Container Setup: docker.md
         - JupyterLab: jupyter.md
         - Python: python.md
-        - RStudio: rstudio.md
+        - R: r.md
         - Mapnik: mapnik.md
         - Tasks: use-cases.md
         - Example Notebooks: notebooks.md

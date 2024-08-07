@@ -1,4 +1,4 @@
-# RStudio
+# R
 
 The `:rstudio` version of CartoLab-Docker contains a number of base packages for mapping in R.
 
