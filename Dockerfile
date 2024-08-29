@@ -3,6 +3,7 @@ FROM continuumio/miniconda3:latest
 # build time args
 ARG ENVIRONMENT_FILE=environment_default.yml
 ARG WORKER_ENV_NAME=worker_env
+ARG COLLABORATIVE=
 
 # select default shell
 SHELL ["/bin/bash", "-c"]
@@ -38,9 +39,9 @@ RUN conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME --quiet  \
 # https://jupyterlab.readthedocs.io/en/stable/user/announcements.html
 RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     jupyter labextension disable \
-    "@jupyterlab/apputils-extension:announcements" && \
-    jupyter labextension disable \
-    "@jupyter/collaboration-extension"
+    "@jupyterlab/apputils-extension:announcements" 
+    # jupyter labextension disable \
+    # "@jupyter/collaboration-extension"
 
 # fix proj env missing
 RUN sed -i '/"display_name": "worker_env",/a "env":{"PROJ_LIB": "/opt/conda/envs/worker_env/share/proj"},' \
@@ -65,4 +66,5 @@ CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     jupyter lab \
     --ip=0.0.0.0 \
     --allow-root \
+    ${COLLABORATIVE:+--collaborative} \
     --ServerApp.root_dir=/home/jovyan/work
