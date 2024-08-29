@@ -1,5 +1,39 @@
 # CHANGELOG
 
+## v0.19.0 (2024-08-29)
+
+### Ci
+
+* ci: fix images not building ([`706572d`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/706572db18520f0510f872d4bcc5835a4adea780))
+
+### Documentation
+
+* docs: change collaboration default to false ([`bf39619`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/bf39619cb57269b779b1fb26b02656be1d18a9e3))
+
+* docs: fix typo ([`f1499a4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f1499a4e1b3168c9c269d7c5eb12ea855ce8e4b5))
+
+* docs: fix rstudio yml reference ([`abdfcdd`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/abdfcdd8dd350dd12d473b1921da68dabce494ab))
+
+* docs: update TOC§ ([`9ea9daf`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/9ea9dafb5e0a5331ab95156ee385ff1d50cd38a2))
+
+* docs: add instructions for different versions ([`b743c44`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/b743c4496904d7caa28a0b7691bd51a8601afca9))
+
+### Feature
+
+* feat: add r mapping packages ([`c7b6af9`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/c7b6af9627d622ed9a0b95c0e3b459b1cb8ebcd5))
+
+### Fix
+
+* fix: collaboration not working as expected ([`10a4131`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/10a4131584ed160cead77ce1b8e203a04ec8b3f2))
+
+* fix: deprecated notebook_dir
+
+Fixes #5 ([`e9c216f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/e9c216f2980c3bab466c48beec45a5c3c8da795e))
+
+### Unknown
+
+* Add collaborative env setting to docker-compose.yml ([`a2919b4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a2919b4a3a3460cc23e960dac8b89fe793190141))
+
 ## v0.18.0 (2024-08-05)
 
 ### Ci
