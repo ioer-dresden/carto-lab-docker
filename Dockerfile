@@ -3,7 +3,6 @@ FROM continuumio/miniconda3:latest
 # build time args
 ARG ENVIRONMENT_FILE=environment_default.yml
 ARG WORKER_ENV_NAME=worker_env
-ARG COLLABORATIVE=
 
 # select default shell
 SHELL ["/bin/bash", "-c"]
@@ -39,7 +38,7 @@ RUN conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME --quiet  \
 # https://jupyterlab.readthedocs.io/en/stable/user/announcements.html
 RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     jupyter labextension disable \
-    "@jupyterlab/apputils-extension:announcements" 
+    "@jupyterlab/apputils-extension:announcements"
     # jupyter labextension disable \
     # "@jupyter/collaboration-extension"
 
@@ -52,6 +51,7 @@ RUN sed -i '/"display_name": "worker_env",/a "env":{"PROJ_LIB": "/opt/conda/envs
 # configure show hidden files
 # start jupyter lab
 ENV JUPYTER_CONFIG=/root/.jupyter/jupyter_server_config.py
+ENV JUPYTERLABAPP_CONFIG=/root/.jupyter/jupyter_lab_config.py
 CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     jupyter lab --generate-config; \
     [[ "$JUPYTER_PASSWORD" ]] \
@@ -63,6 +63,10 @@ CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     && echo "c.MappingKernelManager.cull_interval=600" >>$JUPYTER_CONFIG \
     && echo "c.MappingKernelManager.cull_idle_timeout=1800" >>$JUPYTER_CONFIG \
     && echo "c.ContentsManager.allow_hidden=True" >>$JUPYTER_CONFIG; \
+    if [ "${GENERATE_TOKEN}" = true ]; then export TOKEN=$(tr -dc 'A-Za-z0-9!?%=' < /dev/urandom | head -c 10);echo "c.ServerApp.token = u'$TOKEN'" >>$JUPYTER_CONFIG; fi; \
+    if [ "${DISABLE_JUPYTEXT}" = true ]; then jupyter labextension disable jupyterlab-jupytext; fi; \
+    if [ "${DISABLE_JUPYTERLAB-GIT}" = true ]; then jupyter labextension disable @jupyterlab/git; fi; \
+    if [ "${DISABLE_JUPYTER-COLLABORATION}" = true ]; then jupyter labextension disable @jupyter/collaboration-extension; fi; \
     jupyter lab \
     --ip=0.0.0.0 \
     --allow-root \

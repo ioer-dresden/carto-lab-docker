@@ -17,6 +17,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-eX4mP13p455w0Rd}
       - JUPYTER_PASSWORD=${JUPYTER_PASSWORD:-eX4mP13p455w0Rd}
       - JUPYTER_WEBURL=${JUPYTER_WEBURL:-http://localhost:8888}
+    env_file: ".env"
     networks:
       - lbsn-network
 
