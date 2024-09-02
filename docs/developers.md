@@ -31,8 +31,11 @@ docker compose -f docker-compose.mapnik.yml build \
     && docker compose -f docker-compose.mapnik.yml up -d
 ```
 
+## Versioning and release cycle
+
 To manually test bump a new semantic version:
 ```bash
+export GL_TOKEN=... # your gitlab access token
 semantic-release -vv --noop version
 semantic-release -vv --noop publish
 ```
