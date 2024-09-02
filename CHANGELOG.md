@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.19.0 (2024-08-29)
+## v0.20.0 (2024-09-02)
 
 ### Ci
 
@@ -8,7 +8,13 @@
 
 ### Documentation
 
-* docs: change collaboration default to false ([`bf39619`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/bf39619cb57269b779b1fb26b02656be1d18a9e3))
+* docs: change collaboration default to false ([`1a597e6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/1a597e600c6649b94656a32c2cb581646d7b5dfe))
+
+* docs: rename rstudio to r ([`30cf4bf`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/30cf4bfbcdcf88f9e00044281784f1e246b2ca0e))
+
+* docs: fix bullet list formatting ([`06629a6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/06629a6643cc0ab89b7686c31df92c18bdc0e467))
+
+* docs: add r packages list and reference ([`2bf0d76`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2bf0d76df95682a7b54c90e87438cb6845e42152))
 
 * docs: fix typo ([`f1499a4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f1499a4e1b3168c9c269d7c5eb12ea855ce8e4b5))
 
@@ -20,11 +26,15 @@
 
 ### Feature
 
+* feat: add several environment variables to disable extensions; optionally allow generating a TOKEN in addition to a password ([`a3c838a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a3c838a35656e7156450a060f7f1f938cb2f8e3a))
+
 * feat: add r mapping packages ([`c7b6af9`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/c7b6af9627d622ed9a0b95c0e3b459b1cb8ebcd5))
 
 ### Fix
 
-* fix: collaboration not working as expected ([`10a4131`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/10a4131584ed160cead77ce1b8e203a04ec8b3f2))
+* fix: jupyter collaboration update version to fix incomatible jupyter server ([`8883bf4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8883bf438eb31f6772bc56192e4ebae59e957cbb))
+
+* fix: collaboration not working as expected ([`2fdf540`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2fdf54083f286416a9d697b2a4adc68b5cabb779))
 
 * fix: deprecated notebook_dir
 
@@ -32,7 +42,9 @@ Fixes #5 ([`e9c216f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commi
 
 ### Unknown
 
-* Add collaborative env setting to docker-compose.yml ([`a2919b4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a2919b4a3a3460cc23e960dac8b89fe793190141))
+* Update collaborative in build, too ([`50bb9f7`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/50bb9f7edca9021bd6c2ded27b34ed475f3a4fd3))
+
+* Add collaborative env setting to docker-compose.yml ([`af489f2`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/af489f2c3ed6e90279d7202bc55069be9c83034f))
 
 ## v0.18.0 (2024-08-05)
 
