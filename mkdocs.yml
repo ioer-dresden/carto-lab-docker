@@ -42,6 +42,7 @@ nav:
         - R: r.md
         - Mapnik: mapnik.md
         - Tasks: use-cases.md
+        - Live Collaboration: collaboration.md
         - Example Notebooks: notebooks.md
         - Additional resources: resources.md
     - Developers:
