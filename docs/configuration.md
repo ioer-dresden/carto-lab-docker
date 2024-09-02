@@ -121,3 +121,37 @@ E.g. to start the Mapnik version by default:
 ```bash
 COMPOSE_FILE=docker-compose.mapnik.yml
 ```
+
+## Enable collaboration support
+
+This _also_ requires to set `DISABLE_JUPYTEXT=true`,
+as these extensions are not compatible.
+```bash
+COLLABORATIVE=true
+```
+
+## Disable jupytext extension
+
+```bash
+DISABLE_JUPYTEXT=true
+```
+
+## Disable jupyterlab-git extension
+
+```bash
+DISABLE_JUPYTERLAB-GIT=true
+```
+
+## Generate random token
+
+To generate random token on startup,
+in addition to the user password, set:
+```bash
+GENERATE_TOKEN=true
+```
+
+The token is exported as TOKEN variable
+and available with `echo $TOKEN` in the server.
+
+For signing into Jupyter Lab, you can then either use the token
+or the password.
