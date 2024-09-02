@@ -40,3 +40,6 @@ http://localhost:8888/?token=...
 # or
 https://myserver.example.com/?token=...
 ```
+
+You can also click the share button on the upper-right and share links to notebooks (including the token):
+![Sharing Link](/collab.webp)
