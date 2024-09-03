@@ -56,14 +56,14 @@ CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     jupyter lab --generate-config; \
     [[ "$JUPYTER_PASSWORD" ]] \
     && PW_HASH=$(python -c "from jupyter_server.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))") \
-    && echo "c.ServerApp.password=u'$PW_HASH'" >>$JUPYTER_CONFIG; \
+    && echo "c.ServerApp.password=u'$PW_HASH'" >>$JUPYTER_CONFIG; unset JUPYTER_PASSWORD; \
     [[ "$JUPYTER_WEBURL" ]] \
     && echo "c.ServerApp.custom_display_url=u'${JUPYTER_WEBURL}'" >>$JUPYTER_CONFIG \
     && echo "c.ServerApp.shutdown_no_activity_timeout=${JUPYTER_AUTOSHUTDOWN_TIMEOUT:-1800}" >>$JUPYTER_CONFIG \
     && echo "c.MappingKernelManager.cull_interval=600" >>$JUPYTER_CONFIG \
     && echo "c.MappingKernelManager.cull_idle_timeout=1800" >>$JUPYTER_CONFIG \
     && echo "c.ContentsManager.allow_hidden=True" >>$JUPYTER_CONFIG; \
-    if [ "${GENERATE_TOKEN}" = true ]; then export TOKEN=$(tr -dc 'A-Za-z0-9!?%=' < /dev/urandom | head -c 10);echo "c.ServerApp.token = u'$TOKEN'" >>$JUPYTER_CONFIG; fi; \
+    if [ "${GENERATE_TOKEN}" = true ]; then TOKEN=$(tr -dc 'A-Za-z0-9!?%=' < /dev/urandom | head -c 10);echo -e "c.ServerApp.token = u'$TOKEN'\nc.ServerApp.PasswordIdentityProvider.allow_password_change = False" >>$JUPYTER_CONFIG; fi; \
     if [ "${DISABLE_JUPYTEXT}" = true ]; then jupyter labextension disable jupyterlab-jupytext; fi; \
     if [ "${DISABLE_JUPYTERLAB-GIT}" = true ]; then jupyter labextension disable @jupyterlab/git; fi; \
     if [ "${DISABLE_JUPYTER-COLLABORATION}" = true ]; then jupyter labextension disable @jupyter/collaboration-extension; fi; \
