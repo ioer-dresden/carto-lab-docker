@@ -68,6 +68,54 @@ In your Apache configuration, you need to also proxypass websockets:
 
 This requires the Apache modules `proxy` and `wstunnel` to be enabled on the host.
 
+## Daily Restart
+
+Jupyter is commonly ment to be started for each session. which can be done through Jupyter Hub.
+
+For hosting a single Carto-Lab Docker instance, an alternative is to leave Jupyter running by default.
+In order to reset the system, add a cronjob to automatically restart the system on (e.g.) midnight.
+
+Set `cron.daily` to run at 1 am:
+```bash
+nano /etc/crontab
+```
+
+```cfg
+> 25 1    * * *   root    test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.daily; }
+```
+
+```bash
+sudo nano /etc/cron.daily/reset_jupyter
+```
+
+```bash
+#!/bin/sh
+
+# If started as root, then re-start as user "xxx":
+# xxx should be your user running the rootless docker with Carto-Lab Docker
+if [ "$(id -u)" -eq 0 ]; then
+    exec sudo -H -u xxx $0 "$@"
+    echo "This is never reached.";
+fi
+
+echo "This runs as user $(id -un)";
+# prints "xxx"
+
+# reset
+docker compose -f /srv/xxx/jupyterlab/docker-compose.yml down
+# docker compose -f /srv/xxx/jupyterlab/docker-compose.yml pull # optional pull new versions
+docker compose -f /srv/xxx/jupyterlab/docker-compose.yml up -d
+```
+
+```bash
+sudo chmod +x /etc/cron.daily/reset_jupyter
+```
+
+Test:
+```bash
+sudo bash /etc/cron.daily/reset_jupyter
+```
+
 ## Security
 
 Carto-Lab Docker is build to run as root. We want users to be able to fully modify the system
