@@ -70,5 +70,6 @@ CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     jupyter lab \
     --ip=0.0.0.0 \
     --allow-root \
+    --no-browser \
     ${COLLABORATIVE:+--collaborative} \
     --ServerApp.root_dir=/home/jovyan/work
