@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## v0.22.1 (2024-09-03)
+
+### Documentation
+
+* docs: add screenshot of link sharing in collaboration mode ([`7a8f959`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7a8f95983bc5b791507afe9aae32f6a5699c21c3))
+
+* docs: document the collaboration feature ([`2e0be22`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2e0be227635d93b6de62003c8ddacbbacb7e177c))
+
+* docs: add GL_TOKEN to release cycle ([`3a9896e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/3a9896e45bde89695d1fb28fe59a50da85709b73))
+
+* docs: update env variables ([`6f467c5`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6f467c5fdd86715f4737bb8806c05b6e137fb186))
+
+### Fix
+
+* fix: disable opening browser warning ([`b3d6c7a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/b3d6c7a69996c444ce94619e37b4e0ad14119290))
+
+### Unknown
+
+* sec: unset JUPYTER_PASSWORD env var after it is configured ([`5ef3449`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5ef34495b4616ac486c664b6a511cb85a6ccd69a))
+
 ## v0.22.0 (2024-09-02)
 
 ## v0.21.0 (2024-09-02)
