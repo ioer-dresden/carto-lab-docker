@@ -47,6 +47,6 @@ nav:
         - Additional resources: resources.md
     - Developers:
         - Configuration: configuration.md
-        - Use Cases: developers.md
+        - Tasks: developers.md
         - Changelog: changelog.md
     - About: about.md
