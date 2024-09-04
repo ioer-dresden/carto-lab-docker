@@ -116,6 +116,59 @@ Test:
 sudo bash /etc/cron.daily/reset_jupyter
 ```
 
+## Override login page
+
+If you want to style the welcome page differently, follow the steps below.
+
+First, copy the `login.html` from the docker container to an external folder.
+```bash
+docker cp lbsn-jupyterlab:/opt/conda/envs/jupyter_env/lib/python3.12/site-packages/jupyter_server/templates/login.html ~/
+```
+
+!!! note
+    The full path may change based on the current Python version (`python3.12`).
+
+Edit `login.html`. E.g. add some hints to the user logging in after the `<form>...</form>` element:
+```html
+...
+</form>
+<div style="text-align:left">
+   <br><br><br><br><br>
+   <h2 id='jupyterlab-fdz-test'>JupyterLab Test</h2>
+   <p>&nbsp;</p>
+   <p>Notes:</p>
+   <ul style="text-align:left">
+      <li>
+         <p><strong>Do not share your password</strong></p>
+      </li>
+      <li>
+         <p>Collaboration mode is available</p>
+      </li>
+      <li>
+         <p>The service is limited to the Intranet</p>
+      </li>
+      <li>
+         <p>The Jupyter Server will restart daily at midnight; </p>
+      </li>
+      <li>
+         <p>Anything outside the local home folder (<code>~/</code>) will be reset. </p>
+      </li>
+      <li>
+         <p>When you start JupyterLab, you will see your homefolder in the explorer on the left.</p>
+      </li>
+   </ul>
+</div>
+...
+```
+
+Edit the `docker-compose.yml` to override the `login.html`:
+```
+volumes:
+    - /path/to/login.html:/opt/conda/envs/jupyter_env/lib/python3.12/site-packages/jupyter_server/templates/login.html
+```
+
+Replace `/path/to/login.html` with the local path to your updated `login.html`.
+
 ## Security
 
 Carto-Lab Docker is build to run as root. We want users to be able to fully modify the system
