@@ -70,10 +70,25 @@ This requires the Apache modules `proxy` and `wstunnel` to be enabled on the hos
 
 ## Daily Restart
 
-Jupyter is commonly ment to be started for each session. which can be done through Jupyter Hub.
+Jupyter is usually meant to be started for each session, which can be done through Jupyter Hub.
 
 For hosting a single Carto-Lab Docker instance, an alternative is to leave Jupyter running by default.
-In order to reset the system, add a cronjob to automatically restart the system on (e.g.) midnight.
+
+We can do this by adding the following parameter to the `docker-compose.yml`:
+```
+services:
+  jupyterlab:
+    ...
+    environment:
+      - JUPYTER_AUTOSHUTDOWN_TIMEOUT=0
+```
+
+This will prevent auto-shutdown of the Jupyter server if no kernels are active.
+
+Resetting the system is still useful, e.g. to create new tokens for collaboration mode or to
+reset any user changes to the system.
+
+To reset the system, add a cronjob to automatically restart the system at (e.g.) midnight.
 
 Set `cron.daily` to run at 1 am:
 ```bash
