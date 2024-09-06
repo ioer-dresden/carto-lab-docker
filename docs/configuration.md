@@ -139,7 +139,7 @@ DISABLE_JUPYTEXT=true
 ## Disable jupyterlab-git extension
 
 ```bash
-DISABLE_JUPYTERLAB-GIT=true
+DISABLE_JUPYTERLAB_GIT=true
 ```
 
 ## Generate random token
