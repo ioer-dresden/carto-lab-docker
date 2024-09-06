@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.22.2 (2024-09-06)
+
+### Fix
+
+* fix: collaboration mode turned off by default ([`1594da8`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/1594da856402effb18db1ccafefc4448fd3390c6))
+
 ## v0.22.1 (2024-09-03)
 
 ### Documentation
