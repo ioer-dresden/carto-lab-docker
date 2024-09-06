@@ -63,10 +63,10 @@ CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     && echo "c.MappingKernelManager.cull_interval=600" >>$JUPYTER_CONFIG \
     && echo "c.MappingKernelManager.cull_idle_timeout=1800" >>$JUPYTER_CONFIG \
     && echo "c.ContentsManager.allow_hidden=True" >>$JUPYTER_CONFIG; \
-    if [ "${GENERATE_TOKEN}" = true ]; then TOKEN=$(tr -dc 'A-Za-z0-9!?%=' < /dev/urandom | head -c 10);echo -e "c.ServerApp.token = u'$TOKEN'\nc.ServerApp.PasswordIdentityProvider.allow_password_change = False" >>$JUPYTER_CONFIG; fi; \
-    if [ "${DISABLE_JUPYTEXT}" = true ]; then jupyter labextension disable jupyterlab-jupytext; fi; \
-    if [ "${DISABLE_JUPYTERLAB-GIT}" = true ]; then jupyter labextension disable @jupyterlab/git; fi; \
-    if [ "${DISABLE_JUPYTER-COLLABORATION}" = true ]; then jupyter labextension disable @jupyter/collaboration-extension; fi; \
+    if [[ "${GENERATE_TOKEN}" = true ]]; then TOKEN=$(tr -dc 'A-Za-z0-9!?%=' < /dev/urandom | head -c 10);echo -e "c.ServerApp.token = u'$TOKEN'\nc.ServerApp.PasswordIdentityProvider.allow_password_change = False" >>$JUPYTER_CONFIG; fi; \
+    if [[ "${DISABLE_JUPYTEXT}" = true ]]; then jupyter labextension disable jupyterlab-jupytext; fi; \
+    if [[ "${DISABLE_JUPYTERLAB_GIT}" = true ]]; then jupyter labextension disable @jupyterlab/git; fi; \
+    if [[ "${DISABLE_JUPYTER-COLLABORATION}" = true ]] || [[ -z "$DISABLE_JUPYTEXT" ]]; then jupyter labextension disable @jupyter/collaboration-extension; fi; \
     jupyter lab \
     --ip=0.0.0.0 \
     --allow-root \
