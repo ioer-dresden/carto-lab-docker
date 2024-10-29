@@ -41,6 +41,7 @@ nav:
         - Python: python.md
         - R: r.md
         - Mapnik: mapnik.md
+        - Grass: grass.md
         - Tasks: use-cases.md
         - Live Collaboration: collaboration.md
         - Example Notebooks: notebooks.md

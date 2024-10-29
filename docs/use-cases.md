@@ -9,7 +9,13 @@
 If you need to change/update packages in `worker_env`, you have two main options:
 
 ### 1. Temporary package installs
-  
+
+The easiest way is to write a temporary package install to the base `worker_env` directly in a jupyter cell:
+```bash
+!/opt/conda/envs/worker_env/bin/python -m pip install geoplot alphashape
+```
+
+You can also use the terminal and install additional packages with conda:  
 * open a terminal in Jupyter Lab, type `bash`
 * type `conda activate worker_env`
 * install your dependencies (e.g. `conda install hdbscan`)
