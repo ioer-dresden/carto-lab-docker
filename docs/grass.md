@@ -22,6 +22,11 @@ docker compose -f docker-compose.grass.yml build \
     && docker compose -f docker-compose.grass.yml up -d
 ```
 
+Optionally push to a registry:
+```bash
+docker compose -f docker-compose.grass.yml push
+```
+
 ## Run the image
 
 Run:
