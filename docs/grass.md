@@ -28,3 +28,7 @@ Run:
 ```bash
 docker compose -f docker-compose.grass.yml up -d
 ```
+
+## Example Jupyter notebook
+
+See [this](https://alexanderdunkel.com/01_viewshedanalysis.html) Jupyter notebook for an example to working with GRASS Gis in Carto-Lab Docker (a viewshed analsis).
