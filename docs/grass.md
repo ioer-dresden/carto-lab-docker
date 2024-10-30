@@ -3,7 +3,7 @@
 If you want to use [GRASS GIS](https://grass.osgeo.org/) together with its jupyter companion ([grass.jupyter package](https://grass.osgeo.org/grass83/manuals/libpython/grass.jupyter.html)), we prepared a `Dockerfile` for you. The image extends the base image. 
 
 
-We only occationally push images for the GRASS tag to our registry (`https://registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:grass`). If you want the latest versions, you must built the image yourself.
+We occasionally push docker images for the GRASS tag to our registry (`https://registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:grass`). If you want the latest or specific versions, you have to build the image yourself.
 
 Use the following `docker-compose.grass.yml`:
 ```yaml
@@ -39,4 +39,4 @@ docker compose -f docker-compose.grass.yml up -d
 
 ## Example Jupyter notebook
 
-See [this](https://alexanderdunkel.com/01_viewshedanalysis.html) Jupyter notebook for an example to working with GRASS Gis in Carto-Lab Docker (a viewshed analsis).
+See [this](https://alexanderdunkel.com/01_viewshedanalysis.html) Jupyter notebook for an example of working with GRASS Gis in Carto-Lab Docker (a viewshed analysis).
