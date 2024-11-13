@@ -1,10 +1,36 @@
 # CHANGELOG
 
-## v0.22.2 (2024-09-06)
+## v0.23.0 (2024-11-13)
+
+### Documentation
+
+* docs: add grass gis jupyter example notebook ([`6f3a8f4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6f3a8f494742ad19fbc876cf49573a5f1bfdcb31))
+
+* docs: add grass gis example ([`bc48a80`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/bc48a8084ec0954618d4376657694aab98ab6d10))
+
+* docs: minor rephrasing ([`cf1fd24`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/cf1fd241a3b7502099f9dede5cc6fef93b423da7))
+
+* docs: rename use cases to &#39;tasks&#39; ([`4577b64`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/4577b64a4643a8e17e00ed06800f1e664d31c69f))
+
+* docs: add steps to override welcome page ([`71728e3`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/71728e3b66d7a266b02d58446d487f41986c831b))
+
+* docs: improve description of collaboration mode ([`5f24797`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5f24797ffb8ed3bceb2d3e6edc05e750e2b145a9))
+
+### Feature
+
+* feat: add grass gis docker-compose.yml ([`0f255bf`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0f255bff01dc0a9ce2d1fe25b0bb22724edc3aa9))
 
 ### Fix
 
-* fix: collaboration mode turned off by default ([`1594da8`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/1594da856402effb18db1ccafefc4448fd3390c6))
+* fix: grass image tag ([`15186a6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/15186a66d1c96f01b3a3ddadce8ffd573bac74e9))
+
+* fix: grass compose tag ([`a8f4153`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a8f4153b2c61b351ef721f4b3b501ee51619f9fe))
+
+* fix: collaboration mode turned off by default ([`5f5b3eb`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5f5b3eb16d88bb8cc440d233985b8511e452d748))
+
+### Unknown
+
+* Update grass.md ([`2660aaf`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2660aaf1d3f0336c268024e7f640b01ee139da2e))
 
 ## v0.22.1 (2024-09-03)
 
