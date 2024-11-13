@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.23.2 (2024-11-13)
+
+### Fix
+
+* fix: collaboration mode upstream bug ([`12aa393`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/12aa3932e8dbce514c7226fe517e1a66020cabcf))
+
 ## v0.23.1 (2024-11-13)
 
 ### Fix
