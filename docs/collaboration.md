@@ -1,6 +1,6 @@
 # Live Collaboration
 
-The collaboration mode in Jupyter allows you to share your session to code together with (e.g.) colleagues. Collaboration mode is supported as of Carto-Lab Docker version `0.22.1`.
+The collaboration mode in Jupyter allows you to share your session to code together with (e.g.) colleagues. Collaboration mode is supported as of Carto-Lab Docker version `0.23.0`.
 
 <video class="content bg" style="object-fit: cover;height: 100%;width: 100%;left: -10%;top:-10%;border: 1px solid rgba(0,0,0,0.25);" aria-hidden="true" playsinline="" autoplay="" muted="" loop="" id="collaborationvideo"> 
 <source src="/collaboration.webm" type="video/webm"></video><br>
