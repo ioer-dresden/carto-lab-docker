@@ -37,7 +37,7 @@ RUN conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME --quiet  \
 # disable announcements and collaboration featuire by default
 # https://jupyterlab.readthedocs.io/en/stable/user/announcements.html
 RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
-    jupyter labextension disable \
+    jupyter labextension disable --level=system \
     "@jupyterlab/apputils-extension:announcements"
     # jupyter labextension disable \
     # "@jupyter/collaboration-extension"
