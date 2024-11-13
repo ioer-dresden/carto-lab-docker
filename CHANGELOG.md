@@ -1,20 +1,12 @@
 # CHANGELOG
 
-## v0.23.2 (2024-11-13)
-
-### Fix
-
-* fix: collaboration mode upstream bug ([`12aa393`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/12aa3932e8dbce514c7226fe517e1a66020cabcf))
-
-## v0.23.1 (2024-11-13)
-
-### Fix
-
-* fix: collaboration mode upstream bug ([`442c294`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/442c2947547024627046a5d04e1eedb4393bc55c))
-
-## v0.23.0 (2024-11-13)
+## v0.24.0 (2024-11-13)
 
 ### Documentation
+
+* docs: fix typos ([`cd79995`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/cd79995f5b9979f98370b71773edd9463d114b29))
+
+* docs: update grass image tag ([`0b5b79e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0b5b79e81016ff0c50af08dcab42cf2ba794aa35))
 
 * docs: add grass gis jupyter example notebook ([`6f3a8f4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6f3a8f494742ad19fbc876cf49573a5f1bfdcb31))
 
@@ -33,6 +25,14 @@
 * feat: add grass gis docker-compose.yml ([`0f255bf`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0f255bff01dc0a9ce2d1fe25b0bb22724edc3aa9))
 
 ### Fix
+
+* fix: collaboration mode upstream bug #2 ([`32fe030`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/32fe03029fbecf08b97dfa697dd02203d3c47969))
+
+* fix: collaboration mode upstream bug ([`bc6107d`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/bc6107deb5f5a778fffe2656dd848308dea4003d))
+
+* fix: collaboration mode upstream bug ([`7a31b01`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7a31b014965f66a55f1fa93ea5ea8fcd96528078))
+
+* fix: collaboration mode upstream bug ([`561fd98`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/561fd987585462d8b037253e3e3f683214f8de77))
 
 * fix: grass image tag ([`15186a6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/15186a66d1c96f01b3a3ddadce8ffd573bac74e9))
 
