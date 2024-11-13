@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.24.1 (2024-11-13)
+
+### Fix
+
+* fix: PasswordIdentityProvider in favor of deprecated ServerApp ([`1649afe`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/1649afe8a509abad75ca4d213eb6dc860ad77202))
+
 ## v0.24.0 (2024-11-13)
 
 ### Documentation
