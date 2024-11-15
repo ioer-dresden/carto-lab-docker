@@ -124,17 +124,27 @@ COMPOSE_FILE=docker-compose.mapnik.yml
 
 ## Enable collaboration support
 
-This _also_ requires to set `DISABLE_JUPYTEXT=true`,
-as these extensions are not compatible.
+This _also_ requires that `DISABLE_JUPYTEXT=true` is set,
+as these extensions are incompatible.
 ```bash
 COLLABORATIVE=true
 ```
+
+Live collaboration has been successfully tested 
+starting with Carto-Lab Docker 24.1.
 
 ## Disable jupytext extension
 
 ```bash
 DISABLE_JUPYTEXT=true
 ```
+
+!!! note
+    At the moment, disabling jupytext means that the extension will
+    be uninstalled on runtime using conda. In our tests, simply disabling
+    jupytext was not enough to solve the conflicts with the live
+    collaboration extension. This means that setting `DISABLE_JUPYTEXT=true`
+    can increase the startup time of Carto-Lab Docker.
 
 ## Disable jupyterlab-git extension
 
@@ -155,3 +165,17 @@ and available with `echo $TOKEN` in the server.
 
 For signing into Jupyter Lab, you can then either use the token
 or the password.
+
+## Set Autoshutdown timeout
+
+The default for Carto-Lab Docker is to shutdown automatically after 30 Minutes,
+if no notebook kernels are running.
+
+This can be adjusted with the following:
+```bash
+JUPYTER_AUTOSHUTDOWN_TIMEOUT=1800
+```
+
+!!! note
+    To disable auto-shutdown, set `JUPYTER_AUTOSHUTDOWN_TIMEOUT=0`.
+
