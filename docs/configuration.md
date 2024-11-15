@@ -124,6 +124,9 @@ COMPOSE_FILE=docker-compose.mapnik.yml
 
 ## Enable collaboration support
 
+Setting `COLLABORATIVE=true` will start the Jupyter server with the `--collaborative` flag,
+which activates [live collaboration feature](/collaboration).
+
 This _also_ requires that `DISABLE_JUPYTEXT=true` is set,
 as these extensions are incompatible.
 ```bash
@@ -132,6 +135,21 @@ COLLABORATIVE=true
 
 Live collaboration has been successfully tested 
 starting with Carto-Lab Docker 24.1.
+
+The default is `false`. However, the extension is still installed and activated.
+If you want to explicitly deactivate the live collaboration extension, see 
+`DISABLE_JUPYTER-COLLABORATION`.
+
+## Disable live collaboration extension
+
+To explicitly disable the live collaboration extension, set:
+```bash
+DISABLE_JUPYTER-COLLABORATION=true
+```
+
+!!! note
+    This _also_ requires not setting `COLLABORATIVE=true`, as the `--collaborative` flag
+    does not work with the collaboration extension disabled.
 
 ## Disable jupytext extension
 
