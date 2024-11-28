@@ -18,6 +18,7 @@ The collaboration mode in Jupyter allows you to share your session to code toget
         Jupytext{".env: <br>DISABLE_JUPYTEXT"} --> false_text{"false <br>(default)"}
         true_text --> disable_jupytext{"Uninstall Jupytext"}
     ```
+
 <video class="content bg" style="object-fit: cover;height: 100%;width: 100%;left: -10%;top:-10%;border: 1px solid rgba(0,0,0,0.25);" aria-hidden="true" playsinline="" autoplay="" muted="" loop="" id="collaborationvideo"> 
 <source src="/collaboration.webm" type="video/webm"></video><br>
 
