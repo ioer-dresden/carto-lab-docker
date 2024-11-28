@@ -4,7 +4,7 @@ The collaboration mode in Jupyter allows you to share your session to code toget
 
 !!! note
     The latest Jupyter Real Time Collaboration (RTC) is incompatible with the `Jupytext` extension. Before [several issues are fixed](https://github.com/jupyterlab/jupyter-collaboration/issues/214#issuecomment-2493145137), disabling collaboration mode is not enough.
-    It needs to be uninstalled. Carto-Lab Docker will uninstall collaboration if either `DISABLE_JUPYTER_COLLABORATION` is set to `true` or `DISABLE_JUPYTEXT` is unset.
+    It needs to be uninstalled. Carto-Lab Docker will uninstall jupytext if either `COLLABORATIVE` is set to `true` or `DISABLE_JUPYTEXT` is `true`.
     
     See the [configuration section](/configuration/#enable-collaboration-support).
 
