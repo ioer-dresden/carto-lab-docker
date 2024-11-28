@@ -141,26 +141,16 @@ starting with Carto-Lab Docker 24.1.
 This is the decision tree:
 
 ```mermaid
-%%{init: { 'theme':'forest', 'securityLevel': 'loose', 'sequence': {'useMaxWidth':false} } }%%
+ %%{init: { 'theme':'forest', 'securityLevel': 'loose', 'sequence': {'useMaxWidth':false} } }%%
 graph TD
     Collaboration{".env: <br>COLLABORATIVE"} --> true
     Collaboration{".env: <br>COLLABORATIVE"} --> false{"false <br>(default)"}
+    true --> enable_colab{"Install RTC Extension"}
     true --> disable_jupytext{"Uninstall Jupytext"}
     Jupytext{".env: <br>DISABLE_JUPYTEXT"} --> true_text{"true"}
     Jupytext{".env: <br>DISABLE_JUPYTEXT"} --> false_text{"false <br>(default)"}
     true_text --> disable_jupytext{"Uninstall Jupytext"}
 ```
-
-## Disable live collaboration extension
-
-To explicitly disable the live collaboration extension, set:
-```bash
-DISABLE_JUPYTER-COLLABORATION=true
-```
-
-!!! note
-    This _also_ requires not setting `COLLABORATIVE=true`, as the `--collaborative` flag
-    does not work with the collaboration extension disabled.
 
 ## Disable jupytext extension
 
