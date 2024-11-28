@@ -1,7 +1,23 @@
 # Live Collaboration
 
-The collaboration mode in Jupyter allows you to share your session to code together with (e.g.) colleagues. Collaboration mode is supported as of Carto-Lab Docker version `0.24.1`.
+The collaboration mode in Jupyter allows you to share your session to code together with (e.g.) colleagues. Collaboration mode is supported as of Carto-Lab Docker version `0.24.1`. Its is opt-in and must be enabled with the flag `COLLABORATIVE=true` in your Docker `.env`.
 
+!!! note
+    The latest Jupyter Real Time Collaboration (RTC) is incompatible with the `Jupytext` extension. Before [several issues are fixed](https://github.com/jupyterlab/jupyter-collaboration/issues/214#issuecomment-2493145137), disabling collaboration mode is not enough.
+    It needs to be uninstalled. Carto-Lab Docker will uninstall collaboration if either `DISABLE_JUPYTER_COLLABORATION` is set to `true` or `DISABLE_JUPYTEXT` is unset.
+    
+    This is the decision tree:
+    
+    ```mermaid
+    %%{init: { 'theme':'forest', 'securityLevel': 'loose', 'sequence': {'useMaxWidth':false} } }%%
+    graph TD
+        Collaboration{".env: <br>COLLABORATIVE"} --> true
+        Collaboration{".env: <br>COLLABORATIVE"} --> false{"false <br>(default)"}
+        true --> disable_jupytext{"Uninstall Jupytext"}
+        Jupytext{".env: <br>DISABLE_JUPYTEXT"} --> true_text{"true"}
+        Jupytext{".env: <br>DISABLE_JUPYTEXT"} --> false_text{"false <br>(default)"}
+        true_text --> disable_jupytext{"Uninstall Jupytext"}
+    ```
 <video class="content bg" style="object-fit: cover;height: 100%;width: 100%;left: -10%;top:-10%;border: 1px solid rgba(0,0,0,0.25);" aria-hidden="true" playsinline="" autoplay="" muted="" loop="" id="collaborationvideo"> 
 <source src="/collaboration.webm" type="video/webm"></video><br>
 
