@@ -1,6 +1,6 @@
 # Live Collaboration
 
-The collaboration mode in Jupyter allows you to share your session to code together with (e.g.) colleagues. Collaboration mode is supported as of Carto-Lab Docker version `0.24.1`. Its is opt-in and must be enabled with the flag `COLLABORATIVE=true` in your Docker `.env`.
+The collaboration mode in Jupyter allows you to share your session to code together with (e.g.) colleagues. Collaboration mode is supported as of Carto-Lab Docker version `0.24.1`. Collaborative mode in Carto-Lab is opt-in and must be enabled with the flag `COLLABORATIVE=true` in your Docker `.env`.
 
 !!! note
     The latest Jupyter Real Time Collaboration (RTC) is incompatible with the `Jupytext` extension. Before [several issues are fixed](https://github.com/jupyterlab/jupyter-collaboration/issues/214#issuecomment-2493145137), disabling collaboration mode is not enough.
