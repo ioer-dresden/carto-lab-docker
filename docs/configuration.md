@@ -141,7 +141,7 @@ starting with Carto-Lab Docker 24.1.
 This is the decision tree:
 
 ```mermaid
- %%{init: { 'theme':'forest', 'securityLevel': 'loose', 'sequence': {'useMaxWidth':false} } }%%
+%%{init: { 'theme':'forest', 'securityLevel': 'loose', 'sequence': {'useMaxWidth':false} } }%%
 graph TD
     Collaboration{".env: <br>COLLABORATIVE"} --> true
     Collaboration{".env: <br>COLLABORATIVE"} --> false{"false <br>(default)"}
