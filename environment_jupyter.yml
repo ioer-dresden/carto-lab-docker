@@ -7,9 +7,13 @@ dependencies:
   - pip
   - notebook<7.0.0 # pin until https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator/issues/165 is solved
   - jupyterlab>=4
-  - jupyter-collaboration>=2.1.2
+  # - jupyter-collaboration>=2.1.2
   - jupyterlab-git
-  # - jupyterlab-git
+  - jupyterlab-lsp
+  - python-lsp-server
+  - r-languageserver
+  - pyright
+  - nodejs # needed for pyright
   - jupytext
   - jupyterlab_widgets
   - nbconvert
