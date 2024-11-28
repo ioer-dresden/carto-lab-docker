@@ -99,7 +99,7 @@ artifacts:
 
 mkdocs:
   stage: mkdocs
-  image: registry.gitlab.vgiscience.org/tud_ifk/alpine-mkdocs
+  image: registry.gitlab.vgiscience.org/tools/mkdocs:0.1.0
   script:
     # build docs
     - mkdocs build
