@@ -13,7 +13,7 @@ The collaboration mode in Jupyter allows you to share your session to code toget
 
 ## Authentication
 
-The common use case is in live collaboration Jupyter Hub sessions. If you are serving a single-user Jupyter Lab server under a static domain or on `localhost`,
+The common use case for live collaboration is in shared Jupyter sessions. If you are serving a single-user Jupyter Lab server under a static domain or on `localhost`,
 a token can be shared with guests. The token should be regularly updated. Carto-Lab will generate a random token on startup if `GENERATE_TOKEN=true` is set.
 
 !!! warning
