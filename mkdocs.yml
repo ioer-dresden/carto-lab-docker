@@ -43,12 +43,13 @@ nav:
         - R: r.md
         - Mapnik: mapnik.md
         - Grass: grass.md
-        - Tasks: use-cases.md
+        - User Workflows: use-cases.md
         - Live Collaboration: collaboration.md
         - Example Notebooks: notebooks.md
         - Additional resources: resources.md
     - Developers:
         - Configuration: configuration.md
-        - Tasks: developers.md
+        - Developer Workflows: developers.md
+        - Compatibility Matrix: matrix.md
         - Changelog: changelog.md
     - About: about.md
