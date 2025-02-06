@@ -38,9 +38,9 @@ RUN conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME --quiet  \
 # https://jupyterlab.readthedocs.io/en/stable/user/announcements.html
 RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     jupyter labextension disable --level=system \
-    "@jupyterlab/apputils-extension:announcements"
-    # jupyter labextension disable \
-    # "@jupyter/collaboration-extension"
+    "@jupyterlab/apputils-extension:announcements"; \
+    jupyter labextension disable \
+    "@jupyter/collaboration-extension"
 
 # fix proj env missing
 RUN sed -i '/"display_name": "worker_env",/a "env":{"PROJ_LIB": "/opt/conda/envs/worker_env/share/proj"},' \
@@ -64,15 +64,15 @@ CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     && echo "c.MappingKernelManager.cull_idle_timeout=1800" >>$JUPYTER_CONFIG \
     && echo "c.ContentsManager.allow_hidden=True" >>$JUPYTER_CONFIG; \
     if [[ "${GENERATE_TOKEN}" = true ]]; then TOKEN=$(tr -dc 'A-Za-z0-9!?%=' < /dev/urandom | head -c 10);echo -e "c.IdentityProvider.token = u'$TOKEN'\nc.PasswordIdentityProvider.allow_password_change = False" >>$JUPYTER_CONFIG; fi; \
-    if [[ "${DISABLE_JUPYTEXT}" = true ]] || [[ "${COLLABORATIVE}" = true ]]; then echo "Uninstalling jupytext for RTC/Live Collaboration incompatibility"; conda uninstall jupytext -c conda-forge -y; fi; \
+    if [[ "${DISABLE_JUPYTEXT}" = true ]]; then echo "Disabling jupytext extension"; jupyter labextension disable jupyterlab-jupytext; fi; \    
     if [[ "${DISABLE_JUPYTERLAB_GIT}" = true ]]; then echo "Disabling jupyterlab git extension"; jupyter labextension disable @jupyterlab/git; fi; \
-    if [[ "${COLLABORATIVE}" = true ]]; then echo "Installing RTC/Live Collaboration"; conda install jupyter-collaboration -c conda-forge -y; fi; \
+    if [[ "${COLLABORATIVE}" = true ]]; then echo "Enabling RTC/Live Collaboration"; jupyter labextension enable @jupyter/collaboration-extension; fi; \
     jupyter lab \
     --ip=0.0.0.0 \
     --allow-root \
     --no-browser \
+    # --debug \
     # for posix parameter expansion, see
     # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02
-    # ${DIS_COLAB+--YDocExtension.disable_rtc=True} \
-    # --YDocExtension.disable_rtc=True \
+    ${COLLABORATIVE:+--YDocExtension.disable_rtc=True} \
     --ServerApp.root_dir=/home/jovyan/work
