@@ -1,25 +1,53 @@
 # CHANGELOG
 
 
-## v0.24.2 (2024-11-28)
+## v0.25.0 (2025-02-06)
 
 ### Bug Fixes
-
-- Disable jupyter real time collaboration (RTC) extension by default
-  ([`3a089ef`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/3a089efbd9606a4a99f19d80c3cb970451f6f03c))
 
 - Announcement appearing again, despite config
   ([`1d50ae0`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/1d50ae0a6361febade872ea7eea503e98ccdbf84))
 
 See: https://github.com/jupyterlab/jupyterlab/issues/14065#issuecomment-2132474538
 
+- Dask not compatible with latest Bokeh
+  ([`177dc0a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/177dc0a4aa4a33c29cae10e8dfe1db486aa38c51))
+
+- Disable jupyter real time collaboration (RTC) extension by default
+  ([`ff4cbdb`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/ff4cbdb3bd128c4aa80ffec5363ea32494d4c62d))
+
+### Continuous Integration
+
+- Enable mermaid plugin
+  ([`66064f6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/66064f663d108df4d73f8caddfd1742000b05b6b))
+
+- Use explicit mkdocs registry version tag; add mermaid
+  ([`9db3c60`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/9db3c604006ef7c48730420543fa4a1e7fe7897c))
+
 ### Documentation
+
+- Add compatibility matrix
+  ([`20e3aa7`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/20e3aa70e224fb1f9b9ac52d224528d678fde0cc))
 
 - Add missing parameters, update note for jupytext
   ([`96799a7`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/96799a7b6fc7af7d8c6ad2418af75514e6d07e0f))
 
+- Clarify difference between COLLABORATIVE and DISABLE_JUPYTER-COLLABORATION flags
+  ([`a711178`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a711178559eb0675d638b5ea8258cb32e20a3892))
+
 - Collaboration mode working tested as of 0.24.1
   ([`b12c541`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/b12c54141b511c1720e2eaa0b3a5cc5298eae605))
+
+- Improve description of collaboration mode and jupytext incompatibility
+  ([`f5f9ea9`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f5f9ea9327322f09d2f1b16eae09f8845de394d1))
+
+### Features
+
+- Allow RTC, collaboration and git-extension to be enabled alongside each other
+  ([`c15e96c`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/c15e96c2e2e888617be551af8711f0da3f9e11f9))
+
+- Pin jupyterlab 4.4.0a3 and latest (beta) RTC package
+  ([`ddf229c`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/ddf229cfcdca188e003a6723b59a35d69f46230b))
 
 ### Refactoring
 
@@ -39,8 +67,8 @@ See: https://github.com/jupyterlab/jupyterlab/issues/14065#issuecomment-21324745
 
 ### Bug Fixes
 
-- Collaboration mode upstream bug #2
-  ([`32fe030`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/32fe03029fbecf08b97dfa697dd02203d3c47969))
+- Collaboration mode turned off by default
+  ([`5f5b3eb`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5f5b3eb16d88bb8cc440d233985b8511e452d748))
 
 - Collaboration mode upstream bug
   ([`bc6107d`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/bc6107deb5f5a778fffe2656dd848308dea4003d))
@@ -51,28 +79,31 @@ See: https://github.com/jupyterlab/jupyterlab/issues/14065#issuecomment-21324745
 - Collaboration mode upstream bug
   ([`561fd98`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/561fd987585462d8b037253e3e3f683214f8de77))
 
-- Grass image tag
-  ([`15186a6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/15186a66d1c96f01b3a3ddadce8ffd573bac74e9))
+- Collaboration mode upstream bug #2
+  ([`32fe030`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/32fe03029fbecf08b97dfa697dd02203d3c47969))
 
 - Grass compose tag
   ([`a8f4153`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a8f4153b2c61b351ef721f4b3b501ee51619f9fe))
 
-- Collaboration mode turned off by default
-  ([`5f5b3eb`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5f5b3eb16d88bb8cc440d233985b8511e452d748))
+- Grass image tag
+  ([`15186a6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/15186a66d1c96f01b3a3ddadce8ffd573bac74e9))
 
 ### Documentation
 
-- Fix typos
-  ([`cd79995`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/cd79995f5b9979f98370b71773edd9463d114b29))
-
-- Update grass image tag
-  ([`0b5b79e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0b5b79e81016ff0c50af08dcab42cf2ba794aa35))
+- Add grass gis example
+  ([`bc48a80`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/bc48a8084ec0954618d4376657694aab98ab6d10))
 
 - Add grass gis jupyter example notebook
   ([`6f3a8f4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6f3a8f494742ad19fbc876cf49573a5f1bfdcb31))
 
-- Add grass gis example
-  ([`bc48a80`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/bc48a8084ec0954618d4376657694aab98ab6d10))
+- Add steps to override welcome page
+  ([`71728e3`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/71728e3b66d7a266b02d58446d487f41986c831b))
+
+- Fix typos
+  ([`cd79995`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/cd79995f5b9979f98370b71773edd9463d114b29))
+
+- Improve description of collaboration mode
+  ([`5f24797`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5f24797ffb8ed3bceb2d3e6edc05e750e2b145a9))
 
 - Minor rephrasing
   ([`cf1fd24`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/cf1fd241a3b7502099f9dede5cc6fef93b423da7))
@@ -80,11 +111,8 @@ See: https://github.com/jupyterlab/jupyterlab/issues/14065#issuecomment-21324745
 - Rename use cases to 'tasks'
   ([`4577b64`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/4577b64a4643a8e17e00ed06800f1e664d31c69f))
 
-- Add steps to override welcome page
-  ([`71728e3`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/71728e3b66d7a266b02d58446d487f41986c831b))
-
-- Improve description of collaboration mode
-  ([`5f24797`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5f24797ffb8ed3bceb2d3e6edc05e750e2b145a9))
+- Update grass image tag
+  ([`0b5b79e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0b5b79e81016ff0c50af08dcab42cf2ba794aa35))
 
 ### Features
 
@@ -101,14 +129,14 @@ See: https://github.com/jupyterlab/jupyterlab/issues/14065#issuecomment-21324745
 
 ### Documentation
 
+- Add GL_TOKEN to release cycle
+  ([`3a9896e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/3a9896e45bde89695d1fb28fe59a50da85709b73))
+
 - Add screenshot of link sharing in collaboration mode
   ([`7a8f959`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7a8f95983bc5b791507afe9aae32f6a5699c21c3))
 
 - Document the collaboration feature
   ([`2e0be22`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2e0be227635d93b6de62003c8ddacbbacb7e177c))
-
-- Add GL_TOKEN to release cycle
-  ([`3a9896e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/3a9896e45bde89695d1fb28fe59a50da85709b73))
 
 - Update env variables
   ([`6f467c5`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6f467c5fdd86715f4737bb8806c05b6e137fb186))
@@ -124,9 +152,6 @@ See: https://github.com/jupyterlab/jupyterlab/issues/14065#issuecomment-21324745
 
 ### Bug Fixes
 
-- Jupyter collaboration update version to fix incomatible jupyter server
-  ([`8883bf4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8883bf438eb31f6772bc56192e4ebae59e957cbb))
-
 - Collaboration not working as expected
   ([`2fdf540`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2fdf54083f286416a9d697b2a4adc68b5cabb779))
 
@@ -135,6 +160,9 @@ See: https://github.com/jupyterlab/jupyterlab/issues/14065#issuecomment-21324745
 
 Fixes #5
 
+- Jupyter collaboration update version to fix incomatible jupyter server
+  ([`8883bf4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8883bf438eb31f6772bc56192e4ebae59e957cbb))
+
 ### Continuous Integration
 
 - Fix images not building
@@ -142,38 +170,38 @@ Fixes #5
 
 ### Documentation
 
-- Change collaboration default to false
-  ([`1a597e6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/1a597e600c6649b94656a32c2cb581646d7b5dfe))
-
-- Rename rstudio to r
-  ([`30cf4bf`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/30cf4bfbcdcf88f9e00044281784f1e246b2ca0e))
-
-- Fix bullet list formatting
-  ([`06629a6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/06629a6643cc0ab89b7686c31df92c18bdc0e467))
+- Add instructions for different versions
+  ([`b743c44`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/b743c4496904d7caa28a0b7691bd51a8601afca9))
 
 - Add r packages list and reference
   ([`2bf0d76`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2bf0d76df95682a7b54c90e87438cb6845e42152))
 
-- Fix typo
-  ([`f1499a4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f1499a4e1b3168c9c269d7c5eb12ea855ce8e4b5))
+- Change collaboration default to false
+  ([`1a597e6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/1a597e600c6649b94656a32c2cb581646d7b5dfe))
+
+- Fix bullet list formatting
+  ([`06629a6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/06629a6643cc0ab89b7686c31df92c18bdc0e467))
 
 - Fix rstudio yml reference
   ([`abdfcdd`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/abdfcdd8dd350dd12d473b1921da68dabce494ab))
 
+- Fix typo
+  ([`f1499a4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f1499a4e1b3168c9c269d7c5eb12ea855ce8e4b5))
+
+- Rename rstudio to r
+  ([`30cf4bf`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/30cf4bfbcdcf88f9e00044281784f1e246b2ca0e))
+
 - Update TOC§
   ([`9ea9daf`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/9ea9dafb5e0a5331ab95156ee385ff1d50cd38a2))
 
-- Add instructions for different versions
-  ([`b743c44`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/b743c4496904d7caa28a0b7691bd51a8601afca9))
-
 ### Features
+
+- Add r mapping packages
+  ([`c7b6af9`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/c7b6af9627d622ed9a0b95c0e3b459b1cb8ebcd5))
 
 - Add several environment variables to disable extensions; optionally allow generating a TOKEN in
   addition to a password
   ([`a3c838a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a3c838a35656e7156450a060f7f1f938cb2f8e3a))
-
-- Add r mapping packages
-  ([`c7b6af9`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/c7b6af9627d622ed9a0b95c0e3b459b1cb8ebcd5))
 
 
 ## v0.18.0 (2024-08-05)
@@ -191,25 +219,25 @@ Fixes #5
 - Add rstudio build
   ([`1e3fe39`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/1e3fe39215696ef8df7b21ed866478c3dfd59be5))
 
-- Remove manual trigger, as it does not work as intended
-  ([`7804a88`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7804a88980923013444bcb1f416299942f531276))
+- Build docker images when manual pipeline trigged
+  ([`faf43c9`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/faf43c992a1c906fc28cc21625ecbdb3ca066620))
 
 - Fix order of build priorities
   ([`e946bd3`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/e946bd3a58d004251ef8333ed39bea53ce5da6d1))
 
-- Build docker images when manual pipeline trigged
-  ([`faf43c9`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/faf43c992a1c906fc28cc21625ecbdb3ca066620))
+- Remove manual trigger, as it does not work as intended
+  ([`7804a88`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7804a88980923013444bcb1f416299942f531276))
 
 ### Documentation
+
+- Add packages graphic
+  ([`0bd44c8`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0bd44c8eb37ae762faaf944b6885a23e20a675f5))
 
 - Add rstudio version description
   ([`5fbe070`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5fbe0701634323218c759b5f4e2535cd90ed5642))
 
 - Add security note
   ([`b843fb7`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/b843fb7dab169d00fb81fd2fcb8b0fa62a5bf8ae))
-
-- Add packages graphic
-  ([`0bd44c8`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0bd44c8eb37ae762faaf944b6885a23e20a675f5))
 
 - Minor updates to the docs
   ([`8e51793`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8e517934d17fb7f8c0c8cafcbe7a98667f673ae2))
@@ -224,26 +252,26 @@ Fixes #5
 
 ### Bug Fixes
 
-- Proj error
-  ([`13d5438`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/13d54380bb7ed0e44368e96a92f4fbd752484419))
-
-fixes #3
-
 - Jupytext and collaboration feature cannot be activated together
   ([`2acc71e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2acc71eceb18478acb301c9d151b17d234260a64))
 
 Deactivate collaboration for the meantime
+
+- Proj error
+  ([`13d5438`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/13d54380bb7ed0e44368e96a92f4fbd752484419))
+
+fixes #3
 
 ### Chores
 
 - Add mkdocs config
   ([`f28b32c`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f28b32c2a9d8a6734d96f4f433e1b8e179c21cc9))
 
-- Update .gitignore
-  ([`441d416`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/441d416a93c6292a9beda8e27a17563905bd61db))
-
 - Fix missing backslash in Dockerfile
   ([`3efc5a7`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/3efc5a79422cbbfc9f8e302616d642b5a40daf52))
+
+- Update .gitignore
+  ([`441d416`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/441d416a93c6292a9beda8e27a17563905bd61db))
 
 ### Code Style
 
@@ -252,8 +280,26 @@ Deactivate collaboration for the meantime
 
 ### Continuous Integration
 
+- Add gitlab-ci workflow to build and deploy the docs
+  ([`39cca9b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/39cca9b682ffc54056b85d3c7f1ec0e87722e423))
+
 - Add markdown include to mkdocs.yml
   ([`6672d79`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6672d791d3a1576eded09ddcc6ed65f856d7642d))
+
+- Do not build images if no changes happened
+  ([`04265ac`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/04265aca99a6ae9188336e3e5681f64a0b424c25))
+
+- Exclude container build for gitlab-ci and mkdocs.yml changes
+  ([`7ad29a4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7ad29a49b89d81bdfe6a307cdd3e0af2c4d9b57f))
+
+- Fix changes yml tag not working as expected
+  ([`ad917e0`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/ad917e01a23e62679b56b7d878e7cbc666f34243))
+
+- Fix changes yml tag not working as expected
+  ([`95784c1`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/95784c1185d89c2c33f3c3b5bfa1822a61d76dfe))
+
+- Fix changes yml tag not working as expected
+  ([`4c8b2c5`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/4c8b2c52d580b433013ef49fa8b3763f18ed447b))
 
 - Fix gitlab-ci
   ([`b4ae095`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/b4ae095b2be62f56a5a6f6ef605981b8a7c2cc86))
@@ -267,11 +313,11 @@ Deactivate collaboration for the meantime
 - Fix gitlab-ci
   ([`3eea538`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/3eea538df03cb0161191df2a47d524ff2efc3ece))
 
-- Exclude container build for gitlab-ci and mkdocs.yml changes
-  ([`7ad29a4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7ad29a49b89d81bdfe6a307cdd3e0af2c4d9b57f))
+- Fix mkdocs build
+  ([`defe308`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/defe308fab7f614a0edfcb57a8b1d75a6a4c06ed))
 
-- Typo in version.svg
-  ([`f4d4b7b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f4d4b7bd2153f8e8f1e673df5f475205a36d8089))
+- Fix typo
+  ([`35caf5b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/35caf5be3650ba74b97e0d5ee645f7e82d2c113a))
 
 - Try to get the if and changes following AND expression
   ([`b04109a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/b04109a94ba6122af0e1b9ac46ee48e648f4ec3f))
@@ -279,34 +325,13 @@ Deactivate collaboration for the meantime
 - Try to get the if and changes following AND expression
   ([`2c55511`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2c55511feeeae6fa33999bbed327c841a05195b9))
 
-- Fix changes yml tag not working as expected
-  ([`ad917e0`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/ad917e01a23e62679b56b7d878e7cbc666f34243))
-
-- Fix changes yml tag not working as expected
-  ([`95784c1`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/95784c1185d89c2c33f3c3b5bfa1822a61d76dfe))
-
-- Fix changes yml tag not working as expected
-  ([`4c8b2c5`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/4c8b2c52d580b433013ef49fa8b3763f18ed447b))
-
-- Fix typo
-  ([`35caf5b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/35caf5be3650ba74b97e0d5ee645f7e82d2c113a))
-
-- Fix mkdocs build
-  ([`defe308`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/defe308fab7f614a0edfcb57a8b1d75a6a4c06ed))
-
-- Do not build images if no changes happened
-  ([`04265ac`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/04265aca99a6ae9188336e3e5681f64a0b424c25))
-
-- Add gitlab-ci workflow to build and deploy the docs
-  ([`39cca9b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/39cca9b682ffc54056b85d3c7f1ec0e87722e423))
+- Typo in version.svg
+  ([`f4d4b7b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f4d4b7bd2153f8e8f1e673df5f475205a36d8089))
 
 ### Documentation
 
-- Use https git clone, for broader applicability
-  ([`e0cf5ce`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/e0cf5ce2cb2bd56dfc4041dc3984931f3e3a711b))
-
-- Minor rephrasing
-  ([`2992c1e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2992c1eca34b55837a3b0c477b0fbf3ebcfa1dd7))
+- Add note to use cases
+  ([`d970407`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/d970407560b1664ce3a2ed2cbb5d24ca1e2327e6))
 
 - Cleanup and reorganize docs
   ([`a12fb8f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a12fb8f456c6a1ebe2c0ba340ff4f6efc7335464))
@@ -314,11 +339,14 @@ Deactivate collaboration for the meantime
 - Cleanup Readme.md
   ([`4e05daa`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/4e05daaad9bf32f930b6c8c4403989f0ab0ecb65))
 
-- Add note to use cases
-  ([`d970407`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/d970407560b1664ce3a2ed2cbb5d24ca1e2327e6))
+- Minor rephrasing
+  ([`2992c1e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2992c1eca34b55837a3b0c477b0fbf3ebcfa1dd7))
 
 - Prepare initial mkdocs
   ([`6fc86d3`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6fc86d33c64e0fccc999fc16d60094b5d13f5685))
+
+- Use https git clone, for broader applicability
+  ([`e0cf5ce`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/e0cf5ce2cb2bd56dfc4041dc3984931f3e3a711b))
 
 ### Features
 
@@ -365,14 +393,14 @@ Pin notebook<7.0.0, until
 
 ### Chores
 
+- No remote image when building
+  ([`f8e648f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f8e648f99859a73c487fe3985742b895131a82cb))
+
 - Remove deprecated version tag in compose
   ([`63b80f0`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/63b80f00b1271f82528e0e1e804d133ce123ad92))
 
 - Remove deprecated version tag in compose
   ([`4a30bad`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/4a30bad15f8a03eb85ff1f383c549feeddb234fb))
-
-- No remote image when building
-  ([`f8e648f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f8e648f99859a73c487fe3985742b895131a82cb))
 
 ### Documentation
 
@@ -448,6 +476,9 @@ Pin notebook<7.0.0, until
 
 ### Chores
 
+- Bump jupytrer env python to 3.9 (minimal)
+  ([`3a4b68f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/3a4b68f5a9b6c312d802b7ce39c0ac95b8519937))
+
 - Explicitly add GL_TOKEN
   ([`997b6dd`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/997b6dd78662f1323cf3e79754b004a45f7a249c))
 
@@ -456,9 +487,6 @@ Pin notebook<7.0.0, until
 
 - Remove pinning of nbconvert in jupyter env
   ([`fbae7f8`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/fbae7f86a1f7b97c5b7748f61ba0458b37e12f21))
-
-- Bump jupytrer env python to 3.9 (minimal)
-  ([`3a4b68f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/3a4b68f5a9b6c312d802b7ce39c0ac95b8519937))
 
 ### Documentation
 
@@ -470,11 +498,11 @@ Pin notebook<7.0.0, until
 
 ### Features
 
-- Bump jupyter lab minimal version to 4; remove classic notebook extensions
-  ([`69a6535`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/69a653547237d3d4a7fc0408a4065e02ff7df3ca))
-
 - Add rasterio to default env
   ([`f0b2bee`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f0b2bee621d25a683c5e2f3f1b232706dce7671d))
+
+- Bump jupyter lab minimal version to 4; remove classic notebook extensions
+  ([`69a6535`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/69a653547237d3d4a7fc0408a4065e02ff7df3ca))
 
 
 ## v0.14.0 (2023-07-14)
@@ -562,17 +590,17 @@ Pin notebook<7.0.0, until
 
 ### Continuous Integration
 
-- Fix Semantic-Release custom hvcs domain
-  ([`a1e23f4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a1e23f48249fcf4507dfd2c747ea70e13d71d78f))
+- Add explicit stages to .gitlab-ci.yml
+  ([`2c1f0f8`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2c1f0f88e5a4f36780b1679427981e77a569680c))
 
 - Fix rules and only not allowed to be used together
   ([`2fa64d6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2fa64d62fee41abcc21f58621392c595cb41656f))
 
+- Fix Semantic-Release custom hvcs domain
+  ([`a1e23f4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a1e23f48249fcf4507dfd2c747ea70e13d71d78f))
+
 - Only build and push stable and latest version tags if CI_COMMIT_TAG is not empty
   ([`933944d`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/933944de78cd4b7366f823b8ca3ccda07279a194))
-
-- Add explicit stages to .gitlab-ci.yml
-  ([`2c1f0f8`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2c1f0f88e5a4f36780b1679427981e77a569680c))
 
 ### Features
 
@@ -592,11 +620,11 @@ Pin notebook<7.0.0, until
 - Add explicit docker network create
   ([`023e4c7`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/023e4c7497c0cb5ad5d7b71ec193b06a4cfebaed))
 
-- Suggest to pull registry image, to prevent build of image by default
-  ([`0879b51`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0879b513b7aa555f1a31637e7bd2bd51fd26ec2f))
-
 - Clarify steps to setup svg_export
   ([`cbb888e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/cbb888e26a69ee4d39cf31ca4f22a69215588f5d))
+
+- Suggest to pull registry image, to prevent build of image by default
+  ([`0879b51`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0879b513b7aa555f1a31637e7bd2bd51fd26ec2f))
 
 - Update readme header
   ([`5e26d21`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5e26d21dee3b875d48fb6b779ac078382b948003))
@@ -611,11 +639,11 @@ Pin notebook<7.0.0, until
 
 ### Bug Fixes
 
-- Ipywidgets compatibility
-  ([`bb1c0be`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/bb1c0beaa8718ffaba49e282da81df979d291ca7))
-
 - Ci extract version from file
   ([`9d10722`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/9d10722215ae99394294ded3005c0dafa2cb8eb7))
+
+- Ipywidgets compatibility
+  ([`bb1c0be`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/bb1c0beaa8718ffaba49e282da81df979d291ca7))
 
 - Use master-latest for versioned releases
   ([`6d390ef`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6d390ef36ac9316b3a423a2ba5c3c6c49c30b259))
@@ -632,11 +660,11 @@ Pin notebook<7.0.0, until
 
 ### Documentation
 
-- Add instructions to install selenium and webdriver
-  ([`cb4038a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/cb4038a19bdd849a9abdd9bae4d7ae566fc4ddf0))
-
 - Add COMPOSE_FILE to .env examples
   ([`5cf73a2`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5cf73a2654a869dce9d394a1f1951cd057ce64e9))
+
+- Add instructions to install selenium and webdriver
+  ([`cb4038a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/cb4038a19bdd849a9abdd9bae4d7ae566fc4ddf0))
 
 - Update header
   ([`c57caa3`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/c57caa3c0a7b2e43fc24b593ec852b909e790eb8))
@@ -659,11 +687,11 @@ Pin notebook<7.0.0, until
 
 ### Bug Fixes
 
-- Typo
-  ([`5138e09`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5138e09c179cea1cc627d47af6bcc0c48d1550c7))
-
 - Formatting§
   ([`56db080`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/56db0806aadc89ff28dea849cb5aa34121403011))
+
+- Typo
+  ([`5138e09`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5138e09c179cea1cc627d47af6bcc0c48d1550c7))
 
 ### Continuous Integration
 
@@ -677,14 +705,14 @@ Pin notebook<7.0.0, until
 
 ### Features
 
+- Add mapnik-cli package to jupyterlab:mapnik
+  ([`c76b423`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/c76b423751d15dce8e226560800c9e177fc61a8d))
+
 - Add matplotlib-scalebar package to default
   ([`b3159fc`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/b3159fc7ce041f413bfb578cfe659dadfb56b291))
 
 - Add PySal ESDA to default worker_env
   ([`0a21727`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0a21727c4f0b8f634f31cb6eca5b366d49d742b4))
-
-- Add mapnik-cli package to jupyterlab:mapnik
-  ([`c76b423`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/c76b423751d15dce8e226560800c9e177fc61a8d))
 
 
 ## v0.7.0 (2022-07-22)
@@ -703,11 +731,11 @@ Pin nbconvert to the latest stable version, excluding release candidates
 
 ### Documentation
 
-- Update readme to include collaborative editing feature
-  ([`7b40eb9`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7b40eb97dd38b83b95566476d6cf924711fe3f38))
-
 - Add note to use registry images in readme
   ([`05528e4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/05528e481c4dce7ed41346e45c02d2354efe50d9))
+
+- Update readme to include collaborative editing feature
+  ([`7b40eb9`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7b40eb97dd38b83b95566476d6cf924711fe3f38))
 
 ### Features
 
@@ -743,31 +771,31 @@ Explanation: Shapely 1.8.0+ throws a lot of deprecation warnings in Geoviews, Ho
 
 ### Bug Fixes
 
-- Move config to ServerApp transition
-  ([`fbd83fe`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/fbd83fe3c389740f5b5dda69e6c22807676b3012))
-
-- Remove nodejs not needed anymore for Jupyter Lab 3.0
-  ([`a6008a3`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a6008a33b0c8d3a3a55be6691485f7727ce06984))
-
 - /home/alex reference to notebooks in compose; update readme
   ([`97f3525`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/97f35259a2039613379158bb259ee0cf83b9614e))
 
 - Do not use nbextensions install in jupyterlab 3.0
   ([`0edd466`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0edd4661d0e6476377b1ce8e607f8a9ff0dfbfde))
 
-- Use commented default values in .env.example
-  ([`8ea4401`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8ea44015777c574dba95f7eafff15b9ae4b681f7))
-
 - Ipywidgets not yet released
   ([`96ac9ba`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/96ac9ba21b3677ee7b3abdbb5997c65c6352cf22))
 
-### Chores
+- Move config to ServerApp transition
+  ([`fbd83fe`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/fbd83fe3c389740f5b5dda69e6c22807676b3012))
 
-- Shuffle master-latest and stable branch, set stable to master
-  ([`d875227`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/d875227947800b5226b169f476dbf2ec7961d295))
+- Remove nodejs not needed anymore for Jupyter Lab 3.0
+  ([`a6008a3`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a6008a33b0c8d3a3a55be6691485f7727ce06984))
+
+- Use commented default values in .env.example
+  ([`8ea4401`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8ea44015777c574dba95f7eafff15b9ae4b681f7))
+
+### Chores
 
 - Build registry images according to branch
   ([`a8f1399`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a8f139915d4daec46cfc84bc5b62e43823693e29))
+
+- Shuffle master-latest and stable branch, set stable to master
+  ([`d875227`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/d875227947800b5226b169f476dbf2ec7961d295))
 
 - Update changelog
   ([`3ade60a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/3ade60a7f560963463232e24226886b30654878b))
@@ -782,23 +810,23 @@ Explanation: Shapely 1.8.0+ throws a lot of deprecation warnings in Geoviews, Ho
 
 ### Features
 
-- Add flopy to default packages
-  ([`e92819b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/e92819b0688f079ca80830e4df9fcad014b3cb33))
-
-- Add pyvizcomm for Holoviews/Jupyter Lab 3.0 compatibility
-  ([`7a7eacf`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7a7eacf634c3f8a8f0fc7c14925e6df39ae04c85))
-
 - Add datashader to worker_env
   ([`ee8a49a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/ee8a49ac6edbecc66ba9636903a6bd840a05e29e))
+
+- Add flopy to default packages
+  ([`e92819b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/e92819b0688f079ca80830e4df9fcad014b3cb33))
 
 - Add package adjust_text
   ([`00bbfe8`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/00bbfe8461c871c1278f1458f24678d5e7be76a0))
 
-- Remove firefox, geckodriver and selenium dependencies, as they are not reliable enough
-  ([`fd18aae`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/fd18aae5c8a20502ff60b4e32988acf543c3fc7f))
-
 - Add pyepsg package to worker_env
   ([`2e2ea2f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2e2ea2fa8458e4a5b93b632f5ab3c6e7f1021382))
+
+- Add pyvizcomm for Holoviews/Jupyter Lab 3.0 compatibility
+  ([`7a7eacf`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7a7eacf634c3f8a8f0fc7c14925e6df39ae04c85))
+
+- Remove firefox, geckodriver and selenium dependencies, as they are not reliable enough
+  ([`fd18aae`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/fd18aae5c8a20502ff60b4e32988acf543c3fc7f))
 
 
 ## v0.4.0 (2021-03-29)
@@ -810,19 +838,19 @@ Explanation: Shapely 1.8.0+ throws a lot of deprecation warnings in Geoviews, Ho
 
 ### Chores
 
-- Build registry images according to branch
-  ([`76da4ca`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/76da4ca100b8e767c9cab19e47296e1419001450))
-
 - Add version, release
   ([`8351a84`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8351a846dc4c1bf46fe678c7edef96a9a0e89464))
 
-### Documentation
+- Build registry images according to branch
+  ([`76da4ca`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/76da4ca100b8e767c9cab19e47296e1419001450))
 
-- Fix link to lbsn-ctl
-  ([`0494fad`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0494fad2093f9be24c1a671ea05bc38b53a82f4b))
+### Documentation
 
 - Add master-stable branch note
   ([`5add915`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5add9153c04474bfd324855208f7689dcf48fb6b))
+
+- Fix link to lbsn-ctl
+  ([`0494fad`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0494fad2093f9be24c1a671ea05bc38b53a82f4b))
 
 
 ## v0.3.0 (2021-03-29)
@@ -853,29 +881,26 @@ Explanation: Shapely 1.8.0+ throws a lot of deprecation warnings in Geoviews, Ho
 
 ### Bug Fixes
 
-- Remove nodejs not needed anymore for Jupyter Lab 3.0
-  ([`a0e91a6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a0e91a67281277ac79cf4fd2b22d254cb3977f5a))
+- /home/alex reference to notebooks in compose; update readme
+  ([`cc0c7bb`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/cc0c7bb49c5abc81b3266f064244f9efb940ed4a))
 
 - Do not use nbextensions install in jupyterlab 3.0
   ([`995c9fa`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/995c9fa1618bb81aac9ccefcb1505431c23e9a34))
 
-- Ipywidgets not yet released
-  ([`bc2bf95`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/bc2bf95f2291efd94c7da0ce5605e530ad35e305))
-
 - Environment_default.yml ipywidgets pinning
   ([`5714080`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5714080568a42a0b41ee3b6f8ff226042f253515))
 
-- /home/alex reference to notebooks in compose; update readme
-  ([`cc0c7bb`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/cc0c7bb49c5abc81b3266f064244f9efb940ed4a))
+- Image startup error
+  ([`47acf77`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/47acf77ee1f89ee497ddfb2df89d35f8d7a57691))
 
-- Use commented default values in .env.example
-  ([`8878883`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8878883e1adcacb9b2a37e0f32143c17c49ff6e4))
+- Ipywidgets not yet released
+  ([`bc2bf95`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/bc2bf95f2291efd94c7da0ce5605e530ad35e305))
 
 - Pin jupyterlab to 2.* version on stable
   ([`806526c`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/806526ceccd8f5d0b4a26580b2f1d47f2285cf79))
 
-- Image startup error
-  ([`47acf77`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/47acf77ee1f89ee497ddfb2df89d35f8d7a57691))
+- Remove nodejs not needed anymore for Jupyter Lab 3.0
+  ([`a0e91a6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a0e91a67281277ac79cf4fd2b22d254cb3977f5a))
 
 - Unrecognized arguments: jupyterlab-jupytext
   ([`750950f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/750950f2e24b1156daf849d73e3b1fde2f0e6e9d))
@@ -884,16 +909,13 @@ The Jupytext extension for JupyterLab is bundled with Jupytext.[1]
 
 [1]: https://jupytext.readthedocs.io/en/latest/install.html#jupytext-commands-in-jupyterlab
 
-### Chores
+- Use commented default values in .env.example
+  ([`8878883`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8878883e1adcacb9b2a37e0f32143c17c49ff6e4))
 
-- Update changelog
-  ([`520e949`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/520e94980f50663a7d2e1fe0dd8a59af9f18c189))
+### Chores
 
 - Add version, release
   ([`a7d5b4c`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/a7d5b4c7b1722d7573d89449611426a2bf32b0d3))
-
-- Shuffle master-latest and stable branch, set stable to master
-  ([`571d1e4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/571d1e4f8319b9acab1ced399996176a41b15ea3))
 
 - Build registry images according to branch
   ([`fcd141a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/fcd141ad05cb544cdbfbe80bdea562b7b9157db6))
@@ -905,6 +927,12 @@ The Jupytext extension for JupyterLab is bundled with Jupytext.[1]
 
 (cherry picked from commit 84a10c75a825a0bd5970a010d8e98c5dda084fbe)
 
+- Shuffle master-latest and stable branch, set stable to master
+  ([`571d1e4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/571d1e4f8319b9acab1ced399996176a41b15ea3))
+
+- Update changelog
+  ([`520e949`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/520e94980f50663a7d2e1fe0dd8a59af9f18c189))
+
 ### Continuous Integration
 
 - Specify both image and build context
@@ -912,45 +940,48 @@ The Jupytext extension for JupyterLab is bundled with Jupytext.[1]
 
 ### Documentation
 
-- Remove Jupyter lab version in Readme
-  ([`56cbf04`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/56cbf0446f0974f993ecdd7c1f72b35cda3fa428))
-
-- Fix link to lbsn-ctl
-  ([`9118c1a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/9118c1a45d8e817554996cce9769b470cc4b0e28))
+- Add instructions to grep token
+  ([`79673bd`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/79673bda684cc1aa30439e6d71e619421e4e9a71))
 
 - Add linebreaks to Readme
   ([`50cc043`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/50cc0434d99931e43efae95f97c7da463686df75))
 
-- Update Readme.md with branch shuffle
-  ([`34a8b9b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/34a8b9b2465d3f8325a6467973a08517234e39fa))
+- Better notes on what is being done
+  ([`5f9dc8c`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5f9dc8ce3aa96e2e172edde10cafb26c832fd6d6))
+
+- Fix link to lbsn-ctl
+  ([`9118c1a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/9118c1a45d8e817554996cce9769b470cc4b0e28))
+
+- Remove Jupyter lab version in Readme
+  ([`56cbf04`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/56cbf0446f0974f993ecdd7c1f72b35cda3fa428))
 
 - Update Readme.md
   ([`89fc22e`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/89fc22e02a0162b6bfb9ecf7e65caef6d169aaa7))
 
-- Better notes on what is being done
-  ([`5f9dc8c`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5f9dc8ce3aa96e2e172edde10cafb26c832fd6d6))
-
-- Add instructions to grep token
-  ([`79673bd`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/79673bda684cc1aa30439e6d71e619421e4e9a71))
+- Update Readme.md with branch shuffle
+  ([`34a8b9b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/34a8b9b2465d3f8325a6467973a08517234e39fa))
 
 ### Features
 
-- Add pyepsg package to worker_env
-  ([`2f9bba1`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2f9bba1cd40eb51fba14a94c6720953c73589f8b))
+- Add jupyter auto-toc and spellcheck extensions to image
+  ([`2a6131d`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2a6131d88213adc75cd0048fa0394fcce43714e2))
 
-- Update Dockerfile to JupyterLab 3.0 compatibility
-  ([`205ab6f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/205ab6fc9a5f4338f8bcae4d330a0df1f08e3099))
+- Add jupyter widgets to Dockerfile
+  ([`e82373a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/e82373a2d15a3c2a525b98c9698eb666dcea51f2))
 
-- Show hidden files (e.g. .gitignore) by default
-  ([`6f86265`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6f86265db9ba322ad11fb8b40b0393c2dd56ee9b))
+- Add jupytext for notebook git integration
+  ([`c4ba2f2`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/c4ba2f25a888531ce45075e783955e420db42dce))
+
+- Add option to set a (static) password instead of always using a volatile token
+  ([`10310a4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/10310a468bdc11c9985403d23971695b28cd3574))
 
 - Add papermill for ci integration
   ([`ffb67bb`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/ffb67bbd47d0f9a21b86ce7e104f906cde959c49))
 
 https://github.com/CFMTech/jupytext_papermill_post
 
-- Add jupytext for notebook git integration
-  ([`c4ba2f2`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/c4ba2f25a888531ce45075e783955e420db42dce))
+- Add pyepsg package to worker_env
+  ([`2f9bba1`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2f9bba1cd40eb51fba14a94c6720953c73589f8b))
 
 - Improve semantics of environment variable for jupyter notebooks directory
   ([`110079f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/110079fb5675a1c3a0cbe25b6499957c30ea88b7))
@@ -958,22 +989,19 @@ https://github.com/CFMTech/jupytext_papermill_post
 - Make web url really optional
   ([`9a02e6f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/9a02e6f9888828ecaaf5801906ad61b459ff350d))
 
-- Add option to set a (static) password instead of always using a volatile token
-  ([`10310a4`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/10310a468bdc11c9985403d23971695b28cd3574))
+- Show hidden files (e.g. .gitignore) by default
+  ([`6f86265`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6f86265db9ba322ad11fb8b40b0393c2dd56ee9b))
 
-- Add jupyter widgets to Dockerfile
-  ([`e82373a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/e82373a2d15a3c2a525b98c9698eb666dcea51f2))
-
-- Add jupyter auto-toc and spellcheck extensions to image
-  ([`2a6131d`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2a6131d88213adc75cd0048fa0394fcce43714e2))
+- Update Dockerfile to JupyterLab 3.0 compatibility
+  ([`205ab6f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/205ab6fc9a5f4338f8bcae4d330a0df1f08e3099))
 
 ### Refactoring
 
-- Move worker_env dependencies to separate environment.yml
-  ([`c34f739`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/c34f739462f78abe1a282abd09f924c79c4f757a))
+- Cleanup bash command use
+  ([`08cf004`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/08cf0049da48c5d782194751f4d790766328a62c))
 
 - Codestyle
   ([`4a08163`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/4a0816305fd162b06007bb8916c40bebf3da8468))
 
-- Cleanup bash command use
-  ([`08cf004`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/08cf0049da48c5d782194751f4d790766328a62c))
+- Move worker_env dependencies to separate environment.yml
+  ([`c34f739`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/c34f739462f78abe1a282abd09f924c79c4f757a))
