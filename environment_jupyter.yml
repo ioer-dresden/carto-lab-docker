@@ -6,7 +6,7 @@ dependencies:
   - python>=3.9
   - pip
   - notebook<7.0.0 # pin until https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator/issues/165 is solved
-  - jupyterlab>=4
+  # - jupyterlab>=4
   # - jupyter-collaboration>=2.1.2
   - jupyterlab-git
   - jupyterlab-lsp
@@ -23,3 +23,7 @@ dependencies:
   - pip:
     - jupyterlab-spellchecker
     - jupyter_contrib_nbextensions # https://github.com/ipython-contrib/jupyter_contrib_nbextensions/issues/1650
+    - "jupyterlab>=4.4.0a3"
+    - --pre
+    - "jupyter-collaboration>=4.0.0b0"
+    - --pre
