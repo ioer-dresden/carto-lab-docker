@@ -3,9 +3,10 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python>=3.8
+  - python
   - pip
   - adjusttext
+  - bokeh
   - contextily
   - colorcet
   - esda
@@ -14,7 +15,7 @@ dependencies:
   - ipywidgets
   - ipyleaflet
   - datashader
-  - dask
+  - dask>=0.17.1,<2025.1.0
   - descartes
   - geoalchemy2
   - geopandas
