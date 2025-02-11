@@ -39,9 +39,12 @@ See the list of Carto-Lab Versions and supported features or package versions.
 | Bokeh                                            | 2.4.3     | 3.4.2     | 3.5.2       | 3.5.2        |
 | Rasterio                                         | 1.2.10    | 1.3.10    | 1.4.2       | 1.4.2        |
 
+
+
 - (x) - Feature test
-- x - Feature available
 - o - Issue or Bug
 - Empty: feature not available
+
+The `:rstudio` and `:mapnik` container tags have slightly different versions due to dependencies.
 
 >  Generated with `tests/get_versions.sh`.
