@@ -11,7 +11,6 @@ services:
       - 127.0.0.1:${JUPYTER_WEBPORT:-8888}:8888
     volumes:
       - ${JUPYTER_NOTEBOOKS:-~/notebooks}:/home/jovyan/work
-      - ${MAPNIK_FONTS:-/usr/share/fonts}:/fonts
       - ${CONDA_ENVS:-~/envs}:/envs
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-eX4mP13p455w0Rd}
