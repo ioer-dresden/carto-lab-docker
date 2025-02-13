@@ -7,6 +7,7 @@ services:
       args:
         - ENVIRONMENT_FILE=${ENVIRONMENT_FILE:-environment_default.yml}
         - WORKER_ENV_NAME=${WORKER_ENV_NAME:-worker_env}
+        - VERSION=${TAG}
     container_name: ${CONTAINER_NAME:-lbsn-jupyterlab}
     restart: "no"
     ports:
