@@ -18,12 +18,13 @@ ENV PYTHON_BINDINGS=" \
     python3-yaml"
 
 RUN apt-get update \
-    && apt install -y --no-install-recommends \
-        $PYTHON_BINDINGS
+    && apt-get install -y --no-install-recommends \
+        $PYTHON_BINDINGS \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --depth 1 \
         https://gitlab.vgiscience.de/ad/mapnik_cli.git \
         /mapnik_cli \
     && /usr/bin/python3 -m pip config set global.break-system-packages true \
-    && /usr/bin/python3 -m pip install \
+    && /usr/bin/python3 -m pip install --no-cache-dir \
         --no-dependencies --editable /mapnik_cli
