@@ -2,10 +2,10 @@
 # https://github.com/jupyter/docker-stacks/blob/main/images/r-notebook/Dockerfile
 
 # build time args
-ARG APP_VERSION=latest
+ARG VERSION=latest
 ARG ENVIRONMENT_FILE=environment_r.yml
 
-FROM registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:$APP_VERSION
+FROM registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:$VERSION
 
 ENV ENVIRONMENT_FILE=environment_r.yml \
     R_ENV_NAME=r_env

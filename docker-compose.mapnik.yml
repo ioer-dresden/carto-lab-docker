@@ -4,7 +4,7 @@ services:
     build:
       context: ./mapnik
       args:
-        - APP_VERSION=${APP_VERSION:-latest}
+        - VERSION=${TAG:-latest}
     container_name: ${CONTAINER_NAME:-lbsn-jupyterlab}
     restart: "no"
     ports:

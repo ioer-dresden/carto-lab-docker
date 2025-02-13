@@ -1,6 +1,6 @@
-ARG APP_VERSION=latest
+ARG VERSION=latest
 
-FROM registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:$APP_VERSION
+FROM registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:$VERSION
 
 ENV PYTHON_BINDINGS=" \
     autoconf \
