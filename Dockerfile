@@ -74,6 +74,9 @@ ENV JUPYTER_CONFIG=/root/.jupyter/jupyter_server_config.py
 ENV JUPYTERLABAPP_CONFIG=/root/.jupyter/jupyter_lab_config.py
 CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
     jupyter lab --generate-config; \
+    mkdir -p /root/.jupyter/labconfig; \
+    echo '{"appName": "Carto-Lab Docker '"$CARTOLAB_VERSION"'"}' > /root/.jupyter/labconfig/page_config.json; \
+    # echo "c.ServerApp.browser_title = 'Carto-Lab Docker v$CARTOLAB_VERSION'" >> $JUPYTER_CONFIG; \
     [[ "$JUPYTER_PASSWORD" ]] \
     && PW_HASH=$(python -c "from jupyter_server.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))") \
     && echo "c.PasswordIdentityProvider.hashed_password=u'$PW_HASH'" >>$JUPYTER_CONFIG; unset JUPYTER_PASSWORD; \
