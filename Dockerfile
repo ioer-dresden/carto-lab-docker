@@ -15,6 +15,13 @@ COPY environment_jupyter.yml environment_jupyter.yml
 COPY .version .version
 COPY $ENVIRONMENT_FILE $ENVIRONMENT_FILE
 
+# install apt depdendencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        jq \
+        p7zip-full \        
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # setup conda jupyter environment (jupyter_env)
 # install additional packages from conda-forge
 # cleanup image
