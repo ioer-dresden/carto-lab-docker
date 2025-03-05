@@ -37,6 +37,10 @@ ENV CONDA_ACTIVATE_PATH=/opt/conda/bin/activate \
     COOKIECUTTER_ENV_PATH=/opt/conda/envs/$COOKIECUTTER_ENV_NAME/
 
 # Get CartoLab version from build arg
+# and set permanently for runtime
+RUN echo "CARTOLAB_VERSION=$VERSION" >> /etc/environment \
+    && echo "export CARTOLAB_VERSION=$VERSION" >> /root/.bashrc
+
 ENV CARTOLAB_VERSION=${VERSION}
 
 # install user kernel environment (worker_env)
