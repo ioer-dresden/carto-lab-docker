@@ -3,6 +3,8 @@ FROM continuumio/miniconda3:latest
 # build time args
 ARG ENVIRONMENT_FILE=environment_default.yml
 ARG WORKER_ENV_NAME=worker_env
+ARG COOKIECUTTER_ENV_NAME=cookiecutter_env
+ARG VERSION
 
 # select default shell
 SHELL ["/bin/bash", "-c"]
@@ -24,13 +26,24 @@ RUN conda update --channel defaults --name base --yes conda \
 # create conda paths to be sourced
 ENV CONDA_ACTIVATE_PATH=/opt/conda/bin/activate \
     JUPYTER_ENV_PATH=/opt/conda/envs/jupyter_env/ \
-    WORKER_ENV_PATH=/opt/conda/envs/$WORKER_ENV_NAME/
+    WORKER_ENV_PATH=/opt/conda/envs/$WORKER_ENV_NAME/ \
+    COOKIECUTTER_ENV_PATH=/opt/conda/envs/$COOKIECUTTER_ENV_NAME/
+
+# Get CartoLab version from build arg
+ENV CARTOLAB_VERSION=${VERSION}
 
 # install user kernel environment (worker_env)
 RUN conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME --quiet  \
  && source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
  && conda install ipykernel --channel conda-forge \
  && ipython kernel install --user --name=$WORKER_ENV_NAME \
+ && conda clean --all --force-pkgs-dirs --yes \
+ && conda deactivate
+
+# install cookiecutter env (cookiecutter_env)
+RUN conda create --name $COOKIECUTTER_ENV_NAME --quiet  \
+ && source $CONDA_ACTIVATE_PATH $COOKIECUTTER_ENV_PATH \
+ && conda install cookieninja --channel conda-forge \
  && conda clean --all --force-pkgs-dirs --yes \
  && conda deactivate
 
