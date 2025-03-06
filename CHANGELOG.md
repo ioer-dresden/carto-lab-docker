@@ -1,6 +1,9 @@
 # CHANGELOG
 
 
+## v0.26.0 (2025-03-06)
+
+
 ## v0.25.0 (2025-02-06)
 
 ### Bug Fixes
@@ -10,16 +13,30 @@
 
 See: https://github.com/jupyterlab/jupyterlab/issues/14065#issuecomment-2132474538
 
+- Cartolab_version not available on runtime
+  ([`ef05e1f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/ef05e1fb93a212b445421b2ad58b925e005bd7c8))
+
 - Dask not compatible with latest Bokeh
   ([`177dc0a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/177dc0a4aa4a33c29cae10e8dfe1db486aa38c51))
 
+- Dask not compatible with latest Bokeh
+  ([`fc18033`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/fc180333b7a90c254395653fcfbc42ad6798a9bb))
+
 - Disable jupyter real time collaboration (RTC) extension by default
   ([`ff4cbdb`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/ff4cbdb3bd128c4aa80ffec5363ea32494d4c62d))
+
+### Code Style
+
+- New logo
+  ([`e519bd5`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/e519bd5586bc6fbca6d7e7b84ec5841d001a113a))
 
 ### Continuous Integration
 
 - Enable mermaid plugin
   ([`66064f6`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/66064f663d108df4d73f8caddfd1742000b05b6b))
+
+- Reduce build complexity by relying on TAG instead of extra APP_VERSION
+  ([`2da30e2`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2da30e274553827491231d4f3f3f457f6a832ea3))
 
 - Use explicit mkdocs registry version tag; add mermaid
   ([`9db3c60`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/9db3c604006ef7c48730420543fa4a1e7fe7897c))
@@ -28,6 +45,9 @@ See: https://github.com/jupyterlab/jupyterlab/issues/14065#issuecomment-21324745
 
 - Add compatibility matrix
   ([`20e3aa7`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/20e3aa70e224fb1f9b9ac52d224528d678fde0cc))
+
+- Add compatibility matrix for version 0.19.0
+  ([`3263d6f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/3263d6ffde1387844be0376a5c8eb523060642d7))
 
 - Add missing parameters, update note for jupytext
   ([`96799a7`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/96799a7b6fc7af7d8c6ad2418af75514e6d07e0f))
@@ -41,18 +61,53 @@ See: https://github.com/jupyterlab/jupyterlab/issues/14065#issuecomment-21324745
 - Improve description of collaboration mode and jupytext incompatibility
   ([`f5f9ea9`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f5f9ea9327322f09d2f1b16eae09f8845de394d1))
 
+- Update Matrix for v0.25.0
+  ([`2f97f88`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/2f97f8842fa883c1e97e9ae7e45c60796e140881))
+
+- Update versions for 0.13.0
+  ([`42592db`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/42592dbcdf74e24700c0a888c4a6948c8726bb46))
+
 ### Features
+
+- Add 7zip for packaging
+  ([`8b06d4b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8b06d4b3eebd7e3c44ad2ceae95dfe0bce6a70ac))
+
+- Add carto-lab docker version to browser tab
+  ([`f263464`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f26346411ac8520faae4d2d52147c0d6294b182b))
+
+- Add Cookiecutter env for reproduction package workflow
+  ([`0d7a8fd`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0d7a8fde012bddcd6cce3ec728829e6f9072ce8d))
 
 - Allow RTC, collaboration and git-extension to be enabled alongside each other
   ([`c15e96c`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/c15e96c2e2e888617be551af8711f0da3f9e11f9))
 
+- Allow RTC, collaboration and git-extension to be enabled alongside each other
+  ([`821a45f`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/821a45fa22b3c0957590816e2dfe0c0219fea10d))
+
 - Pin jupyterlab 4.4.0a3 and latest (beta) RTC package
   ([`ddf229c`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/ddf229cfcdca188e003a6723b59a35d69f46230b))
+
+- Pin jupyterlab 4.4.0a3 and latest (beta) RTC package
+  ([`91283ae`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/91283ae2119f0bb66179ec678d96a0e44341c67a))
+
+- Start terminal sessions in bash by default
+  ([`16b6780`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/16b6780e6927ced8a95eacd2679dab29c4a9df4c))
+
+### Performance Improvements
+
+- Reduce build size of Mapntik image
+  ([`dbe557a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/dbe557add6b3c49839b1b9a3db1afafa06ce1e3f))
 
 ### Refactoring
 
 - Change deprecated c.ServerApp.token to c.IdentityProvider.token
   ([`1fc3004`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/1fc300404e3d5f00d4cf0dd905e2fc2d1546ae0a))
+
+- Remove Mapnik fonts bind in r-compose
+  ([`7afd62c`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/7afd62cc678ae7e7fdfb6ed320272f810cfb7051))
+
+- Use version from TAG in build process
+  ([`37769ae`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/37769ae3e93366f25a351c0278c434986dbe38d2))
 
 
 ## v0.24.1 (2024-11-13)
