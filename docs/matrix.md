@@ -47,10 +47,10 @@ See the list of Carto-Lab Versions and supported features or package versions.
 | Rasterio                                         | 1.2.10    | 1.3.10    | 1.4.2       |              |
 
 
-- `/`- not included
+- `/`- Feature not included
 - (x) - Feature test
 - o - Issue or Bug
-- Empty: feature not available
+- Empty: no change
 
 !!! note 
     The `:rstudio` and `:mapnik` container tags have slightly different versions due to dependency pinnings. If
