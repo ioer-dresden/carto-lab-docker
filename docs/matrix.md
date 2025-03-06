@@ -1,5 +1,12 @@
 # Compatibility Matrix
 
+<style>
+.wy-nav-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-grow: 1 !important;
+}
+</style>
 
 
 See the list of Carto-Lab Versions and supported features or package versions.
