@@ -76,31 +76,46 @@ RUN sed -i '/"display_name": "worker_env",/a "env":{"PROJ_LIB": "/opt/conda/envs
 # start jupyter lab
 ENV JUPYTER_CONFIG=/root/.jupyter/jupyter_server_config.py
 ENV JUPYTERLABAPP_CONFIG=/root/.jupyter/jupyter_lab_config.py
-CMD source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
+CMD source "$CONDA_ACTIVATE_PATH" "$JUPYTER_ENV_PATH"; \
     jupyter lab --generate-config; \
     mkdir -p /root/.jupyter/labconfig; \
     echo '{"appName": "Carto-Lab Docker '"$CARTOLAB_VERSION"'"}' > /root/.jupyter/labconfig/page_config.json; \
-    # echo "c.ServerApp.browser_title = 'Carto-Lab Docker v$CARTOLAB_VERSION'" >> $JUPYTER_CONFIG; \
-    [[ "$JUPYTER_PASSWORD" ]] \
-    && PW_HASH=$(python -c "from jupyter_server.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))") \
-    && echo "c.PasswordIdentityProvider.hashed_password=u'$PW_HASH'" >>$JUPYTER_CONFIG; unset JUPYTER_PASSWORD; \
-    [[ "$JUPYTER_WEBURL" ]] \
-    && echo "c.ServerApp.custom_display_url=u'${JUPYTER_WEBURL}'" >>$JUPYTER_CONFIG \
-    && echo "c.ServerApp.shutdown_no_activity_timeout=${JUPYTER_AUTOSHUTDOWN_TIMEOUT:-1800}" >>$JUPYTER_CONFIG \
-    && echo "c.ServerApp.terminado_settings={'shell_command': ['/bin/bash']}" >>$JUPYTER_CONFIG \
-    && echo "c.MappingKernelManager.cull_interval=600" >>$JUPYTER_CONFIG \
-    && echo "c.MappingKernelManager.cull_idle_timeout=1800" >>$JUPYTER_CONFIG \
-    && echo "c.ContentsManager.allow_hidden=True" >>$JUPYTER_CONFIG; \
-    if [[ "${GENERATE_TOKEN}" = true ]]; then TOKEN=$(tr -dc 'A-Za-z0-9!?%=' < /dev/urandom | head -c 10);echo -e "c.IdentityProvider.token = u'$TOKEN'\nc.PasswordIdentityProvider.allow_password_change = False" >>$JUPYTER_CONFIG; fi; \
-    if [[ "${DISABLE_JUPYTEXT}" = true ]]; then echo "Disabling jupytext extension"; jupyter labextension disable jupyterlab-jupytext; fi; \    
-    if [[ "${DISABLE_JUPYTERLAB_GIT}" = true ]]; then echo "Disabling jupyterlab git extension"; jupyter labextension disable @jupyterlab/git; fi; \
-    if [[ "${COLLABORATIVE}" = true ]]; then echo "Enabling RTC/Live Collaboration"; jupyter labextension enable @jupyter/collaboration-extension; fi; \
-    jupyter lab \
-    --ip=0.0.0.0 \
-    --allow-root \
-    --no-browser \
-    # --debug \
+    echo "c.ServerApp.terminado_settings = {'shell_command': ['/bin/bash']}" >> "$JUPYTER_CONFIG"; \
+    echo "c.ContentsManager.allow_hidden = True" >> "$JUPYTER_CONFIG"; \
+    
+    # Configure Jupyter password if set
+    if [[ -n "$JUPYTER_PASSWORD" ]]; then \
+        PW_HASH=$(python -c "from jupyter_server.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))"); \
+        echo "c.PasswordIdentityProvider.hashed_password = u'$PW_HASH'" >> "$JUPYTER_CONFIG"; \
+        unset JUPYTER_PASSWORD; \
+    fi; \
+    
+    # Configure Jupyter settings if JUPYTER_WEBURL is set
+    if [[ -n "$JUPYTER_WEBURL" ]]; then \
+        echo "c.ServerApp.custom_display_url = u'$JUPYTER_WEBURL'" >> "$JUPYTER_CONFIG"; \
+        echo "c.ServerApp.shutdown_no_activity_timeout = ${JUPYTER_AUTOSHUTDOWN_TIMEOUT:-1800}" >> "$JUPYTER_CONFIG"; \
+        echo "c.MappingKernelManager.cull_interval = 600" >> "$JUPYTER_CONFIG"; \
+        echo "c.MappingKernelManager.cull_idle_timeout = 1800" >> "$JUPYTER_CONFIG"; \
+    fi; \
+    
+    # Generate a token if GENERATE_TOKEN is true
+    if [[ "$GENERATE_TOKEN" == "true" ]]; then \
+        TOKEN=$(tr -dc 'A-Za-z0-9!?%=' < /dev/urandom | head -c 10); \
+        echo -e "c.IdentityProvider.token = u'$TOKEN'\nc.PasswordIdentityProvider.allow_password_change = False" >> "$JUPYTER_CONFIG"; \
+    fi; \
+    
+    # Disable extensions based on environment variables
+    [[ "$DISABLE_JUPYTEXT" == "true" ]] && echo "Disabling Jupytext extension" && jupyter labextension disable jupyterlab-jupytext; \
+    [[ "$DISABLE_JUPYTERLAB_GIT" == "true" ]] && echo "Disabling JupyterLab Git extension" && jupyter labextension disable @jupyterlab/git; \
+    [[ "$COLLABORATIVE" == "true" ]] && echo "Enabling RTC/Live Collaboration" && jupyter labextension enable @jupyter/collaboration-extension; \
+    
+    # Start Jupyter Lab
+    # optionally add --debug
     # for posix parameter expansion, see
     # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02
-    ${COLLABORATIVE:+--YDocExtension.disable_rtc=True} \
-    --ServerApp.root_dir=/home/jovyan/work
+    jupyter lab \
+        --ip=0.0.0.0 \
+        --allow-root \
+        --no-browser \
+        ${COLLABORATIVE:+--YDocExtension.disable_rtc=True} \
+        --ServerApp.root_dir=/home/jovyan/work
