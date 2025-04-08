@@ -1,24 +1,35 @@
 # CHANGELOG
 
 
-## v0.26.1 (2025-03-11)
+## v0.27.0 (2025-04-08)
 
 ### Bug Fixes
 
 - Terminado_settings and allow_hidden should always apply; large refactor of CMD-Part in Dockerfile
   (follow conventions)
-  ([`8171eb0`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8171eb0c09c00bc27cb0e76dee49e359980be107))
+  ([`5c9db23`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/5c9db23f5f2e586cfc6bcaf197b5fec8caf02a64))
 
 - Typo (test ci/version)
-  ([`85ae738`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/85ae738c5c7c5b4aa7576b1b7f41ca5f54007351))
+  ([`b6c640d`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/b6c640d25ca669f84acdd5d6a08db86f37bb6d0d))
 
 - Version variable not populated in CI
-  ([`8589358`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/8589358bcac5eae955aeb7f2260c188678ea3b6b))
+  ([`f449160`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/f4491605753a5f70eaecd162de05d3e99df257d1))
 
 ### Documentation
 
+- Fix legend
+  ([`468bdd2`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/468bdd2713d5be1ee2f53df9fe39f6ffcd0f0b38))
+
 - Set matrix page to full width
   ([`0a7e92b`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/0a7e92b0cabc1427868fc9f76bd36c9a305ddc32))
+
+- Update note
+  ([`582c9fc`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/582c9fc126868b8527db323291c379419a02bd48))
+
+### Features
+
+- Update to JupyterLab 4.4.0
+  ([`700b0f7`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/700b0f7ab981ab1ad5038bd5a21f1c8c8a7c6816))
 
 
 ## v0.26.0 (2025-03-06)
