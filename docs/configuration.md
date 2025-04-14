@@ -128,29 +128,12 @@ Setting `COLLABORATIVE=true` will start the Jupyter server with [Real Time Colla
 
 The default is `false`.
 
-This _also_ requires that the jupytext extension is disabled,
-as both extensions are incompatible.
-
 ```bash
 COLLABORATIVE=true
 ```
 
 Live collaboration has been successfully tested 
 starting with Carto-Lab Docker 24.1.
-
-This is the decision tree:
-
-```mermaid
-%%{init: { 'theme':'forest', 'securityLevel': 'loose', 'sequence': {'useMaxWidth':false} } }%%
-graph TD
-    Collaboration{".env: <br>COLLABORATIVE"} --> true
-    Collaboration{".env: <br>COLLABORATIVE"} --> false{"false <br>(default)"}
-    true --> enable_colab{"Install RTC Extension"}
-    true --> disable_jupytext{"Uninstall Jupytext"}
-    Jupytext{".env: <br>DISABLE_JUPYTEXT"} --> true_text{"true"}
-    Jupytext{".env: <br>DISABLE_JUPYTEXT"} --> false_text{"false <br>(default)"}
-    true_text --> disable_jupytext{"Uninstall Jupytext"}
-```
 
 ## Disable jupytext extension
 
@@ -159,11 +142,12 @@ DISABLE_JUPYTEXT=true
 ```
 
 !!! note
-    At the moment, disabling jupytext means that the extension will
+    Until Carto-Lab Docker Version 0.26.1, disabling jupytext meant that the extension had to
     be uninstalled on runtime using conda. In our tests, simply disabling
     jupytext was not enough to solve the conflicts with the live
     collaboration extension. This means that setting `DISABLE_JUPYTEXT=true`
-    can increase the startup time of Carto-Lab Docker.
+    can increase the startup time of Carto-Lab Docker. This problem has been fixed in 
+    Carto-Lab Docker version 0.27.0 onwards.
 
 ## Disable jupyterlab-git extension
 
