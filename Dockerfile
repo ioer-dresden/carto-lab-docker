@@ -44,7 +44,7 @@ RUN echo "CARTOLAB_VERSION=$VERSION" >> /etc/environment \
 ENV CARTOLAB_VERSION=${VERSION}
 
 # install user kernel environment (worker_env)
-RUN conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME --quiet  \
+RUN conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME  \
  && source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
  && conda install ipykernel --channel conda-forge \
  && ipython kernel install --user --name=$WORKER_ENV_NAME \
