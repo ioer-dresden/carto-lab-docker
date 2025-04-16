@@ -108,6 +108,13 @@ CMD source "$CONDA_ACTIVATE_PATH" "$JUPYTER_ENV_PATH"; \
     [[ "$DISABLE_JUPYTEXT" == "true" ]] && echo "Disabling Jupytext extension" && jupyter labextension disable jupyterlab-jupytext; \
     [[ "$DISABLE_JUPYTERLAB_GIT" == "true" ]] && echo "Disabling JupyterLab Git extension" && jupyter labextension disable @jupyterlab/git; \
     [[ "$COLLABORATIVE" == "true" ]] && echo "Enabling RTC/Live Collaboration" && jupyter labextension enable @jupyter/collaboration-extension; \
+
+    # Disable Collaboration Mode if COLLABORATIVE is false or not set
+    if [ -z "$COLLABORATIVE" ] || [ "$COLLABORATIVE" = "false" ] || [ "$COLLABORATIVE" = "0" ]; then \
+      DISABLE_RTC="--YDocExtension.disable_rtc=True"; \
+    else \
+      DISABLE_RTC=""; \
+    fi; \
     
     # Start Jupyter Lab
     # optionally add --debug
@@ -117,5 +124,5 @@ CMD source "$CONDA_ACTIVATE_PATH" "$JUPYTER_ENV_PATH"; \
         --ip=0.0.0.0 \
         --allow-root \
         --no-browser \
-        ${COLLABORATIVE:+--YDocExtension.disable_rtc=True} \
+        $DISABLE_RTC \
         --ServerApp.root_dir=/home/jovyan/work
