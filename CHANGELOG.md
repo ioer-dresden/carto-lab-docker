@@ -1,6 +1,29 @@
 # CHANGELOG
 
 
+## v0.27.1 (2025-04-16)
+
+### Bug Fixes
+
+- Collaborative flag evaluated vice versa in Dockefile
+  ([`1414253`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/1414253c83e360836bd8363b8cca404b897a361a))
+
+also see https://github.com/jupyterlab/jupyter-collaboration/issues/473
+
+- Remove pip dependency conflict for numpy
+  ([`96e3240`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/96e324033c5c7ef13b07fdd86030759fc2ede251))
+
+python-hll2 is outdated; it is suggested that those who rely on this package install it temporarily
+
+### Refactoring
+
+- Pin JupyterLab version to latest
+  ([`874612a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/874612aeabd0a7699f7f49fcf280ae6630d7d279))
+
+- Show versions for worker_env
+  ([`64635d3`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/64635d3243e4cf5c676e460234139976cc1829ee))
+
+
 ## v0.27.0 (2025-04-08)
 
 ### Bug Fixes
