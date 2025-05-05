@@ -18,7 +18,7 @@ dependencies:
   - dask
   - descartes
   - geoalchemy2
-  - geopandas
+  - geopandas>=1.0.0
   - geopy
   - hvplot
   - flopy
