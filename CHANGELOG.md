@@ -1,6 +1,16 @@
 # CHANGELOG
 
 
+## v0.27.2 (2025-05-05)
+
+### Bug Fixes
+
+- Pin geopandas to 1.0.0 (minimal)
+  ([`6191bff`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/6191bff70ed8c44e99df610f92eac4a17e57ffe1))
+
+- avoids 0.14.4 install
+
+
 ## v0.27.1 (2025-04-16)
 
 ### Bug Fixes
