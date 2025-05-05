@@ -15,7 +15,7 @@ See the list of Carto-Lab Versions and supported features or package versions.
 | ------------------------------------------------ | --------- | --------- | ----------- | ------------ |
 | Container OS                                     | Debian 11 | Debian 12 |             |              |
 | Conda                                            | 23.3.1    | 24.7.1    | 24.11.0     | 25.3.1       |
-| Jupyter Lab                                      | 3.6.3     | 4.2.5     | 4.3.1       | 4.4.1 (x)    |
+| Jupyter Lab                                      | 3.6.3     | 4.2.5     | 4.3.1       | 4.4.1        |
 | Jupyter Server                                   | 2.5.0     | 2.14.2    |             | 2.15.0       |
 | Python (Server)                                  | 3.10.10   | 3.12.5    | 3.12.7      | 3.12.10      |
 | Python (worker_env)                              | 3.9.15    | 3.12.5    | 3.12.7      | 3.13.3       |
@@ -24,7 +24,7 @@ See the list of Carto-Lab Versions and supported features or package versions.
 | nodejs                                           | /         |           | 22.11.0     | 22.13.0      |
 | Language Server: jupyterlab-lsp                  | /         |           | 5.1.0 (x)   |              |
 | Language Server:  pyright                        | /         |           | 1.1.389 (x) | 1.1.400      |
-| Jupyter Real Time collaboration (RTC)            | /         |           | 1.16.4 (o)  | 4.0.0 (x)    |
+| Jupyter Real Time collaboration (RTC)            | /         |           | 1.16.4 (o)  | 4.0.2 (x)    |
 | jupyterlab_widgets                               | 3.0.7     | 3.0.13    | 3.0.13      | 3.0.14       |
 | Jupytext                                         | 1.14.5    | 1.16.4    |             | 1.17.1       |
 | Jupyterlab-git                                   |           | 0.50.1    | 0.50.2      | 0.51.1       |
