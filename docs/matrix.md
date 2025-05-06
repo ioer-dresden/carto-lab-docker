@@ -63,14 +63,17 @@ See the list of Carto-Lab Versions and supported features or package versions.
 {!../tests/get_versions.sh!}
 ```
 
-1. To extract versions during development, modify your `.env` and add:
+1. To extract versions during development, modify your `.env` and add:  
 ```
 COMPOSE_FILE=docker-compose.build.yml
 ```
 
-2. Then use <code>bash tests/get_versions.sh</code>, which will output versions from your locally built Docker container.
+2. Then use <code>bash tests/get_versions.sh</code>.
 
-3. Use an LLM to transpose output into the markdown table
+This will output versions from your locally built Docker container.  
+
+3. Use an LLM to transpose output into the markdown table  
+
 <br><br>
 <details>
     <summary style="cursor: pointer;">Prompt example</summary>
