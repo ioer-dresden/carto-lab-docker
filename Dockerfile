@@ -125,4 +125,5 @@ CMD source "$CONDA_ACTIVATE_PATH" "$JUPYTER_ENV_PATH"; \
         --allow-root \
         --no-browser \
         $DISABLE_RTC \
+	${JUPYTER_EXTRA_ARGS:-} \
         --ServerApp.root_dir=/home/jovyan/work
