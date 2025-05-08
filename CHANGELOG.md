@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.28.0 (2025-05-08)
+
+### Chores
+
+- Enable --debug in build compose
+  ([`99b34ca`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/99b34cac38c68f159c23a4d16c3c029ac51b5a26))
+
+### Features
+
+- Add JUPYTER_EXTRA_ARGS to pass additional (optional) arguments
+  ([`385410a`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commit/385410a0edbc0dd7fd5dc9b966319f7ce1d50e75))
+
+
 ## v0.27.2 (2025-05-05)
 
 ### Bug Fixes
