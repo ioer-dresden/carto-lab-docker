@@ -182,3 +182,16 @@ JUPYTER_AUTOSHUTDOWN_TIMEOUT=1800
 !!! note
     To disable auto-shutdown, set `JUPYTER_AUTOSHUTDOWN_TIMEOUT=0`.
 
+## Set extra arguments for Jupyter Lab
+
+You can pass additional command-line options to the `jupyter lab` startup
+command by setting:
+
+```bash
+JUPYTER_EXTRA_ARGS=--debug
+```
+
+This is useful for enabling features like debug logging, custom configuration paths,
+or experimental flags.
+
+Leave it unset or empty to run with the default jupyter lab behavior.
