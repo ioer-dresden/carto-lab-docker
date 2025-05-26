@@ -16,9 +16,10 @@ The easiest way is to write a temporary package install to the base `worker_env`
 ```
 
 You can also use the terminal and install additional packages with conda:  
-* open a terminal in Jupyter Lab, type `bash`
-* type `conda activate worker_env`
-* install your dependencies (e.g. `conda install hdbscan`)
+
+- open a terminal in Jupyter Lab, type `bash`  
+- type `conda activate worker_env`  
+- install your dependencies (e.g. `conda install hdbscan`)  
 
 !!! note
     The `worker_env` will be reset once the Carto-Lab Docker container is restarted.
