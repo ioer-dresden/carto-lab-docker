@@ -91,6 +91,8 @@ R --version
 
 > R version 4.4.1 (2024-06-14) -- "Race for Your Life"
 
+---
+
 **4. Create a new R-Env with a custom R-Kernel version**
 
 Below, the specific version `4.2.3` is specified:
@@ -108,6 +110,8 @@ R --version
 Example output:
 
 > R version 4.2.3 (2023-03-15) -- "Shortstop Beagle"
+
+---
 
 **5. Link the custom env kernel to Jupyter**
 
@@ -134,6 +138,8 @@ Rscript -e "IRkernel::installspec(name='custom_r_env', displayname='Custom R', u
 conda deactivate
 ```
 
+---
+
 **6. Verify**
 
 Refresh your browser with <kbd>F5</kbd>.
@@ -143,6 +149,8 @@ Create a new Jupyter notebook and select the new `Custom R` kernel.
 ![Custom R Env](custom_r_env.webp)
 
 Start working with your custom R env!
+
+---
 
 **7. Additional Steps**
 
@@ -157,6 +165,8 @@ Sys.setenv(PATH = paste(Sys.getenv("PATH"), "/opt/conda/envs/jupyter_env/bin", s
 # Link the kernel
 IRkernel::installspec(name = "custom_r_env", displayname = "Custom R", user = TRUE)
 ```
+
+---
 
 **8. Backup the Environment for Reproducibility**
 
@@ -181,6 +191,8 @@ conda env create -f custom_r_env.yml
 ```
 
 This will recreate the environment with similar versions.
+
+---
 
 **For Exact Reproducibility:**
 
