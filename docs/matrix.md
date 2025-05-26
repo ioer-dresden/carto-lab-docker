@@ -11,11 +11,11 @@
 
 See the list of Carto-Lab Versions and supported features or package versions.
 
-| ▼Feature or Package - Carto-Lab Docker Version ▶ | 0.13.0    | 0.19.0    | 0.24.2      | 0.27.2       |
+| ▼Feature or Package - Carto-Lab Docker Version ▶ | 0.13.0    | 0.19.0    | 0.24.2      | 0.28.0       |
 | ------------------------------------------------ | --------- | --------- | ----------- | ------------ |
 | Container OS                                     | Debian 11 | Debian 12 |             |              |
 | Conda                                            | 23.3.1    | 24.7.1    | 24.11.0     | 25.3.1       |
-| Jupyter Lab                                      | 3.6.3     | 4.2.5     | 4.3.1       | 4.4.1        |
+| Jupyter Lab                                      | 3.6.3     | 4.2.5     | 4.3.1       | 4.4.2        |
 | Jupyter Server                                   | 2.5.0     | 2.14.2    |             | 2.15.0       |
 | Python (Server)                                  | 3.10.10   | 3.12.5    | 3.12.7      | 3.12.10      |
 | Python (worker_env)                              | 3.9.15    | 3.12.5    | 3.12.7      | 3.13.3       |
@@ -25,7 +25,7 @@ See the list of Carto-Lab Versions and supported features or package versions.
 | Language Server: jupyterlab-lsp                  | /         |           | 5.1.0 (x)   |              |
 | Language Server:  pyright                        | /         |           | 1.1.389 (x) | 1.1.400      |
 | Jupyter Real Time collaboration (RTC)            | /         |           | 1.16.4 (o)  | 4.0.2 (x)    |
-| jupyterlab_widgets                               | 3.0.7     | 3.0.13    | 3.0.13      | 3.0.14       |
+| jupyterlab_widgets                               | 3.0.7     | 3.0.13    | 3.0.13      | 3.0.15       |
 | Jupytext                                         | 1.14.5    | 1.16.4    |             | 1.17.1       |
 | Jupyterlab-git                                   |           | 0.50.1    | 0.50.2      | 0.51.1       |
 | Spellchecker                                     | 0.7.3     | 0.8.4     |             |              |
@@ -35,7 +35,7 @@ See the list of Carto-Lab Versions and supported features or package versions.
 | nbconvert                                        | 7.2.10    | 7.16.4    |             | 7.16.6       |
 | papermill                                        | 2.3.4     | 2.6.0     |             |              |
 | geopandas                                        | 0.12.2    | 1.0.1     |             |              |
-| ipywidgets                                       | 8.0.6     | 8.1.5     |             | 8.1.6        |
+| ipywidgets                                       | 8.0.6     | 8.1.5     |             | 8.1.7        |
 | matplotlib                                       | 3.7.1     | 3.9.2     |             | 3.10.1       |
 | shapely                                          | 1.7.1     | 2.0.6     |             | 2.1.0        |
 | pyproj                                           | 3.2.1     | 3.6.1     | 3.7.0       | 3.7.1        |
