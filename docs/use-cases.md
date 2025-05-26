@@ -67,6 +67,126 @@ conda deactivate
 !!! warning
     * Every time you reset/pull new versions of CartoLab-Docker, you will need to re-link kernels
     * You are responsible for upgrading or backing up your environment, it is not maintained within the Docker container
+    * Reproducibility is not guaranteed anymore. You need your own workflow for sharing your dependency setup with others.
+
+#### Example: Create an environment with a specific R version
+
+Prerequisite: You are using the `rstudio` CartoLab-Tag.
+
+1. Open a new terminal in your Jupyter web interface
+2. Activate the `r_env`
+
+```bash
+conda activate r_env
+```
+
+3. Get the current R-version
+
+```R
+R --version
+```
+
+> R version 4.4.1 (2024-06-14) -- "Race for Your Life"
+
+4. Create a new R-Env with a custom R-Kernel version
+
+Below, the specific version `4.2.3` is specified.
+
+```bash
+conda deactivate
+conda create \
+    --prefix /envs/custom_r_env \
+    --channel conda-forge \
+    r-base=4.2.3
+conda activate /envs/custom_r_env
+R --version
+```
+
+> R version 4.2.3 (2023-03-15) -- "Shortstop Beagle"
+
+5. Link the custom env kernel to Jupyter/ IPython
+
+```R
+R
+install.packages('IRkernel')
+```
+
+Afterwards, exit the R Session with <kbd>CTRL+D</kbd>.
+
+
+Link the new custom R Kernel with a Jupyter kernelspec:
+```bash
+# Add Carto-Lab jupyter's bin path to the end of PATH
+export PATH="$PATH:/opt/conda/envs/jupyter_env/bin"
+
+# Run the installspec command
+Rscript -e "IRkernel::installspec(name='custom_r_env', displayname='Custom R', user=TRUE)"
+
+# Deactivate R environment
+conda deactivate
+```
+
+6. Verify
+
+Refresh your browser with <kbd>F5</kbd>.
+
+Create a new Jupyter Notebook and select the new `custom_r_env`.
+
+![Custom R Env](custom_r_env.webp)
+
+Start working with your custom R env.
+
+7. Additional Steps
+
+After every Carto-Lab Docker update, the custom Kernel env may need to be _re-linked_.
+
+You can do this by including the below commands in a R cell at the top of your Jupyter notebooks:
+```R
+# Extend PATH so IRkernel can find jupyter
+Sys.setenv(PATH = paste(Sys.getenv("PATH"), "/opt/conda/envs/jupyter_env/bin", sep = ":"))
+
+# Link the kernel
+IRkernel::installspec(name = "custom_r_env", displayname = "Custom R", user = TRUE)
+```
+
+You also want to make sure to store the installed package versions somewhere for reproducibility.
+
+You can do this with conda and the following workflow:
+This is the standard way to capture **everything** (including exact versions and channels):
+
+In a R cell in your notebook, add:
+```R
+system("conda env export > custom_r_env.yml")
+```
+
+This generates a YAML file (`custom_r_env.yml`) that includes:
+
+- All Conda packages (including `r-*` R packages)
+- Version constraints
+- The name of the environment
+- The channels used to install the packages
+
+To restore, open a terminal and use:
+
+```bash
+conda env create -f custom_r_env.yml
+```
+
+This will recreate the environment (relatively) exactly.
+
+If you're concerned about full reproducibility down to the exact build hash (for archival purposes), use:
+
+```R
+system("conda list --explicit > custom_r_env.txt")
+```
+
+To restore:
+
+```bash
+conda create --name restored_env --file custom_r_env.txt
+```
+
+This is stricter than the YAML-based method — it installs exact builds from the original channels (must still be available).
 
 ### Further options for package installation
 
