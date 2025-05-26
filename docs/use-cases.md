@@ -210,6 +210,11 @@ conda create --name restored_env --file custom_r_env.txt
 
 This installs exact builds (requires the original channels to still be available).
 
+!!! tip
+    Add your `custom_r_env.txt` and `custom_r_env.yml` to git, to track any changes
+    and version your dependencies.
+
+
 ### Further options for package installation
 
 For specific purposes, a number of alternatives are possible.
