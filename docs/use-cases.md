@@ -71,26 +71,29 @@ conda deactivate
 
 #### Example: Create an environment with a specific R version
 
-Prerequisite: You are using the `rstudio` CartoLab-Tag.
+**Prerequisite:** You are using the `rstudio` Tag for Carto-Lab Docker.
 
-1. Open a new terminal in your Jupyter web interface
-2. Activate the `r_env`
+---
+
+**1. Open a new terminal in your Jupyter web interface**
+
+**2. Activate the `r_env`**
 
 ```bash
 conda activate r_env
 ```
 
-3. Get the current R-version
+**3. Get the current R-version**
 
-```R
+```r
 R --version
 ```
 
 > R version 4.4.1 (2024-06-14) -- "Race for Your Life"
 
-4. Create a new R-Env with a custom R-Kernel version
+**4. Create a new R-Env with a custom R-Kernel version**
 
-Below, the specific version `4.2.3` is specified.
+Below, the specific version `4.2.3` is specified:
 
 ```bash
 conda deactivate
@@ -102,19 +105,24 @@ conda activate /envs/custom_r_env
 R --version
 ```
 
+Example output:
+
 > R version 4.2.3 (2023-03-15) -- "Shortstop Beagle"
 
-5. Link the custom env kernel to Jupyter/ IPython
+**5. Link the custom env kernel to Jupyter**
 
-```R
+First, install the R kernel package from within R:
+
+```r
 R
 install.packages('IRkernel')
 ```
 
-Afterwards, exit the R Session with <kbd>CTRL+D</kbd>.
+Exit the R session with <kbd>CTRL+D</kbd>.
 
 
-Link the new custom R Kernel with a Jupyter kernelspec:
+Now, link the new custom R kernel with a Jupyter kernelspec:
+
 ```bash
 # Add Carto-Lab jupyter's bin path to the end of PATH
 export PATH="$PATH:/opt/conda/envs/jupyter_env/bin"
@@ -126,22 +134,23 @@ Rscript -e "IRkernel::installspec(name='custom_r_env', displayname='Custom R', u
 conda deactivate
 ```
 
-6. Verify
+**6. Verify**
 
 Refresh your browser with <kbd>F5</kbd>.
 
-Create a new Jupyter Notebook and select the new `custom_r_env`.
+Create a new Jupyter notebook and select the new `Custom R` kernel.
 
 ![Custom R Env](custom_r_env.webp)
 
-Start working with your custom R env.
+Start working with your custom R env!
 
-7. Additional Steps
+**7. Additional Steps**
 
-After every Carto-Lab Docker update, the custom Kernel env may need to be _re-linked_.
+After each Carto-Lab Docker update, the custom kernel environment may need to be *re-linked*.
 
-You can do this by including the below commands in a R cell at the top of your Jupyter notebooks:
-```R
+You can do this by including the following commands in an R cell at the top of your notebooks:
+
+```r
 # Extend PATH so IRkernel can find jupyter
 Sys.setenv(PATH = paste(Sys.getenv("PATH"), "/opt/conda/envs/jupyter_env/bin", sep = ":"))
 
@@ -149,13 +158,12 @@ Sys.setenv(PATH = paste(Sys.getenv("PATH"), "/opt/conda/envs/jupyter_env/bin", s
 IRkernel::installspec(name = "custom_r_env", displayname = "Custom R", user = TRUE)
 ```
 
-You also want to make sure to store the installed package versions somewhere for reproducibility.
+**8. Backup the Environment for Reproducibility**
 
-You can do this with conda and the following workflow:
-This is the standard way to capture **everything** (including exact versions and channels):
+To preserve installed package versions, you can back up the environment using Conda:
 
-In a R cell in your notebook, add:
-```R
+In an R cell, run:
+```r
 system("conda env export > custom_r_env.yml")
 ```
 
@@ -166,17 +174,19 @@ This generates a YAML file (`custom_r_env.yml`) that includes:
 - The name of the environment
 - The channels used to install the packages
 
-To restore, open a terminal and use:
+To restore the environment, open a terminal and run:
 
 ```bash
 conda env create -f custom_r_env.yml
 ```
 
-This will recreate the environment (relatively) exactly.
+This will recreate the environment with similar versions.
 
-If you're concerned about full reproducibility down to the exact build hash (for archival purposes), use:
+**For Exact Reproducibility:**
 
-```R
+If you require full reproducibility down to the exact build hash (e.g. for archival or deployment), use:
+
+```r
 system("conda list --explicit > custom_r_env.txt")
 ```
 
@@ -186,7 +196,7 @@ To restore:
 conda create --name restored_env --file custom_r_env.txt
 ```
 
-This is stricter than the YAML-based method — it installs exact builds from the original channels (must still be available).
+This installs exact builds (requires the original channels to still be available).
 
 ### Further options for package installation
 
