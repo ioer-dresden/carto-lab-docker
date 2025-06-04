@@ -45,6 +45,8 @@ See the list of Carto-Lab Versions and supported features or package versions.
 | geoviews                                         | 1.9.5     | 1.12.0    | 1.13.0      | 1.14.0       |
 | Bokeh                                            | 2.4.3     | 3.4.2     | 3.5.2       | 3.7.2        |
 | Rasterio                                         | 1.2.10    | 1.3.10    | 1.4.2       | 1.4.3        |
+| GDAL                                             |           |           |             | 3.10.3       |
+
 
 
 - `/`- Feature not included
