@@ -30,7 +30,7 @@ do
 done;
 
 # get worker_env package versions
-printf "\nJupyter env package versions: \n\n"
+printf "\nWorker env package versions: \n\n"
 declare -a arr=("geopandas" 
                 "ipywidgets" 
                 "matplotlib" 
@@ -41,7 +41,8 @@ declare -a arr=("geopandas"
                 "cartopy"  
                 "geoviews" 
                 "bokeh" 
-                "rasterio")
+                "rasterio" 
+                "osgeo.gdal")
 
 for i in "${arr[@]}"
 do
