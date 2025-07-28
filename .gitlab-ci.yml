@@ -1,12 +1,3 @@
-image: docker:dind
-
-variables:
-  DOCKER_DRIVER: overlay2
-  DOCKER_TLS_CERTDIR: "/certs"
-
-services:
-  - docker:dind
-
 stages:
   - build-stable
   - build-latest
@@ -18,6 +9,9 @@ stages:
 
 build and push latest:
   stage: build-latest
+  image: docker:latest
+  tags:
+    - dind-runner
   script:
     # get latest version from file, so we do not need to install git
     - VERSION=v$(cat .version | cut -d"'" -f 2)
@@ -32,6 +26,9 @@ build and push latest:
 
 build and push stable:
   stage: build-stable
+  image: docker:latest
+  tags:
+    - dind-runner
   script:
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
     - docker build --pull --tag $CI_REGISTRY_IMAGE:stable .
@@ -42,6 +39,9 @@ build and push stable:
 
 build and push mapnik:
   stage: build-mapnik
+  image: docker:latest
+  tags:
+    - dind-runner
   script:
     - VERSION=v$(cat .version | cut -d"'" -f 2)
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
@@ -56,6 +56,9 @@ build and push mapnik:
 
 build and push rstudio:
   stage: build-rstudio
+  image: docker:latest
+  tags:
+    - dind-runner
   script:
     - VERSION=v$(cat .version | cut -d"'" -f 2)
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
