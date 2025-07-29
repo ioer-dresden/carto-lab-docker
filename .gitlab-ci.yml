@@ -15,6 +15,7 @@ build and push latest:
   script:
     # get latest version from file, so we do not need to install git
     - VERSION=v$(cat .version | cut -d"'" -f 2)
+    - unset DOCKER_HOST
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
     - docker build --network=host --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:$VERSION --tag $CI_REGISTRY_IMAGE:latest .
     - docker push $CI_REGISTRY_IMAGE --all-tags
