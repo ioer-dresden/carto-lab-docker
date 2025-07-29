@@ -16,7 +16,7 @@ build and push latest:
     # get latest version from file, so we do not need to install git
     - VERSION=v$(cat .version | cut -d"'" -f 2)
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
-    - docker build --network=host --add-host=docker:127.0.0.1 --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:$VERSION --tag $CI_REGISTRY_IMAGE:latest .
+    - docker build --network=host --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:$VERSION --tag $CI_REGISTRY_IMAGE:latest .
     - docker push $CI_REGISTRY_IMAGE --all-tags
   rules:
     - if: $CI_COMMIT_BRANCH == "master-latest"
@@ -30,6 +30,7 @@ build and push stable:
   tags:
     - dind-runner
   script:
+    - unset DOCKER_HOST
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
     - docker build --pull --tag $CI_REGISTRY_IMAGE:stable .
     - docker push $CI_REGISTRY_IMAGE:stable
@@ -44,8 +45,9 @@ build and push mapnik:
     - dind-runner
   script:
     - VERSION=v$(cat .version | cut -d"'" -f 2)
+    - unset DOCKER_HOST
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
-    - docker build --network=host --add-host=docker:127.0.0.1 --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:mapnik_$VERSION --tag $CI_REGISTRY_IMAGE:mapnik ./mapnik
+    - docker build --network=host --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:mapnik_$VERSION --tag $CI_REGISTRY_IMAGE:mapnik ./mapnik
     - docker push $CI_REGISTRY_IMAGE --all-tags
   rules:
     - if: $CI_COMMIT_BRANCH == "master-latest"
@@ -61,8 +63,9 @@ build and push rstudio:
     - dind-runner
   script:
     - VERSION=v$(cat .version | cut -d"'" -f 2)
+    - unset DOCKER_HOST
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
-    - docker build --network=host --add-host=docker:127.0.0.1 --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:rstudio_$VERSION --tag $CI_REGISTRY_IMAGE:rstudio ./rstudio
+    - docker build --network=host --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:rstudio_$VERSION --tag $CI_REGISTRY_IMAGE:rstudio ./rstudio
     - docker push $CI_REGISTRY_IMAGE --all-tags
   rules:
     - if: $CI_COMMIT_BRANCH == "master-latest"
