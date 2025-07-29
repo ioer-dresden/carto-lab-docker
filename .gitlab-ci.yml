@@ -12,10 +12,6 @@ build and push latest:
   image: docker:latest
   tags:
     - dind-runner
-  variables:
-    DOCKER_HOST: unix:///var/run/docker.sock
-    DOCKER_TLS_VERIFY: "1"
-    DOCKER_CERT_PATH: "/certs/client"
   script:
     # get latest version from file, so we do not need to install git
     - VERSION=v$(cat .version | cut -d"'" -f 2)
