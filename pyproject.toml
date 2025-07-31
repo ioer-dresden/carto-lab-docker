@@ -12,8 +12,8 @@ match = "(master-latest)"
 name = "origin"
 type = "gitlab"
 ignore_token_for_push = false
-domain = "gitlab.vgiscience.de"
-api_domain = "gitlab.vgiscience.de/api/v4"
+domain = "gitlab.hrz.tu-chemnitz.de"
+api_domain = "gitlab.hrz.tu-chemnitz.de//api/v4"
 
 [tool.semantic_release.remote.token]
 env = "GL_TOKEN"
