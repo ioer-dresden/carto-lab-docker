@@ -123,7 +123,7 @@ deploydocs:
   - eval $(ssh-agent -s)
   - echo "${SSH_PRIVKEY}" | ssh-add -
   - mkdir -p ~/.ssh
-  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\tLogLevel QUIET\n\n" > ~/.ssh/config'
   script:
   - rsync -avu -zz --no-perms --omit-dir-times --chown=www-data:www-data --chmod=D775,F664 site/ "${PRODUCTION_DESTINATION}"/public/cartolab/
   only:
