@@ -11,9 +11,13 @@ The [Social Media, Jupyter Lab & Tag Maps Workshop Series at TUD](https://gitlab
 3. [03_tagmaps.html](https://kartographie.geo.tu-dresden.de/ad/jupyter_python_datascience/03_tagmaps.html)
 4. [04_topic_classification.html](https://kartographie.geo.tu-dresden.de/ad/jupyter_python_datascience/04_topic_classification.html)
 
+## Exploring Spatial and Biodiversity Data with Python and JupyterLab
+
+The [IOER FDZ Training Materials for Exploring Spatial and Biodiversity Data with Python and JupyterLab](https://training.fdz.ioer.info/) have been created with Carto-Lab Docker.
+
 ## Publications
 
-The following publications include Jupyter notebooks created with Carto-Lab Docker as supplementary material:
+The following publications include Jupyter notebooks created with Carto-Lab Docker as supplementary materials:
 
 - **Dunkel, A., & Burghardt, D. (2024).** Assessing Perceived Landscape Change from Opportunistic Spatiotemporal Occurrence Data. Land, 13(7), 1091. [DOI](https://doi.org/10.3390/land13071091)
     - S1 Jupyter Notebook: [01_mass_invasion.html](https://code.ad.ioer.info/wip/temporal_landscapes/html/01_mass_invasion.html)

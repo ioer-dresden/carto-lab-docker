@@ -1,6 +1,8 @@
 [![version](https://cartolab.theplink.org/version.svg)](https://cartolab.theplink.org/changelog/)
 
-**Carto-Lab Docker** is a container that runs a JupyterLab server, with two prepared Python and R environments for _cartographic visualization_.
+# Your Reproducible Environment for Spatial Data Science
+
+**Carto-Lab Docker** is a FAIR-enabling computational environment, officially supported by the **FDZ IOER**. It provides a versioned, pre-configured JupyterLab server in a Docker container, designed to make transparent and reproducible spatial analysis accessible to everyone.
 
 <p align="center"><img src="logo.svg">
 
@@ -8,21 +10,37 @@
 
 -----
 
-Working with JupyterLab, virtual environments, and a set of Python cartographic package dependencies can be daunting. Carto-Lab Docker aims to make life easier for beginners and intermediate users who want to start using JupyterLab and Python cartographic packages.
+## Why Carto-Lab Docker?
+
+Setting up and maintaining environments for spatial data science is a major hurdle. Managing dependencies for packages like GeoPandas, Rasterio, and QGIS can be complex and time-consuming. Carto-Lab Docker solves this by providing a ready-to-use solution that just works.
+
+It is aimed at researchers, students, and practitioners who value transparency, reproducibility, and reusability in their scientific workflows.
 
 -----
 
-Carto-Lab Docker helps with the following tasks: 
+### Key Features
 
-- Full reproducibility with a versioned virtual Python environment
-- Pre-built with several JupyterLab extensions, such as [Jupytext](https://jupytext.readthedocs.io/), [Collaboration](https://github.com/jupyterlab/jupyter-collaboration), [Spellchecker](https://github.com/jupyterlab-contrib/spellchecker), [Jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git), [ipywidgets](https://github.com/jupyter-widgets/ipywidgets), or [Papermill](https://papermill.readthedocs.io/en/latest/)
-- Integrated with Docker containers from the [LBSN-Structure](https://lbsn.vgiscience.org/) (Postgres, HyperLogLog)  
+**Reproducibility by Design**
 
-Carto-Lab Docker is aimed at researchers and practitioners who value transparency, reproducibility, and reusability by using, developing and sharing open source code for visual analysis and mapping tasks.
+Every Carto-Lab Docker version is tagged and archived. You can run code from years ago in its original environment, ensuring true long-term reproducibility for your publications and projects. See the [Example Notebooks](./notebooks.md) section for a list of papers that have been published with Carto-Lab Docker.
+
+**Pre-configured for Spatial Science**
+
+Jump right into your analysis with curated Python and R environments that include the most important packages for cartography, spatial statistics, and data visualization.
+
+**Extensible and Open**
+
+Easily add your own packages or use our templates to extend the container with powerful tools like QGIS and GRASS GIS. The entire project is open source and community contributions are welcome on [GitHub](https://github.com/ioer-dresden/carto-lab-docker).
 
 -----
 
-## Packages
+## Get Started
+
+Ready to try it out? Our [quick-start guide](./quickstart.md) will help you running your first JupyterLab session.
+
+-----
+
+## Included Packages
 
 ![Packages Summary Graphic](/packages.png)
 
@@ -85,5 +103,5 @@ Carto-Lab Docker also includes [Mapnik](https://mapnik.org/), the [openstreetmap
 These packages can be expanded as needed. We offer several starter guides for different visual analytics tasks.
 
 !!! note
-    Carto-Lab Docker is research software and is maintained infrequently, when there is time or specific need.
+    As an official research infrastructure component of the **FDZ IOER**, Carto-Lab Docker is actively maintained to ensure its stability and long-term sustainability. You can learn more about its history and governance on our [**About page**](./about.md).
     
