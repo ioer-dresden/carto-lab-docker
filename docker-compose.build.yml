@@ -1,7 +1,7 @@
 services:
 
   jupyterlab:
-    # image: registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:${TAG:-latest}
+    # image: gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:${TAG:-latest}
     build:
       context: .
       args:

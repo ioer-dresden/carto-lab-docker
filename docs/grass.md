@@ -3,7 +3,7 @@
 If you want to use [GRASS GIS](https://grass.osgeo.org/) together with its jupyter companion ([grass.jupyter package](https://grass.osgeo.org/grass83/manuals/libpython/grass.jupyter.html)), we prepared a `Dockerfile` for you. The image extends the base image. 
 
 
-We occasionally push docker images for the GRASS tag to our registry (`https://registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:grass`). If you want the latest or specific versions, you have to build the image yourself.
+We occasionally push docker images for the GRASS tag to our registry (`https://gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:grass`). If you want the latest or specific versions, you have to build the image yourself.
 
 Use the following `docker-compose.grass.yml`:
 ```yaml

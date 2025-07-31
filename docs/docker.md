@@ -23,14 +23,14 @@ The current version of Carto-Lab docker is based on Jupyter Lab 4.x.
 
 !!! warning
     **We aim for compatibility of all included geo-packages by pinning specific versions**, but once in a while new releases may require updates to these pinnings in [environment_default.yml](environment_default.yml).
-    It is recommended to use the tested docker images available in [our registry](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/container_registry), if the current Dockerfile has build issues. See [Docker Images & Tags](#docker-images-tags) below on how to reference a specific version tag.
+    It is recommended to use the tested docker images available in [our registry](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/container_registry), if the current Dockerfile has build issues. See [Docker Images & Tags](#docker-images-tags) below on how to reference a specific version tag.
 
 **tl:dr**
 
 To start the docker container locally:
 
 ```bash
-git clone https://gitlab.vgiscience.de/lbsn/tools/jupyterlab.git
+git clone https://github.com/ioer-dresden/carto-lab-docker
 cd jupyterlab
 cp .env.example .env
 # optionally: adjust parameters in .env
@@ -44,8 +44,8 @@ By default, notebooks will be made available inside the docker from your `$HOME/
 
 ## Branches
 
-- [`master`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master) branch: Stable, tested container
-- [`master-latest`](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/tree/master-latest) branch: Latest version of container
+- [`master`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/tree/master) branch: Stable, tested container
+- [`master-latest`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/tree/master-latest) branch: Latest version of container
 
 ## Container versions
 
@@ -53,17 +53,17 @@ The container is versioned and tagged, as a means to support different use cases
 
 There are four tags:
 
-- [`jupyterlab:stable`](registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:stable)
-- [`jupyterlab:latest`](registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:latest)
-- [`jupyterlab:mapnik`](registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:mapnik)
-- [`jupyterlab:rstudio`](registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:rstudio)
+- [`jupyterlab:stable`](gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:stable)
+- [`jupyterlab:latest`](gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:latest)
+- [`jupyterlab:mapnik`](gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:mapnik)
+- [`jupyterlab:rstudio`](gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:rstudio)
 
 `:mapnik` and `rstudio` are images that extend: `:latest`. If you want to use Mapnik, use the `mapnik` image. If you want to use R, use the `rstudio` image.
 All images include the default Python `worker_env`.
 
 Carto-Lab Docker Images are versioned, so you can pull any specific version (recommended!), e.g.:
 ```
-registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:mapnik_v0.8.1
+gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:mapnik_v0.8.1
 ```
 
 !!! info

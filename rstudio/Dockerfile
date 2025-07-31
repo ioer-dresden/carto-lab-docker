@@ -5,7 +5,7 @@
 ARG VERSION=latest
 ARG ENVIRONMENT_FILE=environment_r.yml
 
-FROM registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:$VERSION
+FROM gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:$VERSION
 
 ENV ENVIRONMENT_FILE=environment_r.yml \
     R_ENV_NAME=r_env

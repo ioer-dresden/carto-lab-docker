@@ -1,4 +1,4 @@
-[![version](https://cartolab.theplink.org/version.svg)](CHANGELOG.md) [![pipeline status](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/badges/master-latest/pipeline.svg#2)](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/-/commits/master-latest) [![Documentation](https://cartolab.theplink.org/documentation.svg)](https://cartolab.theplink.org/)
+[![version](https://cartolab.theplink.org/version.svg)](CHANGELOG.md) [![pipeline status](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/badges/master-latest/pipeline.svg#2)](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commits/master-latest) [![Documentation](https://cartolab.theplink.org/documentation.svg)](https://cartolab.theplink.org/)
 
 
 
@@ -22,7 +22,7 @@ The current version of Carto-Lab docker is based on Jupyter Lab 4.x.
 ------
 
 > :warning: **We aim for compatibility of all included geo-packages by pinning specific versions**, but once in a while new releases may require updates to these pinnings in [environment_default.yml](environment_default.yml).
-> It is recommended to use the tested docker images available in [our registry](https://gitlab.vgiscience.de/lbsn/tools/jupyterlab/container_registry), if the current Dockerfile has build issues.
+> It is recommended to use the tested docker images available in [our registry](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/container_registry), if the current Dockerfile has build issues.
 
 **tl:dr**
 

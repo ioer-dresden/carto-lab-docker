@@ -3,7 +3,7 @@ site_url: https://cartolab.theplink.org/
 site_author: Alexander Dunkel
 copyright: CC BY 4.0, Alexander Dunkel, Marc Löchner, vgiscience.org and contributors
 
-repo_url: https://gitlab.vgiscience.de/lbsn/tools/jupyterlab
+repo_url: https://github.com/ioer-dresden/carto-lab-docker
 site_dir: site
 docs_dir: docs
 

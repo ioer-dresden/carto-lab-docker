@@ -1,6 +1,6 @@
 ARG VERSION=latest
 
-FROM registry.gitlab.vgiscience.org/lbsn/tools/jupyterlab:$VERSION
+FROM gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:$VERSION
 
 ENV PYTHON_BINDINGS=" \
     gdal-bin \
