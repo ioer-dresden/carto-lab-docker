@@ -33,6 +33,7 @@ Carto-Lab Docker has evolved through distinct phases, reflecting its growth from
     *   Migrating the official documentation from `cartolab.theplink.org` to `cartolab.fdz.ioer.info`.
     *   Migrating the GitLab repository from `gitlab.vgiscience.de` to `gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker`.
     *   Mirroring all historic container images to the new institutional registry.
+    *   Establishing a public mirror on GitHub to facilitate broader community engagement and contributions.
 
 While officially hosted by the FDZ IOER, the project continues to be actively developed and maintained by Alexander Dunkel. The FDZ's sponsorship signifies a commitment to the project's sustainability and its integration into the RDM service portfolio of the IOER.
 
