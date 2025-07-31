@@ -86,7 +86,7 @@ artifacts:
     # create badges
     - version_var=$(sed -n "s#__version__ =\s*'\(.*\)'#\1#p" .version)
     - echo "Version for badges $version_var"
-    - anybadge -l version --value="${version_var}" --file=version.svg --color=#03A6F0
+    - anybadge -l version --value="${version_var}" --file=version.svg --color=#0970B9
     - anybadge -l mkdocs --value="Documentation" --file=documentation.svg --color=green
   artifacts:
     paths:
