@@ -1,7 +1,7 @@
 site_name: Carto-Lab Docker Documentation
 site_url: https://cartolab.theplink.org/
 site_author: Alexander Dunkel
-copyright: CC BY 4.0, Alexander Dunkel, Marc Löchner, vgiscience.org and contributors
+copyright: CC BY 4.0, Alexander Dunkel, Marc Löchner, IOER FDZ & vgiscience.org colleagues, and contributors
 
 repo_url: https://github.com/ioer-dresden/carto-lab-docker
 site_dir: site
