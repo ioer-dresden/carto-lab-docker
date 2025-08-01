@@ -12,6 +12,14 @@ If you need to change/update packages in `worker_env`, you have two main options
 
 The easiest way is to write a temporary package install to the base `worker_env` directly in a jupyter cell:
 ```bash
+%%bash
+conda install -n worker_env hdbscan -c conda-forge
+```
+
+This will install package `hdbscan` to the default `worker_env`, until the next restart of Carto-Lab Docker.
+
+If packages are not available on conda, it is possible to install packages with pip:
+```bash
 !/opt/conda/envs/worker_env/bin/python -m pip install geoplot alphashape
 ```
 
