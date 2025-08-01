@@ -41,8 +41,7 @@ declare -a arr=("geopandas"
                 "cartopy"  
                 "geoviews" 
                 "bokeh" 
-                "rasterio" 
-                "osgeo.gdal")
+                "rasterio" )
 
 for i in "${arr[@]}"
 do
@@ -51,6 +50,9 @@ do
     /opt/conda/envs/worker_env/bin/python -c "import "$0"; print("$0".__version__)"' ${i})
    echo "$i $version"
 done;
+
+printf "\nGDAL: \n\n"
+docker compose run jupyterlab /bin/bash -c "/opt/conda/envs/worker_env/bin/gdalinfo --version"
 
 printf "\nOS: \n\n"
 docker compose run jupyterlab /bin/bash -c "cat /etc/*release"
