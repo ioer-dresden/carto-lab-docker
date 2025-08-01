@@ -2,6 +2,7 @@
 assets = []
 version_variables = [
     ".version:__version__",]
+allow_zero_version = "true"
 commit_version_number = "true"
 branch = "master-latest"
 
@@ -13,7 +14,7 @@ name = "origin"
 type = "gitlab"
 ignore_token_for_push = false
 domain = "gitlab.hrz.tu-chemnitz.de"
-api_domain = "gitlab.hrz.tu-chemnitz.de//api/v4"
+api_domain = "gitlab.hrz.tu-chemnitz.de/api/v4"
 
 [tool.semantic_release.remote.token]
 env = "GL_TOKEN"
