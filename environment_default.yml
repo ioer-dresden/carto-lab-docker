@@ -36,5 +36,4 @@ dependencies:
   - rasterio
   - seaborn
   - shapely
-  - tagmaps
   - xarray
