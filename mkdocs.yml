@@ -16,6 +16,7 @@ theme:
     - bash
   collapse_navigation: true
   custom_dir: docs/overrides
+  logo: images/logo-white-text.svg
 
 extra_css:
   - extra.css
