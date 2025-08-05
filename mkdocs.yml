@@ -4,7 +4,9 @@ site_author: Alexander Dunkel
 copyright: CC BY 4.0, Alexander Dunkel, Marc Löchner, IOER FDZ & vgiscience.org colleagues, and contributors
 
 repo_url: https://github.com/ioer-dresden/carto-lab-docker
+
 edit_uri: edit/master-latest/docs/
+repo_branch: master-latest
 site_dir: site
 docs_dir: docs
 
