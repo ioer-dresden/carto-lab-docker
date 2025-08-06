@@ -42,6 +42,10 @@ semantic-release -vv --noop publish
 
 Remove `-vv --noop` afterwards to make a public release.
 
+!!! note
+    Releases are created in Gitlab. Only tags will be automatically forwarded to Github.
+    To create matching Github releases, release notes must be copied manually to Github tags.
+
 ## Run on a dedicated domain on the web
 
 If you want to run this in production on a webserver, you can add an environment 
