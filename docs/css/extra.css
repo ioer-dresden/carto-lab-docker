@@ -1,0 +1,97 @@
+.wy-side-nav-search {
+    background: #0970B9;
+}
+
+.caption-text {
+    color: #03A6F0;
+}
+
+.admonition.note .admonition-title {
+    background: #0970B9
+}
+
+.wy-side-nav-search img.logo {
+    height: 100%;
+    width: 100%;
+    min-height: 6.4rem;
+    min-width: 2.4rem;
+    display: block;
+    margin: 0 auto;
+}
+
+pre {
+  position: relative;
+}
+
+/* Container for the clipboard icon */
+.clipboard {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  line-height: 1;
+  width: auto;
+  height: auto;
+  z-index: 10;
+}
+
+/* Target the button with enough specificity */
+.clipboard > .btn-clipboard {
+  all: unset;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 1rem;
+  color: silver;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  transition: color 150ms ease-in-out;
+
+  text-indent: -9999px;
+  overflow: hidden;
+  width: 1.2em;
+  height: 1.2em;
+  position: relative;
+
+  /* Remove backgrounds, borders, shadows */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  user-select: none;
+}
+
+/* Also remove background etc on hover */
+.clipboard > .btn-clipboard:hover {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: black;
+}
+
+/* Icon content */
+.clipboard > .btn-clipboard::before {
+  content: "\f0c5";
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-indent: 0;
+  color: silver;
+}
+
+/* Make icon black on hover */
+.clipboard > .btn-clipboard:hover::before {
+  color: black;
+}
+
+/* Remove scaling/transform on click */
+.clipboard > .btn-clipboard:active {
+  transform: none;
+  transition: none;
+  outline: none;
+}
+
+span.btn.btn-neutral.btn-clipboard:hover {
+  background-color: transparent !important;
+  color: black !important;
+  box-shadow: none !important;
+  border: none !important;
+}

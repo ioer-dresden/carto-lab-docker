@@ -20,7 +20,14 @@ theme:
   logo: images/logo-white-text.svg
 
 extra_css:
-  - extra.css
+  - css/extra.css
+  - css/all.min.css
+
+extra_javascript:
+  - js/popper.min.js
+  - js/tippy-bundle.umd.js
+  - js/clipboard.min.js
+  - js/extra.js
 
 markdown_extensions:
     - toc:
