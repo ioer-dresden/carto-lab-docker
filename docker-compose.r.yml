@@ -1,6 +1,7 @@
 services:
   jupyterlab:
-    image: gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:${TAG:-rstudio}
+    image: quay.io/ioer-fdz/carto-lab-docker:${TAG:-rstudio}
+    # image: gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:${TAG:-rstudio}
     build:
       context: ./rstudio
       args:

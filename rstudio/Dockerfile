@@ -5,6 +5,9 @@
 ARG VERSION=latest
 ARG ENVIRONMENT_FILE=environment_r.yml
 
+## public:
+# FROM quay.io/ioer-fdz/carto-lab-docker:$VERSION
+## private:
 FROM gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:$VERSION
 
 ENV ENVIRONMENT_FILE=environment_r.yml \

@@ -1,5 +1,8 @@
 ARG VERSION=latest
 
+## public:
+# FROM quay.io/ioer-fdz/carto-lab-docker:$VERSION
+## private:
 FROM gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:$VERSION
 
 ENV PYTHON_BINDINGS=" \

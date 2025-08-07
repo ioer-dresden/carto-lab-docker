@@ -51,19 +51,18 @@ By default, notebooks will be made available inside the docker from your `$HOME/
 
 The container is versioned and tagged, as a means to support different use cases.
 
-There are four tags:
+There are three tags:
 
-- [`jupyterlab:stable`](gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:stable)
-- [`jupyterlab:latest`](gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:latest)
-- [`jupyterlab:mapnik`](gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:mapnik)
-- [`jupyterlab:rstudio`](gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:rstudio)
+- [`jupyterlab:latest`](quay.io/ioer-fdz/carto-lab-docker:latest)
+- [`jupyterlab:mapnik`](quay.io/ioer-fdz/carto-lab-docker:mapnik)
+- [`jupyterlab:rstudio`](quay.io/ioer-fdz/carto-lab-docker:rstudio)
 
 `:mapnik` and `rstudio` are images that extend: `:latest`. If you want to use Mapnik, use the `mapnik` image. If you want to use R, use the `rstudio` image.
 All images include the default Python `worker_env`.
 
 Carto-Lab Docker Images are versioned, so you can pull any specific version (recommended!), e.g.:
 ```
-gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:mapnik_v0.8.1
+quay.io/ioer-fdz/carto-lab-docker:mapnik_v0.8.1
 ```
 
 !!! info

@@ -42,3 +42,7 @@ Then open `http://localhost:8888` and use the password (default: `eX4mP13p455w0R
 By default, notebooks will be made available inside the docker from your `$HOME/notebooks` folder.
 
 See [the docs](https://cartolab.fdz.ioer.info/) for further information.
+
+## License
+
+The code used to build this container is licensed under the [MIT License](LICENSE.md). The container image itself contains third-party components with their respective open source licenses.

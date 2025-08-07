@@ -1,6 +1,7 @@
 services:
   jupyterlab:
-    image: gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:${TAG:-mapnik}
+    image: quay.io/ioer-fdz/carto-lab-docker:${TAG:-mapnik}
+    # image: gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:${TAG:-mapnik}
     build:
       context: ./mapnik
       args:
