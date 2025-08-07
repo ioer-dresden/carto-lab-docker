@@ -1,4 +1,5 @@
-FROM continuumio/miniconda3:latest
+# https://github.com/anaconda/docker-images/releases
+FROM continuumio/miniconda3:25.3.1-1
 
 # build time args
 ARG ENVIRONMENT_FILE=environment_default.yml
