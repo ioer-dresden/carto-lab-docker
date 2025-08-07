@@ -90,7 +90,7 @@ printf "\nConda version: \n\n"
 docker compose run jupyterlab conda --version
 
 printf "\nR Version (requires container tag :r) \n\n"
-docker compose run jupyterlab bash -c "conda activate r_env && Rscript -e 'cat(R.version.string, \"\\n\")'"
+docker compose run jupyterlab conda run -n r_env Rscript -e 'cat(R.version.string, "\n")'
 
 printf "\nnodejs version \n\n"
 # docker compose run jupyterlab bash -c "conda init;conda activate jupyter_env; nodejs"
