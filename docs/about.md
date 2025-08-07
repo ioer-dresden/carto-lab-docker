@@ -53,12 +53,12 @@ Our **[public GitHub repository](https://github.com/ioer-dresden/carto-lab-docke
 
 The canonical "source of truth" for the code resides in our **[primary GitLab repository](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/)**. This is where our main development and CI/CD pipelines run. The GitHub repository is a mirror of this primary source.
 
-## Licensing
+## License
 
-The project is and will remain open source under its original licenses.
-
-*   **Software Code:** [GNU General Public License v3.0 (GPLv3)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-*   **Documentation:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
+* **Container Images**: Mixed-license — includes components under **GPL-2.0**, **GPL-3.0**, **MIT**, **BSD**, and other open-source licenses.  
+  Refer to the image or source repository for third-party license information.  
+* **Project Code (build system, Dockerfiles, our own code in the public source repository)**: Licensed under the **MIT License**.  
+* **Documentation**: Licensed under **Creative Commons Attribution 4.0 International (CC BY 4.0)**.
 
 ## How to Cite
 
