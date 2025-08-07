@@ -17,6 +17,7 @@ COPY $ENVIRONMENT_FILE $ENVIRONMENT_FILE
 
 # install apt depdendencies
 RUN apt-get update \
+    && apt-get upgrade -y \ 
     && apt-get install -y --no-install-recommends \
         jq \
         p7zip-full \        
