@@ -2,6 +2,11 @@
 
 ## Docker local build
 
+From time to time, check that the base [Miniconda3 image](https://github.com/anaconda/docker-images/releases) is up to date in the Dockerfile:
+```Dockerfile
+docker.io/continuumio/miniconda3:25.3.1-1
+```
+
 The docker image is pulled from remote gitlab registry. If you update the Dockerfile, 
 check if local build is possible with:
 

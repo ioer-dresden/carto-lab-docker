@@ -8,21 +8,17 @@ This repository is a [Docker]-project, that starts an instance of [JupyterLab].
 It comes with a python environment (`worker_env`) that contains the most important
 packages for Python Open Source Cartography.
 
-The container is compatible with [rawdb] and [hlldb] databases. You can also 
-download/clone and run [all of these services as a bundle][lbsn-ctl].
 
 The current version of Carto-Lab docker is based on Jupyter Lab 4.x.
 
+[IOER-FDZ Carto-Lab Docker]: https://cartolab.fdz.ioer.info/
 [Docker]: https:/www.docker.com
 [JupyterLab]: https://jupyterlab.readthedocs.io
-[rawdb]: https://gitlab.vgiscience.de/lbsn/databases/rawdb
-[hlldb]: https://gitlab.vgiscience.de/lbsn/databases/hlldb
-[lbsn-ctl]: https://gitlab.vgiscience.de/lbsn/tools/lbsnctl
 
 ------
 
-> :warning: **We aim for compatibility of all included geo-packages by pinning specific versions**, but once in a while new releases may require updates to these pinnings in [environment_default.yml](environment_default.yml).
-> It is recommended to use the tested docker images available in [our registry](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/container_registry), if the current Dockerfile has build issues.
+> :warning: We aim to ensure the compatibility of all included geo-packages by pinning specific versions, but occasionally new releases may require updates to these pinning settings in environment_default.yml.
+> It is recommended that you use the tested Docker images available in the quay.io registry (https://quay.io/repository/ioer-fdz/carto-lab-docker?tab=info), or in our own registry (https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/container_registry) (for IOER or TUD members), if the current Dockerfile has build issues.
 
 **tl:dr**
 
