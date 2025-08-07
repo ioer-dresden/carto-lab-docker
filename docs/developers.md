@@ -46,6 +46,22 @@ Remove `-vv --noop` afterwards to make a public release.
     Releases are created in Gitlab. Only tags will be automatically forwarded to Github.
     To create matching Github releases, release notes must be copied manually to Github tags.
 
+After each release, manually refresh two hardcoded versions in the repo:
+```
+version_var=$(sed -n "s#__version__ =\s*'\(.*\)'#\1#p" .version)
+
+# update version badge link in the README, to circumvent Github CDN caching
+sed -i -E "s|(https://cartolab\.fdz\.ioer\.info/version\.svg)(\?v=[0-9\.]+)?|\1?v=${version_var}|" README.md
+
+# update CITATION.cff with the latest version
+sed -i -E "s|^(version:\s*)([0-9]+\.[0-9]+\.[0-9]+)|\1${version_var}|" CITATION.cff
+
+# commit
+git add CITATION.cff README.md && \
+    git commit -m "chore: update version badge and CITATION.cff to ${version_var}" && \
+    git push
+```
+
 ## Run on a dedicated domain on the web
 
 If you want to run this in production on a webserver, you can add an environment 
