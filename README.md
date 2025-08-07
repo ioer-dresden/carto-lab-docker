@@ -18,7 +18,7 @@ The current version of Carto-Lab docker is based on Jupyter Lab 4.x.
 ------
 
 > :warning: We aim to ensure the compatibility of all included geo-packages by pinning specific versions, but occasionally new releases may require updates to these pinning settings in environment_default.yml.
-> It is recommended that you use the tested Docker images available in the quay.io registry (https://quay.io/repository/ioer-fdz/carto-lab-docker?tab=info), or in our own registry (https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/container_registry) (for IOER or TUD members), if the current Dockerfile has build issues.
+> It is recommended that you use the tested Docker images available in the [quay.io registry](https://quay.io/repository/ioer-fdz/carto-lab-docker?tab=info), or in our [own registry](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/container_registry) (for IOER or TUD members), if the current Dockerfile has build issues.
 
 **tl:dr**
 
