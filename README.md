@@ -1,4 +1,4 @@
-[![version](https://cartolab.theplink.org/version.svg)](CHANGELOG.md) [![pipeline status](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/badges/master-latest/pipeline.svg#2)](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commits/master-latest) [![Documentation](https://cartolab.theplink.org/documentation.svg)](https://cartolab.theplink.org/)
+[![version](https://cartolab.fdz.ioer.info/version.svg?v=1.0.0)](CHANGELOG.md) [![pipeline status](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/badges/master-latest/pipeline.svg#2)](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commits/master-latest) [![Documentation](https://cartolab.fdz.ioer.info/documentation.svg)](https://cartolab.fdz.ioer.info/)
 
 
 
@@ -41,4 +41,4 @@ Then open `http://localhost:8888` and use the password (default: `eX4mP13p455w0R
 
 By default, notebooks will be made available inside the docker from your `$HOME/notebooks` folder.
 
-See [the docs](https://cartolab.theplink.org/) for further information.
+See [the docs](https://cartolab.fdz.ioer.info/) for further information.
