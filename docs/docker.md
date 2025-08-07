@@ -53,9 +53,9 @@ The container is versioned and tagged, as a means to support different use cases
 
 There are three tags:
 
-- [`jupyterlab:latest`](quay.io/ioer-fdz/carto-lab-docker:latest)
-- [`jupyterlab:mapnik`](quay.io/ioer-fdz/carto-lab-docker:mapnik)
-- [`jupyterlab:rstudio`](quay.io/ioer-fdz/carto-lab-docker:rstudio)
+- [`jupyterlab:latest`](https://quay.io/ioer-fdz/carto-lab-docker?tab=tags&tag=latest)
+- [`jupyterlab:mapnik`](https://quay.io/ioer-fdz/carto-lab-docker?tab=tags&tag=mapnik)
+- [`jupyterlab:rstudio`](https://quay.io/ioer-fdz/carto-lab-docker?tab=tags&tag=rstudio)
 
 `:mapnik` and `rstudio` are images that extend: `:latest`. If you want to use Mapnik, use the `mapnik` image. If you want to use R, use the `rstudio` image.
 All images include the default Python `worker_env`.
