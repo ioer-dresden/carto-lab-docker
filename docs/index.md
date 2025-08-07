@@ -1,4 +1,4 @@
-[![version](https://cartolab.theplink.org/version.svg)](https://cartolab.theplink.org/changelog/)
+[![version](https://cartolab.fdz.ioer.info/version.svg)](https://cartolab.fdz.ioer.info/changelog/)
 
 # Your Reproducible Environment for Spatial Data Science
 

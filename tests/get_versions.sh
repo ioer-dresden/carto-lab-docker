@@ -2,7 +2,7 @@
 
 # Purpose: Get all important versions from the build Carto-Lab Docker Container
 # to be listed in the compatibility matrix
-# https://cartolab.theplink.org/matrix/
+# https://cartolab.fdz.ioer.info/matrix/
 
 # Utility function to get Python package version
 get_python_version() {
