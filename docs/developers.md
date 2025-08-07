@@ -47,7 +47,7 @@ Remove `-vv --noop` afterwards to make a public release.
     To create matching Github releases, release notes must be copied manually to Github tags.
 
 After each release, manually refresh two hardcoded versions in the repo:
-```
+```bash
 version_var=$(sed -n "s#__version__ =\s*'\(.*\)'#\1#p" .version)
 
 # update version badge link in the README, to circumvent Github CDN caching
@@ -61,6 +61,16 @@ git add CITATION.cff README.md && \
     git commit -m "chore: update version badge and CITATION.cff to ${version_var}" && \
     git push
 ```
+
+If there was no release in a long time, it is possible to manually update the changelog,
+to include unpublished changes as well:
+```bash
+semantic-release changelog
+git add CHANGELOG.md && \
+    git commit -m "chore: update CHANGELOG.md" && \
+    git push
+```
+
 
 ## Run on a dedicated domain on the web
 
