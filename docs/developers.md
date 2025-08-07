@@ -62,8 +62,8 @@ git add CITATION.cff README.md && \
     git push
 ```
 
-If there was no release in a long time, it is possible to manually update the changelog,
-to include unpublished changes as well:
+If no release has been made for a long time, it is possible to manually update the changelog, 
+to include unpublished changes.
 ```bash
 semantic-release changelog
 git add CHANGELOG.md && \
