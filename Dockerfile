@@ -24,11 +24,12 @@ RUN apt-get update \
         p7zip-full \        
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# setup conda jupyter environment (jupyter_env)
-# install additional packages from conda-forge
-# cleanup image
-RUN conda update --channel defaults --name base --yes conda \
- && conda config --set channel_priority strict \
+# Set strict channel priority and remove implicit defaults
+RUN echo -e "channels:\n  - conda-forge\nchannel_priority: strict\ndefault_channels: []" > /opt/conda/.condarc \
+ && ln -sf /opt/conda/.condarc /root/.condarc
+
+# Update all packages in base env, then create user env, and clean
+RUN conda update --all --name base -c conda-forge --yes --quiet \
  && conda env create --file environment_jupyter.yml --name jupyter_env --quiet \
  && conda clean --all --force-pkgs-dirs --yes
 
