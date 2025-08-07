@@ -1,17 +1,181 @@
 # CHANGELOG
 
 
-## v0.28.0 (2025-05-08)
+## Unreleased
 
 ### Chores
 
+- Change changelog creation to init
+  ([`672c5be`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/672c5be0514e46f39d6dd37d35b015b4fd5b6305))
+
+- Fix get_versions.sh - missing versions and Deprecation Warnings
+  ([`65a4be4`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/65a4be495425d704e61eeef8263452867bd65e77))
+
+- Move remaining URLs from cartolab.theplink to cartolab.fdz
+  ([`69e8246`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/69e82460870fd8942824db246874e6a9680cef40))
+
+- Update version badge and CITATION.cff to 1.0.0
+  ([`487a160`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/487a16068dcbecb03048de20e961e8aa46473a2a))
+
+### Documentation
+
+- Add code copy button
+  ([`51c781f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/51c781fae7d139865b5c75863d3addc57d4543a4))
+
+- Add note regarding Github release creation
+  ([`f2a5c53`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/f2a5c53a67addd702376cb2e7090388a6697a15b))
+
+- Clarify developer workflow for updating hardcoded versions after a new release
+  ([`b014c48`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/b014c484b42823475263a4a4eacae12e087f51e6))
+
+- Update version table for 1.0.0 and missing GDAL versions
+  ([`ae3d637`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ae3d637b8a95235ec58ed7b9786dd02a0dc0c43b))
+
+
+## v1.0.0 (2025-08-06)
+
+### Documentation
+
+- Add fdz logo
+  ([`4e6962f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4e6962fc4235ae62327d6f10480760119d965f96))
+
+- Change public git clone path from gitlab to github
+  ([`8a1742a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/8a1742af892c1e43310119a3e108162b3e7d5381))
+
+- Fix wrong branch link in Github edit uri
+  ([`0bb894c`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/0bb894cbf63cf619f01e9e3e7505386ed9d03427))
+
+
+## v0.28.1 (2025-08-01)
+
+### Chores
+
+- Compatibility with python-semantic-release > 10.0.0
+  ([`940ea4e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/940ea4e30cf5fedf38591eb5b46165c443d4c139))
+
 - Enable --debug in build compose
-  ([`99b34ca`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/99b34cac38c68f159c23a4d16c3c029ac51b5a26))
+  ([`7e9bf47`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/7e9bf47f144d26c2480087ce545b9eaa2942a4c1))
+
+- Fix GDAL not found
+  ([`96cc4b3`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/96cc4b37e428f87d6ca9600f74af224b3d5e6bc1))
+
+- Update matrix script
+  ([`4b49aaf`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4b49aafcaab5a9633ef9cfe0192d46391f3b2684))
+
+- Update ymls for JUPYTER_EXTRA_ARGS
+  ([`53c7566`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/53c7566850e2dc8d382f142219caf63f6fddd02d))
+
+### Code Style
+
+- Add horizontal divisions
+  ([`63c2726`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/63c272681d1240f730aa5772fabe2bfbf2746c3c))
+
+- Slighly change color
+  ([`375c617`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/375c617a34f28b42e44da4365e60f3fc2667cec0))
+
+### Continuous Integration
+
+- Add TLS variables
+  ([`fd8b214`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/fd8b214c367a6dd886de566481a7bb958b6eda77))
+
+- Change semantic release target
+  ([`467b813`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/467b813427d3a25be01cd5681552c5f60a2b20d4))
+
+- Fix DOCKER_HOST flag for running in rootless dind
+  ([`69ce3dd`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/69ce3dd4ff659d1cd1888e08c1bf4fff1a8b0096))
+
+- Fix DOCKER_HOST variable
+  ([`8407b5d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/8407b5d0291ac616819c3eb30164c8c97a60e3f7))
+
+- Fix DOCKER_HOST variable
+  ([`5f3a4af`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/5f3a4af08cddae293828c88f1a3b7b5c7854f5c8))
+
+- Fix network issues in CI
+  ([`6c711ab`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/6c711ab91203f51ca7d1c524bcb150d9fc90f843))
+
+- Fix routing/dns issues by switching to --network=host
+  ([`f216574`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/f216574c999459d12d5bc1e030974d46ddc84d02))
+
+- Further CI TLS fix
+  ([`75c7d22`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/75c7d22bcebb12341cfe06afa4bd2688250090c4))
+
+- Simplify dind
+  ([`2d3f936`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2d3f93602186acf70bd759b14ce91345a75deec4))
+
+- Switch to native docker-dind runner
+  ([`bb3dd6a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/bb3dd6a3388bab8c0604a6a751a917ea001ffe4a))
+
+### Documentation
+
+- Add better example for installing additional packages with conda (preferred)
+  ([`4d06c5e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4d06c5e3ff42490fa2dadf8d7afb105460512c47))
+
+- Add change to list
+  ([`b4ccf75`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/b4ccf75a3a1469a46716aa7b79a567670008be42))
+
+- Add example for installing custom R Kernel
+  ([`90a5010`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/90a50106da31eb75261647278df225f61ec73f93))
+
+- Add explanation for JUPYTER_EXTRA_ARGS to .env.example
+  ([`0092d5d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/0092d5df4273f9efb01a2c265f92d9f4afdc5b07))
+
+- Add explanation for JUPYTER_EXTRA_ARGS to docs
+  ([`868f8bb`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/868f8bb46ddb8b85d6a4be2c48030e74f5f3ea48))
+
+- Add gdal to version matrix
+  ([`2498efa`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2498efa8b35aeb9b57d249caaf981af85f7fdd74))
+
+- Add gdal version info
+  ([`7f20051`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/7f20051bf02dcac365a28621ca13a0507833899f))
+
+- Add git tip
+  ([`06fda09`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/06fda09405abd1bd26fe74636d90ee451a745dab))
+
+- Fix Markdown formatting
+  ([`e73caf9`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e73caf99c5cf042f66857b2f81adb873f93050ec))
+
+- Fix minor version in matrix
+  ([`2aea505`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2aea5051734215b8115f68c202f12206a13c82c1))
+
+- Fix missing linebreak
+  ([`0efbab6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/0efbab62e86e90ec2188d1cdfb4df5c5ac34f32b))
+
+- Minor improvements
+  ([`477809a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/477809a5065c855f1a0d4265c3eb4581c0cdaddf))
+
+- Update about page, add governance, add history for the project and philosophy statement
+  ([`24d1c2f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/24d1c2f46bdd35370260dffdfcc580c61a22dcbe))
+
+- Update introduction and examples with new FDZ governance
+  ([`e09eecf`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e09eecf1936e8f7a942453117a7984505a54b6f1))
+
+- Update version matrix for v0.27.2
+  ([`2961eb2`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2961eb2eab6c8365af00f4c2c714ab28c07af444))
+
+- Update version matrix for v0.28.0
+  ([`9ecda63`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/9ecda63d0164c66258f1ef6ad14a3a0ec10a1286))
 
 ### Features
 
+- Add CITATION.cff for Repository citation integration
+  ([`524f273`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/524f273e976e61b0a9348145df2502976f0f34e5))
+
 - Add JUPYTER_EXTRA_ARGS to pass additional (optional) arguments
-  ([`385410a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/385410a0edbc0dd7fd5dc9b966319f7ce1d50e75))
+  ([`4ed74fe`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4ed74fe47b22cef54439edb484b0e4aaa279fd04))
+
+### Refactoring
+
+- Migrate all URLs from vgiscience.org to Gitlab Chemnitz
+  ([`d076e57`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/d076e57aaf5bf0605202a10824fe85af2789118b))
+
+- Remove Tagmaps from default environment
+  ([`276cdf8`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/276cdf84134d60af38bed7a367cf9b56ab27b7a2))
+
+- Switch domain
+  ([`02ad078`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/02ad0780c5ff6560f4fa6cf466ad1932a0cc91d4))
+
+- Update mkdocs footer
+  ([`643853f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/643853f8814cbff2595e675865c1939fd1da6e7f))
 
 
 ## v0.27.2 (2025-05-05)
@@ -21,22 +185,16 @@
 - Pin geopandas to 1.0.0 (minimal)
   ([`6191bff`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/6191bff70ed8c44e99df610f92eac4a17e57ffe1))
 
-- avoids 0.14.4 install
-
 
 ## v0.27.1 (2025-04-16)
 
 ### Bug Fixes
 
-- Collaborative flag evaluated vice versa in Dockefile
+- COLLABORATIVE flag evaluated vice versa in Dockefile
   ([`1414253`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/1414253c83e360836bd8363b8cca404b897a361a))
-
-also see https://github.com/jupyterlab/jupyter-collaboration/issues/473
 
 - Remove pip dependency conflict for numpy
   ([`96e3240`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/96e324033c5c7ef13b07fdd86030759fc2ede251))
-
-python-hll2 is outdated; it is suggested that those who rely on this package install it temporarily
 
 ### Refactoring
 
@@ -58,7 +216,7 @@ python-hll2 is outdated; it is suggested that those who rely on this package ins
 - Typo (test ci/version)
   ([`b6c640d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/b6c640d25ca669f84acdd5d6a08db86f37bb6d0d))
 
-- Version variable not populated in CI
+- VERSION variable not populated in CI
   ([`f449160`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/f4491605753a5f70eaecd162de05d3e99df257d1))
 
 ### Documentation
@@ -88,9 +246,7 @@ python-hll2 is outdated; it is suggested that those who rely on this package ins
 - Announcement appearing again, despite config
   ([`1d50ae0`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/1d50ae0a6361febade872ea7eea503e98ccdbf84))
 
-See: https://github.com/jupyterlab/jupyterlab/issues/14065#issuecomment-2132474538
-
-- Cartolab_version not available on runtime
+- CARTOLAB_VERSION not available on runtime
   ([`ef05e1f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ef05e1fb93a212b445421b2ad58b925e005bd7c8))
 
 - Dask not compatible with latest Bokeh
@@ -191,7 +347,7 @@ See: https://github.com/jupyterlab/jupyterlab/issues/14065#issuecomment-21324745
 
 ### Bug Fixes
 
-- Passwordidentityprovider in favor of deprecated ServerApp
+- PasswordIdentityProvider in favor of deprecated ServerApp
   ([`1649afe`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/1649afe8a509abad75ca4d213eb6dc860ad77202))
 
 
@@ -290,8 +446,6 @@ See: https://github.com/jupyterlab/jupyterlab/issues/14065#issuecomment-21324745
 - Deprecated notebook_dir
   ([`e9c216f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e9c216f2980c3bab466c48beec45a5c3c8da795e))
 
-Fixes #5
-
 - Jupyter collaboration update version to fix incomatible jupyter server
   ([`8883bf4`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/8883bf438eb31f6772bc56192e4ebae59e957cbb))
 
@@ -387,12 +541,8 @@ Fixes #5
 - Jupytext and collaboration feature cannot be activated together
   ([`2acc71e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2acc71eceb18478acb301c9d151b17d234260a64))
 
-Deactivate collaboration for the meantime
-
-- Proj error
+- PROJ error
   ([`13d5438`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/13d54380bb7ed0e44368e96a92f4fbd752484419))
-
-fixes #3
 
 ### Chores
 
@@ -493,9 +643,6 @@ fixes #3
 - Mapnik Dockerfile build
   ([`5ec99c5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/5ec99c5942c763dd560586b5130508db6a33dba3))
 
-The reason for this file is pip-system install, which should indeed be avoided. However, mapnik-cli
-  has no dependencies and is quite lightweight. We skip this check now in the Dockerfile.
-
 
 ## v0.16.2 (2024-07-18)
 
@@ -519,9 +666,6 @@ The reason for this file is pip-system install, which should indeed be avoided. 
 
 - Nbconvert module not found (notebook.base)
   ([`ed16cbc`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ed16cbccfe6142a37c3cbfd506a90a335f084fe7))
-
-Pin notebook<7.0.0, until
-  https://github.com/Jupyter-contrib/jupyter_nbextensions_configurator/issues/165 is addressed
 
 ### Chores
 
@@ -714,10 +858,10 @@ Pin notebook<7.0.0, until
 
 ### Bug Fixes
 
-- Yaml syntax
+- YAML syntax
   ([`da3a8e8`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/da3a8e81ec510808b355bddc146c4482042100d4))
 
-- Yaml syntax
+- YAML syntax
   ([`daed0fe`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/daed0febac9329202fd21c10cc11b2e110a29c8f))
 
 ### Continuous Integration
@@ -771,7 +915,7 @@ Pin notebook<7.0.0, until
 
 ### Bug Fixes
 
-- Ci extract version from file
+- CI extract version from file
   ([`9d10722`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/9d10722215ae99394294ded3005c0dafa2cb8eb7))
 
 - Ipywidgets compatibility
@@ -854,8 +998,6 @@ Pin notebook<7.0.0, until
 - Nbconvert pinned to old version
   ([`fb611fc`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/fb611fc04ef08db9e222597ca92e27e9d6623d54))
 
-Pin nbconvert to the latest stable version, excluding release candidates
-
 ### Continuous Integration
 
 - Build Mapnik tag only on latest
@@ -889,9 +1031,6 @@ Pin nbconvert to the latest stable version, excluding release candidates
 
 - Pin shapely to 1.7.1 (and add hvplot), default env
   ([`2d7683b`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2d7683b4f45a305f6c742b815fd9add1e3950bda))
-
-Explanation: Shapely 1.8.0+ throws a lot of deprecation warnings in Geoviews, Holoviews, Cartopy,
-  Geopandas etc. Until these other packages keep up with Shapely, pin to older version
 
 ### Documentation
 
@@ -1011,129 +1150,4 @@ Explanation: Shapely 1.8.0+ throws a lot of deprecation warnings in Geoviews, Ho
 
 ## v0.5.0 (2021-07-12)
 
-### Bug Fixes
-
-- /home/alex reference to notebooks in compose; update readme
-  ([`cc0c7bb`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/cc0c7bb49c5abc81b3266f064244f9efb940ed4a))
-
-- Do not use nbextensions install in jupyterlab 3.0
-  ([`995c9fa`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/995c9fa1618bb81aac9ccefcb1505431c23e9a34))
-
-- Environment_default.yml ipywidgets pinning
-  ([`5714080`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/5714080568a42a0b41ee3b6f8ff226042f253515))
-
-- Image startup error
-  ([`47acf77`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/47acf77ee1f89ee497ddfb2df89d35f8d7a57691))
-
-- Ipywidgets not yet released
-  ([`bc2bf95`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/bc2bf95f2291efd94c7da0ce5605e530ad35e305))
-
-- Pin jupyterlab to 2.* version on stable
-  ([`806526c`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/806526ceccd8f5d0b4a26580b2f1d47f2285cf79))
-
-- Remove nodejs not needed anymore for Jupyter Lab 3.0
-  ([`a0e91a6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/a0e91a67281277ac79cf4fd2b22d254cb3977f5a))
-
-- Unrecognized arguments: jupyterlab-jupytext
-  ([`750950f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/750950f2e24b1156daf849d73e3b1fde2f0e6e9d))
-
-The Jupytext extension for JupyterLab is bundled with Jupytext.[1]
-
-[1]: https://jupytext.readthedocs.io/en/latest/install.html#jupytext-commands-in-jupyterlab
-
-- Use commented default values in .env.example
-  ([`8878883`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/8878883e1adcacb9b2a37e0f32143c17c49ff6e4))
-
-### Chores
-
-- Add version, release
-  ([`a7d5b4c`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/a7d5b4c7b1722d7573d89449611426a2bf32b0d3))
-
-- Build registry images according to branch
-  ([`fcd141a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/fcd141ad05cb544cdbfbe80bdea562b7b9157db6))
-
-(cherry picked from commit a8f139915d4daec46cfc84bc5b62e43823693e29)
-
-- Remove Chrome and Firefox from Dockerfile
-  ([`59f63cd`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/59f63cd26fad0efc584d16b6c458c68ac2034bdc))
-
-(cherry picked from commit 84a10c75a825a0bd5970a010d8e98c5dda084fbe)
-
-- Shuffle master-latest and stable branch, set stable to master
-  ([`571d1e4`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/571d1e4f8319b9acab1ced399996176a41b15ea3))
-
-- Update changelog
-  ([`520e949`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/520e94980f50663a7d2e1fe0dd8a59af9f18c189))
-
-### Continuous Integration
-
-- Specify both image and build context
-  ([`3c31e5a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/3c31e5afdc2e36ea632effb6feb9cee73b9f8a45))
-
-### Documentation
-
-- Add instructions to grep token
-  ([`79673bd`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/79673bda684cc1aa30439e6d71e619421e4e9a71))
-
-- Add linebreaks to Readme
-  ([`50cc043`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/50cc0434d99931e43efae95f97c7da463686df75))
-
-- Better notes on what is being done
-  ([`5f9dc8c`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/5f9dc8ce3aa96e2e172edde10cafb26c832fd6d6))
-
-- Fix link to lbsn-ctl
-  ([`9118c1a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/9118c1a45d8e817554996cce9769b470cc4b0e28))
-
-- Remove Jupyter lab version in Readme
-  ([`56cbf04`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/56cbf0446f0974f993ecdd7c1f72b35cda3fa428))
-
-- Update Readme.md
-  ([`89fc22e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/89fc22e02a0162b6bfb9ecf7e65caef6d169aaa7))
-
-- Update Readme.md with branch shuffle
-  ([`34a8b9b`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/34a8b9b2465d3f8325a6467973a08517234e39fa))
-
-### Features
-
-- Add jupyter auto-toc and spellcheck extensions to image
-  ([`2a6131d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2a6131d88213adc75cd0048fa0394fcce43714e2))
-
-- Add jupyter widgets to Dockerfile
-  ([`e82373a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e82373a2d15a3c2a525b98c9698eb666dcea51f2))
-
-- Add jupytext for notebook git integration
-  ([`c4ba2f2`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c4ba2f25a888531ce45075e783955e420db42dce))
-
-- Add option to set a (static) password instead of always using a volatile token
-  ([`10310a4`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/10310a468bdc11c9985403d23971695b28cd3574))
-
-- Add papermill for ci integration
-  ([`ffb67bb`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ffb67bbd47d0f9a21b86ce7e104f906cde959c49))
-
-https://github.com/CFMTech/jupytext_papermill_post
-
-- Add pyepsg package to worker_env
-  ([`2f9bba1`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2f9bba1cd40eb51fba14a94c6720953c73589f8b))
-
-- Improve semantics of environment variable for jupyter notebooks directory
-  ([`110079f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/110079fb5675a1c3a0cbe25b6499957c30ea88b7))
-
-- Make web url really optional
-  ([`9a02e6f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/9a02e6f9888828ecaaf5801906ad61b459ff350d))
-
-- Show hidden files (e.g. .gitignore) by default
-  ([`6f86265`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/6f86265db9ba322ad11fb8b40b0393c2dd56ee9b))
-
-- Update Dockerfile to JupyterLab 3.0 compatibility
-  ([`205ab6f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/205ab6fc9a5f4338f8bcae4d330a0df1f08e3099))
-
-### Refactoring
-
-- Cleanup bash command use
-  ([`08cf004`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/08cf0049da48c5d782194751f4d790766328a62c))
-
-- Codestyle
-  ([`4a08163`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4a0816305fd162b06007bb8916c40bebf3da8468))
-
-- Move worker_env dependencies to separate environment.yml
-  ([`c34f739`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c34f739462f78abe1a282abd09f924c79c4f757a))
+- Initial Release
