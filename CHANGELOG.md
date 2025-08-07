@@ -496,13 +496,13 @@
 - Fix bullet list formatting
   ([`06629a6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/06629a6643cc0ab89b7686c31df92c18bdc0e467))
 
-- Fix rstudio yml reference
+- Fix r yml reference
   ([`abdfcdd`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/abdfcdd8dd350dd12d473b1921da68dabce494ab))
 
 - Fix typo
   ([`f1499a4`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/f1499a4e1b3168c9c269d7c5eb12ea855ce8e4b5))
 
-- Rename rstudio to r
+- Rename r to r
   ([`30cf4bf`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/30cf4bfbcdcf88f9e00044281784f1e246b2ca0e))
 
 - Update TOC§
@@ -530,7 +530,7 @@
 
 ### Continuous Integration
 
-- Add rstudio build
+- Add r build
   ([`1e3fe39`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/1e3fe39215696ef8df7b21ed866478c3dfd59be5))
 
 - Build docker images when manual pipeline trigged
@@ -547,7 +547,7 @@
 - Add packages graphic
   ([`0bd44c8`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/0bd44c8eb37ae762faaf944b6885a23e20a675f5))
 
-- Add rstudio version description
+- Add r version description
   ([`5fbe070`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/5fbe0701634323218c759b5f4e2535cd90ed5642))
 
 - Add security note
@@ -558,7 +558,7 @@
 
 ### Features
 
-- Add RStudio Dockerfile extended image, push to extra registry tag
+- Add r Dockerfile extended image, push to extra registry tag
   ([`9f4ad88`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/9f4ad8841f857beb4b8c21e0f9631e49ad4af75b))
 
 

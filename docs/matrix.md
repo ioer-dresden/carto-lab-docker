@@ -55,8 +55,8 @@ See the list of Carto-Lab Versions and supported features or package versions.
 - Empty: no change
 
 !!! note 
-    The `:rstudio` and `:mapnik` container tags have slightly different versions due to dependency pinnings. If
-    you want the latest Python packages, as shown in the Matrix above, don't use the `:rstudio` and `:mapnik` container tags.
+    The `:r` and `:mapnik` container tags have slightly different versions due to dependency pinnings. If
+    you want the latest Python packages, as shown in the Matrix above, don't use the `:r` and `:mapnik` container tags.
 
 <details>
     <summary style="cursor: pointer;">Generated with <code>tests/get_versions.sh .</code></summary>

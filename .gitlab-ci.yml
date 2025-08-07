@@ -2,7 +2,7 @@ stages:
   - build-stable
   - build-latest
   - build-mapnik
-  - build-rstudio
+  - build-r
   - artifacts
   - mkdocs
   - deploydocs
@@ -54,21 +54,21 @@ build and push mapnik:
         - "mapnik/Dockerfile" # Mapnik Dockerfile changed
         - "*.yml" # any yml changes
 
-build and push rstudio:
-  stage: build-rstudio
+build and push r:
+  stage: build-r
   image: docker:latest
   tags:
     - dind-runner
   script:
     - VERSION=v$(cat .version | cut -d"'" -f 2)
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
-    - docker build --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:rstudio_$VERSION --tag $CI_REGISTRY_IMAGE:rstudio ./rstudio
+    - docker build --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:r_$VERSION --tag $CI_REGISTRY_IMAGE:r ./r
     - docker push $CI_REGISTRY_IMAGE --all-tags
   rules:
     - if: $CI_COMMIT_BRANCH == "master-latest"
       changes:
         - Dockerfile # Dockerfile changed
-        - "rstudio/Dockerfile" # RStudio Dockerfile changed
+        - "r/Dockerfile" # r Dockerfile changed
         - "*.yml" # any yml changes
 
 artifacts:

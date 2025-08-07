@@ -83,13 +83,13 @@ docker compose run jupyterlab /opt/conda/envs/jupyter_env/bin/python --version
 
 printf "\nMapnik (requires container tag :mapnik) \n\n"
 docker compose run jupyterlab /usr/bin/python3 -c "import mapnik;print(mapnik.paths.__all__)"
-# echo "\nR Version (requires container tag :rstudio) \n\n"
+# echo "\nR Version (requires container tag :r) \n\n"
 # docker compose run jupyterlab ls /opt/conda/envs/r_env/bin/
 
 printf "\nConda version: \n\n"
 docker compose run jupyterlab conda --version
 
-printf "\nR Version (requires container tag :rstudio) \n\n"
+printf "\nR Version (requires container tag :r) \n\n"
 docker compose run jupyterlab bash -c "conda activate r_env && Rscript -e 'cat(R.version.string, \"\\n\")'"
 
 printf "\nnodejs version \n\n"

@@ -56,9 +56,9 @@ There are three tags:
 
 - [`jupyterlab:latest`](https://quay.io/ioer-fdz/carto-lab-docker?tab=tags&tag=latest)
 - [`jupyterlab:mapnik`](https://quay.io/ioer-fdz/carto-lab-docker?tab=tags&tag=mapnik)
-- [`jupyterlab:rstudio`](https://quay.io/ioer-fdz/carto-lab-docker?tab=tags&tag=rstudio)
+- [`jupyterlab:r`](https://quay.io/ioer-fdz/carto-lab-docker?tab=tags&tag=r)
 
-`:mapnik` and `rstudio` are images that extend: `:latest`. If you want to use Mapnik, use the `mapnik` image. If you want to use R, use the `rstudio` image.
+`:mapnik` and `r` are images that extend: `:latest`. If you want to use Mapnik, use the `mapnik` image. If you want to use R, use the `r` image.
 All images include the default Python `worker_env`.
 
 Carto-Lab Docker Images are versioned, so you can pull any specific version (recommended!), e.g.:

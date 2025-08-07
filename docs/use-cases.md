@@ -80,7 +80,7 @@ conda deactivate
 
 #### Example: Create an environment with a specific R version
 
-**Prerequisite:** You are using the `rstudio` Tag for Carto-Lab Docker.
+**Prerequisite:** You are using the `r` Tag for Carto-Lab Docker.
 
 ---
 
