@@ -2,7 +2,7 @@
 
 
 
-# Carto-Lab - A JupyterLab Docker Container for Open Source Cartography
+# IOER-FDZ Carto-Lab - A JupyterLab Docker Container for Open Source Cartography
 
 This repository is a [Docker]-project, that starts an instance of [JupyterLab]. 
 It comes with a python environment (`worker_env`) that contains the most important
