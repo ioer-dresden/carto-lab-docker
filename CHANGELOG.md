@@ -8,7 +8,7 @@
 - Switch to cnda-forge channel for base image, to reduce number of possible CVEs
   ([`4b8f6b6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4b8f6b6dca3a398351930eed095cb7f8b1ba77a8))
 
-- Typo and missing https for quai.io
+- Typo and missing https for quay.io
   ([`c225855`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c225855cd1980ace66d28b0736ac4b049aecb97b))
 
 ### Chores
@@ -22,7 +22,7 @@
 - Move remaining URLs from cartolab.theplink to cartolab.fdz
   ([`69e8246`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/69e82460870fd8942824db246874e6a9680cef40))
 
-- Switch docker registry from internal to public quai.io
+- Switch docker registry from internal to public quay.io
   ([`4544aa5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4544aa5fe0d84fd704850e06e250bbef01f9bd93))
 
 - Update version badge and CITATION.cff to 1.0.0
