@@ -45,6 +45,7 @@ plugins:
 nav:
     - Introduction: index.md
     - Quick-Start: quickstart.md
+    - Concept & Philosophy: concept.md
     - User Guide:
         - Docker Container Setup: docker.md
         - JupyterLab: jupyter.md
