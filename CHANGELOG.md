@@ -8,7 +8,7 @@
 - Switch to cnda-forge channel for base image, to reduce number of possible CVEs
   ([`4b8f6b6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4b8f6b6dca3a398351930eed095cb7f8b1ba77a8))
 
-- Typo and missing https for quay.io
+- Typo and missing https for quai.io
   ([`c225855`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c225855cd1980ace66d28b0736ac4b049aecb97b))
 
 ### Chores
@@ -19,22 +19,42 @@
 - Fix get_versions.sh - missing versions and Deprecation Warnings
   ([`65a4be4`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/65a4be495425d704e61eeef8263452867bd65e77))
 
+- Fix getting R version from image
+  ([`ae9ae1b`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ae9ae1b2e241551b899ae01a51c57bfc453e7fea))
+
 - Move remaining URLs from cartolab.theplink to cartolab.fdz
   ([`69e8246`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/69e82460870fd8942824db246874e6a9680cef40))
 
-- Switch docker registry from internal to public quay.io
+- Switch docker registry from internal to public quai.io
   ([`4544aa5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4544aa5fe0d84fd704850e06e250bbef01f9bd93))
+
+- Update CHANGELOG.md
+  ([`fd25c2a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/fd25c2a8e01e4783dca840a3f0c5561ebacca95d))
 
 - Update version badge and CITATION.cff to 1.0.0
   ([`487a160`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/487a16068dcbecb03048de20e961e8aa46473a2a))
+
+### Continuous Integration
+
+- Ad push to quay.io registry
+  ([`b7fb321`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/b7fb3215a8f0c7eb91c59b5c7aea6a08623a57f6))
+
+- Fix quay.io repo path
+  ([`f39103f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/f39103f0adfbfd87eb80a4d9a3b4482ae2bc967f))
 
 ### Documentation
 
 - Add code copy button
   ([`51c781f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/51c781fae7d139865b5c75863d3addc57d4543a4))
 
+- Add concept & philosophy section
+  ([`4c15949`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4c1594927720e0600d61ce0bbff9311b5e41f4da))
+
 - Add license
   ([`80c995e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/80c995e8f1bd8af4e1cdc38341f8dd38901d94ae))
+
+- Add missing link formatting
+  ([`cc9776d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/cc9776d8e98d3d7b834cf39907cbb87814b623c4))
 
 - Add note regarding Github release creation
   ([`f2a5c53`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/f2a5c53a67addd702376cb2e7090388a6697a15b))
@@ -51,10 +71,19 @@
 - Update changelog
   ([`bb895c3`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/bb895c344fe9639e2a3d6f2e5dd5ba45212b855f))
 
+- Update R version
+  ([`2149b19`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2149b1979d83abb797dd7b63962a14b1132f0897))
+
+- Update title
+  ([`efddeae`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/efddeae5596d53a867791d5be5efcdc985dd3ce5))
+
 - Update version table for 1.0.0 and missing GDAL versions
   ([`ae3d637`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ae3d637b8a95235ec58ed7b9786dd02a0dc0c43b))
 
 ### Refactoring
+
+- Rename rstudio tag to r, to reduce misunderstanding
+  ([`37100ce`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/37100cefb073de49e1bb13bd1ad746ab828a3602))
 
 - Use explicit base image tag, for better reproducibility
   ([`03b4081`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/03b4081785fb3762a9ea50492a69b4e065e72371))
@@ -496,13 +525,13 @@
 - Fix bullet list formatting
   ([`06629a6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/06629a6643cc0ab89b7686c31df92c18bdc0e467))
 
-- Fix r yml reference
+- Fix rstudio yml reference
   ([`abdfcdd`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/abdfcdd8dd350dd12d473b1921da68dabce494ab))
 
 - Fix typo
   ([`f1499a4`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/f1499a4e1b3168c9c269d7c5eb12ea855ce8e4b5))
 
-- Rename r to r
+- Rename rstudio to r
   ([`30cf4bf`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/30cf4bfbcdcf88f9e00044281784f1e246b2ca0e))
 
 - Update TOC§
@@ -530,7 +559,7 @@
 
 ### Continuous Integration
 
-- Add r build
+- Add rstudio build
   ([`1e3fe39`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/1e3fe39215696ef8df7b21ed866478c3dfd59be5))
 
 - Build docker images when manual pipeline trigged
@@ -547,7 +576,7 @@
 - Add packages graphic
   ([`0bd44c8`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/0bd44c8eb37ae762faaf944b6885a23e20a675f5))
 
-- Add r version description
+- Add rstudio version description
   ([`5fbe070`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/5fbe0701634323218c759b5f4e2535cd90ed5642))
 
 - Add security note
@@ -558,7 +587,7 @@
 
 ### Features
 
-- Add r Dockerfile extended image, push to extra registry tag
+- Add RStudio Dockerfile extended image, push to extra registry tag
   ([`9f4ad88`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/9f4ad8841f857beb4b8c21e0f9631e49ad4af75b))
 
 
