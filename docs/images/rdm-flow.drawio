@@ -1,0 +1,121 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.6 Chrome/138.0.7204.100 Electron/37.2.3 Safari/537.36" version="28.0.6">
+  <diagram id="Wcy3o401qMxzjntNRRN_" name="Page-1">
+    <mxGraphModel dx="622" dy="366" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <object label="Kreislauf" id="gCF3T-o1ETZiuW24bATa-10">
+          <mxCell parent="0" />
+        </object>
+        <mxCell id="gCF3T-o1ETZiuW24bATa-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;strokeColor=light-dark(#90a9cf, #5c79a3);strokeWidth=5;align=center;verticalAlign=middle;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=blockThin;endFill=1;endSize=12;curved=0;flowAnimation=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="gCF3T-o1ETZiuW24bATa-10" source="eGoHJ3-BDez3vur0yncJ-11" target="gCF3T-o1ETZiuW24bATa-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="904" y="296" as="sourcePoint" />
+            <mxPoint x="1101" y="560" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="900" y="250" />
+              <mxPoint x="1160" y="250" />
+              <mxPoint x="1160" y="555" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gCF3T-o1ETZiuW24bATa-4" value="&lt;div style=&quot;padding-right: 10px; padding-left: 10px; padding-bottom: 0px;&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;strong style=&quot;box-sizing: border-box; font-size: 14px;&quot; class=&quot;ng-star-inserted&quot;&gt;&lt;span class=&quot;ng-star-inserted&quot; style=&quot;box-sizing: border-box;&quot;&gt;&lt;font style=&quot;color: rgb(108, 142, 191);&quot;&gt;Build Upon &amp;amp; Contribute&lt;/font&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;align=right;" parent="gCF3T-o1ETZiuW24bATa-10" vertex="1">
+          <mxGeometry x="890" y="540" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gCF3T-o1ETZiuW24bATa-3" value="&lt;div style=&quot;padding-right: 0px; padding-left: 0px;&quot; align=&quot;center&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;strong class=&quot;ng-star-inserted&quot; style=&quot;box-sizing: border-box; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; text-indent: 0px; text-transform: none; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span class=&quot;ng-star-inserted&quot; style=&quot;box-sizing: border-box;&quot;&gt;&lt;font style=&quot;color: rgb(108, 142, 191);&quot;&gt;Launch &amp;amp; Re-use&lt;/font&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;spacingLeft=10;align=center;" parent="gCF3T-o1ETZiuW24bATa-10" vertex="1">
+          <mxGeometry x="350" y="540" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gCF3T-o1ETZiuW24bATa-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;endArrow=none;endFill=0;strokeColor=light-dark(#90a9cf, #5c79a3);strokeWidth=5;align=center;verticalAlign=middle;fontSize=11;fontColor=default;labelBackgroundColor=default;endSize=12;flowAnimation=1;curved=0;startArrow=blockThin;startFill=1;flowAnimationDirection=reverse;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="gCF3T-o1ETZiuW24bATa-10" source="eGoHJ3-BDez3vur0yncJ-3" target="gCF3T-o1ETZiuW24bATa-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="310" y="590" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="186" y="553" />
+              <mxPoint x="210" y="553" />
+            </Array>
+            <mxPoint x="190" y="530" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gCF3T-o1ETZiuW24bATa-13" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=3;strokeColor=light-dark(#90a9cf, #5c79a3);curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;fixDash=0;dashed=1;linecap=round;perimeterSpacing=0;shadow=0;flowAnimation=0;anchorPointDirection=1;dashPattern=1 4;" parent="gCF3T-o1ETZiuW24bATa-10" target="gCF3T-o1ETZiuW24bATa-4" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="555" as="sourcePoint" />
+            <mxPoint x="760" y="554.76" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1" style="" parent="0" />
+        <mxCell id="eGoHJ3-BDez3vur0yncJ-3" value="" style="rounded=0;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fillStyle=solid;fillColor=#BCDDF4;strokeColor=none;shadow=0;glass=0;" parent="1" vertex="1">
+          <mxGeometry x="122" y="390" width="128" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="eGoHJ3-BDez3vur0yncJ-13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeColor=#0970B9;strokeWidth=5;curved=0;endArrow=oval;endFill=1;endSize=12;" parent="1" source="eGoHJ3-BDez3vur0yncJ-1" target="eGoHJ3-BDez3vur0yncJ-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="186" y="250" />
+              <mxPoint x="450" y="250" />
+              <mxPoint x="450" y="510" />
+              <mxPoint x="560" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eGoHJ3-BDez3vur0yncJ-1" value="" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Helvetica;rounded=0;shadow=0;fillStyle=solid;strokeColor=#0970B9;align=center;verticalAlign=middle;fontSize=12;fontColor=default;fillColor=default;strokeWidth=8;" parent="1" vertex="1">
+          <mxGeometry x="126" y="330" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="eGoHJ3-BDez3vur0yncJ-6" value="" style="rounded=0;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fillStyle=solid;fillColor=#BCDDF4;strokeColor=none;shadow=0;glass=0;rotation=-180;" parent="1" vertex="1">
+          <mxGeometry x="496" y="270" width="128" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="eGoHJ3-BDez3vur0yncJ-7" value="" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Helvetica;rounded=0;shadow=0;fillStyle=solid;strokeColor=#0970B9;align=center;verticalAlign=middle;fontSize=12;fontColor=default;fillColor=default;strokeWidth=8;" parent="1" vertex="1">
+          <mxGeometry x="500" y="330" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="eGoHJ3-BDez3vur0yncJ-15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=#0970B9;strokeWidth=5;align=center;verticalAlign=middle;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=oval;endFill=1;endSize=12;curved=0;" parent="1" source="eGoHJ3-BDez3vur0yncJ-6" target="eGoHJ3-BDez3vur0yncJ-10" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="250" />
+              <mxPoint x="810" y="250" />
+              <mxPoint x="810" y="520" />
+              <mxPoint x="900" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eGoHJ3-BDez3vur0yncJ-10" value="" style="rounded=0;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fillStyle=solid;fillColor=#BCDDF4;strokeColor=none;shadow=0;glass=0;imageWidth=24;" parent="1" vertex="1">
+          <mxGeometry x="836" y="390" width="128" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="eGoHJ3-BDez3vur0yncJ-11" value="" style="ellipse;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Helvetica;rounded=0;shadow=0;fillStyle=solid;strokeColor=#0970B9;align=center;verticalAlign=middle;fontSize=12;fontColor=default;fillColor=default;strokeWidth=8;" parent="1" vertex="1">
+          <mxGeometry x="840" y="330" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="366a2rFC2hLkZV0-yhS4-3" value="&lt;div style=&quot;line-height: 90%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;line-height: 90%; font-size: 10.5px;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Segoe UI Semibold&amp;quot;; font-weight: bold;&quot;&gt;Solving the &lt;br&gt;Environment&amp;nbsp;&lt;br&gt;Problem.&lt;/span&gt;&lt;font face=&quot;Segoe UI (Textkörper)&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 10.5px;&quot;&gt;&lt;font style=&quot;&quot; face=&quot;Segoe UI (Textkörper)&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="122" y="342" width="128" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="366a2rFC2hLkZV0-yhS4-6" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%; font-size: 10.5px;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Segoe UI Semibold&amp;quot;; font-weight: bold;&quot;&gt;Enabling&lt;br&gt;Team Science.&lt;/span&gt;&lt;font face=&quot;Segoe UI (Textkörper)&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 10.5px;&quot;&gt;&lt;font style=&quot;&quot; face=&quot;Segoe UI (Textkörper)&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="510" y="335" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="366a2rFC2hLkZV0-yhS4-7" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%; font-size: 10.5px;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Segoe UI Semibold&amp;quot;; font-weight: bold;&quot;&gt;From Notebook&lt;br&gt;to FAIR Output.&lt;/span&gt;&lt;font face=&quot;Segoe UI (Textkörper)&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 10.5px;&quot;&gt;&lt;font style=&quot;&quot; face=&quot;Segoe UI (Textkörper)&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="850" y="342" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="366a2rFC2hLkZV0-yhS4-14" value="TEXT" style="" parent="0" />
+        <mxCell id="366a2rFC2hLkZV0-yhS4-8" value="&lt;div style=&quot;line-height: 90%;&quot;&gt;&lt;div&gt;&lt;p style=&quot;margin-top: 0pt; margin-bottom: 0pt; margin-left: 0in; direction: ltr; unicode-bidi: embed; padding-right: 0px; padding-left: 0px;&quot;&gt;&lt;font style=&quot;line-height: 90%; font-size: 9.25px;&quot;&gt;&lt;font face=&quot;Segoe UI (Textkörper)&quot;&gt;CLD delivers a complete, versioned computational environment as a single Docker image.&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="366a2rFC2hLkZV0-yhS4-14" vertex="1">
+          <mxGeometry x="130" y="370" width="110" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="366a2rFC2hLkZV0-yhS4-9" value="&lt;div style=&quot;line-height: 90%;&quot;&gt;&lt;div style=&quot;padding-right: 5px; padding-left: 5px;&quot;&gt;&lt;font style=&quot;line-height: 90%; font-size: 9.25px;&quot;&gt;CLD is built for collaborative workflows, from onboarding new colleagues to co-authoring complex analyses.&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="366a2rFC2hLkZV0-yhS4-14" vertex="1">
+          <mxGeometry x="500" y="370" width="120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="366a2rFC2hLkZV0-yhS4-11" value="&lt;div style=&quot;line-height: 90%;&quot;&gt;&lt;div&gt;&lt;div&gt;&lt;font style=&quot;line-height: 90%; font-size: 9.25px;&quot;&gt;&lt;font face=&quot;Segoe UI (Textkörper)&quot;&gt;CLD integrates CI/CD pipelines to automate the publication of research directly from Jupyter Notebooks.&lt;/font&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="366a2rFC2hLkZV0-yhS4-14" vertex="1">
+          <mxGeometry x="844" y="370" width="111" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="eGoHJ3-BDez3vur0yncJ-16" value="&lt;ul style=&quot;padding-left: 15px; padding-right: 15px; padding-bottom: 5px;&quot;&gt;&lt;li&gt;&lt;font style=&quot;font-size: 10px; background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;strong style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&lt;span style=&quot;box-sizing: border-box;&quot; class=&quot;ng-star-inserted&quot;&gt;Versioned Images:&lt;/span&gt;&lt;/strong&gt;&lt;span style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&amp;nbsp;&lt;br&gt;Pull specific CLD versions (e.g.,&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;box-sizing: border-box; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: 0.727273px solid rgb(255, 255, 255); border-radius: 3px; padding: 0px 3px; display: inline-block; font-family: &amp;quot;DM Mono&amp;quot;, monospace;&quot; class=&quot;inline-code ng-star-inserted&quot;&gt;v0.15.7&lt;/span&gt;&lt;span style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;) to perfectly replicate the exact environment a project was created in, years later.&lt;br&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 10px; background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;strong style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&lt;span style=&quot;box-sizing: border-box;&quot; class=&quot;ng-star-inserted&quot;&gt;No More &quot;Dependency Hell&quot;:&lt;/span&gt;&lt;/strong&gt;&lt;span style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&amp;nbsp;&lt;br&gt;All spatial packages (GDAL, QGIS, GRASS, Mapnik) and their complex C-dependencies are pre-compiled and compatibility-tested.&lt;br&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;strong style=&quot;font-size: 10px; box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&lt;span style=&quot;box-sizing: border-box;&quot; class=&quot;ng-star-inserted&quot;&gt;Fast Environment Switching:&lt;/span&gt;&lt;/strong&gt;&lt;span style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&amp;nbsp;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Two curated, pre-configured environments for Python and R, each packed with a compatible set of essential spatial libraries.&lt;/font&gt;&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;strokeColor=none;" parent="366a2rFC2hLkZV0-yhS4-14" vertex="1">
+          <mxGeometry x="256" y="250" width="194" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="366a2rFC2hLkZV0-yhS4-15" value="&lt;ul style=&quot;padding-left: 15px; padding-right: 10px;&quot;&gt;&lt;li&gt;&lt;font style=&quot;font-size: 10px; background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;strong style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&lt;span style=&quot;box-sizing: border-box;&quot; class=&quot;ng-star-inserted&quot;&gt;Live Collaboration:&lt;/span&gt;&lt;/strong&gt;&lt;span style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&amp;nbsp;Share&lt;br&gt; interactive JupyterLab sessions via a secure link, allowing multiple &lt;br&gt;users to code and write in the same notebook simultaneously.&lt;br&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;strong style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&lt;span style=&quot;box-sizing: border-box;&quot; class=&quot;ng-star-inserted&quot;&gt;Seamless Onboarding:&lt;/span&gt;&lt;/strong&gt;&lt;span style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&amp;nbsp;&lt;br&gt;New team members can start instantly with a pre-configured environment, including Git access, without local setup.&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 10px; background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;span style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&lt;/span&gt;&lt;strong style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&lt;span style=&quot;box-sizing: border-box;&quot; class=&quot;ng-star-inserted&quot;&gt;Isolated Team Instances:&lt;/span&gt;&lt;/strong&gt;&lt;span style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&amp;nbsp;&lt;br&gt;At IOER, we provide dedicated, 24/7 instances for researchers, offering zero startup time and user-controlled versioning.&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="366a2rFC2hLkZV0-yhS4-14" vertex="1">
+          <mxGeometry x="630" y="250" width="180" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="366a2rFC2hLkZV0-yhS4-16" value="&lt;ul style=&quot;padding-left: 15px; padding-right: 10px;&quot;&gt;&lt;li&gt;&lt;font style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;font face=&quot;Inter, sans-serif&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;&lt;b&gt;Automated Workflows:&lt;/b&gt; Use GitLab CI/CD templates to automatically convert notebooks into versioned, static HTML websites.&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;font face=&quot;Inter, sans-serif&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;&lt;b&gt;Transparent Supplements: &lt;/b&gt;Publish code, narrative, and interactive visualizations together, creating rich supplementary materials for papers.&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 10px; background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;strong style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&lt;span style=&quot;box-sizing: border-box;&quot; class=&quot;ng-star-inserted&quot;&gt;Archivable &amp;amp; Citable:&lt;/span&gt;&lt;/strong&gt;&lt;span style=&quot;box-sizing: border-box; font-family: Inter, sans-serif;&quot; class=&quot;ng-star-inserted&quot;&gt;&amp;nbsp;&lt;br&gt;The entire process facilitates the creation of a complete, archivable replication package.&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="366a2rFC2hLkZV0-yhS4-14" vertex="1">
+          <mxGeometry x="970" y="250" width="180" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="P7rC8e1ww3ObeQiMPvIG-4" value="&lt;div style=&quot;line-height: 110%;&quot;&gt;&lt;font style=&quot;font-size: 16px; line-height: 110%;&quot;&gt;Guaranteed Reproducibility&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Segoe UI Semibold;strokeWidth=0;" parent="366a2rFC2hLkZV0-yhS4-14" vertex="1">
+          <mxGeometry x="126" y="460" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="eGoHJ3-BDez3vur0yncJ-8" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Enhanced Collaboration&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Segoe UI Semibold;strokeWidth=0;" parent="366a2rFC2hLkZV0-yhS4-14" vertex="1">
+          <mxGeometry x="496" y="280" width="127" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="eGoHJ3-BDez3vur0yncJ-12" value="&lt;div style=&quot;line-height: 110%;&quot;&gt;&lt;font style=&quot;font-size: 16px; line-height: 110%;&quot;&gt;Integrated Publication&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Segoe UI Semibold;strokeWidth=0;" parent="366a2rFC2hLkZV0-yhS4-14" vertex="1">
+          <mxGeometry x="836" y="454" width="128" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

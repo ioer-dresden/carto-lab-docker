@@ -8,7 +8,7 @@ The core problem is that spatial science research is notoriously difficult to re
 
 Our RDM concept is built on three pillars that address the entire research process, from initial setup to final publication and beyond.
 
-![The Carto-Lab Docker RDM Workflow](images/rdm-flow.svg)
+[![The Carto-Lab Docker RDM Workflow](images/rdm-flow.svg)](images/rdm-flow.svg)
 
 ### 1. Guaranteed Reproducibility
 
