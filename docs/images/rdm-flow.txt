@@ -1,0 +1,7 @@
+After exporting the SVG from DrawIO, open the SVG and remove:
+
+```
+width="1055px" height="337px"
+```
+
+from the <svg ...> tag, to enable adaptive SVG.
