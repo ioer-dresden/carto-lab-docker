@@ -55,6 +55,11 @@ cp .env.example .env
 
 #### 3. Launch the Container
 
+Create the default netork. This only needs to be done once:
+```bash
+docker network create lbsn-network
+```
+
 Start the Carto-Lab Docker container in the background:
 ```bash
 docker compose up -d
