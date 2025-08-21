@@ -25,7 +25,7 @@ Use `!pip install` or `!conda install` at the beginning of your notebook. The `!
 #### Pros
 
 -   **Simple & Fast:** No Docker knowledge required. You only install the specific packages you need, which is much faster than rebuilding a full environment.
--   **Transparent & Reproducible:** The installation command is saved as a code cell within the notebook. Anyone re-running your notebook will automatically create the exact same environment state. To maximize reproducibility, it is best practice to specify exact package versions (e.g., pip install package==0.5.0).
+-   **Transparent & Reproducible:** The installation command is saved as a code cell within the notebook. Anyone re-running your notebook will automatically create the exact same environment state. To maximize reproducibility, it is best practice to specify exact package versions (e.g., `pip install package==0.5.0`).
 
 #### Cons
 
