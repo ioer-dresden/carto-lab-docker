@@ -21,7 +21,7 @@ Within this stable base, we provide two carefully curated environments for both 
 1. Selectively install packages directly within your notebooks. This method is fast, as it only adds what's needed instead of rebuilding an entire 100+ package environment. Critically, the installation code (e.g., `!pip install ...`) is version-controlled within the notebook itself, keeping the process transparent and reproducible.
 2. For more complex needs, advanced options are also available, such as extending the base Docker image with custom layers or using persistent volumes. However, we find that the simple, in-notebook strategy is the most effective and straightforward solution for the majority of research workflows.
 
-Read the documentation on package setup [here](use-cases.md).
+Read the documentation on package setup [here](environments.md).
 
 ### 2. Enhanced Collaboration
 
