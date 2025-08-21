@@ -2,7 +2,7 @@
 
 On the surface, Carto-Lab Docker (CLD) is a tool that provides a JupyterLab environment. However, its true purpose is to implement a holistic **Research Data Management (RDM)** workflow designed specifically for the challenges of modern spatial data science. This page explains the "why" and "how" behind its design.
 
-The core problem is that spatial science research is notoriously difficult to reproduce. It relies on complex software with fragile dependencies (the infamous "dependency hell" of GDAL, QGIS, etc.), making it a significant hurdle to share, reuse, and verify research outputs. CLD is our solution: an integrated system that embeds RDM best practices directly into the research lifecycle.
+The core problem is that spatial science research is notoriously difficult to reproduce. It relies on complex software with fragile dependencies (the infamous "dependency hell" of GDAL, QGIS, etc.), making it a significant hurdle to share, reuse, and verify research outputs in the spatial sciences. CLD is our solution: an integrated system that embeds RDM best practices directly into the research lifecycle.
 
 ## Our Approach: A Three-Pillar RDM Infrastructure
 
