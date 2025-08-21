@@ -7,8 +7,9 @@ From time to time, check that the base [Miniconda3 image](https://github.com/ana
 docker.io/continuumio/miniconda3:25.3.1-1
 ```
 
-The docker image is pulled from remote gitlab registry. If you update the Dockerfile, 
-check if local build is possible with:
+This base Miniconda3 image specified in the Dockerfile is pulled from a remote registry.
+
+If you update the Dockerfile, check that the local build completes without errors.
 
 ```bash
 docker build .
@@ -53,15 +54,17 @@ Remove `-vv --noop` afterwards to make a public release.
 
 After each release, manually refresh two hardcoded versions in the repo:
 ```bash
+# Get the new version string from the .version file
 version_var=$(sed -n "s#__version__ =\s*'\(.*\)'#\1#p" .version)
 
-# update version badge link in the README, to circumvent Github CDN caching
+# Update the version badge in README.md to break GitHub's image cache
 sed -i -E "s|(https://cartolab\.fdz\.ioer\.info/version\.svg)(\?v=[0-9\.]+)?|\1?v=${version_var}|" README.md
 
-# update CITATION.cff with the latest version
+# Update CITATION.cff with the latest version number
 sed -i -E "s|^(version:\s*)([0-9]+\.[0-9]+\.[0-9]+)|\1${version_var}|" CITATION.cff
 
-# commit
+# Commit the changes
+# Consider running `git diff` here to review changes before committing
 git add CITATION.cff README.md && \
     git commit -m "chore: update version badge and CITATION.cff to ${version_var}" && \
     git push
@@ -75,7 +78,6 @@ git add CHANGELOG.md && \
     git commit -m "chore: update CHANGELOG.md" && \
     git push
 ```
-
 
 ## Run on a dedicated domain on the web
 
@@ -103,7 +105,7 @@ In your Apache configuration, you need to also proxypass websockets:
 
 This requires the Apache modules `proxy` and `wstunnel` to be enabled on the host.
 
-## Daily Restart
+## Hosting a Persistent Instance with a Daily Reset
 
 Jupyter is usually meant to be started for each session, which can be done through Jupyter Hub.
 
@@ -219,14 +221,17 @@ volumes:
 
 Replace `/path/to/login.html` with the local path to your updated `login.html`.
 
-## Security
+## Security Philosophy: Root in the Container, Rootless on the Host
 
-Carto-Lab Docker is build to run as root. We want users to be able to fully modify the system
-during runtime. This means that the Docker System that hosts Carto-Lab Docker _should not_ run as
-root.
+Carto-Lab Docker's security model is built on a crucial distinction between the environment *inside* the container and the environment *on the host machine*.
 
-Rootless Docker should be considered the default. Have a look at the [Docker docs](https://docs.docker.com/engine/security/rootless/)
-or [this blog post](https://du.nkel.dev/blog/2023-12-12_mastodon-docker-rootless/#docker-rootless-setup) on how to setup rootless Docker.
+**Inside the container, the Jupyter server runs as `root`.** This is a deliberate design choice to provide maximum flexibility. It allows researchers to use `apt` or `conda` to install system-level dependencies or modify configuration files during interactive sessions without encountering permission errors.
 
-!!! warning
-    You should never run untrusted code or notebooks that you don't know the source of.
+**On the host machine, the Docker daemon itself _must_ run in rootless mode.** This is the most critical part of the security setup. By running Docker as a non-root user, you create a strong isolation boundary. Even if a user inside the container has `root` privileges, they are confined to the container's namespace and cannot affect the host system or other users' containers.
+
+This approach provides the best of both worlds: the flexibility of `root` access for research tasks, combined with the security of a rootless, user-isolated deployment.
+
+Rootless Docker should be considered the default and mandatory setup for any multi-user or production deployment. You can find excellent guides in the [official Docker documentation](https://docs.docker.com/engine/security/rootless/) or in [this blog post](https://du.nkel.dev/blog/2023-12-12_mastodon-docker-rootless/#docker-rootless-setup) on how to configure it.
+
+!!! warning "Never Run Untrusted Code"
+    This security model protects the host from the container, but it does not protect the container from the code you run inside it. You should never run untrusted code or notebooks from unknown sources.

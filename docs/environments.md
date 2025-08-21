@@ -130,7 +130,7 @@ After running this, refresh your browser (<kbd>F5</kbd>) and the new "qwikidata"
     
     `conda env export --prefix /envs/my_custom_env > my_custom_env.yml`
 
-    For `venv`, generate a `requirements.txt` file (`pip freeze > requirements.txt`) and commit it to Git.
+    For `venv`, activate the environment from a terminal and generate a `requirements.txt` file (`pip freeze > requirements.txt`) and commit it to Git.
 
 ### Use Case: Installation of a specific R for a long-term project
 
