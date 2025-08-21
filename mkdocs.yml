@@ -56,7 +56,7 @@ nav:
         - Managing Environments: environments.md
         - Advanced Task Guide: use-cases.md
         - Live Collaboration: collaboration.md
-        - Example Notebooks: notebooks.md
+        - Showcase & Example Notebooks: notebooks.md
         - Additional resources: resources.md
     - Developers:
         - Configuration: configuration.md

@@ -1,51 +1,100 @@
-# Example Notebooks
+# Showcase: Reproducible Science in Action
 
-## Workshop Series TUD
+This page showcases real-world outcomes created with Carto-Lab Docker. It's a demonstration of our core RDM philosophy: to provide an infrastructure that enables the creation and sharing of transparent, reproducible scientific knowledge.
 
-The [Social Media, Jupyter Lab & Tag Maps Workshop Series at TUD](https://gitlab.hrz.tu-chemnitz.de/tud-ifk/jupyter_python_datascience) contains a number of example Jupyter Notebooks that can be run with Carto-Lab Docker.
+The examples below are grouped into two key areas: **Training & Education**, where CLD lowers the barrier to entry for students and researchers, and **Peer-Reviewed Publications**, where CLD is used to produce FAIR supplementary materials that accompany scientific papers.
 
-**HTML Versions of Notebooks:**
+---
 
-1. [01_raw_intro.html](https://kartographie.geo.tu-dresden.de/ad/jupyter_python_datascience/01_raw_intro.html)
-2. [02_hll_intro.html](https://kartographie.geo.tu-dresden.de/ad/jupyter_python_datascience/02_hll_intro.html)
-3. [03_tagmaps.html](https://kartographie.geo.tu-dresden.de/ad/jupyter_python_datascience/03_tagmaps.html)
-4. [04_topic_classification.html](https://kartographie.geo.tu-dresden.de/ad/jupyter_python_datascience/04_topic_classification.html)
+## Training & Education
 
-## Exploring Spatial and Biodiversity Data with Python and JupyterLab
+These materials use Carto-Lab Docker to provide hands-on, interactive learning experiences that can be run directly in a browser.
 
-The [IOER FDZ Training Materials for Exploring Spatial and Biodiversity Data with Python and JupyterLab](https://training.fdz.ioer.info/) have been created with Carto-Lab Docker.
+*   **Exploring Spatial and Biodiversity Data with Python and JupyterLab**
+    This comprehensive Jupyter Book was co-authored by multiple contributors using Carto-Lab Docker's collaborative features. It serves as the official training material for the IOER FDZ and NFDI4Biodiversity, teaching the entire research workflow from data acquisition to final publication.
+    *   **[Access the Training Materials](https://training.fdz.ioer.info/)**
+    *   **[View the GitHub Repository](https://github.com/ioer-dresden/jupyter-book-nfdi4biodiversity)**
 
-## Publications
+*   **Mobile Cartography Workshops (TU Dresden)**
+    This annual workshop series uses Carto-Lab Docker to provide students with a ready-to-use environment for spatial data visualization. It allows them to start experimenting with complex cartographic techniques immediately, without any local software installation.
+    *   **[View Workshop Notebooks](https://code.ad.ioer.info/jupyter_python_datascience/)**
+    *   **[View the GitLab Repository](https://gitlab.hrz.tu-chemnitz.de/ad/jupyter_python_datascience)**
 
-The following publications include Jupyter notebooks created with Carto-Lab Docker as supplementary materials:
+---
 
-- **Dunkel, A., & Burghardt, D. (2024).** Assessing Perceived Landscape Change from Opportunistic Spatiotemporal Occurrence Data. Land, 13(7), 1091. [DOI](https://doi.org/10.3390/land13071091)
-    - S1 Jupyter Notebook: [01_mass_invasion.html](https://code.ad.ioer.info/wip/temporal_landscapes/html/01_mass_invasion.html)
-    - S2 Jupyter Notebook: [02_reddit_api.html](https://code.ad.ioer.info/wip/temporal_landscapes/html/02_reddit_api.html)
-    - S3 Jupyter Notebook: [03_reddit_pmaw.html](https://code.ad.ioer.info/wip/temporal_landscapes/html/03_reddit_pmaw.html)
-    - S4 Jupyter Notebook: [04_reddit_privacy.html](https://code.ad.ioer.info/wip/temporal_landscapes/html/04_reddit_privacy.html)
-    - S5 Jupyter Notebook: [05_reddit_vis.html](https://code.ad.ioer.info/wip/temporal_landscapes/html/05_reddit_vis.html)
-    - S6 Jupyter Notebook: [06_cherry_blossoms.html](https://code.ad.ioer.info/wip/temporal_landscapes/html/06_cherry_blossoms.html)
-    - S7 Jupyter Notebook: [07_hotspots.html](https://code.ad.ioer.info/wip/temporal_landscapes/html/07_hotspots.html)
-    - S8 Jupyter Notebook: [08_milvus_conversion.html](https://code.ad.ioer.info/wip/temporal_landscapes/html/08_milvus_conversion.html)
-    - S9 Jupyter Notebook: [09_milvus_maps.html](https://code.ad.ioer.info/wip/temporal_landscapes/html/09_milvus_maps.html)
-    - S10 Jupyter Notebook: [10_milvus_chi.html](https://code.ad.ioer.info/wip/temporal_landscapes/html/10_milvus_chi.html)
-- **Dunkel, A., Burghardt, D., & Gugulica, M. (2024).** Generative Text-to-Image Diffusion for Automated Map Production Based on Geosocial Media Data. KN - Journal of Cartography and Geographic Information. [DOI](https://doi.org/10.1007/s42489-024-00159-9)
-    - [Notebook 1](https://kartographie.geo.tu-dresden.de/ad/wip/mapnik_stablediffusion/html/01_tagmaps.html): Data preparation, spatial tag clustering (Tagmaps)
-    - [Notebook 2](https://kartographie.geo.tu-dresden.de/ad/wip/mapnik_stablediffusion/html/02_generativeai.html): Generative AI parameters & tests
-    - [Notebook 3](https://kartographie.geo.tu-dresden.de/ad/wip/mapnik_stablediffusion/html/03_map_processing.html): Map generation
-- **Dunkel, A., Hartmann, M. C., Hauthal, E., Burghardt, D., & Purves, R. S. (2023).** From sunrise to sunset: Exploring landscape preference through global reactions to ephemeral events captured in georeferenced social media. PLOS ONE, 18(2), e0280423. [DOI](https://doi.org/10.1371/journal.pone.0280423)
-    - [01_grid_agg.html](https://ad.vgiscience.org/sunset-sunrise-paper/01_grid_agg.html)
-    - [02_visualization.html](https://ad.vgiscience.org/sunset-sunrise-paper/02_visualization.html)
-    - [03_chimaps.html](https://ad.vgiscience.org/sunset-sunrise-paper/03_chimaps.html)
-    - [04_combine.html](https://ad.vgiscience.org/sunset-sunrise-paper/04_combine.html)
-    - [05_countries.html](https://ad.vgiscience.org/sunset-sunrise-paper/05_countries.html)
-    - [06_semantics.html](https://ad.vgiscience.org/sunset-sunrise-paper/06_semantics.html)
-    - [07_time.html](https://ad.vgiscience.org/sunset-sunrise-paper/07_time.html)
-    - [08_relationships.html](https://ad.vgiscience.org/sunset-sunrise-paper/08_relationships.html)
-    - [09_statistics.html](https://ad.vgiscience.org/sunset-sunrise-paper/09_statistics.html)
-- **Dunkel, A., Löchner, M., & Burghardt, D. (2020).** Privacy-Aware Visualization of Volunteered Geographic Information (VGI) to Analyze Spatial Activity: A Benchmark Implementation. ISPRS International Journal of Geo-Information, 9(10), 607. [DOI](https://doi.org/10.3390/ijgi9100607)
-    - [01_preparations.html](http://ad.vgiscience.org/yfcc_gridagg/01_preparations.html)
-    - [02_yfcc_gridagg_raw.html](http://ad.vgiscience.org/yfcc_gridagg/02_yfcc_gridagg_raw.html)
-    - [03_yfcc_gridagg_hll.html](http://ad.vgiscience.org/yfcc_gridagg/03_yfcc_gridagg_hll.html)
-    - [04_interpretation.html](http://ad.vgiscience.org/yfcc_gridagg/04_interpretation.html)
+## Peer-Reviewed Publications
+
+A core goal of Carto-Lab Docker is to facilitate the creation of transparent and fully reproducible supplementary materials for scientific publications. The notebooks linked below are not just code files; they are complete, static HTML outputs that combine code, narrative, and interactive visualizations, generated via our integrated publication workflow.
+
+-   **Dunkel, A., & Burghardt, D. (2024).** *Assessing Perceived Landscape Change from Opportunistic Spatiotemporal Occurrence Data.* Land, 13(7), 1091. **[DOI](https://doi.org/10.3390/land13071091)**
+    <details>
+    <summary style="cursor: pointer;">View Supplementary Notebooks (10)</summary>
+    <ul>
+    <li>S1 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/temporal_landscapes/html/01_mass_invasion.html">01_mass_invasion.html</a></li>
+    <li>S2 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/temporal_landscapes/html/02_reddit_api.html">02_reddit_api.html</a></li>
+    <li>S3 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/temporal_landscapes/html/03_reddit_pmaw.html">03_reddit_pmaw.html</a></li>
+    <li>S4 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/temporal_landscapes/html/04_reddit_privacy.html">04_reddit_privacy.html</a></li>
+    <li>S5 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/temporal_landscapes/html/05_reddit_vis.html">05_reddit_vis.html</a></li>
+    <li>S6 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/temporal_landscapes/html/06_cherry_blossoms.html">06_cherry_blossoms.html</a></li>
+    <li>S7 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/temporal_landscapes/html/07_hotspots.html">07_hotspots.html</a></li>
+    <li>S8 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/temporal_landscapes/html/08_milvus_conversion.html">08_milvus_conversion.html</a></li>
+    <li>S9 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/temporal_landscapes/html/09_milvus_maps.html">09_milvus_maps.html</a></li>
+    <li>S10 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/temporal_landscapes/html/10_milvus_chi.html">10_milvus_chi.html</a></li>
+    </ul>
+    </details>
+
+-   **Dunkel, A., Burghardt, D., & Gugulica, M. (2024).** *Generative Text-to-Image Diffusion for Automated Map Production Based on Geosocial Media Data.* KN - Journal of Cartography and Geographic Information. **[DOI](https://doi.org/10.1007/s42489-024-00159-9)**
+    <details>
+    <summary style="cursor: pointer;">View Supplementary Notebooks (3)</summary>
+    <ul>
+    <li><a href="https://kartographie.geo.tu-dresden.de/ad/wip/mapnik_stablediffusion/html/01_tagmaps.html">Notebook 1:</a> Data preparation, spatial tag clustering (Tagmaps)</li>
+    <li><a href="https://kartographie.geo.tu-dresden.de/ad/wip/mapnik_stablediffusion/html/02_generativeai.html">Notebook 2:</a> Generative AI parameters & tests</li>
+    <li><a href="https://kartographie.geo.tu-dresden.de/ad/wip/mapnik_stablediffusion/html/03_map_processing.html">Notebook 3:</a> Map generation</li>
+    </ul>
+    </details>
+
+-   **Dunkel, A., Hartmann, M. C., et al. (2023).** *From sunrise to sunset: Exploring landscape preference through global reactions to ephemeral events captured in georeferenced social media.* PLOS ONE, 18(2), e0280423. **[DOI](https://doi.org/10.1371/journal.pone.0280423)**
+    <details>
+    <summary style="cursor: pointer;">View Supplementary Notebooks (9)</summary>
+    <ul>
+    <li><a href="https://ad.vgiscience.org/sunset-sunrise-paper/01_grid_agg.html">01_grid_agg.html</a></li>
+    <li><a href="https://ad.vgiscience.org/sunset-sunrise-paper/02_visualization.html">02_visualization.html</a></li>
+    <li><a href="https://ad.vgiscience.org/sunset-sunrise-paper/03_chimaps.html">03_chimaps.html</a></li>
+    <li><a href="https://ad.vgiscience.org/sunset-sunrise-paper/04_combine.html">04_combine.html</a></li>
+    <li><a href="https://ad.vgiscience.org/sunset-sunrise-paper/05_countries.html">05_countries.html</a></li>
+    <li><a href="https://ad.vgiscience.org/sunset-sunrise-paper/06_semantics.html">06_semantics.html</a></li>
+    <li><a href="https://ad.vgiscience.org/sunset-sunrise-paper/07_time.html">07_time.html</a></li>
+    <li><a href="https://ad.vgiscience.org/sunset-sunrise-paper/08_relationships.html">08_relationships.html</a></li>
+    <li><a href="https://ad.vgiscience.org/sunset-sunrise-paper/09_statistics.html">09_statistics.html</a></li>
+    </ul>
+    </details>
+
+
+-   **Dunkel, A., Löchner, M., & Burghardt, D. (2020).** *Privacy-Aware Visualization of Volunteered Geographic Information (VGI) to Analyze Spatial Activity.* ISPRS International Journal of Geo-Information, 9(10), 607. **[DOI](https://doi.org/10.3390/ijgi9100607)**
+    <details>
+    <summary style="cursor: pointer;">View Supplementary Notebooks (4)</summary>
+    <ul>
+    <li><a href="http://ad.vgiscience.org/yfcc_gridagg/01_preparations.html">01_preparations.html</a></li>
+    <li><a href="http://ad.vgiscience.org/yfcc_gridagg/02_yfcc_gridagg_raw.html">02_yfcc_gridagg_raw.html</a></li>
+    <li><a href="http://ad.vgiscience.org/yfcc_gridagg/03_yfcc_gridagg_hll.html">03_yfcc_gridagg_hll.html</a></li>
+    <li><a href="http://ad.vgiscience.org/yfcc_gridagg/04_interpretation.html">04_interpretation.html</a></li>
+    </ul>
+    </details>
+
+---
+
+## Conference Contributions
+
+*   **Poster: IOER RDC Carto-Lab Docker - An RDM Infrastructure for Transparent, Open, and Reproducible Spatial Data Science**
+    <br>
+    <div style="text-align: center;">
+    <a href="../assets/2025-08-21_poster_cordi.pdf" target="_blank" rel="noopener noreferrer">
+        <img src="../assets/2025-08-21_poster_cordi.png" alt="CoRDI 2025 Conference Poster Thumbnail" style="width: 400px; border: 1px solid #ccc; margin-bottom: 10px;">
+    </a>
+    </div>
+    <br>
+    This poster was presented at the 2nd Conference on Research Data Infrastructure (CoRDI 2025) in Aachen, Germany. It provides a comprehensive visual summary of the Carto-Lab Docker RDM philosophy, its three-pillar architecture, and real-world use cases.
+    <ul>
+        <li><strong><a href="../assets/2025-08-21_poster_cordi.pdf">View Full-Size Poster (PDF)</a></strong></li>
+        <li><a href="https://www.nfdi.de/cordi-2025/">CoRDI 2025 Conference Website</a></li>
+    </ul>
