@@ -14,7 +14,7 @@ This setup is fully compatible with the [rawdb] and [hlldb] databases from the [
 
 ---
 
-## Quick Start: Running the Container
+## Step by Step: Running the Container
 
 This guide provides the fastest way to get a local instance running.
 
