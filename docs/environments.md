@@ -32,9 +32,6 @@ Use `!pip install` or `!conda install` at the beginning of your notebook. The `!
 -   **Temporary:** The installed packages are lost when the Docker container is restarted. The installation command must be re-run each time the notebook kernel is started. This is usually acceptable if you have only a few additional packages, but becomes cumbersome and inefficient if you need many custom packages.
 
 !!! tip
-    See an example [in this notebook](https://kartographie.geo.tu-dresden.de/ad/wip/ephemeral_events/html/03_wikidata_event_query_nevada.html),
-    where a further check is used to prevent re-installation, if the package or environment already exists.
-
     In [this notebook](https://kartographie.geo.tu-dresden.de/ad/wip/mapnik_stablediffusion/html/03_map_processing.html), a helper script `pkginstall.sh`
     is used to reduce the effort for maintaining environments and package installs. Find the tool in [this repository](https://gitlab.hrz.tu-chemnitz.de/s7398234--tu-dresden.de/base_modules).
 
@@ -110,6 +107,10 @@ For purely Python-based environments, `venv` is a lightweight alternative built 
 
 !!! note
     The `!` at the beginning of a line in a notebook cell tells Jupyter to run it as a shell command.
+
+!!! tip
+    See an example [in this notebook](https://kartographie.geo.tu-dresden.de/ad/wip/ephemeral_events/html/03_wikidata_event_query_nevada.html),
+    where a further check is used to prevent re-installation, if the package or environment already exists.
 
 #### 2.  **Install packages** into the new environment. Make sure to include `ipykernel`.
 
