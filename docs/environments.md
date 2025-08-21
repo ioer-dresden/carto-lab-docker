@@ -287,6 +287,87 @@ This installs exact builds (requires the original channels to still be available
 
     The most reliable way to ensure your custom environment always works is to **pair it with the specific Carto-Lab Docker version it was created with.** Since we archive every version in our container registry, you can simply pull the original container tag (e.g., `v0.28.0`) to guarantee a fully functional setup. While exporting and recreating your environment from a `.yml` file can help with migrating notebooks, it is not guaranteed to work across major container updates. The safest method remains pairing your custom environment with its original Carto-Lab Docker version.
 
+### Advanced Archiving and Sharing of Custom Environments
+
+While `conda env export > my_env.yml` is great for documenting an environment's dependencies, it requires a slow re-installation process and relies on external package sources. For sharing a complete, ready-to-run environment, there are two more robust methods.
+
+---
+
+#### Option A: Simple Archive (For Carto-Lab Docker Users)
+
+This is the simplest and fastest way to share a custom environment **with other Carto-Lab Docker users**.
+
+This method works because Carto-Lab Docker provides a crucial guarantee: every user running the same version tag (e.g., `v0.28.0`) has an identical underlying system. As long as the environment path is also kept consistent (e.g., `/envs/my_custom_env`), a simple compressed archive will be perfectly relocatable between users.
+
+**1. Create the Archive**
+From a terminal *inside* your Carto-Lab Docker container, navigate to your persistent environments folder and create a `tar.gz` archive of your custom environment.
+```bash
+cd /envs/
+tar -czf my_custom_env.tar.gz my_custom_env
+```
+You can now share this `my_custom_env.tar.gz` file with a colleague.
+
+**2. Restore the Archive**
+
+Your colleague, running the **exact same version of Carto-Lab Docker**, can restore the environment by unpacking the archive into their `/envs/` directory.
+```bash
+# From within their container's terminal
+cd /envs/
+tar -xzf /path/to/my_custom_env.tar.gz
+```
+
+The environment is now ready to be used immediately, with no re-installation required.
+
+!!! success "The Power of a Stable Base"
+    This simple workflow is a direct benefit of Carto-Lab Docker's versioning. It bypasses Conda's usual non-relocatability issues because the container provides a perfectly stable and consistent context.
+
+---
+
+#### Option B: `conda-pack` (For Sharing Outside Carto-Lab Docker)
+
+This method should be used when you need to share your environment with someone who is **not** using the exact same Carto-Lab Docker setup, or if the environment needs to be deployed to a different path or system (e.g., an HPC cluster).
+
+[`conda-pack`](https://conda.github.io/conda-pack/) creates a truly relocatable archive by bundling the environment and providing a script to fix hard-coded paths upon unpacking.
+
+**1. Install `conda-pack`**
+First, install `conda-pack` into the base Conda environment within the container. You only need to do this once.
+```bash
+conda install -c conda-forge conda-pack
+```
+
+**2. Pack Your Custom Environment**
+Use the `--prefix` option to target your environment.
+```bash
+conda pack --prefix /envs/my_custom_env -o my_custom_env.tar.gz
+```
+
+**3. Unpack and Use the Environment**
+
+On the target machine, the user unpacks the archive and runs a special command to fix the paths.
+
+```bash
+mkdir -p /some/new/path/my_env
+tar -xzf my_custom_env.tar.gz -C /some/new/path/my_env
+source /some/new/path/my_env/bin/activate
+conda-unpack # This is the crucial step
+```
+
+After running `conda-unpack`, the environment is fully functional in its new, arbitrary location.
+
+#### Summary: Choosing the Right Archiving Method
+
+Each method for archiving and sharing a custom environment has clear trade-offs. Use this summary to choose the best option for your specific needs.
+
+| Method | Pros | Cons |
+| :--- | :--- | :--- |
+| **`environment.yml`** | • Smallest file size<br>• Human-readable<br>• Tracks dependencies, not binaries | • Slowest to restore (full re-install)<br>• Requires internet access<br>• Can fail if packages become unavailable (rare)|
+| **Simple Archive (`tar`)** | • Fastest to restore<br>• Fully self-contained (no internet needed)<br>• Very simple commands | • **Not relocatable:** Only works if the CLD version <br>and path are identical<br>• Large file size |
+| **`conda-pack`** | • Truly relocatable to any path<br>• Fully self-contained<br>• Fast to restore | • Requires `conda-pack` tool<br>• More complex restore process (`conda-unpack`)<br>• Large file size |
+
+!!! success "Recommendation"
+    *   **For documenting dependencies** in a Git-based workflow, use **`environment.yml`** or **`requirements.txt`**.
+    *   **For quickly sharing environments with other Carto-Lab users** on the same version, the **Simple Archive** is the most efficient method.
+    *   **For long-term archival** or sharing with the **broader community** (e.g., on an HPC cluster), **`conda-pack`** is the most robust solution.
 
 ---
 
