@@ -29,11 +29,15 @@ Read the documentation on package setup [here](environments.md).
 
 **The CLD Solution:** CLD is built for team science. It includes features like live, real-time collaboration within a single Jupyter notebook, allowing multiple users to code and write simultaneously. For teams at IOER, we provide dedicated instances that eliminate setup for new members and get a pre-configured environment with Git access. This significantly reducing the learning curve and allows them to contribute from day one.
 
+Read the documentation on collaboration [here](collaboration.md).
+
 ### 3. Integrated Publication
 
 **The Challenge:** A published paper is often just the tip of the iceberg. The underlying code, data, and analytical narrative are crucial for transparency and reuse, but are often difficult to package and share.
 
 **The CLD Solution:** CLD is designed to turn your research notebook into a **FAIR Digital Object**. By integrating with Continuous Integration / Continuous Deployment (CI/CD) pipelines (e.g., GitLab CI), CLD automates the process of converting a Jupyter Notebook into a versioned, static HTML website (see our [Biodiversity Training Materials](https://training.fdz.ioer.info/) as an example). This published output contains the code, the narrative, and the interactive visualizations, creating a complete, archivable, and citable replication package.
+
+See our Showcase: [Reproducible Science in Action](notebooks.md).
 
 ## Closing the Loop: From Publication to New Research
 
