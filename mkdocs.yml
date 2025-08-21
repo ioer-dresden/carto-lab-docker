@@ -53,7 +53,8 @@ nav:
         - R: r.md
         - Mapnik: mapnik.md
         - Grass: grass.md
-        - User Workflows: use-cases.md
+        - Managing Environments: environments.md
+        - Advanced Task Guide: use-cases.md
         - Live Collaboration: collaboration.md
         - Example Notebooks: notebooks.md
         - Additional resources: resources.md
