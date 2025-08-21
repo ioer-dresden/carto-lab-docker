@@ -14,7 +14,7 @@ This is the most common path. You should follow these instructions if your goal 
 
 **Prerequisites:** Your institution, instructor, or a colleague has already set up a Carto-Lab Docker instance for you and provided you with:
 
-1.  A web address (URL), like `https://cartolab.my-university.de`
+1.  A web address (URL), like `https://my-cartolab-xyz.my-university.de`
 2.  A password or login instructions
 
 Simply open the URL in your browser and log in. That's it! You are now in a fully configured environment.
