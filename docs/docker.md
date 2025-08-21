@@ -7,7 +7,9 @@ The container comes with two pre-configured, curated environments:
 *   **`worker_env` (Python):** Contains the most important packages for open-source cartography and spatial analysis.
 *   **`r_env` (R):** A full R environment for statistical computing and visualization (available in specific container variants).
 
-This setup is fully compatible with the [rawdb] and [hlldb] databases from the [LBSN-Structure](https://lbsn.vgiscience.org/) project.
+!!! tip
+    This setup is fully compatible with the [rawdb] and [hlldb] databases from the [LBSN-Structure](https://lbsn.vgiscience.org/) project.
+    These containers can be used to extend Carto-Lab with Postgres 14 and PostGIS. See [Additional resources](resources.md).
 
 !!! info "A Note on Your Operating System"
     Carto-Lab Docker is optimized for Linux-based environments. If you are on Windows, we strongly recommend using the **Windows Subsystem for Linux (WSL)** to ensure the best performance and avoid potential compatibility issues.
