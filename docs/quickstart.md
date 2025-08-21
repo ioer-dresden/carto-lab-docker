@@ -37,6 +37,9 @@ Follow this path if your goal is to **install and manage** a new Carto-Lab Docke
 
 **Recommended Environment:** A Linux-based system. For Windows users, we strongly recommend using the **Windows Subsystem for Linux (WSL)** for optimal performance and compatibility.
 
+!!! note
+    This is the quick start guide for those who are familiar with docker. For more detailed step by step instructions, see [Step by Step: Running the Container](docker.md#step-by-step-running-the-container).
+
 #### 1. Clone the Repository
 
 Open your terminal and clone the project repository from GitHub:
