@@ -103,7 +103,7 @@ CMD source "$CONDA_ACTIVATE_PATH" "$JUPYTER_ENV_PATH"; \
     
     # Generate a token if GENERATE_TOKEN is true
     if [[ "$GENERATE_TOKEN" == "true" ]]; then \
-        TOKEN=$(tr -dc 'A-Za-z0-9!?%=' < /dev/urandom | head -c 10); \
+        TOKEN=$(openssl rand -hex 24); \
         echo -e "c.IdentityProvider.token = u'$TOKEN'\nc.PasswordIdentityProvider.allow_password_change = False" >> "$JUPYTER_CONFIG"; \
     fi; \
     
