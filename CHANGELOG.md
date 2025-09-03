@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## Unreleased
+
+### Chores
+
+- Update version badge and CITATION.cff to 1.0.1
+  ([`a62de0b`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/a62de0bd4805033b802c516b8c821a5807ca10f9))
+
+
 ## v1.0.1 (2025-09-03)
 
 ### Bug Fixes
