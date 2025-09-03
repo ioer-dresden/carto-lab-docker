@@ -1,7 +1,7 @@
 # CHANGELOG
 
 
-## Unreleased
+## v1.0.1 (2025-09-03)
 
 ### Bug Fixes
 
@@ -10,6 +10,9 @@
 
 - Typo and missing https for quai.io
   ([`c225855`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c225855cd1980ace66d28b0736ac4b049aecb97b))
+
+- Use standard conform token generation
+  ([`2180831`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/218083157f68b0e0f3cb23b3b8b1196ed12ddbd0))
 
 ### Chores
 
@@ -28,11 +31,25 @@
 - Switch docker registry from internal to public quai.io
   ([`4544aa5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4544aa5fe0d84fd704850e06e250bbef01f9bd93))
 
+- Update changelog
+  ([`10e28e8`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/10e28e89ca761c893c6e1d911669ff1e62a6a292))
+
 - Update CHANGELOG.md
   ([`fd25c2a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/fd25c2a8e01e4783dca840a3f0c5561ebacca95d))
 
 - Update version badge and CITATION.cff to 1.0.0
   ([`487a160`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/487a16068dcbecb03048de20e961e8aa46473a2a))
+
+### Code Style
+
+- Fix code formatting
+  ([`1caec9c`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/1caec9cc5309f6ffbe96c538cd23e06089e40b37))
+
+- Fix minor bug in SVG
+  ([`6869c35`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/6869c3518134e857a02f5768beb98d488e7bba85))
+
+- Fix svg color; add link for zoom
+  ([`00cb49c`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/00cb49c840d5cd118434e7aa0b0d513febab0bc8))
 
 ### Continuous Integration
 
@@ -50,11 +67,20 @@
 - Add concept & philosophy section
   ([`4c15949`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4c1594927720e0600d61ce0bbff9311b5e41f4da))
 
+- Add conda-pack and simple-archive section
+  ([`527bb36`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/527bb360813a00cc6883780185fc85d88ee9c678))
+
+- Add cross-links
+  ([`956d9e6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/956d9e667cf572995a92dffec4692aa8d8283562))
+
 - Add license
   ([`80c995e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/80c995e8f1bd8af4e1cdc38341f8dd38901d94ae))
 
 - Add missing link formatting
   ([`cc9776d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/cc9776d8e98d3d7b834cf39907cbb87814b623c4))
+
+- Add missing step
+  ([`5741c21`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/5741c21c0e5e9eaa7b8336159172855582e8fcb4))
 
 - Add note regarding Github release creation
   ([`f2a5c53`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/f2a5c53a67addd702376cb2e7090388a6697a15b))
@@ -65,8 +91,41 @@
 - Clarify developer workflow for updating hardcoded versions after a new release
   ([`b014c48`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/b014c484b42823475263a4a4eacae12e087f51e6))
 
+- Consolidate environment management into a dedicated documentation page
+  ([`160047a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/160047af62473be319a9cf2965b584562d66ee5b))
+
+- Fix outdated internal link
+  ([`167e570`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/167e57012f8e9bc5ab0063ec1c41c8d555703589))
+
+- Minor reduction
+  ([`09d9031`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/09d9031fcb05f0d8039eb0a515e4c2c507a98e33))
+
 - Minor rephrase sentence
   ([`cd77259`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/cd772597e352826459721c60d2413e23727d301d))
+
+- Minor shuffle of admonitions
+  ([`5664492`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/5664492e4cc8a5fb80e525f322509ccad5610363))
+
+- Overhaul quickstart
+  ([`2edc03a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2edc03af9a91c23078f0b40019c53e136cfdf009))
+
+- Replace wording
+  ([`4986de7`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4986de7cccefd4e5c7e85b4072bf515a29118099))
+
+- Revise developers section, update security model
+  ([`dd5c245`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/dd5c2457b8e445e9dd3b963e6b27191401e7cde0))
+
+- Revise docker quick start section
+  ([`3470744`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/3470744e8ba5e196761c02079ac7d392af88daba))
+
+- Revise live collaboration page
+  ([`327b326`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/327b326f151b26ec3e2ee3c203be80ca6e2e1ad1))
+
+- Revise the Showcase & Example Notebooks section
+  ([`b35d3b7`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/b35d3b75cf885bbc4d20c01f9785814e06e49ee9))
+
+- Update Additional resources secion
+  ([`7b19b7c`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/7b19b7c77adba72e981632172ac4296e2fcc9f0f))
 
 - Update changelog
   ([`bb895c3`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/bb895c344fe9639e2a3d6f2e5dd5ba45212b855f))
