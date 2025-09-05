@@ -16,16 +16,23 @@ dependencies:
   - r-irkernel
   - r-maps
   - r-mapdata
-  - r-tmap 
+  - r-tmap
   - r-nycflights13
   - r-randomforest
+  - r-raster
+  - r-rastervis
   - r-rcurl
   - r-rcolorbrewer
+  - r-remotes
+  - r-reshape
   - r-rmarkdown
   - r-rodbc
   - r-rsqlite
+  - r-scales
+  - r-sf
   - r-stringr
   - r-shiny
+  - r-terra
   - r-tidymodels
   - r-tidyverse
   - unixodbc
