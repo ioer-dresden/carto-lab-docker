@@ -3,10 +3,28 @@
 
 ## Unreleased
 
+### Bug Fixes
+
+- Collections.Iterable bug in Holoviews with Python>=3.10;
+  ([`9290949`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/92909499e8e67e5b22d767280e16584c1192e5d5))
+
 ### Chores
+
+- Update CHANGELOG.md
+  ([`dfd628a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/dfd628a6c84741229bc5cda9d5ffe09af84dfeb0))
 
 - Update version badge and CITATION.cff to 1.0.1
   ([`a62de0b`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/a62de0bd4805033b802c516b8c821a5807ca10f9))
+
+### Documentation
+
+- Update version matrix for 1.0.1
+  ([`0142602`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/014260215405648e55202993ccd3bbd522d6f4ae))
+
+### Features
+
+- Update r environment packages
+  ([`198e932`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/198e93224af33742cc7cb5a019eef2844dc54f92))
 
 
 ## v1.0.1 (2025-09-03)
