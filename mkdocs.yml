@@ -46,6 +46,7 @@ nav:
     - Introduction: index.md
     - Quick-Start: quickstart.md
     - Concept & Philosophy: concept.md
+    - Package Inclusion Policy: package_policy.md
     - User Guide:
         - Docker Container Setup: docker.md
         - JupyterLab: jupyter.md
