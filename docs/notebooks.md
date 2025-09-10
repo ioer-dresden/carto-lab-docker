@@ -101,4 +101,4 @@ A core goal of Carto-Lab Docker is to facilitate the creation of transparent and
 
 Citation:
 
-> Dunkel, A., Burghardt, D., Löchner, M., & Nieswand, M. (2025). IOER Carto-Lab Docker An RDM Infrastructure for Transparent, Open, and Reproducible Spatial Data Science (v1.0.0). 2nd Conference on Research Data Infrastructure 2025 (CoRDI), RWTH Aachen University. Zenodo. https://doi.org/10.5281/zenodo.17083789
+> *Dunkel, A., Burghardt, D., Löchner, M., & Nieswand, M. (2025). IOER Carto-Lab Docker An RDM Infrastructure for Transparent, Open, and Reproducible Spatial Data Science (v1.0.0). 2nd Conference on Research Data Infrastructure 2025 (CoRDI), RWTH Aachen University. Zenodo. https://doi.org/10.5281/zenodo.17083789*
