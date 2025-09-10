@@ -98,3 +98,7 @@ A core goal of Carto-Lab Docker is to facilitate the creation of transparent and
         <li><strong><a href="../assets/2025-08-21_poster_cordi.pdf">View Full-Size Poster (PDF)</a></strong></li>
         <li><a href="https://www.nfdi.de/cordi-2025/">CoRDI 2025 Conference Website</a></li>
     </ul>
+
+Citation:
+
+> Dunkel, A., Burghardt, D., Löchner, M., & Nieswand, M. (2025). IOER Carto-Lab Docker An RDM Infrastructure for Transparent, Open, and Reproducible Spatial Data Science (v1.0.0). 2nd Conference on Research Data Infrastructure 2025 (CoRDI), RWTH Aachen University. Zenodo. https://doi.org/10.5281/zenodo.17083789
