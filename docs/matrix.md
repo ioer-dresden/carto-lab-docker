@@ -30,7 +30,7 @@ See the list of Carto-Lab Versions and supported features or package versions.
 | Jupyterlab-git                                   |           | 0.50.1    | 0.50.2      | 0.51.1       | 0.51.2      |
 | Spellchecker                                     | 0.7.3     | 0.8.4     |             |              |             |
 | nbextensions                                     | 0.7.0     |           |             |              |             |
-| R                                                | /         |           | 4.2.2       | 4.4.1        |             |
+| R                                                | /         |           | 4.2.2       | 4.4.1        | 4.5.1       |
 | Mapnik                                           | 3.1       |           |             |              |             |
 | nbconvert                                        | 7.2.10    | 7.16.4    |             | 7.16.6       |             |
 | papermill                                        | 2.3.4     | 2.6.0     |             |              |             |
