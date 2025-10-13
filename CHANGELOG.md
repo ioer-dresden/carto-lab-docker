@@ -1,7 +1,7 @@
 # CHANGELOG
 
 
-## v1.1.0 (2025-10-13)
+## Unreleased
 
 ### Bug Fixes
 
@@ -16,12 +16,24 @@
 - Update version badge and CITATION.cff to 1.0.1
   ([`a62de0b`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/a62de0bd4805033b802c516b8c821a5807ca10f9))
 
+- Update version badge and CITATION.cff to 1.1.0
+  ([`ad82aa4`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ad82aa4e01a142a2a36b4717cd87767c8efca16c))
+
 ### Documentation
+
+- Add pckage inclusion policy
+  ([`c2376a6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c2376a67517d007b6cf98bd8ec78ca72ca2a00c0))
+
+- Update showcase PDFs and add citation
+  ([`6c8f3e5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/6c8f3e570f57f67f5fbb0893f0857170adb5ceca))
 
 - Update version matrix for 1.0.1
   ([`0142602`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/014260215405648e55202993ccd3bbd522d6f4ae))
 
 ### Features
+
+- Add rioxarray to default worker_env
+  ([`a2c35d6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/a2c35d63d28732d064cd0618ba775699212cc197))
 
 - Update r environment packages
   ([`198e932`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/198e93224af33742cc7cb5a019eef2844dc54f92))
