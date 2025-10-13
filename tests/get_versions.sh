@@ -55,6 +55,7 @@ worker_packages=(
   "geoviews"
   "bokeh"
   "rasterio"
+  "rioxarray"
 )
 
 for pkg in "${worker_packages[@]}"; do
