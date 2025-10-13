@@ -1,4 +1,4 @@
-[![version](https://cartolab.fdz.ioer.info/version.svg?v=1.0.1)](CHANGELOG.md) [![pipeline status](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/badges/master-latest/pipeline.svg#2)](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commits/master-latest) [![Documentation](https://cartolab.fdz.ioer.info/documentation.svg)](https://cartolab.fdz.ioer.info/)
+[![version](https://cartolab.fdz.ioer.info/version.svg?v=1.1.0)](CHANGELOG.md) [![pipeline status](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/badges/master-latest/pipeline.svg#2)](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commits/master-latest) [![Documentation](https://cartolab.fdz.ioer.info/documentation.svg)](https://cartolab.fdz.ioer.info/)
 
 
 
