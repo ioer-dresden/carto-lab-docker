@@ -11,6 +11,9 @@
 ### Chores
 
 - Update CHANGELOG.md
+  ([`d4d7a0b`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/d4d7a0bfcff33df706fbc1cf0dfb53f3e5b271bf))
+
+- Update CHANGELOG.md
   ([`dfd628a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/dfd628a6c84741229bc5cda9d5ffe09af84dfeb0))
 
 - Update version badge and CITATION.cff to 1.0.1
@@ -23,6 +26,12 @@
 
 - Add pckage inclusion policy
   ([`c2376a6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c2376a67517d007b6cf98bd8ec78ca72ca2a00c0))
+
+- Update matrix version table for v1.1.0
+  ([`b51ed77`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/b51ed774c7abc10fa4d0ead15437554475861533))
+
+- Update R version in matrix
+  ([`a3f4e50`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/a3f4e50780c4d2b2737c92639f8eb12f1c55244b))
 
 - Update showcase PDFs and add citation
   ([`6c8f3e5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/6c8f3e570f57f67f5fbb0893f0857170adb5ceca))
