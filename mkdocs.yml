@@ -55,7 +55,11 @@ nav:
         - Mapnik: mapnik.md
         - Grass: grass.md
         - Managing Environments: environments.md
-        - Advanced Task Guide: use-cases.md
+        - Advanced Task Guide:
+            - Overview: use-cases/overview.md
+            - Using of SSH (git etc.): use-cases/ssh-client-auth.md
+            - A complete CI&CD research project template: use-cases/automated-research-setup.md
+            - Adding Selenium: use-cases/add-selenium.md
         - Live Collaboration: collaboration.md
         - Showcase & Example Notebooks: notebooks.md
         - Additional resources: resources.md
