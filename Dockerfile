@@ -73,6 +73,24 @@ RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
 RUN sed -i '/"display_name": "worker_env",/a "env":{"PROJ_LIB": "/opt/conda/envs/worker_env/share/proj"},' \
     /root/.local/share/jupyter/kernels/worker_env/kernel.json
 
+# Configure system-wide JupyterLab defaults (including spellchecker)
+RUN mkdir -p /opt/conda/envs/jupyter_env/share/jupyter/lab/settings/ \
+    && echo '{\
+    "@jupyterlab-contrib/spellchecker:plugin": {\
+    "theme": "dotted-underline",\
+    "language": "en-us",\
+    "mimeTypes": [\
+    "text/plain",\
+    "text/x-ipythongfm",\
+    "text/x-rst",\
+    "text/x-latex",\
+    "text/x-rsrc",\
+    "text/x-markdown",\
+    "text/markdown"\
+    ]\
+    }\
+    }' > /opt/conda/envs/jupyter_env/share/jupyter/lab/settings/overrides.json
+
 # configure password login, if set
 # configure web url, if set
 # configure show hidden files
