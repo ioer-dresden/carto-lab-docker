@@ -32,7 +32,8 @@ RUN apt-get update \
 # Ensure conda-forge is the only channel and remove any defaults
 RUN conda config --remove channels defaults || true \
     && conda config --add channels conda-forge \
-    && conda config --set channel_priority strict
+    && conda config --set channel_priority strict \
+    && conda config --set solver rattler
 
 # Update all packages in base env, then create user env, and clean
 RUN mamba update --all --name base -c conda-forge --yes --quiet \
@@ -56,7 +57,8 @@ RUN echo "CARTOLAB_VERSION=$VERSION" >> /etc/environment \
 ENV CARTOLAB_VERSION=${VERSION}
 
 # install user kernel environment (worker_env)
-RUN mamba env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME  \
+RUN CONDA_REPODATA_THREADS=1 \
+    mamba env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME  \
     && source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
     && mamba install ipykernel --channel conda-forge \
     && ipython kernel install --user --name=$WORKER_ENV_NAME \
