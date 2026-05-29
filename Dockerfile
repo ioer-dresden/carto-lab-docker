@@ -105,53 +105,61 @@ RUN mkdir -p /opt/conda/envs/jupyter_env/share/jupyter/lab/settings/ \
 ENV JUPYTER_CONFIG=/root/.jupyter/jupyter_server_config.py
 ENV JUPYTERLABAPP_CONFIG=/root/.jupyter/jupyter_lab_config.py
 CMD source "$CONDA_ACTIVATE_PATH" "$JUPYTER_ENV_PATH"; \
+    echo "## Start shared SSH agent for single auth point of truth (git etc.) ##"; \
+    rm -f /tmp/ssh-agent.sock; \
+    ssh-agent -a /tmp/ssh-agent.sock; \
+    echo "## Configure jupyter lab defaults ##"; \
     jupyter lab --generate-config; \
     mkdir -p /root/.jupyter/labconfig; \
     echo '{"appName": "Carto-Lab Docker '"$CARTOLAB_VERSION"'"}' > /root/.jupyter/labconfig/page_config.json; \
     echo "c.ServerApp.terminado_settings = {'shell_command': ['/bin/bash']}" >> "$JUPYTER_CONFIG"; \
     echo "c.ContentsManager.allow_hidden = True" >> "$JUPYTER_CONFIG"; \
-    
-    # Configure Jupyter password if set
+    echo "## Configure Jupyter password if set ##"; \
     if [[ -n "$JUPYTER_PASSWORD" ]]; then \
-        PW_HASH=$(python -c "from jupyter_server.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))"); \
-        echo "c.PasswordIdentityProvider.hashed_password = u'$PW_HASH'" >> "$JUPYTER_CONFIG"; \
-        unset JUPYTER_PASSWORD; \
+    PW_HASH=$(python -c "from jupyter_server.auth import passwd; print(passwd('$JUPYTER_PASSWORD'))"); \
+    echo "c.PasswordIdentityProvider.hashed_password = u'$PW_HASH'" >> "$JUPYTER_CONFIG"; \
+    unset JUPYTER_PASSWORD; \
     fi; \
-    
-    # Configure Jupyter settings if JUPYTER_WEBURL is set
+    echo "## Configure Jupyter settings if JUPYTER_WEBURL is set ##"; \
     if [[ -n "$JUPYTER_WEBURL" ]]; then \
-        echo "c.ServerApp.custom_display_url = u'$JUPYTER_WEBURL'" >> "$JUPYTER_CONFIG"; \
-        echo "c.ServerApp.shutdown_no_activity_timeout = ${JUPYTER_AUTOSHUTDOWN_TIMEOUT:-1800}" >> "$JUPYTER_CONFIG"; \
-        echo "c.MappingKernelManager.cull_interval = 600" >> "$JUPYTER_CONFIG"; \
-        echo "c.MappingKernelManager.cull_idle_timeout = 1800" >> "$JUPYTER_CONFIG"; \
+    echo "c.ServerApp.custom_display_url = u'$JUPYTER_WEBURL'" >> "$JUPYTER_CONFIG"; \
+    echo "c.ServerApp.shutdown_no_activity_timeout = ${JUPYTER_AUTOSHUTDOWN_TIMEOUT:-1800}" >> "$JUPYTER_CONFIG"; \
+    echo "c.MappingKernelManager.cull_interval = 600" >> "$JUPYTER_CONFIG"; \
+    echo "c.MappingKernelManager.cull_idle_timeout = 1800" >> "$JUPYTER_CONFIG"; \
     fi; \
-    
-    # Generate a token if GENERATE_TOKEN is true
+    echo "## Generate a token if GENERATE_TOKEN is true ##"; \
     if [[ "$GENERATE_TOKEN" == "true" ]]; then \
-        TOKEN=$(openssl rand -hex 24); \
-        echo -e "c.IdentityProvider.token = u'$TOKEN'\nc.PasswordIdentityProvider.allow_password_change = False" >> "$JUPYTER_CONFIG"; \
+    TOKEN=$(openssl rand -hex 24); \
+    echo -e "c.IdentityProvider.token = u'$TOKEN'\nc.PasswordIdentityProvider.allow_password_change = False" >> "$JUPYTER_CONFIG"; \
     fi; \
-    
-    # Disable extensions based on environment variables
+    echo "## Disable extensions based on environment variables ##"; \
     [[ "$DISABLE_JUPYTEXT" == "true" ]] && echo "Disabling Jupytext extension" && jupyter labextension disable jupyterlab-jupytext; \
     [[ "$DISABLE_JUPYTERLAB_GIT" == "true" ]] && echo "Disabling JupyterLab Git extension" && jupyter labextension disable @jupyterlab/git; \
     [[ "$COLLABORATIVE" == "true" ]] && echo "Enabling RTC/Live Collaboration" && jupyter labextension enable @jupyter/collaboration-extension; \
-
-    # Disable Collaboration Mode if COLLABORATIVE is false or not set
+    echo "## Disable Collaboration Mode if COLLABORATIVE is false or not set"; \
     if [ -z "$COLLABORATIVE" ] || [ "$COLLABORATIVE" = "false" ] || [ "$COLLABORATIVE" = "0" ]; then \
-      DISABLE_RTC="--YDocExtension.disable_rtc=True"; \
+    DISABLE_RTC="--YDocExtension.disable_rtc=True"; \
     else \
-      DISABLE_RTC=""; \
+    DISABLE_RTC=""; \
     fi; \
-    
-    # Start Jupyter Lab
-    # optionally add --debug
-    # for posix parameter expansion, see
-    # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02
+    echo "## Configure custom template path for agnostic login.html overrides ##"; \
+    echo "c.ServerApp.extra_template_paths = ['/etc/jupyter/templates']" >> "$JUPYTER_CONFIG"; \
+    echo "## Configure Git identity if set"; \
+    if [[ -n "$GIT_USER_NAME" && -n "$GIT_USER_EMAIL" ]]; then \
+    echo "Configuring Git Identity..."; \
+    git config --global user.name "$GIT_USER_NAME"; \
+    git config --global user.email "$GIT_USER_EMAIL"; \
+    fi; \
+    echo "#############"; \
+    echo "Start Jupyter Lab"; \
+    echo "optionally add --debug"; \
+    echo "for posix parameter expansion, see"; \
+    echo "https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02"; \
+    echo "#############"; \
     jupyter lab \
-        --ip=0.0.0.0 \
-        --allow-root \
-        --no-browser \
-        $DISABLE_RTC \
-	${JUPYTER_EXTRA_ARGS:-} \
-        --ServerApp.root_dir=/home/jovyan/work
+    --ip=0.0.0.0 \
+    --allow-root \
+    --no-browser \
+    $DISABLE_RTC \
+    ${JUPYTER_EXTRA_ARGS:-} \
+    --ServerApp.root_dir=/home/jovyan/work
