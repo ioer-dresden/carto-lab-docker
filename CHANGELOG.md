@@ -1,7 +1,7 @@
 # CHANGELOG
 
 
-## Unreleased
+## v1.1.0 (2026-05-29)
 
 ### Bug Fixes
 
@@ -9,6 +9,9 @@
   ([`9290949`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/92909499e8e67e5b22d767280e16584c1192e5d5))
 
 ### Chores
+
+- Update CHANGELOG.md
+  ([`452d065`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/452d0654d86a14510bd96770be8a5ce1a6c0e284))
 
 - Update CHANGELOG.md
   ([`d4d7a0b`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/d4d7a0bfcff33df706fbc1cf0dfb53f3e5b271bf))
@@ -22,10 +25,24 @@
 - Update version badge and CITATION.cff to 1.1.0
   ([`ad82aa4`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ad82aa4e01a142a2a36b4717cd87767c8efca16c))
 
+### Code Style
+
+- Fix Markdown list formatting
+  ([`acb916f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/acb916fe86ac85a25f5c56e1f1d79c612b491a79))
+
 ### Documentation
+
+- Add advanced task guides for SSH Auth and cookieninja templating
+  ([`0a84e02`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/0a84e020f200a3e93279fb961fde740457ca6f0d))
 
 - Add pckage inclusion policy
   ([`c2376a6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c2376a67517d007b6cf98bd8ec78ca72ca2a00c0))
+
+- Change miniconda to mambaforge upstream image
+  ([`3086a39`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/3086a398cf3b9257a9e50ae8a580cc58d79acd6e))
+
+- Fix typo
+  ([`2adc4ff`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2adc4ff931631a87b72dc84bd156550108493705))
 
 - Update matrix version table for v1.1.0
   ([`b51ed77`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/b51ed774c7abc10fa4d0ead15437554475861533))
@@ -41,11 +58,32 @@
 
 ### Features
 
+- Add jupytergis to default jupyter server env
+  ([`9a0208c`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/9a0208c6302f9f4aaf435f0e17be7ef6707a357f))
+
+- Add option to preconfigure GIT_USER_NAME and GIT_USER_EMAIL via environment variables
+  ([`7d3456e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/7d3456e96d11c8840303c67a6463ddd76206a8ce))
+
+- Add option to use a shared SSH Socket; add curl to the base container
+  ([`94bc53f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/94bc53fa7fa397647e7ea215b7edbba36432b08c))
+
 - Add rioxarray to default worker_env
   ([`a2c35d6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/a2c35d63d28732d064cd0618ba775699212cc197))
 
+- Enable spellchecker by default; use sane default (dotted underline, en-us, Markdown support)
+  ([`602390d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/602390d8741ad64b84d1f27e81f0dc5b87e6982a))
+
+- Minimum python version for server environment set to 3.10; maximum notebook package
+  (compatibility) increased to <=7.5.0
+  ([`fa0b241`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/fa0b241011905b28623a7a3468148cfec54dc008))
+
 - Update r environment packages
   ([`198e932`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/198e93224af33742cc7cb5a019eef2844dc54f92))
+
+### Performance Improvements
+
+- Switch from Anaconda/miniconda to mambaforge/mamba
+  ([`43be77f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/43be77f6990d0337b2905f3ba5ed9f31ef7795be))
 
 
 ## v1.0.1 (2025-09-03)
