@@ -10,6 +10,8 @@ dependencies:
   - jupyter-collaboration>=4.0.1
   - jupyterlab-git
   - jupyterlab-lsp
+  - jupyterlab-spellchecker
+  - jupytergis
   - python-lsp-server
   - r-languageserver
   - pyright
@@ -21,5 +23,4 @@ dependencies:
   - papermill
   - pyviz_comms
   - pip:
-    - jupyterlab-spellchecker
     - jupyter_contrib_nbextensions # https://github.com/ipython-contrib/jupyter_contrib_nbextensions/issues/1650
