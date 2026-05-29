@@ -57,7 +57,7 @@ nav:
         - Managing Environments: environments.md
         - Advanced Task Guide:
             - Overview: use-cases/overview.md
-            - Using of SSH (git etc.): use-cases/ssh-client-auth.md
+            - Using SSH (for git etc.): use-cases/ssh-client-auth.md
             - A complete CI&CD research project template: use-cases/automated-research-setup.md
             - Adding Selenium: use-cases/add-selenium.md
         - Live Collaboration: collaboration.md
