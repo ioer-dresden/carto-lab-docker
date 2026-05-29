@@ -18,10 +18,14 @@ COPY $ENVIRONMENT_FILE $ENVIRONMENT_FILE
 
 # install apt depdendencies
 RUN apt-get update \
-    && apt-get upgrade -y \ 
+    && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends \
-        jq \
-        p7zip-full \        
+    jq \
+    p7zip-full \
+    curl \
+    ca-certificates \
+    git \
+    openssh-client \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Miniforge already has conda-forge as default. Make sure to use strict channel prioerity;
@@ -40,6 +44,9 @@ ENV CONDA_ACTIVATE_PATH=/opt/conda/bin/activate \
     JUPYTER_ENV_PATH=/opt/conda/envs/jupyter_env/ \
     WORKER_ENV_PATH=/opt/conda/envs/$WORKER_ENV_NAME/ \
     COOKIECUTTER_ENV_PATH=/opt/conda/envs/$COOKIECUTTER_ENV_NAME/
+
+# Define a static SSH agent socket path for the entire container
+ENV SSH_AUTH_SOCK=/tmp/ssh-agent.sock
 
 # Get CartoLab version from build arg
 # and set permanently for runtime
