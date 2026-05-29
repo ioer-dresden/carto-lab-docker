@@ -2,9 +2,9 @@
 
 ## Docker local build
 
-From time to time, check that the base [Miniconda3 image](https://github.com/anaconda/docker-images/releases) is up to date in the Dockerfile:
+From time to time, check that the base [Miniforge3 image](https://github.com/conda-forge/miniforge/releases) is up to date in the Dockerfile:
 ```Dockerfile
-docker.io/continuumio/miniconda3:25.3.1-1
+FROM condaforge/miniforge3:26.1.1-3
 ```
 
 This base Miniconda3 image specified in the Dockerfile is pulled from a remote registry.
