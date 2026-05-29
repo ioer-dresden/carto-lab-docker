@@ -1,5 +1,5 @@
-# https://github.com/anaconda/docker-images/releases
-FROM continuumio/miniconda3:25.3.1-1
+# https://github.com/conda-forge/miniforge/releases
+FROM condaforge/miniforge3:26.1.1-3
 
 # build time args
 ARG ENVIRONMENT_FILE=environment_default.yml
@@ -24,14 +24,16 @@ RUN apt-get update \
         p7zip-full \        
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Set strict channel priority and remove implicit defaults
-RUN echo -e "channels:\n  - conda-forge\nchannel_priority: strict\ndefault_channels: []" > /opt/conda/.condarc \
- && ln -sf /opt/conda/.condarc /root/.condarc
+# Miniforge already has conda-forge as default. Make sure to use strict channel prioerity;
+# Ensure conda-forge is the only channel and remove any defaults
+RUN conda config --remove channels defaults || true \
+    && conda config --add channels conda-forge \
+    && conda config --set channel_priority strict
 
 # Update all packages in base env, then create user env, and clean
-RUN conda update --all --name base -c conda-forge --yes --quiet \
- && conda env create --file environment_jupyter.yml --name jupyter_env --quiet \
- && conda clean --all --force-pkgs-dirs --yes
+RUN mamba update --all --name base -c conda-forge --yes --quiet \
+    && mamba env create --file environment_jupyter.yml --name jupyter_env --quiet \
+    && mamba clean --all --force-pkgs-dirs --yes
 
 # create conda paths to be sourced
 ENV CONDA_ACTIVATE_PATH=/opt/conda/bin/activate \
@@ -47,19 +49,17 @@ RUN echo "CARTOLAB_VERSION=$VERSION" >> /etc/environment \
 ENV CARTOLAB_VERSION=${VERSION}
 
 # install user kernel environment (worker_env)
-RUN conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME  \
- && source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
- && conda install ipykernel --channel conda-forge \
- && ipython kernel install --user --name=$WORKER_ENV_NAME \
- && conda clean --all --force-pkgs-dirs --yes \
- && conda deactivate
+RUN mamba env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME  \
+    && source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
+    && mamba install ipykernel --channel conda-forge \
+    && ipython kernel install --user --name=$WORKER_ENV_NAME \
+    && mamba clean --all --force-pkgs-dirs --yes
 
 # install cookiecutter env (cookiecutter_env)
-RUN conda create --name $COOKIECUTTER_ENV_NAME --quiet  \
- && source $CONDA_ACTIVATE_PATH $COOKIECUTTER_ENV_PATH \
- && conda install cookieninja --channel conda-forge \
- && conda clean --all --force-pkgs-dirs --yes \
- && conda deactivate
+RUN mamba create --name $COOKIECUTTER_ENV_NAME --quiet  \
+    && source $CONDA_ACTIVATE_PATH $COOKIECUTTER_ENV_PATH \
+    && mamba install cookieninja --channel conda-forge \
+    && mamba clean --all --force-pkgs-dirs --yes
 
 # disable announcements and collaboration feature by default
 # https://jupyterlab.readthedocs.io/en/stable/user/announcements.html
