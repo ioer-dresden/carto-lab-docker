@@ -122,3 +122,10 @@ You can now run `git push`, `git fetch`, or automated deployment scripts (such a
 !!! warning "Session Isolation"
     This SSH agent is isolated to your **current terminal tab**. 
     If you open a new terminal tab in JupyterLab, you must run the `eval` and `ssh-add` commands again. Additionally, the JupyterLab visual Git extension cannot access this temporary terminal agent.
+
+    If you want to use the SSH Key with the Git extension, currently speaking, you need to remove the password. Since this is a dedicated "Deploy Key" mounted strictly to a single container (and not your personal laptop key), the industry standard for CI/CD and bot containers is indeed to use such a passphrase-less key. You need to eveluate the security trade-off yourself for your specific context.
+    ```bash
+    ssh-keygen -p -f ~/.ssh/jupyter_deploy_key
+    ```
+
+    The Git Extension will work immediately.
