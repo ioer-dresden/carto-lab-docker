@@ -18,7 +18,7 @@ build and push latest:
     # Login to GitLab registry
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
     # Login to quay.io
-    - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io
+    - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed, skipping Quay push."
     - docker build --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:$VERSION --tag $CI_REGISTRY_IMAGE:latest .
     # Push images to GitLab registry
     - docker push $CI_REGISTRY_IMAGE --all-tags
@@ -26,8 +26,8 @@ build and push latest:
     - docker tag $CI_REGISTRY_IMAGE:$VERSION quay.io/ioer-fdz/carto-lab-docker:$VERSION
     - docker tag $CI_REGISTRY_IMAGE:latest quay.io/ioer-fdz/carto-lab-docker:latest
     # Push images to quay.io
-    - docker push quay.io/ioer-fdz/carto-lab-docker:$VERSION
-    - docker push quay.io/ioer-fdz/carto-lab-docker:latest
+    - docker push quay.io/ioer-fdz/carto-lab-docker:$VERSION || echo "Quay.io push failed, skipping."
+    - docker push quay.io/ioer-fdz/carto-lab-docker:latest || echo "Quay.io push failed, skipping."
   rules:
     - if: $CI_COMMIT_BRANCH == "master-latest"
       changes:
@@ -47,7 +47,7 @@ build and push stable:
     # Tag image for quay.io
     - docker tag $CI_REGISTRY_IMAGE:$VERSION quay.io/ioer-fdz/carto-lab-docker:stable
     # Push images to quay.io
-    - docker push quay.io/ioer-fdz/carto-lab-docker:stable
+    - docker push quay.io/ioer-fdz/carto-lab-docker:stable || echo "Quay.io push failed, skipping."
   only:
     - master
 
@@ -62,13 +62,13 @@ build and push mapnik:
     # Login to GitLab registry
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
     # Login to quay.io
-    - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io
+    - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed, skipping Quay push."
     - docker build --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:mapnik_$VERSION --tag $CI_REGISTRY_IMAGE:mapnik ./mapnik
     # Push images to GitLab registry
     - docker push $CI_REGISTRY_IMAGE --all-tags
     # Tag images for quay.io with the same repo, just different tags
-    - docker tag $CI_REGISTRY_IMAGE:mapnik_$VERSION quay.io/ioer-fdz/carto-lab-docker:mapnik_$VERSION
-    - docker tag $CI_REGISTRY_IMAGE:mapnik quay.io/ioer-fdz/carto-lab-docker:mapnik
+    - docker tag $CI_REGISTRY_IMAGE:mapnik_$VERSION quay.io/ioer-fdz/carto-lab-docker:mapnik_$VERSION || echo "Quay.io push failed, skipping."
+    - docker tag $CI_REGISTRY_IMAGE:mapnik quay.io/ioer-fdz/carto-lab-docker:mapnik || echo "Quay.io push failed, skipping."
 
     # Push images to quay.io
     - docker push quay.io/ioer-fdz/carto-lab-docker:mapnik_$VERSION
@@ -90,7 +90,7 @@ build and push r:
     # Login to GitLab registry
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
     # Login to quay.io
-    - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io
+    - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed, skipping Quay push."
     - docker build --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:r_$VERSION --tag $CI_REGISTRY_IMAGE:r ./r
     # Push images to GitLab registry
     - docker push $CI_REGISTRY_IMAGE --all-tags
@@ -99,8 +99,8 @@ build and push r:
     - docker tag $CI_REGISTRY_IMAGE:r quay.io/ioer-fdz/carto-lab-docker:r
 
     # Push images to quay.io
-    - docker push quay.io/ioer-fdz/carto-lab-docker:r_$VERSION
-    - docker push quay.io/ioer-fdz/carto-lab-docker:r
+    - docker push quay.io/ioer-fdz/carto-lab-docker:r_$VERSION || echo "Quay.io push failed, skipping."
+    - docker push quay.io/ioer-fdz/carto-lab-docker:r || echo "Quay.io push failed, skipping."
   rules:
     - if: $CI_COMMIT_BRANCH == "master-latest"
       changes:
