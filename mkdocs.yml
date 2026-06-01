@@ -50,17 +50,19 @@ nav:
     - User Guide:
         - Docker Container Setup: docker.md
         - JupyterLab: jupyter.md
-        - Python: python.md
-        - R: r.md
-        - Mapnik: mapnik.md
-        - Grass: grass.md
+        - Features & Included Packages:
+            - Included Python packages: python.md
+            - Included R packages: r.md
+            - Mapnik: mapnik.md
+            - Grass: grass.md
+            - Live Collaboration: collaboration.md
+            - JupyterGIS: jupytergis.md
         - Managing Environments: environments.md
         - Advanced Task Guide:
             - Overview: use-cases/overview.md
             - Using SSH (for git etc.): use-cases/ssh-client-auth.md
             - A complete CI&CD research project template: use-cases/automated-research-setup.md
             - Adding Selenium: use-cases/add-selenium.md
-        - Live Collaboration: collaboration.md
         - Showcase & Example Notebooks: notebooks.md
         - Additional resources: resources.md
     - Developers:
