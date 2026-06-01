@@ -129,7 +129,7 @@ COMPOSE_FILE=docker-compose.build.yml
 2. Then use <code>bash tests/get_versions.sh</code>.
 
 This will output versions from your locally built Docker container.  
-
+<br><br>
 3. Use an LLM to transpose output into the markdown table  
 
 <br><br>
