@@ -57,19 +57,17 @@ RUN echo "CARTOLAB_VERSION=$VERSION" >> /etc/environment \
 ENV CARTOLAB_VERSION=${VERSION}
 
 # install user kernel environment (worker_env)
-RUN CONDA_REPODATA_THREADS=1 \
-    mamba env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME  \
+RUN CONDA_SOLVER=rattler conda env create --file $ENVIRONMENT_FILE --name $WORKER_ENV_NAME \
     && source $CONDA_ACTIVATE_PATH $WORKER_ENV_PATH \
-    && mamba install ipykernel --channel conda-forge \
+    && CONDA_SOLVER=rattler conda install ipykernel --channel conda-forge \
     && ipython kernel install --user --name=$WORKER_ENV_NAME \
     && mamba clean --all --force-pkgs-dirs --yes
 
 # install cookiecutter env (cookiecutter_env)
-RUN mamba create --name $COOKIECUTTER_ENV_NAME --quiet  \
+RUN CONDA_SOLVER=rattler conda create --name $COOKIECUTTER_ENV_NAME --quiet \
     && source $CONDA_ACTIVATE_PATH $COOKIECUTTER_ENV_PATH \
-    && mamba install cookieninja --channel conda-forge \
+    && CONDA_SOLVER=rattler conda install cookieninja --channel conda-forge \
     && mamba clean --all --force-pkgs-dirs --yes
-
 # disable announcements and collaboration feature by default
 # https://jupyterlab.readthedocs.io/en/stable/user/announcements.html
 RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
