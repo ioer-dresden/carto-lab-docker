@@ -35,6 +35,7 @@ jupyter_packages=(
   "jupyterlab_spellchecker"
   "jupyter_contrib_nbextensions"
   "jupyter-collaboration"
+  "jupytergis"
 )
 
 for pkg in "${jupyter_packages[@]}"; do
@@ -95,4 +96,66 @@ docker compose run jupyterlab conda run -n r_env Rscript -e 'cat(R.version.strin
 
 printf "\nnodejs version \n\n"
 # docker compose run jupyterlab bash -c "conda init;conda activate jupyter_env; nodejs"
-docker compose run jupyterlab /opt/conda/envs/jupyter_env/bin/node --version
+docker compose run jupyterlab conda run --no-capture-output -n jupyter_env node --version
+
+### R tag ###
+
+printf "\n=========================================\n"
+printf "R Environment (r_env) checks:\n"
+printf "=========================================\n"
+
+# Gracefully check if the r_env environment directory exists
+if docker compose run jupyterlab [ -d "/opt/conda/envs/r_env" ]; then
+  
+  printf "\nR Version: \n\n"
+  docker compose run jupyterlab conda run -n r_env Rscript -e 'cat(R.version.string, "\n")'
+  
+  # List of explicitly installed packages to extract
+  r_packages=(
+    "r-base"
+    "r-caret"
+    "r-crayon"
+    "r-dplyr"
+    "r-devtools"
+    "r-e1071"
+    "r-forecast"
+    "r-ggplot2"
+    "r-hexbin"
+    "r-htmltools"
+    "r-htmlwidgets"
+    "r-irkernel"
+    "r-maps"
+    "r-mapdata"
+    "r-tmap"
+    "r-nycflights13"
+    "r-randomforest"
+    "r-raster"
+    "r-rastervis"
+    "r-rcurl"
+    "r-rcolorbrewer"
+    "r-remotes"
+    "r-reshape"
+    "r-rmarkdown"
+    "r-rodbc"
+    "r-rsqlite"
+    "r-scales"
+    "r-sf"
+    "r-stringr"
+    "r-shiny"
+    "r-terra"
+    "r-tidymodels"
+    "r-tidyverse"
+    "unixodbc"
+  )
+
+  # Join array elements with | and wrap each in ^...$ for exact matching
+  r_pattern=$(printf "|^%s$" "${r_packages[@]}")
+  r_pattern=${r_pattern:1} # Remove the leading "|"
+
+  printf "\nInstalled R Packages: \n\n"
+  # Query conda list once with the exact regex pattern
+  docker compose run jupyterlab conda list -n r_env "$r_pattern"
+  
+else
+  printf "\nr_env is not installed (skipping R checks).\n"
+fi
