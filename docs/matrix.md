@@ -6,6 +6,10 @@
     max-width: 100% !important;
     flex-grow: 1 !important;
 }
+/* Prevent admonitions from stretching infinitely on wide screens */
+.wy-nav-content .admonition {
+    max-width: 700px !important;
+}
 </style>
 
 
