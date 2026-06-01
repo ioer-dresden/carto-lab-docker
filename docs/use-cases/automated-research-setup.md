@@ -6,6 +6,9 @@ Carto-Lab Docker includes built-in support for generating standardized, reproduc
     1. **SSH Authentication:** You must have an active, unlocked SSH key loaded in your *current terminal session*. See [SSH Client Authentication](ssh-client-auth.md).
     2. **API Access:** You need a GitLab Personal Access Token (GL_PAT) with `api`, `read_repository`, and `write_repository` scopes.
 
+!!! tip
+    See an example of this template as a final landing page & jupyter notebook set published via its CI&CD [here](https://code.ad.ioer.info/digital_traces_map/).
+
 ## 1. Prepare the Environment
 
 Open a JupyterLab terminal. First, start the SSH agent and unlock your key for this session:
