@@ -67,12 +67,12 @@ build and push mapnik:
     # Push images to GitLab registry
     - docker push $CI_REGISTRY_IMAGE --all-tags
     # Tag images for quay.io with the same repo, just different tags
-    - docker tag $CI_REGISTRY_IMAGE:mapnik_$VERSION quay.io/ioer-fdz/carto-lab-docker:mapnik_$VERSION || echo "Quay.io push failed, skipping."
-    - docker tag $CI_REGISTRY_IMAGE:mapnik quay.io/ioer-fdz/carto-lab-docker:mapnik || echo "Quay.io push failed, skipping."
+    - docker tag $CI_REGISTRY_IMAGE:mapnik_$VERSION quay.io/ioer-fdz/carto-lab-docker:mapnik_$VERSION
+    - docker tag $CI_REGISTRY_IMAGE:mapnik quay.io/ioer-fdz/carto-lab-docker:mapnik
 
     # Push images to quay.io
-    - docker push quay.io/ioer-fdz/carto-lab-docker:mapnik_$VERSION
-    - docker push quay.io/ioer-fdz/carto-lab-docker:mapnik
+    - docker push quay.io/ioer-fdz/carto-lab-docker:mapnik_$VERSION || echo "Quay.io push failed, skipping."
+    - docker push quay.io/ioer-fdz/carto-lab-docker:mapnik || echo "Quay.io push failed, skipping."
   rules:
     - if: $CI_COMMIT_BRANCH == "master-latest"
       changes:
