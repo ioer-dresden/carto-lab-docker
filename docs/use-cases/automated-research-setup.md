@@ -44,6 +44,7 @@ Enter the information asked from you (project name, gitlab instance etc.). We ha
 In case you use this template more often, feel free to fork it and adjust defaults.
 
 Follow the interactive prompts to define your project. The script will automatically:
+
 1. Clone the template into `project_slug`.
 2. Format the `README.md` and initial notebooks.
 3. Clone submodules via SSH.
@@ -52,6 +53,7 @@ Follow the interactive prompts to define your project. The script will automatic
 6. Create the first commit and tag (`v0.1.0`)
 
 Now head to the new remote repository the script just created and check CI&CD variables:
+
 - The new repository inherited (copied) all CI&CD variables of the template project
 - Depending on your working environment, you may need to replace the `GL_TOKEN` variable (semantic-release versioning automation)
 - You may also need to replace `SSH_PRIVKEY`, which is used for the .gitlab-ci.yml deploy step to a final webserver
