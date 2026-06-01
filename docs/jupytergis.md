@@ -14,5 +14,15 @@ Start or create a JupyterGIS project in the Launcher:
 !!! tip
     Read the [Getting Started with JupyterGIS](https://jupytergis.readthedocs.io/en/latest/user_guide/tutorials/01-intro/) if you want to know how to use this package. JupytwerGIS also features [Real Time Collaboration](https://jupytergis.readthedocs.io/en/latest/user_guide/tutorials/02-collaboration/index.html), so you can share your session with colleagues to co-edit GIS projects.
 
-    <video class="content bg" style="object-fit: cover;height: 100%;width: 100%;left: -10%;top:-10%;border: 1px solid rgba(0,0,0,0.25);" aria-hidden="true" playsinline="" autoplay="" muted="" loop="" poster="/jupytergis.webp" id="collaborationvideo"> 
-    <source src="/jupytergis.webm" type="video/webm"></video><br>
+    <video
+    class="content bg"
+    style="object-fit: cover;height: 100%;width: 100%;left: -10%;top:-10%;border: 1px solid rgba(0,0,0,0.25);"
+    playsinline
+    autoplay
+    muted
+    loop
+    controls
+    poster="/jupytergis.webp"
+    id="collaborationvideo">
+    <source src="/jupytergis.webm" type="video/webm">
+    </video><br>

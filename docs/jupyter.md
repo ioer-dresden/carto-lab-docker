@@ -12,7 +12,7 @@ conda or `venv`.
 The default is to choose `worker_env` as your Kernel after starting JupyterLab 
 and creating a new notebook.
 
-<video class="content bg" style="object-fit: cover;height: 100%;width: 100%;left: 0%;top:0%" aria-hidden="true" playsinline="" autoplay="" muted="" loop="" id="tagmapsvideo"> 
+<video class="content bg" style="object-fit: cover;height: 100%;width: 100%;left: 0%;top:0%" aria-hidden="true" playsinline="" autoplay="" muted="" loop="" id="kernelenv" poster="/sel_kernel_env.webm"> 
 <source src="/sel_kernel_env.webm" type="video/webm"></video>
 
 Also have a look at the excellent [Jupyter Docs](https://jupyterhub.readthedocs.io/en/stable/howto/configuration/config-user-env.html).
