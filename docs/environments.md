@@ -391,7 +391,7 @@ RUN conda install -n worker_env -c conda-forge my-special-package -y && \
 ```
 
 !!! tip
-    Have a look at how we use this method to create our official Mapnik variant in the [mapnik/Dockerfile](mapnik/Dockerfile):
+    Have a look at how we use this method to create our official Mapnik variant in the `mapnik/Dockerfile`:
 
 <details>
     <summary style="cursor: pointer;">See the mapnik/Dockerfile<br><br></summary>
