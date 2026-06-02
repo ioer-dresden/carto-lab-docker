@@ -1,6 +1,76 @@
 # CHANGELOG
 
 
+## Unreleased (:dev tag)
+
+### Chores
+
+- Update version badge and CITATION.cff to 1.1.0
+  ([`43d5902`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/43d59023559c7b063adf9645add45d813140d079))
+
+- Update version matrix script to include R packages
+  ([`bc25978`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/bc2597869a311228aa32d65302833e3eaca885fb))
+
+### Code Style
+
+- Fix markdown formatting issue
+  ([`5de2b6c`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/5de2b6cbdc7dfabbf183681cda6c7fc60aac41ed))
+
+- Limit admonitions on matrix table page to selected max-width
+  ([`dbd80fa`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/dbd80fa4979da2e0f0e4ab5be116298fb3db099c))
+
+### Continuous Integration
+
+- Gracefully skip if Quay is down
+  ([`3baf6af`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/3baf6afc9cca3ab2121dee0b2195650fad3046e5))
+
+- Revise release workflow; push dedicated :dev image with latest features and test releases
+  ([`0c433fd`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/0c433fd06f1874c6f473fdab04f88e7e89f53eb9))
+
+- Try to reduce emory footprint (OOM) for build jobs
+  ([`c633509`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c633509501d7e4cb567aa5d1b6e372091dd97b28))
+
+### Documentation
+
+- Add controls to video
+  ([`0a709a0`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/0a709a04dbd206b1ddc52d4dac1daf3a2599c66d))
+
+- Add dedicated QGIS page and explain how to use QGIS and build the flavor image
+  ([`79a117f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/79a117f84c4ba5059b2a5877a01a8441a0df6b85))
+
+- Add jupytergis page
+  ([`3a50e57`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/3a50e570742383f7674e7c92437a7d652995d1c9))
+
+- Add new flavors (tags) and explain updated stable versioning and release cycle
+  ([`19e4528`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/19e45285379c0a53f7bb0eebcfbd8bd8c3b346f1))
+
+- Add template example link
+  ([`95d58f5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/95d58f5f39ff8bee6e2924cfd2b412bf4489f8b0))
+
+- Clean up landing page (remove list of packages) and focus on spatial/gis highlights
+  ([`1a0672d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/1a0672ddc9a776781ab56165665e207f8f21c3e2))
+
+- Fix markdown admonition
+  ([`98e6814`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/98e6814b9e004336537a29e0518a72746135e619))
+
+- Fix typo
+  ([`45673e8`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/45673e831cbe78b514c8c7e675c2651fe78bf250))
+
+- Remove non-working link to source file
+  ([`80abc72`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/80abc725b6a8b477d331e1dcc263e6c71ae97a1c))
+
+- Revise developer section to outline release workflow with :dev tag
+  ([`e4ab49e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e4ab49ea84ef13171cf195a7186fca5e880293c3))
+
+- Update matrix version table
+  ([`8fd5c7e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/8fd5c7e7eba240b40048f753dec55d878c1631bf))
+
+### Features
+
+- Add qgis flavor (Dockerfile, compose.yml)
+  ([`c7a1863`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c7a186341264281d289dfa91931cf859a0e5af7e))
+
+
 ## v1.1.0 (2026-05-29)
 
 ### Bug Fixes
