@@ -18,90 +18,42 @@ It is aimed at researchers, students, and practitioners who value transparency, 
 
 -----
 
-### Key Features
+## Key Features
 
-**Reproducibility by Design**
-
+**Reproducibility by Design**  
 Every Carto-Lab Docker version is tagged and archived. You can run code from years ago in its original environment, ensuring true long-term reproducibility for your publications and projects. See the [Example Notebooks](./notebooks.md) section for a list of papers that have been published with Carto-Lab Docker.
 
-**Pre-configured for Spatial Science**
+**Real-Time Collaboration**  
+Work together with your team on code, notebooks, and spatial data simultaneously using our built-in [Live Collaboration](./collaboration.md) support. 
 
-Jump right into your analysis with curated Python and R environments that include the most important packages for cartography, spatial statistics, and data visualization.
+**Integrated Web GIS**  
+Explore, style, and edit spatial data natively inside your JupyterLab browser interface. Carto-Lab Docker includes [JupyterGIS](./jupytergis.md), a full web-based GIS suite built for the Jupyter ecosystem.
 
-**Extensible and Open**
-
-Easily add your own packages or use our templates to extend the container with powerful tools like QGIS and GRASS GIS. The entire project is open source and community contributions are welcome on [GitHub](https://github.com/ioer-dresden/carto-lab-docker).
+**Extensible and Open**  
+The entire project is open source. You can easily add your own packages or use our specialized container "flavors" to inject foundational geospatial engines into your workflow (GDAL, Grass, QGIS). Community contributions are welcome on [GitHub](https://github.com/ioer-dresden/carto-lab-docker).
 
 -----
 
 ## Get Started
 
-Ready to try it out? Our [quick-start guide](./quickstart.md) will help you running your first JupyterLab session.
+Ready to try it out? Our [quick-start guide](./quickstart.md) will help you run your first JupyterLab session.
 
 -----
 
-## Included Packages
+## Environments & Flavors
+
+To keep the base environment lightweight and stable, Carto-Lab Docker utilizes a "Base + Flavors" architecture. You can choose the exact container variant that fits your research needs:
+
+*   🐍 **[Python (Base)](./python.md):** The core image. Includes the most important packages for spatial statistics, cartography, and data visualization (e.g., GeoPandas, Rasterio, Bokeh, HoloViews, GDAL).
+*   📊 **[R Environment](./r.md):** Extends the base image with a comprehensive R toolchain, including `sf`, `terra`, `ggplot2`, and `tidymodels`.
+*   🌍 **[QGIS & JupyterGIS](./qgis.md):** Injects the full QGIS desktop engine, allowing you to open `.qgz` files visually in the browser or run QGIS algorithms programmatically via the Python API.
+*   🌱 **[GRASS GIS](./grass.md):** Includes the massive GRASS GIS engine and the `grass.jupyter` companion package for advanced topology and raster analytics.
+*   🗺️ **[Mapnik](./mapnik.md):** Includes the OpenStreetMap C++ rendering engine for high-performance map tile generation.
 
 ![Packages Summary Graphic](/packages.png)
 
-!!! info
-    The two default environments provided in CartoLab-Docker for Python and R are for convenience only and do not claim to be complete. 
-    See this documentation for several ways to extend the environments or create your own.
+!!! info "Adding your own tools"
+    The default environments provided in Carto-Lab Docker are for convenience and do not claim to be complete. See our documentation for several ways to [extend the environments](./environments.md) or create your own.
 
-The default Python environment currently includes the following major packages:  
-
-- [Geoviews](https://geoviews.org/user_guide/index.html)
-- [Holoviews](https://holoviews.org/)
-- [Bokeh](https://docs.bokeh.org/en/latest/index.html)
-- [PySal ESDA](https://pysal.org/esda/index.html)
-- [hdbscan](https://hdbscan.readthedocs.io/)
-- [hvPlot](https://hvplot.holoviz.org/)
-- [Geopandas](https://geopandas.org/)
-- [Pandas](https://pandas.pydata.org/)
-- [Numpy](https://numpy.org/)
-- [Matplotlib](https://matplotlib.org/)
-- [Contextily](https://contextily.readthedocs.io/en/latest/)
-- [Colorcet](https://colorcet.holoviz.org/)
-- [Cartopy](https://scitools.org.uk/cartopy/docs/latest/)
-- [flopy](https://flopy.readthedocs.io/)
-- [Shapely](https://shapely.readthedocs.io/en/stable/manual.html)
-- [Pyproj](https://pyproj4.github.io/pyproj/stable/)
-- [psycopg2](https://github.com/psycopg/psycopg2)
-- [pyepsg](https://github.com/rhattersley/pyepsg)
-- [Mapclassify](https://pysal.org/notebooks/viz/mapclassify/intro.html)
-- [Seaborn](https://seaborn.pydata.org/)
-- [Xarray](http://xarray.pydata.org/en/stable/)
-- [Tagmaps](https://ad.vgiscience.org/tagmaps/docs/)
-- [lbsnstructure](https://lbsn.vgiscience.org/)
-- [Descartes](https://sgillies.net/2010/04/27/descartes-1-0.html)
-- [geoalchemy2](https://geoalchemy-2.readthedocs.io/en/latest/)
-- [Datashader](https://datashader.org/)
-- [matplotlib-venn](https://github.com/konstantint/matplotlib-venn)
-- [python-hll](https://github.com/AdRoll/python-hll)
-- [rasterio](https://rasterio.readthedocs.io/)
-- [geopy](https://geopy.readthedocs.io/) 
-
-The default R environment currently includes the following major packages:  
-
-- [caret](https://topepo.github.io/caret/)
-- [dplyr](https://dplyr.tidyverse.org/)
-- [forecast](https://www.rdocumentation.org/packages/forecast/versions/8.23.0)
-- [ggplot2](https://ggplot2.tidyverse.org/)
-- [hexbin](https://r-graph-gallery.com/100-high-density-scatterplot-with-binning.html)
-- [maps](https://r-graph-gallery.com/278-the-maps-library.html)
-- [mapdata](https://r-graph-gallery.com/278-the-maps-library.html)
-- [tmap](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html)
-- [randomforest](https://www.rdocumentation.org/packages/randomForest/versions/4.7-1.1/topics/randomForest)
-- [rcolorbrewer](https://r-graph-gallery.com/38-rcolorbrewers-palettes.html)
-- [stringr](https://stringr.tidyverse.org/)
-- [shiny](https://shiny.posit.co/)
-- [tidymodels](https://www.tidymodels.org/)
-- [tidyverse](https://www.tidyverse.org/)
-
-Carto-Lab Docker also includes [Mapnik](https://mapnik.org/), the [openstreetmap.org](https://www.openstreetmap.org/) renderer.
-
-These packages can be expanded as needed. We offer several starter guides for different visual analytics tasks.
-
-!!! note
+!!! note "Institutional Support"
     As an official research infrastructure component of the **FDZ IOER**, Carto-Lab Docker is actively maintained to ensure its stability and long-term sustainability. You can learn more about its history and governance on our [**About page**](./about.md).
-    
