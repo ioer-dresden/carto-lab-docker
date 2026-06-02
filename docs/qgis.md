@@ -30,7 +30,7 @@ Use the following `docker-compose.qgis.yml`:
 {!../docker-compose.qgis.yml!}
 ```
 
-??? note "See the `qgis/Dockerfile` file for the list of Grass dependencies."
+!!! note "See the `qgis/Dockerfile` file for the list of Grass dependencies."
 
     ```yaml
     {!../qgis/Dockerfile!}
@@ -65,5 +65,5 @@ docker compose -f docker-compose.qgis.yml build \
     ```
 
 
-??? question "Why don't we integrate QGIS directly into Carto-Lab?"
+!!! info "Why don't we integrate QGIS directly into Carto-Lab?"
     The main reason is resource limitation. Users who only require Pandas and Matplotlib need only download a 2 GB base image. However, power users who need to render QGIS layers on the web must extend this base image. Furthermore, the Conda/Mamba resolver is limited in the number of packages it can effectively resolve. Therefore, adding more packages to the base 'worker_env' is impractical.
