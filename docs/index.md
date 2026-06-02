@@ -2,7 +2,7 @@
 
 # Your Reproducible Environment for Spatial Data Science
 
-**Carto-Lab Docker** is a FAIR-enabling computational environment, officially supported by the **FDZ IOER**. It provides a versioned, pre-configured JupyterLab server in a Docker container, designed to make transparent and reproducible spatial analysis accessible to everyone.
+**Carto-Lab Docker** is a FAIR-enabling computational environment, officially supported by the **IOER FDZ**. It provides a versioned, pre-configured JupyterLab server in a Docker container, designed to make transparent and reproducible spatial analysis accessible to everyone.
 
 <p align="center"><img src="logo.svg">
 
