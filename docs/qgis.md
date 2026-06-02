@@ -30,12 +30,11 @@ Use the following `docker-compose.qgis.yml`:
 {!../docker-compose.qgis.yml!}
 ```
 
-!!! note "See the `qgis/Dockerfile` file for the list of Grass dependencies."
+See the `qgis/Dockerfile` file for the list of Grass dependencies:
 
-    ```yaml
-    {!../qgis/Dockerfile!}
-    ```
-
+```yaml
+{!../qgis/Dockerfile!}
+```
 
 !!! note
     If you are not an academic member of the gcr.hrz.tu-chemnitz.de group, replace:
