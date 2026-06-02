@@ -68,27 +68,36 @@ You can customize your Carto-Lab Docker instance by editing the `.env` file.
 
 ### Choosing a Container Version (Tag)
 
-We provide several container variants for different needs, which are available from our container registries ([Quay.io](https://quay.io/repository/ioer-fdz/carto-lab-docker?tab=tags) and our [institutional registry](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/container_registry)). The core variants are:
+We provide several container variants for different needs via our container registries ([Quay.io](https://quay.io/repository/ioer-fdz/carto-lab-docker?tab=tags) and [GitLab](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/container_registry)).
 
-*   **`:latest`**: The standard, stable image with the Python `worker_env`.
-*   **`:r`**: Extends `:latest` with a full R environment (`r_env`).
-*   **`:mapnik`**: Extends `:latest` with the Mapnik C++ library for advanced map rendering.
+**Core Base Images:**
 
-For guaranteed reproducibility, we strongly recommend pinning to a specific version number.
+- **`:latest`**: The current stable, production-ready image.
+- **`:vX.Y.Z`** *(e.g., `:v1.1.0`)*: Immutable, specific release versions. Strongly recommended for scientific reproducibility.
+- **`:dev`**: The bleeding-edge image built on every commit. Contains new test features but may be unstable.
+
+**Language & Tool Flavors:**
+
+Because geospatial engines can be quite big, we provide specialized extensions (flavors):
+
+- **`:r_latest` / `:r_vX.Y.Z`**: Extends the base image with a full R environment.
+- **Mapnik, GRASS, QGIS**: Due to resource constraints, these massive images are not pushed to our public registry automatically. We provide simple `docker-compose.<flavor>.yml` files so you can easily build them locally on your host machine. Refer to our documentation on how to build these flavors.
 
 To use a different variant or version, edit the `TAG` variable in your `.env` file:
+
 ```env
 # In your .env file
-# Use the R-enabled variant
-TAG=r_v1.0.0
-
-# Or, use a specific, versioned base image
-TAG=v0.28.0
+# Use a specific, reproducible base image
+TAG=v1.1.0
 ```
-Then, simply run `docker compose pull && docker compose up -d` to switch to the new version.
+
+Or, use the bleeding-edge dev version for testing:
+```
+TAG=dev
+```
 
 !!! danger "A Note on Build Stability"
-    We aim to ensure the compatibility of all included geo-packages. However, upstream changes can sometimes cause build issues in our latest unversioned, bleeding-edge builds. For stable, production-ready work, **always use a specific versioned tag** from our registry.
+    We aim to ensure the compatibility of all included geo-packages. However, upstream changes can sometimes cause build issues in our latest dev builds. For stable, production-ready work, **always use a specific versioned tag** from our registry.
 
 ---
 
