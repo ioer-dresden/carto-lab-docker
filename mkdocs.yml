@@ -57,6 +57,7 @@ nav:
             - Grass: grass.md
             - Live Collaboration: collaboration.md
             - JupyterGIS: jupytergis.md
+            - QGIS: qgis.md
         - Managing Environments: environments.md
         - Advanced Task Guide:
             - Overview: use-cases/overview.md
