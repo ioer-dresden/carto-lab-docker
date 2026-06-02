@@ -39,7 +39,7 @@ Read the documentation on collaboration [here](collaboration.md).
 
 See our Showcase: [Reproducible Science in Action](notebooks.md).
 
-## Closing the Loop: From Publication to New Research
+## From Publication to New Research
 
 These three pillars combine to create a cyclical RDM workflow. The goal is not just to publish a static result, but to create a living document that serves as the starting point for the next wave of research.
 
@@ -49,6 +49,6 @@ As the diagram illustrates, the workflow doesn't end with publication. It create
 
 2.  **Build Upon & Contribute:** They can then pull the corresponding Carto-Lab Docker image to their own machine or environment to extend the analysis, fix a bug, or apply the methods to new data. Their new contribution can then be published, continuing the cycle of open, incremental scientific progress.
 
-## Summary: RDM in Action
+## Summary
 
 Carto-Lab Docker is more than just a tool—it's a workflow and a philosophy. By integrating environment management, collaboration, and publication, it embeds the principles of FAIR and Open Science directly into the daily work of researchers, turning good RDM practices from a theoretical ideal into a practical reality.
