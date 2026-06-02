@@ -80,6 +80,10 @@ If no release has been made for a long time, it is possible to manually update t
 to include unpublished changes.
 ```bash
 semantic-release changelog
+
+# Append the (:dev tag) hint to the Unreleased header
+sed -i 's/^## Unreleased$/## Unreleased (:dev tag)/' CHANGELOG.md
+
 git add CHANGELOG.md && \
     git commit -m "chore: update CHANGELOG.md" && \
     git push
