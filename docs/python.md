@@ -23,7 +23,6 @@ All versions of CartoLab-Docker contain a `worker_env` with a number of base pac
 - [Mapclassify](https://pysal.org/notebooks/viz/mapclassify/intro.html)
 - [Seaborn](https://seaborn.pydata.org/)
 - [Xarray](http://xarray.pydata.org/en/stable/)
-- [Tagmaps](https://ad.vgiscience.org/tagmaps/docs/)
 - [lbsnstructure](https://lbsn.vgiscience.org/)
 - [Descartes](https://sgillies.net/2010/04/27/descartes-1-0.html)
 - [geoalchemy2](https://geoalchemy-2.readthedocs.io/en/latest/)
