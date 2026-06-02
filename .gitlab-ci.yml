@@ -1,147 +1,111 @@
 stages:
-  - build-stable
-  - build-latest
-  - build-mapnik
-  - build-r
+  - build-dev
+  - build-release
   - artifacts
   - mkdocs
   - deploydocs
 
-build and push latest:
-  stage: build-latest
+# 1. Development builds (Runs on branch push)
+build dev base:
+  stage: build-dev
   image: docker:latest
   tags:
     - dind-runner
   script:
-    # get latest version from file, so we do not need to install git
-    - VERSION=v$(cat .version | cut -d"'" -f 2)
-    # Login to GitLab registry
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
-    # Login to quay.io
-    - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed, skipping Quay push."
-    - docker build --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:$VERSION --tag $CI_REGISTRY_IMAGE:latest .
-    # Push images to GitLab registry
-    - docker push $CI_REGISTRY_IMAGE --all-tags
-    # Tag image for quay.io
-    - docker tag $CI_REGISTRY_IMAGE:$VERSION quay.io/ioer-fdz/carto-lab-docker:$VERSION
-    - docker tag $CI_REGISTRY_IMAGE:latest quay.io/ioer-fdz/carto-lab-docker:latest
-    # Push images to quay.io
-    - docker push quay.io/ioer-fdz/carto-lab-docker:$VERSION || echo "Quay.io push failed, skipping."
-    - docker push quay.io/ioer-fdz/carto-lab-docker:latest || echo "Quay.io push failed, skipping."
+    - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed."
+    # Build and tag as :dev
+    - docker build --pull --build-arg VERSION=dev --tag $CI_REGISTRY_IMAGE:dev .
+    - docker push $CI_REGISTRY_IMAGE:dev
+    - docker tag $CI_REGISTRY_IMAGE:dev quay.io/ioer-fdz/carto-lab-docker:dev || true
+    - docker push quay.io/ioer-fdz/carto-lab-docker:dev || echo "Quay push failed."
   rules:
     - if: $CI_COMMIT_BRANCH == "master-latest"
       changes:
-        - Dockerfile # Dockerfile changed
-        - "*.yml" # any yml changes
+        - Dockerfile
+        - "*.yml"
 
-build and push stable:
-  stage: build-stable
+# build dev r:
+#   stage: build-dev
+#   image: docker:latest
+#   tags:
+#     - dind-runner
+#   script:
+#     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
+#     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed."
+#     # Build and tag as :r_dev
+#     - docker build --pull --build-arg VERSION=dev --tag $CI_REGISTRY_IMAGE:r_dev ./r
+#     - docker push $CI_REGISTRY_IMAGE:r_dev
+#     - docker tag $CI_REGISTRY_IMAGE:r_dev quay.io/ioer-fdz/carto-lab-docker:r_dev || true
+#     - docker push quay.io/ioer-fdz/carto-lab-docker:r_dev || echo "Quay push failed."
+#   rules:
+#     - if: $CI_COMMIT_BRANCH == "master-latest"
+#       changes:
+#         - Dockerfile
+#         - "r/Dockerfile"
+#         - "*.yml"
+
+# 2. Release builds (Runs only on Git Tags)
+build release base:
+  stage: build-release
   image: docker:latest
   tags:
     - dind-runner
   script:
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
-    - docker build --pull --tag $CI_REGISTRY_IMAGE:stable .
-    # Push images to GitLab registry
-    - docker push $CI_REGISTRY_IMAGE:stable
-    # Tag image for quay.io
-    - docker tag $CI_REGISTRY_IMAGE:$VERSION quay.io/ioer-fdz/carto-lab-docker:stable
-    # Push images to quay.io
-    - docker push quay.io/ioer-fdz/carto-lab-docker:stable || echo "Quay.io push failed, skipping."
-  only:
-    - master
-
-
-build and push mapnik:
-  stage: build-mapnik
-  image: docker:latest
-  tags:
-    - dind-runner
-  script:
-    - VERSION=v$(cat .version | cut -d"'" -f 2)
-    # Login to GitLab registry
-    - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
-    # Login to quay.io
-    - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed, skipping Quay push."
-    - docker build --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:mapnik_$VERSION --tag $CI_REGISTRY_IMAGE:mapnik ./mapnik
-    # Push images to GitLab registry
+    - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed."
+    - docker build --pull --build-arg VERSION=$CI_COMMIT_TAG --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG --tag $CI_REGISTRY_IMAGE:latest .
     - docker push $CI_REGISTRY_IMAGE --all-tags
-    # Tag images for quay.io with the same repo, just different tags
-    - docker tag $CI_REGISTRY_IMAGE:mapnik_$VERSION quay.io/ioer-fdz/carto-lab-docker:mapnik_$VERSION
-    - docker tag $CI_REGISTRY_IMAGE:mapnik quay.io/ioer-fdz/carto-lab-docker:mapnik
-
-    # Push images to quay.io
-    - docker push quay.io/ioer-fdz/carto-lab-docker:mapnik_$VERSION || echo "Quay.io push failed, skipping."
-    - docker push quay.io/ioer-fdz/carto-lab-docker:mapnik || echo "Quay.io push failed, skipping."
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG quay.io/ioer-fdz/carto-lab-docker:$CI_COMMIT_TAG || true
+    - docker tag $CI_REGISTRY_IMAGE:latest quay.io/ioer-fdz/carto-lab-docker:latest || true
+    - docker push quay.io/ioer-fdz/carto-lab-docker:$CI_COMMIT_TAG || echo "Quay push failed."
+    - docker push quay.io/ioer-fdz/carto-lab-docker:latest || echo "Quay push failed."
   rules:
-    - if: $CI_COMMIT_BRANCH == "master-latest"
-      changes:
-        - Dockerfile # Dockerfile changed
-        - "mapnik/Dockerfile" # Mapnik Dockerfile changed
-        - "*.yml" # any yml changes
+    - if: $CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+.*$/
 
-build and push r:
-  stage: build-r
+build release r:
+  stage: build-release
   image: docker:latest
   tags:
     - dind-runner
   script:
-    - VERSION=v$(cat .version | cut -d"'" -f 2)
-    # Login to GitLab registry
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
-    # Login to quay.io
-    - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed, skipping Quay push."
-    - docker build --pull --build-arg VERSION=$VERSION --tag $CI_REGISTRY_IMAGE:r_$VERSION --tag $CI_REGISTRY_IMAGE:r ./r
-    # Push images to GitLab registry
+    - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed."
+    - docker build --pull --build-arg VERSION=$CI_COMMIT_TAG --tag $CI_REGISTRY_IMAGE:r_$CI_COMMIT_TAG --tag $CI_REGISTRY_IMAGE:r_latest ./r
     - docker push $CI_REGISTRY_IMAGE --all-tags
-    # Tag images for quay.io with the same repo, just different tags
-    - docker tag $CI_REGISTRY_IMAGE:r_$VERSION quay.io/ioer-fdz/carto-lab-docker:r_$VERSION
-    - docker tag $CI_REGISTRY_IMAGE:r quay.io/ioer-fdz/carto-lab-docker:r
-
-    # Push images to quay.io
-    - docker push quay.io/ioer-fdz/carto-lab-docker:r_$VERSION || echo "Quay.io push failed, skipping."
-    - docker push quay.io/ioer-fdz/carto-lab-docker:r || echo "Quay.io push failed, skipping."
+    - docker tag $CI_REGISTRY_IMAGE:r_$CI_COMMIT_TAG quay.io/ioer-fdz/carto-lab-docker:r_$CI_COMMIT_TAG || true
+    - docker tag $CI_REGISTRY_IMAGE:r_latest quay.io/ioer-fdz/carto-lab-docker:r_latest || true
+    - docker push quay.io/ioer-fdz/carto-lab-docker:r_$CI_COMMIT_TAG || echo "Quay push failed."
+    - docker push quay.io/ioer-fdz/carto-lab-docker:r_latest || echo "Quay push failed."
   rules:
-    - if: $CI_COMMIT_BRANCH == "master-latest"
-      changes:
-        - Dockerfile # Dockerfile changed
-        - "r/Dockerfile" # r Dockerfile changed
-        - "*.yml" # any yml changes
+    - if: $CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+.*$/
 
+# 3. Docs & Artifacts
 artifacts:
-  image: "registry.gitlab.vgiscience.org/tud_ifk/miniconda-cidefault:0.5.1"
+  image: "gcr.hrz.tu-chemnitz.de/ioer/fdz/container-images/miniconda-cidefault:0.9.1"
   before_script:
-    # initialize conda shell
-    - conda init bash
-    - source ~/.bashrc
-    # activate default ci_env from registry image
+    # Inject Conda shell functions directly into the non-interactive CI shell
+    - source /opt/conda/etc/profile.d/conda.sh
+    # Activate default ci_env from registry image
     # contains anybadge
     - conda activate ci_env
   stage: artifacts
   script:
     - cp CHANGELOG.md docs/changelog.md
-    # create badges
     - version_var=$(sed -n "s#__version__ =\s*'\(.*\)'#\1#p" .version)
-    - echo "Version for badges $version_var"
     - anybadge -l version --value="${version_var}" --file=version.svg --color=#0970B9
     - anybadge -l mkdocs --value="Documentation" --file=documentation.svg --color=green
   artifacts:
     paths:
-      # quote because * is a
-      # special character in YAML
       - '*.svg'
       - docs/changelog.md
   rules:
-    # always execute on master or ci-test
-    - if:
-        $CI_COMMIT_BRANCH == "master-latest" ||
-        $CI_COMMIT_BRANCH == "ci-test"
+    - if: $CI_COMMIT_BRANCH == "master-latest"
 
 mkdocs:
   stage: mkdocs
-  image: registry.gitlab.vgiscience.org/tools/mkdocs:0.1.0
+  image: registry.gitlab.vgiscience.org/tools/mkdocs:0.4.0
   script:
-    # build docs
     - mkdocs build
     - cp *.svg "site/"
   artifacts:
@@ -149,9 +113,7 @@ mkdocs:
     paths:
     - site
   rules:
-    # only execute on master
-    - if:
-        $CI_COMMIT_BRANCH == "master-latest"
+    - if: $CI_COMMIT_BRANCH == "master-latest"
 
 deploydocs:
   stage: deploydocs
