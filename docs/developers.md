@@ -39,20 +39,26 @@ docker compose -f docker-compose.mapnik.yml build \
 
 ## Versioning and release cycle
 
-To manually test bump a new semantic version:
+Carto-Lab Docker uses a Trunk-based release flow. 
+- Every push to `master-latest` automatically builds and updates the `:dev` (bleeding-edge) Docker image. 
+- To create a stable release and update the `:latest` and `:vX.Y.Z` images, you must generate a Git tag.
+
+To manually bump a new semantic version and trigger the Release CI pipeline:
 ```bash
 export GL_TOKEN=... # your gitlab access token
 semantic-release -vv --noop version
 semantic-release -vv --noop publish
 ```
 
-Remove `-vv --noop` afterwards to make a public release.
+Remove `-vv --noop` afterwards to make a public release. `semantic-release` will automatically analyze your commit messages, bump the version in `.version`, commit the changes, and push a Git tag (e.g., `v1.2.0`) to GitLab.
+
+GitLab CI will detect this new tag and automatically build the immutable release images.
 
 !!! note
     Releases are created in Gitlab. Only tags will be automatically forwarded to Github.
     To create matching Github releases, release notes must be copied manually to Github tags.
 
-After each release, manually refresh two hardcoded versions in the repo:
+After the pipeline finishes, manually refresh the two hardcoded versions in the repo to break the GitHub caches:
 ```bash
 # Get the new version string from the .version file
 version_var=$(sed -n "s#__version__ =\s*'\(.*\)'#\1#p" .version)
