@@ -89,6 +89,67 @@ git add CHANGELOG.md && \
     git push
 ```
 
+## Manually Building and Distributing Flavors
+
+While the core images (`:latest`, `:vX.Y.Z`) are built automatically via CI/CD, our _flavor_ images like `:qgis` or `:grass` are omitted to save runner resources. If you need to deploy a flavor to multiple instances (e.g., deploying QGIS to 10 different users), building it from scratch on every machine wastes time and disk I/O. Instead, you can build it once locally, tag it with the base version, and push it to the registry using a Deploy Token.
+
+**1. Authenticate with the Registry (Deploy Tokens)**
+
+To push or pull from a private GitLab Container Registry, HTTP-based authentication is required. The most secure method is a **GitLab Deploy Token**.
+
+1. Go to your GitLab project: **Settings** -> **Repository**.
+2. Expand the **Deploy tokens** section and click **Add token**.
+3. **Name:** `Carto-Lab-Builder` (or similar).
+4. **Scopes:** 
+   - Check **`write_registry`** (required for *pushing* the image).
+   - Check **`read_registry`** (required for *pulling* the image on target VMs).
+5. Click **Create deploy token** and copy the username and password immediately.
+
+Log in to the registry on your local build machine:
+```bash
+echo "YOUR_TOKEN_PASSWORD" | docker login gcr.hrz.tu-chemnitz.de -u "YOUR_TOKEN_USERNAME" --password-stdin
+```
+
+**2. Build, Tag, and Push the Flavor**
+
+Set your environment variables to match the target flavor and the base image version you are building upon. In this example, we build the QGIS flavor based on `v1.1.0`.
+
+```bash
+# Define your targets
+export BASE_VERSION=v1.1.0
+export FLAVOR=qgis
+export REGISTRY=gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker
+
+# 1. Build the flavor locally using docker compose
+# (Make sure your .env file has TAG=v1.1.0 so the build uses the correct base)
+docker compose -f docker-compose.${FLAVOR}.yml build
+
+# 2. Tag the resulting image with the combined flavor and version
+docker tag quay.io/ioer-fdz/carto-lab-docker:${FLAVOR} ${REGISTRY}:${FLAVOR}_${BASE_VERSION}
+
+# 3. Push to the registry
+docker push ${REGISTRY}:${FLAVOR}_${BASE_VERSION}
+```
+
+**3. Deploying on Target VMs**
+
+Once the image is in the registry, deploying it to your target instances is seamless.
+
+1. On the target VM, if your registry is private, authenticate Docker using a Deploy Token (a `read_registry` scope is sufficient here).
+2. Update the `.env` file on the target VM to use your newly pushed tag:
+   ```env
+   # In .env
+   TAG=qgis_v1.1.0
+   ```
+3. Pull and recreate the container:
+   ```bash
+   docker compose pull
+   docker compose up -d
+   ```
+
+!!! tip "Cleanup"
+    If you only needed this specific flavor version temporarily for a workshop or initial rollout, you should delete the tag from the GitLab Container Registry UI later to free up storage space. The VMs will continue running their local copies until recreated.
+
 ## Run on a dedicated domain on the web
 
 If you want to run this in production on a webserver, you can add an environment 
@@ -184,11 +245,11 @@ If you want to style the welcome page differently, follow the steps below.
 
 First, copy the `login.html` from the docker container to an external folder.
 ```bash
-docker cp lbsn-jupyterlab:/opt/conda/envs/jupyter_env/lib/python3.12/site-packages/jupyter_server/templates/login.html ~/
+docker cp lbsn-jupyterlab:/opt/conda/envs/jupyter_env/lib/python3.14/site-packages/jupyter_server/templates/login.html ~/
 ```
 
 !!! note
-    The full path may change based on the current Python version (`python3.12`).
+    The full path may change based on the current Python version (`python3.14`).
 
 Edit `login.html`. E.g. add some hints to the user logging in after the `<form>...</form>` element:
 ```html
@@ -230,6 +291,10 @@ volumes:
 ```
 
 Replace `/path/to/login.html` with the local path to your updated `login.html`.
+
+![Example Login override](./images/login_override.webp)
+
+This is an example login override that we use internally.
 
 ## Security Philosophy: Root in the Container, Rootless on the Host
 
