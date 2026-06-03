@@ -195,3 +195,17 @@ This is useful for enabling features like debug logging, custom configuration pa
 or experimental flags.
 
 Leave it unset or empty to run with the default jupyter lab behavior.
+
+## Git User Identity
+
+If you are using Carto-Lab Docker to commit code to external repositories (e.g. via GitLab or GitHub), you should configure your Git identity. This prevents Git from failing or asking for your name during automated commits.
+
+```bash
+GIT_USER_NAME="Terri Torium"
+GIT_USER_EMAIL="t.torium@ioer.de"
+```
+
+If left unset, the container will fall back to a generic bot identity (`Jupyter Container Bot` / `bot@fdz.ioer.info`).
+
+!!! note "SSH Authentication"
+    Setting the identity allows you to commit, but to seamlessly *push* without entering a password, you should mount an SSH Deploy Key into the container. See our [SSH Client Authentication](./use-cases/ssh-client-auth.md) guide for setup instructions.
