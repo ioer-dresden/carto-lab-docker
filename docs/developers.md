@@ -100,9 +100,9 @@ To push or pull from a private GitLab Container Registry, HTTP-based authenticat
 1. Go to your GitLab project: **Settings** -> **Repository**.
 2. Expand the **Deploy tokens** section and click **Add token**.
 3. **Name:** `Carto-Lab-Builder` (or similar).
-4. **Scopes:** 
-   - Check **`write_registry`** (required for *pushing* the image).
-   - Check **`read_registry`** (required for *pulling* the image on target VMs).
+4. **Scopes:**  
+   - Check **`write_registry`** (required for *pushing* the image).  
+   - Check **`read_registry`** (required for *pulling* the image on target VMs).  
 5. Click **Create deploy token** and copy the username and password immediately.
 
 Log in to the registry on your local build machine:
