@@ -81,7 +81,7 @@ We provide several container variants for different needs via our container regi
 Because geospatial engines can be quite big, we provide specialized extensions (flavors):
 
 - **`:r_latest` / `:r_vX.Y.Z`**: Extends the base image with a full R environment.
-- **Mapnik, GRASS, QGIS**: Due to resource constraints, these massive images are not pushed to our public registry automatically. We provide simple `docker-compose.<flavor>.yml` files so you can easily build them locally on your host machine. Refer to our documentation on how to build these flavors.
+- **Mapnik, GRASS, QGIS**: Due to resource constraints, these massive images are not pushed to our public registry automatically. We provide simple `docker-compose.<flavor>.yml` files so you can easily build them locally on your host machine. Refer to [our documentation](./developers.md#manually-building-and-distributing-flavors) on how to build these flavors.
 
 To use a different variant or version, edit the `TAG` variable in your `.env` file:
 
