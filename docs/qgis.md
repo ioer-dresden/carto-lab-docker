@@ -57,6 +57,8 @@ docker compose -f docker-compose.qgis.yml build \
     && docker compose -f docker-compose.qgis.yml up -d
 ```
 
+See [the developer section](developers.md#manually-building-and-distributing-flavors) for more information.
+
 !!! tip
     Add the following to your `.env` file to make compose use the `:qgis` flavor automatically:
     ```
