@@ -104,6 +104,7 @@ To push or pull from a private GitLab Container Registry, HTTP-based authenticat
 
    - Check **`write_registry`** (required for *pushing* the image).  
    - Check **`read_registry`** (required for *pulling* the image on target VMs).
+
 5. Click **Create deploy token** and copy the username and password immediately.
 
 Log in to the registry on your local build machine:
@@ -249,6 +250,8 @@ First, copy the `login.html` from the docker container to an external folder.
 docker cp lbsn-jupyterlab:/opt/conda/envs/jupyter_env/lib/python3.14/site-packages/jupyter_server/templates/login.html ~/
 ```
 
+..or use our template in `resources/login.html`.
+
 !!! note
     The full path may change based on the current Python version (`python3.14`).
 
@@ -288,10 +291,10 @@ Edit `login.html`. E.g. add some hints to the user logging in after the `<form>.
 Edit the `docker-compose.yml` to override the `login.html`:
 ```
 volumes:
-    - /path/to/login.html:/opt/conda/envs/jupyter_env/lib/python3.12/site-packages/jupyter_server/templates/login.html
+    - ./login.html:/etc/jupyter/templates/login.html:ro
 ```
 
-Replace `/path/to/login.html` with the local path to your updated `login.html`.
+Replace `./login.html` with the local path to your updated `login.html`.
 
 ![Example Login override](./images/login_override.webp)
 

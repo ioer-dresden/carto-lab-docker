@@ -144,6 +144,8 @@ CMD source "$CONDA_ACTIVATE_PATH" "$JUPYTER_ENV_PATH"; \
     fi; \
     echo "## Configure custom template path for agnostic login.html overrides ##"; \
     echo "c.ServerApp.extra_template_paths = ['/etc/jupyter/templates']" >> "$JUPYTER_CONFIG"; \
+    echo "## Configure custom template path and inject version into Jinja ##"; \
+    echo "c.ServerApp.jinja_template_vars = {'cartolab_version': '${CARTOLAB_VERSION:-unknown}'}" >> "$JUPYTER_CONFIG"; \
     echo "## Configure Git identity if set"; \
     if [[ -n "$GIT_USER_NAME" && -n "$GIT_USER_EMAIL" ]]; then \
     echo "Configuring Git Identity..."; \
