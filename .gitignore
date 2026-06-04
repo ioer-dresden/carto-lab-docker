@@ -1,5 +1,5 @@
 .env
 envs/
-login.html
+/login.html
 dev/
 *drawio.bkp
