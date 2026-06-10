@@ -30,17 +30,17 @@ Here's a version that matches the style of your overview page:
 
 -   **Dunkel, A., Schmidt, C., Wende, W., & Nieswand, M. (2025).** *Digitale Spuren in der Landschaft: Ein neuer Blick auf Deutschlands Naturräume durch Soziale Medien.* Naturschutz und Landschaftsplanung (NuL), Landschaft und Natur in Karten. **[DOI](https://doi.org/10.1399/NuL.190572)**
 
-  <details>
-  <summary style="cursor: pointer;">View Supplementary Notebooks (4)</summary>
-  <ul>
-  <li>S1 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/digital_traces_map/html/00_user_origin_conversion.html">00_user_origin_conversion.html</a></li>
-  <li>S2 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/digital_traces_map/html/01_clustering.html">01_clustering.html</a></li>
-  <li>S3 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/digital_traces_map/html/02_parquet.html">02_parquet.html</a></li>
-  <li>S4 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/digital_traces_map/html/03_visualization.html">03_visualization.html</a></li>
-  </ul>
-  </details>
-
-  Replication Package: **[DOI](https://doi.org/10.71830/VDmUWW)** | <a href="https://code.ad.ioer.info/digital_traces_map/">Project Overview</a> | <a href="https://github.com/ioer-dresden/digital_traces_map">GitHub</a>
+    <details>
+    <summary style="cursor: pointer;">View Supplementary Notebooks (4)</summary>
+    <ul>
+    <li>S1 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/digital_traces_map/html/00_user_origin_conversion.html">00_user_origin_conversion.  html</a></li>
+    <li>S2 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/digital_traces_map/html/01_clustering.html">01_clustering.html</a></li>
+    <li>S3 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/digital_traces_map/html/02_parquet.html">02_parquet.html</a></li>
+    <li>S4 Jupyter Notebook: <a href="https://code.ad.ioer.info/wip/digital_traces_map/html/03_visualization.html">03_visualization.html</a></li>
+    </ul>
+    </details>
+  
+    Replication Package: **[DOI](https://doi.org/10.71830/VDmUWW)** | <a href="https://code.ad.ioer.info/digital_traces_map/">Project Overview</a> |   <a href="https://github.com/ioer-dresden/digital_traces_map">GitHub</a>
 
 -   **Dunkel, A., & Burghardt, D. (2024).** *Assessing Perceived Landscape Change from Opportunistic Spatiotemporal Occurrence Data.* Land, 13(7), 1091. **[DOI](https://doi.org/10.3390/land13071091)**
     <details>
