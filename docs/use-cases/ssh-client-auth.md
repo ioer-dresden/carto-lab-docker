@@ -5,7 +5,7 @@ Carto-Lab Docker allows users to authenticate with external Git repositories (e.
 This guide explains how to configure SSH authentication by mounting configuration files directly via `docker-compose.yml`. This requires no changes to the base container image.
 
 !!! note
-    Have a look at [this task](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/work_items/6) that outlines planned improvements to Carto-Lab to make working with SSH easier.
+     SSH Client Authentication is supported by Carto-Lab v1.1.0 onwards.
 
 ---
 
@@ -13,14 +13,16 @@ This guide explains how to configure SSH authentication by mounting configuratio
 
 These steps are performed on the host machine running Docker to generate the necessary keys and mount them into the container environment.
 
-Create a new Ed25519 SSH key specifically for this Carto-Lab environment:
+Create a new Ed25519 SSH key specifically for this Carto-Lab environment. We recommend leaving the passphrase empty for containerized deploy keys.
 
 ```bash
-ssh-keygen -t ed25519 -f ~/.ssh/jupyter_deploy_key -C "jupyter-container-bot"
+ssh-keygen -t ed25519 -f ~/.ssh/jupyter_deploy_key -C "jupyter-container-bot" -N ""
 ```
 
-!!! info "Optional but recommended"
-    Provide a passphrase to secure the key at rest.
+!!! warning "Security Implications of a Password-less Key"
+    We strongly recommend using a **password-less** key for this setup. Because this is a dedicated "Deploy Key" strictly scoped to a single container and repository (and not your personal laptop key), using a password-less key is the industry standard for automated/containerized environments. 
+    
+    It allows the JupyterLab visual Git extension and automated scripts to work immediately without manual unlocking. Ensure you enforce strict file permissions on the host machine to protect this key at rest.
 
 Set strict file permissions. SSH will reject the key if permissions are too open:
 ```bash
@@ -41,6 +43,9 @@ Host gitlab.hrz.tu-chemnitz.de
   IdentityFile /root/.ssh/id_ed25519
   StrictHostKeyChecking accept-new
 ```
+
+!!! tip "Watch out for typos"
+    Ensure the `IdentityFile` path exactly matches the path *inside* the container (`/root/.ssh/id_ed25519`). Do not include Docker volume flags (like `:ro`) in this text file, as SSH will treat it as part of the filename and fail.
 
 **Update Docker Compose**
 
@@ -92,40 +97,21 @@ cat ~/.ssh/jupyter_deploy_key.pub
 
 ## 3. User Workflow (Inside Carto-Lab)
 
-Perform these steps inside a Carto-Lab Docker terminal to configure Git and unlock the key for your current working session.
+Because Carto-Lab automatically configures your Git identity variables on startup, no manual setup is required inside the container if you used a password-less key!
 
-**Configure Git Identity**
+You can immediately use `git push`, `git fetch`, or the JupyterLab visual Git extension. SSH will automatically read the mounted key, and Git will use your injected name and email.
 
-To prevent Git from failing during automated commits, configure your global Git identity using the injected environment variables:
+**Using the Git Extension & Terminal**
 
-```bash
-git config --global user.name "$GIT_USER_NAME"
-git config --global user.email "$GIT_USER_EMAIL"
-```
+If you followed the guide and created a **password-less** key, you are completely finished! You can immediately use `git push`, `git fetch`, or the JupyterLab visual Git extension without any further configuration. SSH will automatically read the mounted key.
 
-**Unlock the Key**
-
-Because the container does not run a background SSH agent by default, you must start one manually for your current terminal session and add the mounted key to it.
-
-Start the agent and set a time limit (e.g., 8 hours / 28800 seconds):
-
-```bash
-eval "$(ssh-agent -s)"
-ssh-add -t 28800 /root/.ssh/id_ed25519
-```
-
-!!! tip
-    If a passphrase was set during creation, enter it once.
-
-You can now run `git push`, `git fetch`, or automated deployment scripts (such as `cookieninja`) in this terminal without being prompted for a password or encountering permission denied errors.
-
-!!! warning "Session Isolation"
-    This SSH agent is isolated to your **current terminal tab**. 
-    If you open a new terminal tab in JupyterLab, you must run the `eval` and `ssh-add` commands again. Additionally, the JupyterLab visual Git extension cannot access this temporary terminal agent.
-
-    If you want to use the SSH Key with the Git extension, currently speaking, you need to remove the password. Since this is a dedicated "Deploy Key" mounted strictly to a single container (and not your personal laptop key), the industry standard for CI/CD and bot containers is indeed to use such a passphrase-less key. You need to eveluate the security trade-off yourself for your specific context.
+!!! info "Using a Password-Protected Key (Optional)"
+    If you chose to secure your deploy key with a passphrase, the visual Git extension will fail until the key is unlocked. 
+    
+    Carto-Lab runs a global background SSH agent. You only need to unlock the key **once per container restart**. Open a single terminal in JupyterLab and run:
+    
     ```bash
-    ssh-keygen -p -f ~/.ssh/jupyter_deploy_key
+    ssh-add -t 28800 /root/.ssh/id_ed25519
     ```
-
-    The Git Extension will work immediately.
+    
+    Enter your passphrase. Because the agent is shared globally across the container, the visual Git extension and all other terminal tabs will instantly have access to the unlocked key.
