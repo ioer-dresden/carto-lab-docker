@@ -14,6 +14,9 @@ The container comes with two pre-configured, curated environments:
 !!! info "A Note on Your Operating System"
     Carto-Lab Docker is optimized for Linux-based environments. If you are on Windows, we strongly recommend using the **Windows Subsystem for Linux (WSL)** to ensure the best performance and avoid potential compatibility issues.
 
+!!! tip "Automatic Deployments with Ansible"
+    Both, the creation of the rootless environment and the Carto-Lab Setup can be automated with our Ansible playbooks. See [Ansible](ansible.md).
+
 ---
 
 ## Step by Step: Running the Container

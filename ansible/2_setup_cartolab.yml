@@ -1,0 +1,242 @@
+---
+- name: Setup Carto-Lab Jupyter Instance
+  hosts: all
+  become: yes
+
+  vars_prompt:
+    - name: service_user_name
+      prompt: "Enter the service username (e.g., tao, dre, mmu)"
+      private: no
+    - name: jupyter_port
+      prompt: "Enter local Jupyter web port (e.g., 9288)"
+      private: no
+    - name: jupyter_password
+      prompt: "Enter the Jupyter password (leave blank for auto-generation)"
+      private: yes
+    - name: git_user_name
+      prompt: "Enter Git user name for container"
+      default: "Jupyter Container Bot"
+      private: no
+    - name: git_user_email
+      prompt: "Enter Git user email for container"
+      default: "bot@example.com"
+      private: no
+    - name: git_token
+      prompt: "Enter Git access token (leave blank if public clone works)"
+      private: yes
+
+  vars:
+    service_user_home: "/srv/{{ service_user_name }}"
+    git_repo: "https://github.com/ioer-dresden/carto-lab-docker.git"
+
+    # Auto-generate a password if the prompt was left empty
+    final_jupyter_password: "{{ jupyter_password | default(lookup('password', '/dev/null chars=ascii_letters,digits length=16'), true) }}"
+
+  pre_tasks:
+    - name: Prompt for Web URL dynamically
+      ansible.builtin.pause:
+        prompt: "Enter the public URL (leave blank to default to https://{{ service_user_name }}.example.com)"
+      register: prompt_web_url
+      run_once: true
+
+    - name: Set final_web_url fact
+      ansible.builtin.set_fact:
+        final_web_url: "{{ prompt_web_url.user_input if prompt_web_url.user_input != '' else 'https://' + service_user_name + '.example.com' }}"
+
+  tasks:
+    - name: Get User UID
+      ansible.builtin.command: "id -u {{ service_user_name }}"
+      register: user_uid
+      changed_when: false
+
+    - name: Ensure target directories exist
+      become: yes
+      become_user: "{{ service_user_name }}"
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - "{{ service_user_home }}/notebooks"
+        - "{{ service_user_home }}/envs"
+
+    - name: Clone Carto-Lab repository
+      become: yes
+      become_user: "{{ service_user_name }}"
+      ansible.builtin.git:
+        repo: "{{ git_repo }}"
+        dest: "{{ service_user_home }}/jupyterlab"
+        recursive: yes
+        version: master-latest
+        update: no
+
+    - name: Create .env file with specific variables
+      become: yes
+      become_user: "{{ service_user_name }}"
+      ansible.builtin.copy:
+        dest: "{{ service_user_home }}/jupyterlab/.env"
+        mode: '0644'
+        content: |
+          TAG=v1.1.0
+
+          GIT_USER_NAME="{{ git_user_name }}"
+          GIT_USER_EMAIL="{{ git_user_email }}"
+
+          JUPYTER_PASSWORD={{ final_jupyter_password }}
+
+          JUPYTER_NOTEBOOKS={{ service_user_home }}/notebooks
+          JUPYTER_WEBPORT={{ jupyter_port }}
+
+          JUPYTER_WEBURL={{ final_web_url }}
+
+          CONDA_ENVS={{ service_user_home }}/envs
+
+          COLLABORATIVE=true
+          GENERATE_TOKEN=true
+          JUPYTER_EXTRA_ARGS=--ServerApp.allow_origin='{{ final_web_url }}'
+
+    - name: Ensure /srv/base exists
+      ansible.builtin.file:
+        path: /srv/base
+        state: directory
+        mode: '0755'
+
+    - name: Ensure login_v2.html exists (prevents Docker mounting it as a folder)
+      ansible.builtin.copy:
+        dest: /srv/base/login_v2.html
+        content: ""
+        force: no
+        mode: '0644'
+
+    - name: Create docker-compose.override.yml
+      become: yes
+      become_user: "{{ service_user_name }}"
+      ansible.builtin.copy:
+        dest: "{{ service_user_home }}/jupyterlab/docker-compose.override.yml"
+        mode: '0644'
+        content: |
+          services:
+            jupyterlab:
+              image: quay.io/ioer-fdz/carto-lab-docker:${TAG:-latest}
+              volumes:
+                - /srv/base/login_v2.html:/etc/jupyter/templates/login.html:ro
+              environment:
+                - JUPYTER_AUTOSHUTDOWN_TIMEOUT=0
+                - GIT_USER_NAME=${GIT_USER_NAME:-Jupyter Container Bot}
+                - GIT_USER_EMAIL=${GIT_USER_EMAIL:-bot@example.com}
+            telegraf:
+              image: telegraf:alpine
+              container_name: telegraf-{{ service_user_name }}
+              restart: always
+              user: "0:0"
+              entrypoint: ["telegraf"]
+              volumes:
+                - {{ service_user_home }}/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+                - /run/user/{{ user_uid.stdout }}/docker.sock:/var/run/docker.sock:ro
+                - {{ service_user_home }}:/user_home:ro
+              environment:
+                - JUPYTER_USER={{ service_user_name }}
+              networks:
+                - lbsn-network
+    - name: Create docker network
+      become: yes
+      become_user: "{{ service_user_name }}"
+      ansible.builtin.shell: docker network create lbsn-network || true
+      environment:
+        DOCKER_HOST: "unix:///run/user/{{ user_uid.stdout }}/docker.sock"
+
+    - name: Create Telegraf configuration securely outside of the Git repo
+      become: yes
+      become_user: "{{ service_user_name }}"
+      ansible.builtin.copy:
+        dest: "{{ service_user_home }}/telegraf.conf"
+        mode: '0600' # Restricted permissions since it holds a token
+        content: |
+          [agent]
+            skip_processors_after_aggregators = true
+
+          [[outputs.influxdb_v2]]
+            urls = ["{{ influxdb_url }}"]
+            token = "{{ influxdb_token }}"
+            organization = "{{ influxdb_org }}"
+            bucket = "{{ influxdb_bucket }}"
+
+          [[inputs.docker]]
+            interval = "60s"
+            endpoint = "unix:///var/run/docker.sock"
+            [inputs.docker.tags]
+              user = "${JUPYTER_USER}"
+
+          [[inputs.exec]]
+            interval = "60s"
+            commands = ["/usr/bin/du -s /user_home/notebooks"]
+            data_format = "grok"
+            grok_patterns = ["%{NUMBER:size_bytes:int}\t%{PATH:directory}"]
+            name_override = "home_dir_usage"
+            [inputs.exec.tags]
+              user = "${JUPYTER_USER}"
+
+    - name: Pull and Start Docker compose
+      become: yes
+      become_user: "{{ service_user_name }}"
+      ansible.builtin.shell: |
+        docker compose pull
+        docker compose up -d
+      args:
+        chdir: "{{ service_user_home }}/jupyterlab"
+      environment:
+        DOCKER_HOST: "unix:///run/user/{{ user_uid.stdout }}/docker.sock"
+
+    - name: Create daily cron job for resetting Docker Compose
+      become: yes
+      ansible.builtin.copy:
+        dest: "/etc/cron.daily/reset_jupyter_{{ service_user_name }}"
+        owner: root
+        group: root
+        mode: '0755'
+        content: |
+          #!/bin/sh
+
+          # --- CONFIGURATION ---
+          USER="{{ service_user_name }}"
+          WORK_DIR="/srv/$USER/jupyterlab"
+
+          # --- RESTART AS TARGET USER IF RUNNING AS ROOT ---
+          if [ "$(id -u)" -eq 0 ]; then
+              exec sudo -H -u "$USER" "$0" "$@"
+              echo "This line is never reached."
+          fi
+
+          echo "Running as user $(id -un)"
+
+          # --- RESET CONTAINERS ---
+          cd "$WORK_DIR" || exit 1
+          docker compose down
+          docker compose up -d
+
+          # --- PRUNE DOCKER ONLY IF CONTAINERS ARE RUNNING ---
+          if docker compose ps --filter "status=running" --quiet | grep -q .; then
+              echo "Containers are running — pruning unused Docker objects."
+              docker system prune -a -f
+          else
+              echo "No containers running — skipping prune."
+          fi
+
+    # --- Local Nginx Configuration (Jupyter VM) ---
+    - name: Create Nginx Site configuration
+      ansible.builtin.template:
+        src: "nginx_jupyter.conf.j2"
+        dest: "/etc/nginx/sites-available/{{ service_user_name }}.example.com.conf"
+
+    - name: Enable Nginx configuration
+      ansible.builtin.file:
+        src: "/etc/nginx/sites-available/{{ service_user_name }}.example.com.conf"
+        dest: "/etc/nginx/sites-enabled/{{ service_user_name }}.example.com.conf"
+        state: link
+      notify: Reload Nginx
+
+  handlers:
+    - name: Reload Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: reloaded

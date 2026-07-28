@@ -69,6 +69,7 @@ nav:
     - Developers:
         - Configuration: configuration.md
         - Developer Workflows: developers.md
+        - Ansible Deployment: ansible.md
         - Compatibility Matrix: matrix.md
         - Changelog: changelog.md
     - About: about.md

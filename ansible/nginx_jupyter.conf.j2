@@ -1,0 +1,40 @@
+# Top-level HTTP config for WebSocket headers
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    ''      close;
+}
+
+# HTTP server to handle JupyterLab
+server {
+    listen 80;
+    listen [::]:80;
+
+    # Adapt to your domain structure
+    server_name {{ service_user_name }}.example.com;
+
+    access_log /var/log/nginx/{{ service_user_name }}.example.com-access.log;
+    error_log /var/log/nginx/{{ service_user_name }}.example.com-error.log;
+
+    client_max_body_size 100M;
+
+    location / {
+        # Security: allow only downstream nginx / reverse proxy
+        # allow 192.168.1.50;
+        # deny all;
+
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        # websocket headers
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+        proxy_set_header X-Scheme $scheme;
+
+        proxy_buffering off;
+
+        # send traffic to jupyter/docker
+        proxy_pass http://127.0.0.1:{{ jupyter_port }};
+    }
+}

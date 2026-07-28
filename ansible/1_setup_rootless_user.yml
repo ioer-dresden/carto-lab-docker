@@ -1,0 +1,128 @@
+---
+- name: Setup Rootless Docker User
+  hosts: all
+  become: yes
+
+  vars_prompt:
+    - name: service_user_name
+      prompt: "Enter the new service username (e.g., tao, mmu)"
+      private: no
+    - name: service_user_home_base
+      prompt: "Enter the base directory for the user home"
+      default: "/srv"
+      private: no
+
+  vars:
+    service_user_home: "{{ service_user_home_base }}/{{ service_user_name }}"
+    docker_packages:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+      - docker-ce-rootless-extras
+      - uidmap
+      - dbus-user-session
+      - slirp4netns
+
+  tasks:
+    - name: Ensure Docker and dependencies are installed
+      ansible.builtin.apt:
+        name: "{{ docker_packages }}"
+        state: present
+        update_cache: yes
+
+    - name: Stop and disable rootful Docker service/socket
+      ansible.builtin.systemd:
+        name: "{{ item }}"
+        state: stopped
+        enabled: no
+      loop:
+        - docker.service
+        - docker.socket
+      ignore_errors: yes
+
+    - name: Remove rootful Docker socket file
+      ansible.builtin.file:
+        path: /var/run/docker.sock
+        state: absent
+
+    - name: Create the dedicated service user
+      ansible.builtin.user:
+        name: "{{ service_user_name }}"
+        home: "{{ service_user_home }}"
+        shell: /bin/bash
+        system: yes
+        create_home: yes
+
+    - name: Get User UID
+      ansible.builtin.command: "id -u {{ service_user_name }}"
+      register: user_uid
+      changed_when: false
+
+    - name: Check if user already has subuid mapping
+      ansible.builtin.shell: "grep '^{{ service_user_name }}:' /etc/subuid"
+      register: subuid_check
+      failed_when: false
+      changed_when: false
+
+    - name: Calculate next start ID for subuid/subgid
+      ansible.builtin.shell: |
+        awk -F: '{print $2 + $3}' /etc/subuid /etc/subgid 2>/dev/null | sort -n | tail -1
+      register: next_id_cmd
+      when: subuid_check.rc != 0
+      changed_when: false
+
+    - name: Set next start ID fact (fallback to 100000)
+      ansible.builtin.set_fact:
+        next_start_id: "{{ next_id_cmd.stdout | default('100000', true) }}"
+      when: subuid_check.rc != 0
+
+    - name: Add subuid and subgid ranges
+      ansible.builtin.command: >
+        usermod --add-subuids {{ next_start_id }}-{{ next_start_id | int + 65535 }}
+        --add-subgids {{ next_start_id }}-{{ next_start_id | int + 65535 }} {{ service_user_name }}
+      when: subuid_check.rc != 0
+
+    - name: Ensure ip_tables module is loaded
+      ansible.builtin.command: modprobe ip_tables
+      register: modprobe_res
+      failed_when: false
+      changed_when: false
+
+    - name: Fallback to insmod if modprobe failed (Ubuntu 24.04 bug workaround)
+      ansible.builtin.command: "insmod /lib/modules/{{ ansible_kernel }}/kernel/net/ipv4/netfilter/ip_tables.ko.zst"
+      when: modprobe_res.rc != 0
+      failed_when: false
+      changed_when: false
+
+    - name: Enable linger for the service user (required for systemd user session)
+      ansible.builtin.command: "loginctl enable-linger {{ service_user_name }}"
+
+    - name: Install Rootless Docker
+      become: yes
+      become_user: "{{ service_user_name }}"
+      ansible.builtin.shell: |
+        export XDG_RUNTIME_DIR=/run/user/{{ user_uid.stdout }}
+        export DBUS_SESSION_BUS_ADDRESS=unix:path=${XDG_RUNTIME_DIR}/bus
+        export PATH=/usr/bin:$PATH
+        dockerd-rootless-setuptool.sh install
+      args:
+        creates: "{{ service_user_home }}/.config/systemd/user/docker.service"
+
+    - name: Enable and start Rootless Docker service
+      become: yes
+      become_user: "{{ service_user_name }}"
+      ansible.builtin.shell: |
+        export XDG_RUNTIME_DIR=/run/user/{{ user_uid.stdout }}
+        export DBUS_SESSION_BUS_ADDRESS=unix:path=${XDG_RUNTIME_DIR}/bus
+        systemctl --user enable --now docker
+
+    - name: Configure .bashrc with Docker variables
+      ansible.builtin.blockinfile:
+        path: "{{ service_user_home }}/.bashrc"
+        marker: "# {mark} ANSIBLE MANAGED BLOCK - DOCKER ROOTLESS"
+        block: |
+          export PATH=/usr/bin:$PATH
+          export DOCKER_HOST=unix:///run/user/{{ user_uid.stdout }}/docker.sock
+          cd ~/jupyterlab
