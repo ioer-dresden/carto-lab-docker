@@ -15,7 +15,7 @@ build dev base:
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed."
     # Build and tag as :dev
-    - docker build --pull --build-arg VERSION=dev --tag $CI_REGISTRY_IMAGE:dev .
+    - docker build --network host --pull --build-arg VERSION=dev --tag $CI_REGISTRY_IMAGE:dev .
     - docker push $CI_REGISTRY_IMAGE:dev
     - docker tag $CI_REGISTRY_IMAGE:dev quay.io/ioer-fdz/carto-lab-docker:dev || true
     - docker push quay.io/ioer-fdz/carto-lab-docker:dev || echo "Quay push failed."
@@ -54,7 +54,7 @@ build release base:
   script:
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed."
-    - docker build --pull --build-arg VERSION=$CI_COMMIT_TAG --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG --tag $CI_REGISTRY_IMAGE:latest .
+    - docker build --network host --pull --build-arg VERSION=$CI_COMMIT_TAG --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG --tag $CI_REGISTRY_IMAGE:latest .
     - docker push $CI_REGISTRY_IMAGE --all-tags
     - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG quay.io/ioer-fdz/carto-lab-docker:$CI_COMMIT_TAG || true
     - docker tag $CI_REGISTRY_IMAGE:latest quay.io/ioer-fdz/carto-lab-docker:latest || true
@@ -71,7 +71,7 @@ build release r:
   script:
     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed."
-    - docker build --pull --build-arg VERSION=$CI_COMMIT_TAG --tag $CI_REGISTRY_IMAGE:r_$CI_COMMIT_TAG --tag $CI_REGISTRY_IMAGE:r_latest ./r
+    - docker build --network host --pull --build-arg VERSION=$CI_COMMIT_TAG --tag $CI_REGISTRY_IMAGE:r_$CI_COMMIT_TAG --tag $CI_REGISTRY_IMAGE:r_latest ./r
     - docker push $CI_REGISTRY_IMAGE --all-tags
     - docker tag $CI_REGISTRY_IMAGE:r_$CI_COMMIT_TAG quay.io/ioer-fdz/carto-lab-docker:r_$CI_COMMIT_TAG || true
     - docker tag $CI_REGISTRY_IMAGE:r_latest quay.io/ioer-fdz/carto-lab-docker:r_latest || true
