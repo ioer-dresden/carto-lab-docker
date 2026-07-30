@@ -35,7 +35,6 @@ sudo systemctl restart ssh
 Finally, ensure the user's SSH directory has strict permissions, or OpenSSH will silently reject the connection:
 
 ```bash
-sudo chown -R <username>:<username> /srv/<username>
 sudo chmod 755 /srv/<username>
 sudo chmod 700 /srv/<username>/.ssh
 sudo chmod 600 /srv/<username>/.ssh/authorized_keys
