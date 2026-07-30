@@ -9,6 +9,7 @@ This guide explains the **Carto-Lab Design Pattern** for executing long-running 
 When moving from interactive exploration to batch processing, a common mistake is copying code from a notebook into a separate `.py` script. This creates two diverging sources of truth that quickly become out of sync.
 
 **Our philosophy:**
+
 1. The Jupyter Notebook remains the single source of truth.
 2. Long-running processes are executed in the exact same environment (`worker_env`).
 3. Use **Jupytext** to automatically sync notebooks to executable Python scripts.

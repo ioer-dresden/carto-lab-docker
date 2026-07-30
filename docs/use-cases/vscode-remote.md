@@ -10,7 +10,7 @@ This guide explains how to connect your local VS Code to your isolated Carto-Lab
 
 ## 1. Administrator Setup (Server-Side)
 
-If your Carto-Lab environment was provisioned using our [Ansible Rootless Docker deployment](../developers/ansible.md), the user namespace is highly secured by default. Before VS Code can connect, the system administrator must perform a few quick steps on the host VM to unlock SSH access for the VS Code server.
+If your Carto-Lab environment was provisioned using our [Ansible Rootless Docker deployment](../ansible.md), the user namespace is highly secured by default. Before VS Code can connect, the system administrator must perform a few quick steps on the host VM to unlock SSH access for the VS Code server.
 
 Run these steps as `root` (or using `sudo`) on the host VM:
 
