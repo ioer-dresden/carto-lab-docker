@@ -62,6 +62,8 @@ nav:
         - Advanced Task Guide:
             - Overview: use-cases/overview.md
             - Using SSH (for git etc.): use-cases/ssh-client-auth.md
+            - Long-Running Processes: use-cases/long-running-jobs.md
+            - VS-Code Remote Work: use-cases/vscode-remote.md
             - A complete CI&CD research project template: use-cases/automated-research-setup.md
             - Adding Selenium: use-cases/add-selenium.md
         - Showcase & Example Notebooks: notebooks.md
