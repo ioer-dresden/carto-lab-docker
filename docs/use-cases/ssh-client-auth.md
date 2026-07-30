@@ -95,8 +95,8 @@ How you register the key depends on how the container is being used:
 If this Carto-Lab environment is dedicated to a specific user, the key should be tied to their personal GitLab account. This ensures all CI/CD pipelines and pushes are correctly attributed to them.
 
 1. Send the copied public key to the user.
-2. Have the user log into GitLab and navigate to **Edit Profile → SSH Keys** (or go directly to `/-/profile/keys`).
-3. The user pastes the key into the "Key" field and clicks **Add key**.
+2. Have the user log into GitLab and navigate to **Profile/Preferences** → **Access → SSH Keys** (or go directly to `/-/user_settings/ssh_keys`).
+3. The user pastes the key into the "Key" field and clicks **Add new key**.
 
 ### Scenario B: Shared Bot / Automation Workspace
 
