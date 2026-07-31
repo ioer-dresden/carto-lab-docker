@@ -42,7 +42,7 @@ Once the database is running, you can connect to it from a Jupyter Notebook insi
 ```python
 import os
 import geopandas as gp
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -63,16 +63,17 @@ db_url = f"postgresql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}"
 engine = create_engine(db_url)
 
 # Example: Read a table with spatial data into a GeoDataFrame
-sql_query = "SELECT * FROM social.users;"
+# SQLAlchemy 2.0+ requires raw SQL to be wrapped in text()
+sql_query = text("SELECT * FROM social.users;")
 
-# Use GeoPandas to execute the query and read the geometry
+# Use GeoPandas to execute the query (using a secure connection context)
 try:
-    gdf = gp.read_postgis(sql_query, engine, geom_col='geom')
+    with engine.connect() as conn:
+        gdf = gp.read_postgis(sql_query, conn, geom_col='geom')
     print(f"Successfully loaded {len(gdf)} records from the '{db_host}' database.")
     display(gdf.head())
 except Exception as e:
     print(f"An error occurred: {e}")
-
 ```
 
 !!! success "That's it!"

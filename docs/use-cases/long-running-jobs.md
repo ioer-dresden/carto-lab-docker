@@ -4,6 +4,11 @@ Browser-based environments like JupyterLab are fantastic for interactive data ex
 
 This guide explains the **Carto-Lab Design Pattern** for executing long-running jobs robustly, without losing the interactive benefits of your notebooks.
 
+!!! info "Deployment Context"
+    This guide assumes your Carto-Lab environment is hosted on a remote server or VM, as is described with our standard setup using our [Ansible Deployment strategy](../ansible.md). 
+    
+    If you are running Carto-Lab locally on your own laptop (e.g., via Docker Desktop), you can skip the SSH connection steps. You simply open your local terminal or local VS Code and interact directly with your local Docker daemon.
+
 ## Design Philosophy
 
 When moving from interactive exploration to batch processing, a common mistake is copying code from a notebook into a separate `.py` script. This creates two diverging sources of truth that quickly become out of sync.

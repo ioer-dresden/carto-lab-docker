@@ -6,6 +6,11 @@ Carto-Lab allows you to get the best of both worlds. You can use VS Code as your
 
 This guide explains how to connect your local VS Code to your isolated Carto-Lab workspace via the **Remote - SSH** extension.
 
+!!! info "Deployment Context"
+    This guide assumes your Carto-Lab environment is hosted on a remote server or VM, as is described with our standard setup using our [Ansible Deployment strategy](../ansible.md). 
+    
+    If you are running Carto-Lab locally on your own laptop (e.g., via Docker Desktop), you can skip the SSH connection steps. You simply open your local terminal or local VS Code and interact directly with your local Docker daemon or host-mounted files and folders.
+
 ---
 
 ## 1. Administrator Setup (Server-Side)

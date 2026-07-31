@@ -7,6 +7,11 @@ This guide explains how to configure SSH authentication by mounting configuratio
 !!! note
      SSH Client Authentication is supported by Carto-Lab v1.1.0 onward.
 
+!!! info "Deployment Context"
+    This guide assumes your Carto-Lab environment is hosted on a remote server or VM, as is described with our standard setup using our [Ansible Deployment strategy](../ansible.md). 
+    
+    If you are running Carto-Lab locally on your own laptop (e.g., via Docker Desktop), you can still use this guide to make a host ssh key available inside your container. However, you will need to adapt paths/host context to your specific setup.
+
 ---
 
 ## 1. Administrator Setup (Host Machine)
