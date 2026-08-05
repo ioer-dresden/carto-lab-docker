@@ -42,9 +42,13 @@ Create a configuration file to map the key to your Git host and automatically ac
 nano ~/.ssh/jupyter_ssh_config
 ```
 
-Add the following content (replace `gitlab.hrz.tu-chemnitz.de` with your actual Git domain):
+Add the following content. Replace `gitlab.hrz.tu-chemnitz.de` with your actual Git domain; you can add multiple, including `github.com`:
 ```text
 Host gitlab.hrz.tu-chemnitz.de
+  IdentityFile /root/.ssh/id_ed25519
+  StrictHostKeyChecking accept-new
+
+Host github.com
   IdentityFile /root/.ssh/id_ed25519
   StrictHostKeyChecking accept-new
 ```
