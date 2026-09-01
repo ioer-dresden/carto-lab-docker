@@ -76,7 +76,7 @@ services:
 
 In your host's `.env` file, you can optionally override the fallback identities:
 
-```env
+```bash
 GIT_USER_NAME="Carto-Lab User"
 GIT_USER_EMAIL="user@example.com"
 ```

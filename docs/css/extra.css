@@ -7,7 +7,7 @@
 }
 
 .admonition.note .admonition-title {
-  background: #0970B9
+  background: #0970B9;
 }
 
 .wy-side-nav-search img.logo {
@@ -19,11 +19,46 @@
   margin: 0 auto;
 }
 
+/* ==========================================================================
+   Clean & Modern Inline Code Styling
+   ========================================================================== */
+.rst-content code,
+code {
+  color: #c7254e;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 3px;
+  padding: 2px 6px;
+  font-size: 85%;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  white-space: nowrap;
+}
+
+/* Inline code inside admonition body (blends with green/red/blue tone) */
+.rst-content .admonition code,
+.admonition code {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #2c3e50;
+}
+
+/* Inline code inside admonition title headers */
+.rst-content .admonition .admonition-title code,
+.admonition-title code {
+  background-color: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: inherit;
+  font-size: 90%;
+  padding: 1px 5px;
+}
+
+/* ==========================================================================
+   Code Blocks & Clipboard Copy Button
+   ========================================================================== */
 pre {
   position: relative;
 }
 
-/* Container for the clipboard icon */
 .clipboard {
   position: absolute;
   top: 0.5rem;
@@ -34,7 +69,6 @@ pre {
   z-index: 10;
 }
 
-/* Target the button with enough specificity */
 .clipboard>.btn-clipboard {
   all: unset;
   font-family: "Font Awesome 6 Free";
@@ -45,21 +79,17 @@ pre {
   display: inline-block;
   vertical-align: middle;
   transition: color 150ms ease-in-out;
-
   text-indent: -9999px;
   overflow: hidden;
   width: 1.2em;
   height: 1.2em;
   position: relative;
-
-  /* Remove backgrounds, borders, shadows */
   background: transparent;
   border: none;
   box-shadow: none;
   user-select: none;
 }
 
-/* Also remove background etc on hover */
 .clipboard>.btn-clipboard:hover {
   background: transparent;
   border: none;
@@ -67,7 +97,6 @@ pre {
   color: black;
 }
 
-/* Icon content */
 .clipboard>.btn-clipboard::before {
   content: "\f0c5";
   position: absolute;
@@ -77,12 +106,10 @@ pre {
   color: silver;
 }
 
-/* Make icon black on hover */
 .clipboard>.btn-clipboard:hover::before {
   color: black;
 }
 
-/* Remove scaling/transform on click */
 .clipboard>.btn-clipboard:active {
   transform: none;
   transition: none;
@@ -96,33 +123,39 @@ span.btn.btn-neutral.btn-clipboard:hover {
   border: none !important;
 }
 
-/* Styling for collapsible details in ReadTheDocs theme */
+/* ==========================================================================
+   Collapsible Details Accordion (ReadTheDocs Theme)
+   ========================================================================== */
 details {
   background-color: #fcfcfc;
   border: 1px solid #e1e4e5;
   border-radius: 4px;
-  padding: 8px 14px;
-  margin: 14px 0;
+  padding: 10px 14px;
+  margin: 16px 0;
 }
 
 details summary {
-  cursor: pointer;
-  font-weight: 600;
+  cursor: pointer !important;
   color: #2980b9;
   outline: none;
   user-select: none;
 }
 
+details summary * {
+  cursor: pointer !important;
+}
+
 details summary:hover {
   color: #1a5276;
+  text-decoration: underline;
 }
 
 details[open] summary {
-  margin-bottom: 10px;
-  padding-bottom: 6px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
   border-bottom: 1px solid #e1e4e5;
 }
 
 details pre {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }

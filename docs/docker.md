@@ -88,7 +88,7 @@ Because geospatial engines can be quite big, we provide specialized extensions (
 
 To use a different variant or version, edit the `TAG` variable in your `.env` file:
 
-```env
+```bash
 # In your .env file
 # Use a specific, reproducible base image
 TAG=v1.1.0
@@ -101,11 +101,14 @@ TAG=dev
 
 !!! tip "Switching Flavors with Local Overrides (`COMPOSE_FILE`)"
     To run an alternate flavor (e.g. QGIS, R, or GRASS), specify the flavor's compose file in your `.env`:
-    ```env
+
+    ```
     COMPOSE_FILE=docker-compose.qgis.yml
     ```
+
     If you are running in an environment managed by Ansible (or using local `docker-compose.override.yml` files for custom volumes or monitoring), append the override file using a colon (`:`) separator:
-    ```env
+
+    ```
     COMPOSE_FILE=docker-compose.qgis.yml:docker-compose.override.yml
     ```
 

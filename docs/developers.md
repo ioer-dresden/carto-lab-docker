@@ -135,17 +135,20 @@ Once the image is in the registry, deploying it to target instances is seamless:
 
 1. On the target VM, authenticate Docker using a Deploy Token (`read_registry` scope).
 2. Update the `.env` file on the target VM to use your flavor and chained compose files:
-   ```env
-   # In .env
-   TAG=qgis_v1.1.0
-   # Chain the override to retain local volumes and monitoring:
-   COMPOSE_FILE=docker-compose.qgis.yml:docker-compose.override.yml
-   ```
+
+```bash
+# In .env
+TAG=qgis_v1.1.0
+# Chain the override to retain local volumes and monitoring:
+COMPOSE_FILE=docker-compose.qgis.yml:docker-compose.override.yml
+```
+
 3. Pull and recreate the container:
-   ```bash
-   docker compose pull
-   docker compose up -d
-   ```
+
+```bash
+docker compose pull
+docker compose up -d
+```
 
 ---
 
@@ -153,7 +156,7 @@ Once the image is in the registry, deploying it to target instances is seamless:
 
 When exposing Carto-Lab on a public domain, configure `JUPYTER_WEBURL` and `JUPYTER_WEBPORT` in `.env`:
 
-```env
+```bash
 JUPYTER_WEBURL=https://jupyterlab.example.org
 JUPYTER_WEBPORT=8888
 ```
@@ -275,34 +278,37 @@ To customize the welcome screen (e.g. adding custom notices or branding), mount 
 
 1. **Extract or create a custom `login.html`:**
    You can use our template from `resources/login.html` or extract the default template:
-   ```bash
-   docker cp lbsn-jupyterlab:/etc/jupyter/templates/login.html ./login.html
-   ```
+
+```bash
+docker cp lbsn-jupyterlab:/etc/jupyter/templates/login.html ./login.html
+```
 
 2. **Customize `login.html`:**
    Add any custom HTML or announcements below the `<form>` block:
-   ```html
-   </form>
-   <div style="text-align:left">
-      <br><br>
-      <h2>FDZ Carto-Lab Notice</h2>
-      <ul>
-         <li>Collaboration mode is enabled.</li>
-         <li>Nightly container resets occur at 04:00 AM.</li>
-         <li>Persistent files must be stored in <code>~/work</code>.</li>
-      </ul>
-   </div>
-   ```
+
+```html
+</form>
+<div style="text-align:left">
+   <br><br>
+   <h2>FDZ Carto-Lab Notice</h2>
+   <ul>
+      <li>Collaboration mode is enabled.</li>
+      <li>Nightly container resets occur at 04:00 AM.</li>
+      <li>Persistent files must be stored in <code>~/work</code>.</li>
+   </ul>
+</div>
+```
 
 3. **Mount via `docker-compose.override.yml`:**
    Add the read-only bind mount to `docker-compose.override.yml`:
-   ```yaml
-   # docker-compose.override.yml
-   services:
-     jupyterlab:
-       volumes:
-         - ./login.html:/etc/jupyter/templates/login.html:ro
-   ```
+
+```yaml
+# docker-compose.override.yml
+services:
+  jupyterlab:
+    volumes:
+      - ./login.html:/etc/jupyter/templates/login.html:ro
+```
 
 !!! tip
     Do not modify `docker-compose.yml`. Having a vamilla `docker-compose.yml` allows you to to git pull latest upstream changes, without loosing your customizations in `docker-compose.override.yml` (i.e. added to `.gitignore`).

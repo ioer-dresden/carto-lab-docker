@@ -29,7 +29,7 @@ First, ensure both your Carto-Lab Docker and LBSN database containers are config
 
 To securely manage your database password, add it to your Carto-Lab Docker `.env` file. This avoids hardcoding credentials in your notebooks.
 
-```env
+```bash
 # In your .env file
 # ... other variables ...
 POSTGRES_PASSWORD=your_secret_password

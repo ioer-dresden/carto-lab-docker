@@ -113,7 +113,8 @@ When prompted, provide the desired username, a unique internal port (e.g., `9288
 A self-healing maintenance playbook that scans all existing user accounts on a server, repairs directory binding issues, updates `docker-compose.override.yml`, and enforces container lifecycle states.
 
 ```bash
-ansible-playbook -i inventories/hosts 2.1_reconcile_cartolab.yml -l jupyter_server -K --vault-id shared@prompt
+ansible-playbook -i inventories/hosts 2.1_reconcile_cartolab.yml \
+    -l jupyter_server -K --vault-id shared@prompt
 ```
 
 ### Managing Active vs. On-Hold Users
