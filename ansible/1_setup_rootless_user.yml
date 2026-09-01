@@ -125,7 +125,6 @@
         block: |
           export PATH=/usr/bin:$PATH
           export DOCKER_HOST=unix:///run/user/{{ user_uid.stdout }}/docker.sock
-          cd ~/jupyterlab
           if [[ $- == *i* ]] && [ -d "$HOME/jupyterlab" ]; then
               cd ~/jupyterlab
           fi

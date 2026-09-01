@@ -27,7 +27,7 @@
 
   vars:
     service_user_home: "/srv/{{ service_user_name }}"
-    git_repo: "https://github.com/ioer-dresden/carto-lab-docker.git"
+    git_repo: "https://{{ 'oauth2:' + git_token + '@' if git_token != '' else '' }}github.com/ioer-dresden/carto-lab-docker.git"
 
     # Auto-generate a password if the prompt was left empty
     final_jupyter_password: "{{ jupyter_password | default(lookup('password', '/dev/null chars=ascii_letters,digits length=16'), true) }}"
@@ -67,7 +67,7 @@
         repo: "{{ git_repo }}"
         dest: "{{ service_user_home }}/jupyterlab"
         recursive: yes
-        version: master-latest
+        version: master
         update: no
 
     - name: Create .env file with specific variables
@@ -108,6 +108,16 @@
         force: no
         mode: '0644'
 
+    - name: Check for user SSH deploy key
+      ansible.builtin.stat:
+        path: "{{ service_user_home }}/.ssh/jupyter_deploy_key"
+      register: deploy_key_stat
+
+    - name: Check for user SSH config
+      ansible.builtin.stat:
+        path: "{{ service_user_home }}/.ssh/jupyter_ssh_config"
+      register: ssh_config_stat
+
     - name: Create docker-compose.override.yml
       become: yes
       become_user: "{{ service_user_name }}"
@@ -117,9 +127,15 @@
         content: |
           services:
             jupyterlab:
-              image: quay.io/ioer-fdz/carto-lab-docker:${TAG:-latest}
+              restart: unless-stopped
               volumes:
                 - /srv/base/login_v2.html:/etc/jupyter/templates/login.html:ro
+          {% if deploy_key_stat.stat.exists %}
+                - {{ service_user_home }}/.ssh/jupyter_deploy_key:/root/.ssh/id_ed25519:ro
+          {% endif %}
+          {% if ssh_config_stat.stat.exists %}
+                - {{ service_user_home }}/.ssh/jupyter_ssh_config:/root/.ssh/config:ro
+          {% endif %}
               environment:
                 - JUPYTER_AUTOSHUTDOWN_TIMEOUT=0
                 - GIT_USER_NAME=${GIT_USER_NAME:-Jupyter Container Bot}
@@ -138,6 +154,7 @@
                 - JUPYTER_USER={{ service_user_name }}
               networks:
                 - lbsn-network
+
     - name: Create docker network
       become: yes
       become_user: "{{ service_user_name }}"
@@ -200,6 +217,12 @@
           # --- CONFIGURATION ---
           USER="{{ service_user_name }}"
           WORK_DIR="/srv/$USER/jupyterlab"
+
+          # --- CHECK IF ON HOLD ---
+          if [ -f "/srv/$USER/.disabled" ]; then
+              echo "User $USER is on hold (/srv/$USER/.disabled exists). Skipping reset."
+              exit 0
+          fi
 
           # --- RESTART AS TARGET USER IF RUNNING AS ROOT ---
           if [ "$(id -u)" -eq 0 ]; then

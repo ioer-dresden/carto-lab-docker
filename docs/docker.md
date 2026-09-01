@@ -99,8 +99,18 @@ Or, use the bleeding-edge dev version for testing:
 TAG=dev
 ```
 
+!!! tip "Switching Flavors with Local Overrides (`COMPOSE_FILE`)"
+    To run an alternate flavor (e.g. QGIS, R, or GRASS), specify the flavor's compose file in your `.env`:
+    ```env
+    COMPOSE_FILE=docker-compose.qgis.yml
+    ```
+    If you are running in an environment managed by Ansible (or using local `docker-compose.override.yml` files for custom volumes or monitoring), append the override file using a colon (`:`) separator:
+    ```env
+    COMPOSE_FILE=docker-compose.qgis.yml:docker-compose.override.yml
+    ```
+
 !!! danger "A Note on Build Stability"
-    We aim to ensure the compatibility of all included geo-packages. However, upstream changes can sometimes cause build issues in our latest dev builds. For stable, production-ready work, **always use a specific versioned tag** from our registry.
+    We aim to ensure the compatibility of all included geo-packages. However, upstream changes can sometimes cause build issues in our latest `dev` builds. For stable, production-ready work, **always use a specific versioned tag** from our registry.
 
 ---
 

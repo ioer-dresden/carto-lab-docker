@@ -1,0 +1,187 @@
+---
+- name: Reconcile and fix all Carto-Lab user deployments
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Ensure /srv/base exists
+      ansible.builtin.file:
+        path: /srv/base
+        state: directory
+        mode: '0755'
+
+    - name: Ensure login_v2.html template exists
+      ansible.builtin.copy:
+        dest: /srv/base/login_v2.html
+        content: ""
+        force: no
+        mode: '0644'
+
+    - name: Discover all user directories in /srv
+      ansible.builtin.find:
+        paths: /srv
+        file_type: directory
+        recurse: no
+      register: srv_dirs
+
+    - name: Filter directories containing a Carto-Lab deployment
+      ansible.builtin.stat:
+        path: "{{ item.path }}/jupyterlab"
+      loop: "{{ srv_dirs.files }}"
+      register: compose_checks
+
+    - name: Build list of all Carto-Lab users
+      ansible.builtin.set_fact:
+        all_cartolab_users: "{{ compose_checks.results | selectattr('stat.exists') | map(attribute='item.path') | map('basename') | list }}"
+
+    - name: Check for .disabled flag file in each user home
+      ansible.builtin.stat:
+        path: "/srv/{{ item }}/.disabled"
+      loop: "{{ all_cartolab_users }}"
+      register: disabled_checks
+
+    - name: Separate active and disabled users
+      ansible.builtin.set_fact:
+        disabled_users: "{{ disabled_checks.results | selectattr('stat.exists') | map(attribute='item') | list }}"
+        active_users: "{{ disabled_checks.results | rejectattr('stat.exists') | map(attribute='item') | list }}"
+
+    - name: Gather user UIDs
+      ansible.builtin.getent:
+        database: passwd
+
+    - name: Check for user SSH deploy keys
+      ansible.builtin.stat:
+        path: "/srv/{{ item }}/.ssh/jupyter_deploy_key"
+      loop: "{{ all_cartolab_users }}"
+      register: user_deploy_keys
+
+    - name: Check for user SSH configs
+      ansible.builtin.stat:
+        path: "/srv/{{ item }}/.ssh/jupyter_ssh_config"
+      loop: "{{ all_cartolab_users }}"
+      register: user_ssh_configs
+
+    - name: Map SSH key presence per user
+      ansible.builtin.set_fact:
+        user_deploy_key_map: "{{ user_deploy_key_map | default({}) | combine({item.item: item.stat.exists}) }}"
+      loop: "{{ user_deploy_keys.results }}"
+
+    - name: Map SSH config presence per user
+      ansible.builtin.set_fact:
+        user_ssh_config_map: "{{ user_ssh_config_map | default({}) | combine({item.item: item.stat.exists}) }}"
+      loop: "{{ user_ssh_configs.results }}"
+
+    - name: Check if telegraf.conf is mistakenly a directory
+      ansible.builtin.stat:
+        path: "/srv/{{ item }}/telegraf.conf"
+      loop: "{{ all_cartolab_users }}"
+      register: telegraf_conf_stats
+
+    - name: Remove telegraf.conf if it was created as a directory
+      ansible.builtin.file:
+        path: "/srv/{{ item.item }}/telegraf.conf"
+        state: absent
+      loop: "{{ telegraf_conf_stats.results }}"
+      when: item.stat.exists and item.stat.isdir
+
+    - name: Ensure Telegraf configuration exists and is secured
+      ansible.builtin.copy:
+        dest: "/srv/{{ item }}/telegraf.conf"
+        owner: "{{ item }}"
+        group: "{{ item }}"
+        mode: '0600'
+        content: |
+          [agent]
+            skip_processors_after_aggregators = true
+
+          [[outputs.influxdb_v2]]
+            urls = ["{{ influxdb_url }}"]
+            token = "{{ influxdb_token }}"
+            organization = "{{ influxdb_org }}"
+            bucket = "{{ influxdb_bucket }}"
+
+          [[inputs.docker]]
+            interval = "60s"
+            endpoint = "unix:///var/run/docker.sock"
+            [inputs.docker.tags]
+              user = "${JUPYTER_USER}"
+
+          [[inputs.exec]]
+            interval = "60s"
+            commands = ["/usr/bin/du -s /user_home/notebooks"]
+            data_format = "grok"
+            grok_patterns = ["%{NUMBER:size_bytes:int}\t%{PATH:directory}"]
+            name_override = "home_dir_usage"
+            [inputs.exec.tags]
+              user = "${JUPYTER_USER}"
+      loop: "{{ all_cartolab_users }}"
+
+    - name: Update docker-compose.override.yml for all users
+      ansible.builtin.copy:
+        dest: "/srv/{{ item }}/jupyterlab/docker-compose.override.yml"
+        owner: "{{ item }}"
+        group: "{{ item }}"
+        mode: '0644'
+        content: |
+          services:
+            jupyterlab:
+              restart: unless-stopped
+              volumes:
+                - /srv/base/login_v2.html:/etc/jupyter/templates/login.html:ro
+          {% if user_deploy_key_map[item] %}
+                - /srv/{{ item }}/.ssh/jupyter_deploy_key:/root/.ssh/id_ed25519:ro
+          {% endif %}
+          {% if user_ssh_config_map[item] %}
+                - /srv/{{ item }}/.ssh/jupyter_ssh_config:/root/.ssh/config:ro
+          {% endif %}
+              environment:
+                - JUPYTER_AUTOSHUTDOWN_TIMEOUT=0
+                - GIT_USER_NAME=${GIT_USER_NAME:-Jupyter Container Bot}
+                - GIT_USER_EMAIL=${GIT_USER_EMAIL:-bot@example.com}
+            telegraf:
+              image: telegraf:alpine
+              container_name: telegraf-{{ item }}
+              restart: always
+              user: "0:0"
+              entrypoint: ["telegraf"]
+              volumes:
+                - /srv/{{ item }}/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+                - /run/user/{{ ansible_facts.getent_passwd[item][1] }}/docker.sock:/var/run/docker.sock:ro
+                - /srv/{{ item }}:/user_home:ro
+              environment:
+                - JUPYTER_USER={{ item }}
+              networks:
+                - lbsn-network
+      loop: "{{ all_cartolab_users }}"
+
+    - name: Ensure lbsn-network exists
+      become: yes
+      become_user: "{{ item }}"
+      ansible.builtin.shell: docker network create lbsn-network || true
+      environment:
+        DOCKER_HOST: "unix:///run/user/{{ ansible_facts.getent_passwd[item][1] }}/docker.sock"
+      loop: "{{ all_cartolab_users }}"
+
+    - name: Recreate and start containers for ACTIVE users only
+      become: yes
+      become_user: "{{ item }}"
+      ansible.builtin.shell: |
+        docker compose up -d
+      args:
+        chdir: "/srv/{{ item }}/jupyterlab"
+      environment:
+        XDG_RUNTIME_DIR: "/run/user/{{ ansible_facts.getent_passwd[item][1] }}"
+        DOCKER_HOST: "unix:///run/user/{{ ansible_facts.getent_passwd[item][1] }}/docker.sock"
+      loop: "{{ active_users }}"
+
+    - name: Ensure containers are STOPPED for DISABLED users
+      become: yes
+      become_user: "{{ item }}"
+      ansible.builtin.shell: |
+        docker compose down
+      args:
+        chdir: "/srv/{{ item }}/jupyterlab"
+      environment:
+        XDG_RUNTIME_DIR: "/run/user/{{ ansible_facts.getent_passwd[item][1] }}"
+        DOCKER_HOST: "unix:///run/user/{{ ansible_facts.getent_passwd[item][1] }}/docker.sock"
+      loop: "{{ disabled_users }}"
