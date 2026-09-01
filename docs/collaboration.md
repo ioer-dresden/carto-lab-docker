@@ -15,7 +15,7 @@ To enable it, follow these two steps:
 
 1.  **Edit your `.env` file** and set the `COLLABORATIVE` flag to `true`.
 
-```env
+```bash
 # In your .env file
 COLLABORATIVE=true
 ```
