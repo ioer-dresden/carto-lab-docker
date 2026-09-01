@@ -56,20 +56,35 @@ Host github.com
 !!! tip "Watch out for typos"
     Ensure the `IdentityFile` path exactly matches the path *inside* the container (`/root/.ssh/id_ed25519`). Do not include Docker volume flags (like `:ro`) in this text file, as SSH will treat it as part of the filename and fail.
 
-**Update Docker Compose**
 
-Update your `docker-compose.yml` to mount the key and configuration file as read-only volumes. Add the Git identity environment variables so they are accessible inside the container:
+### Applying the Mounts
+
+Depending on how your environment is deployed:
+
+**Option A: Managed Multi-User Servers (Ansible Automated)**
+
+If your server is managed via our [Ansible Deployment](../ansible.md) workflow, **no manual Docker Compose editing is required.**
+
+Simply run the reconciliation playbook on your control machine:
+```bash
+ansible-playbook 2.1_reconcile_cartolab.yml \
+  -l <target_host> --vault-id shared@prompt --vault-id hosts@prompt
+```
+
+Ansible will automatically detect the new `jupyter_deploy_key` in the user's `.ssh` directory, inject the volume mounts into `docker-compose.override.yml`, and restart the container with the key mounted to `/root/.ssh/id_ed25519:ro`.
+
+**Option B: Standalone / Local Instances (Manual Docker Compose)**
+
+If running a standalone instance, add the mounts to **`docker-compose.override.yml`**:
 
 ```yaml
+# docker-compose.override.yml
 services:
   jupyterlab:
-    # ... existing configuration ...
     volumes:
-      # Mount SSH key and config
       - ~/.ssh/jupyter_deploy_key:/root/.ssh/id_ed25519:ro
       - ~/.ssh/jupyter_ssh_config:/root/.ssh/config:ro
     environment:
-      # Inject Git identity variables
       - GIT_USER_NAME=${GIT_USER_NAME:-Jupyter Container Bot}
       - GIT_USER_EMAIL=${GIT_USER_EMAIL:-bot@fdz.ioer.info}
 ```
@@ -81,7 +96,7 @@ GIT_USER_NAME="Carto-Lab User"
 GIT_USER_EMAIL="user@example.com"
 ```
 
-Apply the changes to recreate the container with the new mounts:
+Apply the changes:
 ```bash
 docker compose up -d
 ```
