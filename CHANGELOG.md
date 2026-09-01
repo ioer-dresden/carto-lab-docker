@@ -3,7 +3,15 @@
 
 ## Unreleased (:dev tag)
 
+### Bug Fixes
+
+- Use native JupyterLab templating for login.html override
+  ([`7b58c97`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/7b58c9745c8a92fa7a955e2087cea8a648871c67))
+
 ### Chores
+
+- Update CHANGELOG.md
+  ([`5b984c3`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/5b984c368512d40007c3a6425ea2d49e582be706))
 
 - Update version badge and CITATION.cff to 1.1.0
   ([`43d5902`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/43d59023559c7b063adf9645add45d813140d079))
@@ -15,6 +23,9 @@
 
 - Fix markdown formatting issue
   ([`5de2b6c`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/5de2b6cbdc7dfabbf183681cda6c7fc60aac41ed))
+
+- Fix summary-details not displayed correctly
+  ([`ab8dba9`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ab8dba9fdbd75f04f2377444100aa076e8fc93fd))
 
 - Limit admonitions on matrix table page to selected max-width
   ([`dbd80fa`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/dbd80fa4979da2e0f0e4ab5be116298fb3db099c))
@@ -32,11 +43,44 @@
 
 ### Documentation
 
+- Add admonition for preventing implicit assumptions
+  ([`31de7b9`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/31de7b9c65c1a85777d92ca0d4588c854959cfd0))
+
+- Add ansible playbooks to documentation
+  ([`6a72af0`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/6a72af030f356fcc3e4036b62f6a4093c15743c1))
+
+- Add back links to package origin/documentations for Python and R
+  ([`2b2cd3e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2b2cd3e654ff333e91c21269abce2169edc64de8))
+
 - Add controls to video
   ([`0a709a0`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/0a709a04dbd206b1ddc52d4dac1daf3a2599c66d))
 
+- Add cross-link to building flavors
+  ([`65acbb5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/65acbb552c95b9dfb7bbaea4e7ba24f9f33840a2))
+
 - Add dedicated QGIS page and explain how to use QGIS and build the flavor image
   ([`79a117f`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/79a117f84c4ba5059b2a5877a01a8441a0df6b85))
+
+- Add Digitale Spuren entry to showcases
+  ([`f1ab9b6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/f1ab9b6cdf406813b29abdd938720ee7bf8b1dce))
+
+- Add example on login.html override
+  ([`396af98`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/396af982fc818d55ee7c742db3dea9f1c2d846cf))
+
+- Add explanation for how version tags will be honored during derived child image builds
+  ([`52113f5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/52113f5e005ccf254378e38d0ee839ea683e57d6))
+
+- Add github ssh example
+  ([`928a9c3`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/928a9c365976166b159093fc77abf44a4a9af866))
+
+- Add guide for hybrid work with vscode remote
+  ([`c4c7672`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c4c7672c78b4f7e463885e7b1d36da55e33bed2d))
+
+- Add guide for long running jobs
+  ([`a0c0b51`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/a0c0b5181baa203d05a0e34796103bfa7b50bebc))
+
+- Add ioer login.html template override as an example
+  ([`3ee4063`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/3ee4063342b61b52fba5421473c4897a68917d65))
 
 - Add jupytergis page
   ([`3a50e57`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/3a50e570742383f7674e7c92437a7d652995d1c9))
@@ -44,26 +88,75 @@
 - Add new flavors (tags) and explain updated stable versioning and release cycle
   ([`19e4528`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/19e45285379c0a53f7bb0eebcfbd8bd8c3b346f1))
 
+- Add step by step guide on how to build flavors
+  ([`2b46e0d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2b46e0d7297d53c728188abaca94a400cb471c4b))
+
 - Add template example link
   ([`95d58f5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/95d58f5f39ff8bee6e2924cfd2b412bf4489f8b0))
+
+- Allow md in html for summary-details dropdown
+  ([`71e9044`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/71e90449174d95f874bf9e9471c2b71db3abbae6))
 
 - Clean up landing page (remove list of packages) and focus on spatial/gis highlights
   ([`1a0672d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/1a0672ddc9a776781ab56165665e207f8f21c3e2))
 
+- Document GIT_USER_NAME and GIT_USER_EMAIL env setting
+  ([`2172437`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/21724374a1bd5211d9ee82f7ca6fb85163efdc74))
+
+- Fix bullet point formatting
+  ([`528ae73`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/528ae73160960506b5ae58d372398440ce28e4a5))
+
 - Fix markdown admonition
   ([`98e6814`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/98e6814b9e004336537a29e0518a72746135e619))
+
+- Fix markdown formatting
+  ([`5e61ba6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/5e61ba6eaa0b060c5a1ff603fecda6290a3f7b18))
+
+- Fix markdown indentation
+  ([`08982d8`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/08982d88ac96a6fa74b5a685ec42857308164d67))
+
+- Fix markdown list formatting
+  ([`fa2fd02`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/fa2fd02061fc57c0aaee4d3278d0675ebd5cdf46))
+
+- Fix repo branch for urls
+  ([`0081678`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/0081678fe105a5ec03c9fec3edc04325546a15c2))
 
 - Fix typo
   ([`45673e8`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/45673e831cbe78b514c8c7e675c2651fe78bf250))
 
+- Improve ansible automation for bashrc-commands
+  ([`d6613b2`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/d6613b285cb2f31fa5d7f86648242fee8c197975))
+
+- Overhaul and imrprove ansible automations, deployment and best-practice examples following
+  upstream conventions
+  ([`414e473`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/414e473c7e0c3f7ca277817aff78f7627cb8c54b))
+
 - Remove non-working link to source file
   ([`80abc72`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/80abc725b6a8b477d331e1dcc263e6c71ae97a1c))
+
+- Remove unsecure command
+  ([`33b40b3`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/33b40b30f268f582c77c3f3796e5ad11a1eac51a))
+
+- Remove verbose wording
+  ([`ab19116`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ab19116dcf312e9e503c3cd908cbe47390e3c6da))
 
 - Revise developer section to outline release workflow with :dev tag
   ([`e4ab49e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e4ab49ea84ef13171cf195a7186fca5e880293c3))
 
+- Revise instructions and best practices for ssh keys
+  ([`ff16e80`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ff16e807a878be6ae0a391c68d5bc745ad795536))
+
 - Update matrix version table
   ([`8fd5c7e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/8fd5c7e7eba240b40048f753dec55d878c1631bf))
+
+- Update SSH instructions to match latest release
+  ([`28ccee7`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/28ccee7a82614a02ae20884ce1442dc9d0a33801))
+
+- Update toc
+  ([`05aee90`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/05aee9083680a030f3714de6273160e020828872))
+
+- Use correct link for gitlab profile ssh settings
+  ([`00bbbfc`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/00bbbfc14cf7adbf8d47d00cf05a16307aed3738))
 
 ### Features
 
