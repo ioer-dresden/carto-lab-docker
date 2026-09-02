@@ -135,7 +135,8 @@ CMD source "$CONDA_ACTIVATE_PATH" "$JUPYTER_ENV_PATH"; \
     fi; \
     echo "## Persist session secret if state dir is mounted ##"; \
     mkdir -p /root/.state; \
-    echo "c.ServerApp.cookie_secret_file = '/root/.state/notebook_cookie_secret'" >> "$JUPYTER_CONFIG"; \
+    echo "c.ServerApp.cookie_secret_file = '/root/.state/jupyter_cookie_secret'" >> "$JUPYTER_CONFIG"; \
+    echo "c.IdentityProvider.cookie_secret_file = '/root/.state/jupyter_cookie_secret'" >> "$JUPYTER_CONFIG"; \
     echo "## Disable extensions based on environment variables ##"; \
     [[ "$DISABLE_JUPYTEXT" == "true" ]] && echo "Disabling Jupytext extension" && jupyter labextension disable jupyterlab-jupytext; \
     [[ "$DISABLE_JUPYTERLAB_GIT" == "true" ]] && echo "Disabling JupyterLab Git extension" && jupyter labextension disable @jupyterlab/git; \
