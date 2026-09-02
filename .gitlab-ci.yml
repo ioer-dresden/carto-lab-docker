@@ -25,25 +25,22 @@ build dev base:
         - Dockerfile
         - "*.yml"
 
-# build dev r:
-#   stage: build-dev
-#   image: docker:latest
-#   tags:
-#     - dind-runner
-#   script:
-#     - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
-#     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed."
-#     # Build and tag as :r_dev
-#     - docker build --pull --build-arg VERSION=dev --tag $CI_REGISTRY_IMAGE:r_dev ./r
-#     - docker push $CI_REGISTRY_IMAGE:r_dev
-#     - docker tag $CI_REGISTRY_IMAGE:r_dev quay.io/ioer-fdz/carto-lab-docker:r_dev || true
-#     - docker push quay.io/ioer-fdz/carto-lab-docker:r_dev || echo "Quay push failed."
-#   rules:
-#     - if: $CI_COMMIT_BRANCH == "master-latest"
-#       changes:
-#         - Dockerfile
-#         - "r/Dockerfile"
-#         - "*.yml"
+# In .gitlab-ci.yml
+build dev r:
+  stage: build-dev
+  image: docker:latest
+  tags:
+    - dind-runner
+  script:
+    - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin $CI_REGISTRY
+    - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" --password-stdin quay.io || echo "Quay.io login failed."
+    # Build and tag as :r_dev
+    - docker build --pull --build-arg VERSION=dev --tag $CI_REGISTRY_IMAGE:r_dev ./r
+    - docker push $CI_REGISTRY_IMAGE:r_dev
+    - docker tag $CI_REGISTRY_IMAGE:r_dev quay.io/ioer-fdz/carto-lab-docker:r_dev || true
+    - docker push quay.io/ioer-fdz/carto-lab-docker:r_dev || echo "Quay push failed."
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master-latest"
 
 # 2. Release builds (Runs only on Git Tags)
 build release base:
