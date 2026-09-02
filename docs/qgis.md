@@ -26,7 +26,7 @@ id="collaborationvideo">
 
 Add the QGIS flavor overlay to your `.env` file:
 
-```dotenv
+```bash
 COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml
 COMPOSE_PATH_SEPARATOR=:
 ```
@@ -81,7 +81,7 @@ docker compose -f docker-compose.yml -f docker-compose.qgis.yml build \
 
 !!! tip
     As suggested in the above, add the overlay to your `.env` file so you don't need to type `-f` every time:
-    ```dotenv
+    ```bash
     COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml
     COMPOSE_PATH_SEPARATOR=:
     ```

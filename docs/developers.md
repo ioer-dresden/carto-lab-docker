@@ -136,7 +136,7 @@ Once the image is in the registry, deploying it to target instances is seamless:
 1. On the target VM, authenticate Docker using a Deploy Token (`read_registry` scope).
 2. Update the `.env` file on the target VM to use your flavor and chained compose files:
 
-```dotenv
+```bash
 # In .env
 TAG=qgis_v1.1.0
 # Chain base compose with the flavor and optional local override:
@@ -157,7 +157,7 @@ docker compose up -d
 
 When exposing Carto-Lab on a public domain, configure `JUPYTER_WEBURL` and `JUPYTER_WEBPORT` in `.env`:
 
-```dotenv
+```bash
 JUPYTER_WEBURL=https://jupyterlab.example.org
 JUPYTER_WEBPORT=8888
 ```
@@ -222,7 +222,7 @@ Enable the required Apache modules (`proxy`, `proxy_http`, `proxy_wstunnel`, `re
 
 Jupyter servers can be left running persistently by setting `JUPYTER_AUTOSHUTDOWN_TIMEOUT=0` in `.env` (or `docker-compose.override.yml`):
 
-```dotenv
+```bash
 # .env
 JUPYTER_AUTOSHUTDOWN_TIMEOUT=0
 ```

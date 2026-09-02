@@ -12,13 +12,13 @@ A jupyter notebook illustrates the process for rendering shapefiles with Mapnik 
 
 Add the Mapnik flavor overlay to your `.env` file:
 
-```dotenv
+```bash
 COMPOSE_FILE=docker-compose.yml:docker-compose.mapnik.yml
 COMPOSE_PATH_SEPARATOR=:
 ```
 
 Optionally configure external fonts directory in `.env`:
-```dotenv
+```bash
 MAPNIK_FONTS=/usr/share/fonts
 ```
 

@@ -17,7 +17,7 @@ Key packages included:
 
 Add the R flavor overlay to your `.env` file:
 
-```dotenv
+```bash
 COMPOSE_FILE=docker-compose.yml:docker-compose.r.yml
 COMPOSE_PATH_SEPARATOR=:
 ```

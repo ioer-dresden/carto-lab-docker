@@ -9,7 +9,7 @@ We occasionally push docker images for the GRASS tag to our registry (`https://g
 
 Add the GRASS flavor overlay to your `.env` file:
 
-```dotenv
+```bash
 COMPOSE_FILE=docker-compose.yml:docker-compose.grass.yml
 COMPOSE_PATH_SEPARATOR=:
 ```

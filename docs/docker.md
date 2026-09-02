@@ -92,28 +92,28 @@ Because geospatial engines can be quite large, we provide specialized extensions
 
 To use a different variant or version, edit the `TAG` variable in your `.env` file:
 
-```dotenv
+```bash
 # In your .env file
 # Use a specific, reproducible base image
 TAG=v1.1.0
 ```
 
 Or, use the bleeding-edge dev version for testing:
-```dotenv
+```bash
 TAG=dev
 ```
 
 !!! tip "Switching Flavors with Layered Overlays (`COMPOSE_FILE`)"
     To run an alternate flavor (e.g. QGIS, R, Mapnik, or GRASS), chain the base compose file with the flavor overlay in your `.env`:
 
-    ```dotenv
+    ```bash
     COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml
     COMPOSE_PATH_SEPARATOR=:
     ```
 
     If you are running in an environment managed by Ansible (or using local `docker-compose.override.yml` files for custom volumes or monitoring), append the override file as well:
 
-    ```dotenv
+    ```bash
     COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml:docker-compose.override.yml
     COMPOSE_PATH_SEPARATOR=:
     ```
