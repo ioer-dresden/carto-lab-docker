@@ -1,5 +1,5 @@
 # https://github.com/conda-forge/miniforge/releases
-FROM condaforge/miniforge3:26.1.1-3
+FROM condaforge/miniforge3:26.5.3-0
 
 # build time args
 ARG ENVIRONMENT_FILE=environment_default.yml
@@ -132,6 +132,9 @@ CMD source "$CONDA_ACTIVATE_PATH" "$JUPYTER_ENV_PATH"; \
     TOKEN=$(openssl rand -hex 24); \
     echo -e "c.IdentityProvider.token = u'$TOKEN'\nc.PasswordIdentityProvider.allow_password_change = False" >> "$JUPYTER_CONFIG"; \
     fi; \
+    echo "## Persist session secret if state dir is mounted ##"; \
+    mkdir -p /root/.state; \
+    echo "c.ServerApp.cookie_secret_file = '/root/.state/notebook_cookie_secret'" >> "$JUPYTER_CONFIG"; \
     echo "## Disable extensions based on environment variables ##"; \
     [[ "$DISABLE_JUPYTEXT" == "true" ]] && echo "Disabling Jupytext extension" && jupyter labextension disable jupyterlab-jupytext; \
     [[ "$DISABLE_JUPYTERLAB_GIT" == "true" ]] && echo "Disabling JupyterLab Git extension" && jupyter labextension disable @jupyterlab/git; \

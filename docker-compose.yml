@@ -1,5 +1,4 @@
 services:
-
   jupyterlab:
     image: quay.io/ioer-fdz/carto-lab-docker:${TAG:-latest}
     # image: gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:${TAG:-latest}
@@ -10,12 +9,17 @@ services:
     volumes:
       - ${JUPYTER_NOTEBOOKS:-~/notebooks}:/home/jovyan/work
       - ${CONDA_ENVS:-~/envs}:/envs
+      # Persist user state (settings, workspaces, cookie secret) if path is set
+      - ${JUPYTER_STATE:-~/.cartolab_state}:/root/.state
     environment:
       - READONLY_USER_PASSWORD=${READONLY_USER_PASSWORD:-eX4mP13p455w0Rd}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-eX4mP13p455w0Rd}
       - JUPYTER_PASSWORD=${JUPYTER_PASSWORD:-eX4mP13p455w0Rd}
       - JUPYTER_WEBURL=${JUPYTER_WEBURL:-http://localhost:8888}
       - JUPYTER_EXTRA_ARGS=${JUPYTER_EXTRA_ARGS:-}
+      # Point JupyterLab settings and workspaces to the persisted state volume
+      - JUPYTERLAB_SETTINGS_DIR=/root/.state/user-settings
+      - JUPYTERLAB_WORKSPACES_DIR=/root/.state/workspaces
     env_file: ".env"
     networks:
       - lbsn-network
