@@ -4,7 +4,7 @@
 
 From time to time, check that the base [Miniforge3 image](https://github.com/conda-forge/miniforge/releases) is up to date in the Dockerfile:
 ```Dockerfile
-FROM condaforge/miniforge3:26.1.1-3
+FROM condaforge/miniforge3:26.5.3-0
 ```
 
 This base Miniconda3 image specified in the Dockerfile is pulled from a remote registry.
@@ -18,21 +18,21 @@ docker build .
 or use the compose equivalent:
 
 ```bash
-BUILDKIT_PROGRESS=plain docker compose -f docker-compose.build.yml build
+BUILDKIT_PROGRESS=plain docker compose -f docker-compose.yml -f docker-compose.build.yml build
 ```
 
 Test with:
 ```bash
-docker compose -f docker-compose.build.yml up -d
+docker compose -f docker-compose.yml -f docker-compose.build.yml up -d
 ```
 
 Then push changes to GitLab, which will recreate the registry image based on the new Dockerfile.
 
 To manually build the Mapnik image, optionally add a specific `APP_VERSION` to your `.env`, then:
 ```bash
-docker compose -f docker-compose.mapnik.yml build \
+docker compose -f docker-compose.yml -f docker-compose.mapnik.yml build \
         --no-cache --progress=plain \
-    && docker compose -f docker-compose.mapnik.yml up -d
+    && docker compose -f docker-compose.yml -f docker-compose.mapnik.yml up -d
 ```
 
 ---
@@ -119,8 +119,8 @@ export BASE_VERSION=v1.1.0
 export FLAVOR=qgis
 export REGISTRY=gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker
 
-# 1. Build the flavor locally using docker compose
-docker compose -f docker-compose.${FLAVOR}.yml build
+# 1. Build the flavor locally using layered compose files
+docker compose -f docker-compose.yml -f docker-compose.${FLAVOR}.yml build
 
 # 2. Tag the resulting image with the combined flavor and version
 docker tag quay.io/ioer-fdz/carto-lab-docker:${FLAVOR} ${REGISTRY}:${FLAVOR}_${BASE_VERSION}
@@ -136,11 +136,12 @@ Once the image is in the registry, deploying it to target instances is seamless:
 1. On the target VM, authenticate Docker using a Deploy Token (`read_registry` scope).
 2. Update the `.env` file on the target VM to use your flavor and chained compose files:
 
-```bash
+```dotenv
 # In .env
 TAG=qgis_v1.1.0
-# Chain the override to retain local volumes and monitoring:
-COMPOSE_FILE=docker-compose.qgis.yml:docker-compose.override.yml
+# Chain base compose with the flavor and optional local override:
+COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml:docker-compose.override.yml
+COMPOSE_PATH_SEPARATOR=:
 ```
 
 3. Pull and recreate the container:
@@ -156,7 +157,7 @@ docker compose up -d
 
 When exposing Carto-Lab on a public domain, configure `JUPYTER_WEBURL` and `JUPYTER_WEBPORT` in `.env`:
 
-```bash
+```dotenv
 JUPYTER_WEBURL=https://jupyterlab.example.org
 JUPYTER_WEBPORT=8888
 ```
@@ -219,18 +220,14 @@ Enable the required Apache modules (`proxy`, `proxy_http`, `proxy_wstunnel`, `re
 
 ## Hosting a Persistent Instance with a Daily Reset
 
-Jupyter servers can be left running persistently by setting `JUPYTER_AUTOSHUTDOWN_TIMEOUT=0` in `docker-compose.override.yml`:
+Jupyter servers can be left running persistently by setting `JUPYTER_AUTOSHUTDOWN_TIMEOUT=0` in `.env` (or `docker-compose.override.yml`):
 
-```yaml
-# docker-compose.override.yml
-services:
-  jupyterlab:
-    restart: unless-stopped
-    environment:
-      - JUPYTER_AUTOSHUTDOWN_TIMEOUT=0
+```dotenv
+# .env
+JUPYTER_AUTOSHUTDOWN_TIMEOUT=0
 ```
 
-To reset containers daily (generating fresh collaboration tokens and clearing temporary memory), add a cron script under `/etc/cron.daily/reset_jupyter`:
+To reset containers daily (clearing temporary memory and dangling processes), add a cron script under `/etc/cron.daily/reset_jupyter`:
 
 ```bash
 sudo nano /etc/cron.daily/reset_jupyter
@@ -269,6 +266,9 @@ Make the script executable:
 ```bash
 sudo chmod 755 /etc/cron.daily/reset_jupyter
 ```
+
+!!! tip "Preserving User Settings Across Resets"
+    If you configure `JUPYTER_STATE=${HOME}/.cartolab_state` in `.env`, user UI preferences (theme, keybindings), open workspace tabs, and login session cookies will persist across daily resets while the container environment itself starts clean.
 
 ---
 
@@ -311,7 +311,7 @@ services:
 ```
 
 !!! tip
-    Do not modify `docker-compose.yml`. Having a vamilla `docker-compose.yml` allows you to to git pull latest upstream changes, without loosing your customizations in `docker-compose.override.yml` (i.e. added to `.gitignore`).
+    Do not modify `docker-compose.yml`. Having a vanilla `docker-compose.yml` allows you to git pull latest upstream changes without losing your customizations in `docker-compose.override.yml` (which is included in `.gitignore`).
 
 4. **Recreate the container:**
    ```bash

@@ -4,8 +4,8 @@ Carto-Lab Docker is a project that provides a complete, versioned instance of [J
 
 The container comes with two pre-configured, curated environments:
 
-*   **`worker_env` (Python):** Contains the most important packages for open-source cartography and spatial analysis.
-*   **`r_env` (R):** A full R environment for statistical computing and visualization (available in specific container variants).
+*   **`worker_env` (Python):** Contains the most important packages for open-source cartography and spatial analysis (available in the base image/all flavors).
+*   **`r_env` (R):** A full R environment for statistical computing and visualization (available in the `r` flavor).
 
 !!! tip
     This setup is fully compatible with the [rawdb] and [hlldb] databases from the [LBSN-Structure](https://lbsn.vgiscience.org/) project.
@@ -15,7 +15,7 @@ The container comes with two pre-configured, curated environments:
     Carto-Lab Docker is optimized for Linux-based environments. If you are on Windows, we strongly recommend using the **Windows Subsystem for Linux (WSL)** to ensure the best performance and avoid potential compatibility issues.
 
 !!! tip "Automatic Deployments with Ansible"
-    Both, the creation of the rootless environment and the Carto-Lab Setup can be automated with our Ansible playbooks. See [Ansible](ansible.md).
+    Both the creation of the rootless environment and the Carto-Lab Setup can be automated with our Ansible playbooks. See [Ansible](ansible.md).
 
 ---
 
@@ -25,43 +25,47 @@ This guide provides the fastest way to get a local instance running.
 
 **Prerequisites:** [Docker] and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) must be installed.
 
-### 1.  **Clone the Repository**
+### 1. **Clone the Repository**
 
 ```bash
 git clone https://github.com/ioer-dresden/carto-lab-docker
 cd carto-lab-docker
 ```
 
-### 2.  **Create Your Configuration**
+### 2. **Create Your Configuration**
     
 Copy the example `.env` file. This file stores your local settings.
 ```bash
 cp .env.example .env
 ```
-Now is a good time to open the `.env` file and set your `JUPYTER_PASSWORD`. If you skip this, a random token will be generated.
+Open the `.env` file and customize your settings (e.g. `JUPYTER_PASSWORD`, persistent paths, and Git user credentials).
 
-### 3.  **Create the Docker Network**
+### 3. **Create the Docker Network**
 
 This one-time command creates a network that allows Carto-Lab Docker to communicate with other services like databases (e.g. [hlldb] or [rawdb]).
 ```bash
 docker network create lbsn-network
 ```
 
-### 4.  **Pull and Run**
+### 4. **Pull and Run**
 
 This command pulls the latest stable image from our registry and starts the container in the background.
 ```bash
 docker compose pull && docker compose up -d
 ```
 
-### 5.  **Access JupyterLab**
+### 5. **Access JupyterLab**
 
-Open your browser and navigate to **[http://localhost:8888](http://localhost:8888)**. Log in with the password you set or the token from the logs (default password: `eX4mP13p455w0Rd`). By default, the `~/notebooks` directory on your host machine is mapped into the container, so you can easily access your files.
+Open your browser and navigate to **[http://localhost:8888](http://localhost:8888)**. Log in with the password you set in `.env` (default fallback password: `eX4mP13p455w0Rd`).
 
-If you did not provide a password in `.env`, get the token from the Docker logs to 
-login:
+* **Persistent Notebooks:** By default, `~/notebooks` on your host machine is mapped to `/home/jovyan/work` inside the container.
+* **Persistent Settings & Sessions:** UI themes, open workspace tabs, and session cookies are preserved in `~/.cartolab_state` on your host.
 
-    docker compose logs | grep "?token=" | tail -n 2
+If you enabled `GENERATE_TOKEN=true` in `.env`, retrieve the login token from the Docker logs:
+
+```bash
+docker compose logs | grep "?token=" | tail -n 2
+```
 
 ---
 
@@ -77,39 +81,41 @@ We provide several container variants for different needs via our container regi
 
 - **`:latest`**: The current stable, production-ready image.
 - **`:vX.Y.Z`** *(e.g., `:v1.1.0`)*: Immutable, specific release versions. Strongly recommended for scientific reproducibility.
-- **`:dev`**: The bleeding-edge image built on every commit. Contains new test features but may be unstable.
+- **`:dev`**: The bleeding-edge image built on every commit to `master-latest`. Contains new test features but may be unstable.
 
 **Language & Tool Flavors:**
 
-Because geospatial engines can be quite big, we provide specialized extensions (flavors):
+Because geospatial engines can be quite large, we provide specialized extensions (flavors):
 
 - **`:r_latest` / `:r_vX.Y.Z`**: Extends the base image with a full R environment.
-- **Mapnik, GRASS, QGIS**: Due to resource constraints, these massive images are not pushed to our public registry automatically. We provide simple `docker-compose.<flavor>.yml` files so you can easily build them locally on your host machine. Refer to [our documentation](./developers.md#manually-building-and-distributing-flavors) on how to build these flavors.
+- **Mapnik, GRASS, QGIS**: Due to resource constraints, these massive images are not pushed to our public registry automatically. We provide simple overlay `docker-compose.<flavor>.yml` files so you can easily build and run them locally. Refer to [our documentation](./developers.md#manually-building-and-distributing-flavors) on how to build these flavors.
 
 To use a different variant or version, edit the `TAG` variable in your `.env` file:
 
-```bash
+```dotenv
 # In your .env file
 # Use a specific, reproducible base image
 TAG=v1.1.0
 ```
 
 Or, use the bleeding-edge dev version for testing:
-```
+```dotenv
 TAG=dev
 ```
 
-!!! tip "Switching Flavors with Local Overrides (`COMPOSE_FILE`)"
-    To run an alternate flavor (e.g. QGIS, R, or GRASS), specify the flavor's compose file in your `.env`:
+!!! tip "Switching Flavors with Layered Overlays (`COMPOSE_FILE`)"
+    To run an alternate flavor (e.g. QGIS, R, Mapnik, or GRASS), chain the base compose file with the flavor overlay in your `.env`:
 
-    ```
-    COMPOSE_FILE=docker-compose.qgis.yml
+    ```dotenv
+    COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml
+    COMPOSE_PATH_SEPARATOR=:
     ```
 
-    If you are running in an environment managed by Ansible (or using local `docker-compose.override.yml` files for custom volumes or monitoring), append the override file using a colon (`:`) separator:
+    If you are running in an environment managed by Ansible (or using local `docker-compose.override.yml` files for custom volumes or monitoring), append the override file as well:
 
-    ```
-    COMPOSE_FILE=docker-compose.qgis.yml:docker-compose.override.yml
+    ```dotenv
+    COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml:docker-compose.override.yml
+    COMPOSE_PATH_SEPARATOR=:
     ```
 
 !!! danger "A Note on Build Stability"
