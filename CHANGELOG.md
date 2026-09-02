@@ -8,7 +8,22 @@
 - Use native JupyterLab templating for login.html override
   ([`7b58c97`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/7b58c9745c8a92fa7a955e2087cea8a648871c67))
 
+- **conda**: Remove incompatible conda-anaconda-tos plugin from base env
+  ([`d6eacaf`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/d6eacaf72cd2de6bd076ebf449854666c37c7da5))
+
+- **conda**: Remove legacy nodefaults pseudo-channel from environment specs
+  ([`af21735`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/af2173553a6830f0aca44f3f1623c8ebcc298207))
+
+- **jupyter**: Configure IdentityProvider cookie secret path for persistence
+  ([`cb03c1b`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/cb03c1b137ba5a1303c55db5ce35607af7b57237))
+
 ### Chores
+
+- Add telegraf.conf to gitignore, for catching mistakes
+  ([`e58637b`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e58637bcbe3fe8e1f43b0ff5216e0a1f0fe6ad9a))
+
+- Update CHANGELOG.md
+  ([`666fc57`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/666fc5781c68e79c74f00e6db3142c51296c6c68))
 
 - Update CHANGELOG.md
   ([`5b984c3`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/5b984c368512d40007c3a6425ea2d49e582be706))
@@ -103,6 +118,9 @@
 - Document GIT_USER_NAME and GIT_USER_EMAIL env setting
   ([`2172437`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/21724374a1bd5211d9ee82f7ca6fb85163efdc74))
 
+- Fix admonition/code blocks formatting throughout the documentation
+  ([`808722e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/808722e9b3714e04f83f39ac8ef3c7d3acc2fee9))
+
 - Fix bullet point formatting
   ([`528ae73`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/528ae73160960506b5ae58d372398440ce28e4a5))
 
@@ -124,6 +142,9 @@
 - Fix typo
   ([`45673e8`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/45673e831cbe78b514c8c7e675c2651fe78bf250))
 
+- Formatting fix for dotenv code blocks
+  ([`c48e7e5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c48e7e5011ad8c34f037f6ff9d121400e6ab613e))
+
 - Improve ansible automation for bashrc-commands
   ([`d6613b2`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/d6613b285cb2f31fa5d7f86648242fee8c197975))
 
@@ -143,14 +164,26 @@
 - Revise developer section to outline release workflow with :dev tag
   ([`e4ab49e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e4ab49ea84ef13171cf195a7186fca5e880293c3))
 
+- Revise docker compose commands throughout the docs to honor compose chaining
+  ([`ec5919e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ec5919ed251ff34a38140e73347d0eecfa75c865))
+
 - Revise instructions and best practices for ssh keys
   ([`ff16e80`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ff16e807a878be6ae0a391c68d5bc745ad795536))
+
+- Update .env.example to latest parameters
+  ([`010a7ea`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/010a7ea0b879768f06705f853eb0d2d7621a605e))
+
+- Update flavor setup guides for layered compose architecture
+  ([`4bf575a`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4bf575a24b49f5668000e125ba15c50c4305457c))
 
 - Update matrix version table
   ([`8fd5c7e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/8fd5c7e7eba240b40048f753dec55d878c1631bf))
 
 - Update SSH instructions to match latest release
   ([`28ccee7`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/28ccee7a82614a02ae20884ce1442dc9d0a33801))
+
+- Update ssh key guide
+  ([`23ba6ca`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/23ba6ca683b20cb86d01c82d1988d02e59259c6a))
 
 - Update toc
   ([`05aee90`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/05aee9083680a030f3714de6273160e020828872))
@@ -162,6 +195,14 @@
 
 - Add qgis flavor (Dockerfile, compose.yml)
   ([`c7a1863`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c7a186341264281d289dfa91931cf859a0e5af7e))
+
+- Persist user settings, workspace layout, and session cookie
+  ([`c280b17`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c280b17e8180916bd94a23cb3f26d1de4cafd4ad))
+
+### Refactoring
+
+- **compose**: Convert flavor compose files to layered overlays
+  ([`089001c`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/089001cdc49147b949f167b7cb45f47e1dbf51ea))
 
 
 ## v1.1.0 (2026-05-29)
