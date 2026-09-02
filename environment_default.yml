@@ -1,7 +1,6 @@
 name: worker_env
 channels:
   - conda-forge
-  - nodefaults
 dependencies:
   - python>=3.10,<3.13
   - pip
