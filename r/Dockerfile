@@ -10,6 +10,9 @@ ARG ENVIRONMENT_FILE=environment_r.yml
 ## private:
 FROM gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:$VERSION
 
+# select default shell
+SHELL ["/bin/bash", "-c"]
+
 ENV ENVIRONMENT_FILE=environment_r.yml \
     R_ENV_NAME=r_env
 ENV CONDA_ACTIVATE_PATH=/opt/conda/bin/activate \
@@ -28,18 +31,41 @@ ENV R_BINDINGS=" \
 
 # R pre-requisites
 RUN apt-get update --yes \
-    && apt install --yes --no-install-recommends \
-        $R_BINDINGS \
+    && apt-get install --yes --no-install-recommends \
+    $R_BINDINGS \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # install user kernel environment (r_env)
-RUN conda env create --file $ENVIRONMENT_FILE --name $R_ENV_NAME --quiet  \
- && source $CONDA_ACTIVATE_PATH $R_ENV_PATH \
- && Rscript -e "IRkernel::installspec()" \
- && conda clean --all --force-pkgs-dirs --yes \
- && conda deactivate
+RUN CONDA_SOLVER=rattler conda env create --file $ENVIRONMENT_FILE --name $R_ENV_NAME --quiet \
+    && source $CONDA_ACTIVATE_PATH $R_ENV_PATH \
+    && Rscript -e "IRkernel::installspec(name = 'r_env', displayname = 'R (r_env)', user = FALSE)" \
+    && mamba clean --all --force-pkgs-dirs --yes
 
-# install r labextensions, see
-# https://github.com/techrah/jupyterext-text-shortcuts/issues/33
-RUN source $CONDA_ACTIVATE_PATH $JUPYTER_ENV_PATH; \
-    pip install git+https://github.com/gabrielmagno/jupyterext-text-shortcuts/
+# Configure native JupyterLab 4 R text replacement shortcuts (RStudio style)
+# Alt - -> "<- "
+# Accel Shift M (Ctrl+Shift+M / Cmd+Shift+M) -> "%>% "
+RUN jq '. + { \
+  "@jupyterlab/shortcuts-extension:shortcuts": { \
+    "shortcuts": [ \
+      { \
+        "command": "apputils:run-first-enabled", \
+        "selector": "body", \
+        "keys": ["Alt -"], \
+        "args": { \
+          "commands": ["console:replace-selection", "fileeditor:replace-selection", "notebook:replace-selection"], \
+          "args": {"text": "<- "} \
+        } \
+      }, \
+      { \
+        "command": "apputils:run-first-enabled", \
+        "selector": "body", \
+        "keys": ["Accel Shift M"], \
+        "args": { \
+          "commands": ["console:replace-selection", "fileeditor:replace-selection", "notebook:replace-selection"], \
+          "args": {"text": "%>% "} \
+        } \
+      } \
+    ] \
+  } \
+}' /opt/conda/envs/jupyter_env/share/jupyter/lab/settings/overrides.json > /tmp/overrides.json \
+  && mv /tmp/overrides.json /opt/conda/envs/jupyter_env/share/jupyter/lab/settings/overrides.json
