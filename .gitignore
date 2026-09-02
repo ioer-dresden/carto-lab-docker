@@ -4,4 +4,4 @@ envs/
 dev/
 *drawio.bkp
 docker-compose.override.yml
-
+telegraf.conf
