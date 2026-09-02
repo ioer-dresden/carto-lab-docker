@@ -8,13 +8,35 @@ A jupyter notebook illustrates the process for rendering shapefiles with Mapnik 
 
 * [Tag Maps rendering with Python and Mapnik](https://ad.vgiscience.org/tagmaps-mapnik-jupyter/01_mapnik-tagmaps.html)
 
+## Usage
+
+Add the Mapnik flavor overlay to your `.env` file:
+
+```dotenv
+COMPOSE_FILE=docker-compose.yml:docker-compose.mapnik.yml
+COMPOSE_PATH_SEPARATOR=:
+```
+
+Optionally configure external fonts directory in `.env`:
+```dotenv
+MAPNIK_FONTS=/usr/share/fonts
+```
+
+Then start the container:
+```bash
+docker compose up -d
+```
+
 ## Dependencies
 
 See the `mapnik/Dockerfile` file for the list of Mapnik dependencies.
 
-```yaml
+<details>
+<summary>Have a look at the <code>mapnik/Dockerfile</code> for the list of Mapnik dependencies</summary>
+<pre><code class="language-yaml">
 {!../mapnik/Dockerfile!}
-```
+</code></pre>
+</details>
 
 
 [mapnik]: https://mapnik.org/

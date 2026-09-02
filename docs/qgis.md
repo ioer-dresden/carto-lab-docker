@@ -22,19 +22,34 @@ id="collaborationvideo">
 <source src="/qgis.webm" type="video/webm">
 </video><br>
 
-### Usage
+## Usage
 
-Use the following `docker-compose.qgis.yml`:
+Add the QGIS flavor overlay to your `.env` file:
 
-```yaml
+```dotenv
+COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml
+COMPOSE_PATH_SEPARATOR=:
+```
+
+Then start the container:
+
+```bash
+docker compose up -d
+```
+
+<details>
+<summary>Have a look at the <code>docker-compose.qgis.yml</code></summary>
+<pre><code class="language-yaml">
 {!../docker-compose.qgis.yml!}
-```
+</code></pre>
+</details>
 
-See the `qgis/Dockerfile` file for the list of Grass dependencies:
-
-```yaml
+<details>
+<summary>See the <code>qgis/Dockerfile</code>file for the list of QGIS dependencies</summary>
+<pre><code class="language-yaml">
 {!../qgis/Dockerfile!}
-```
+</code></pre>
+</details>
 
 !!! note
     If you are not an academic member of the gcr.hrz.tu-chemnitz.de group, replace:
@@ -47,28 +62,32 @@ See the `qgis/Dockerfile` file for the list of Grass dependencies:
     ```
     This is our public image clone that is accessible without restrictions.
 
-### Building the Image
+## Building the Image Locally
 
-If you want to build a specific version locally against the newest base image:
+If you want to build the `:qgis` flavor locally against the base image:
 
 ```bash
-docker compose -f docker-compose.qgis.yml build \
+docker compose -f docker-compose.yml -f docker-compose.qgis.yml build \
         --no-cache --progress=plain \
-    && docker compose -f docker-compose.qgis.yml up -d
+    && docker compose -f docker-compose.yml -f docker-compose.qgis.yml up -d
 ```
 
 !!! note
-    The above command will honor your current Carto-Lab flavor and version that is specified in your `.env`. That is,
-    if you have `TAG=v1.1.0`, the QGis will be added on top of the `v1.1.0` image from our registry. Vice versa, if
+    The above command will honor your current Carto-Lab flavor and version specified in your `.env`. That is,
+    if you have `TAG=v1.1.0`, QGIS will be built on top of the `v1.1.0` image from our registry. Vice versa, if
     you want QGIS + the R flavor, use `TAG=r_v1.1.0` in your `.env`.
     
-    For more information, see [the base container instructions](docker.md#configuration-container-versions) and [the developer section](developers.md#manually-building-and-distributing-flavors) for more information.
+    For more information, see [the base container instructions](docker.md#configuration-container-versions) and [the developer section](developers.md#manually-building-and-distributing-flavors).
 
 !!! tip
-    Add the following to your `.env` file to make compose use your custom `:qgis` flavor automatically:
+    As suggested in the above, add the overlay to your `.env` file so you don't need to type `-f` every time:
+    ```dotenv
+    COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml
+    COMPOSE_PATH_SEPARATOR=:
     ```
-    COMPOSE_FILE=docker-compose.qgis.yml
-    ```
+
+See [the developer section](developers.md#manually-building-and-distributing-flavors) for more information.
+
 
 
 !!! info "Why don't we integrate QGIS directly into Carto-Lab?"
