@@ -1,29 +1,10 @@
 services:
   jupyterlab:
     image: quay.io/ioer-fdz/carto-lab-docker:${TAG:-mapnik}
-    # image: gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:${TAG:-mapnik}
     build:
       context: ./mapnik
       args:
-        - VERSION=${TAG:-latest}
-    container_name: ${CONTAINER_NAME:-lbsn-jupyterlab}
-    restart: "no"
-    ports:
-      - 127.0.0.1:${JUPYTER_WEBPORT:-8888}:8888
+        VERSION: ${TAG:-latest}
     volumes:
-      - ${JUPYTER_NOTEBOOKS:-~/notebooks}:/home/jovyan/work
+      # Appended to the base volumes from docker-compose.yml
       - ${MAPNIK_FONTS:-/usr/share/fonts}:/fonts
-      - ${CONDA_ENVS:-~/envs}:/envs
-    environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-eX4mP13p455w0Rd}
-      - JUPYTER_PASSWORD=${JUPYTER_PASSWORD:-eX4mP13p455w0Rd}
-      - JUPYTER_WEBURL=${JUPYTER_WEBURL:-http://localhost:8888}
-      - JUPYTER_EXTRA_ARGS=${JUPYTER_EXTRA_ARGS:-}
-    env_file: ".env"
-    networks:
-      - lbsn-network
-
-networks:
-  lbsn-network:
-    name: ${NETWORK_NAME:-lbsn-network}
-    external: true

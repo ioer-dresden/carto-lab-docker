@@ -1,27 +1,7 @@
 services:
   jupyterlab:
-    image: quay.io/ioer-fdz/carto-lab-docker:qgis
-    # image: gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker:grass
+    image: quay.io/ioer-fdz/carto-lab-docker:${TAG:-qgis}
     build:
       context: ./qgis
       args:
-        - VERSION=${TAG:-latest}
-    restart: "no"
-    ports:
-      - 127.0.0.1:${JUPYTER_WEBPORT:-8888}:8888
-    volumes:
-      - ${JUPYTER_NOTEBOOKS:-~/notebooks}:/home/jovyan/work
-      - ${CONDA_ENVS:-~/envs}:/envs
-    environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-eX4mP13p455w0Rd}
-      - JUPYTER_PASSWORD=${JUPYTER_PASSWORD:-eX4mP13p455w0Rd}
-      - JUPYTER_WEBURL=${JUPYTER_WEBURL:-http://localhost:8888}
-      - JUPYTER_EXTRA_ARGS=${JUPYTER_EXTRA_ARGS:-}
-    env_file: ".env"
-    networks:
-      - lbsn-network
-
-networks:
-  lbsn-network:
-    name: ${NETWORK_NAME:-lbsn-network}
-    external: true
+        VERSION: ${TAG:-latest}
