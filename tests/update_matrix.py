@@ -84,23 +84,34 @@ r_pkgs = get_conda_packages("r_env")
 
 # Map Table 1 (jupyter_env)
 jupyter_map = {
-    "Jupyter Lab": "jupyterlab",
-    "Jupyter Server": "jupyter-server",
-    "notebook": "notebook",
-    "Language Server: jupyterlab-lsp": "jupyterlab-lsp",
-    "Language Server:  pyright": "pyright",
-    "Jupyter Real Time collaboration (RTC)": "jupyter-collaboration",
-    "jupytergis": "jupytergis",
-    "jupyterlab_widgets": "jupyterlab-widgets",
-    "Jupytext": "jupytext",
-    "Jupyterlab-git": "jupyterlab-git",
-    "Spellchecker": "jupyterlab-spellchecker",
-    "nbextensions": "jupyter_contrib_nbextensions",
-    "nbconvert": "nbconvert",
-    "papermill": "papermill"
+    "Jupyter Lab": ["jupyterlab"],
+    "Jupyter Server": ["jupyter_server", "jupyter-server"],
+    "notebook": ["notebook"],
+    "Language Server: jupyterlab-lsp": ["jupyterlab-lsp", "jupyterlab_lsp"],
+    "Language Server:  pyright": ["pyright"],
+    "Jupyter Real Time collaboration (RTC)": [
+        "jupyter-collaboration",
+        "jupyter_collaboration",
+    ],
+    "jupytergis": ["jupytergis"],
+    "jupyterlab_widgets": ["jupyterlab_widgets", "jupyterlab-widgets"],
+    "Jupytext": ["jupytext"],
+    "Jupyterlab-git": ["jupyterlab-git", "jupyterlab_git"],
+    "Spellchecker": ["jupyterlab-spellchecker", "jupyterlab_spellchecker"],
+    "nbextensions": [
+        "jupyter_contrib_nbextensions",
+        "jupyter-contrib-nbextensions",
+        "jupyter_nbextensions_configurator",
+    ],
+    "nbconvert": ["nbconvert"],
+    "papermill": ["papermill"],
 }
+
 for label, pkg in jupyter_map.items():
-    data[label] = jupyter_pkgs.get(pkg, "/")
+  candidates = [pkg] if isinstance(pkg, str) else pkg
+  data[label] = next(
+      (jupyter_pkgs[c] for c in candidates if c in jupyter_pkgs), "/"
+  )
 
 # Map Table 2 (worker_env)
 worker_map = {

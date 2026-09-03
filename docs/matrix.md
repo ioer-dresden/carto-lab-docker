@@ -21,7 +21,7 @@ See the list of Carto-Lab Versions and supported features or package versions.
 | Container OS   | Debian 11      | Debian 12      |                |                |                | Ubuntu 24.04.4 LTS |
 | Conda          | 23.3.1         | 24.7.1         | 24.11.0        | 25.3.1         | 26.5.0         | 26.7.1         |
 | Jupyter Lab    | 3.6.3          | 4.2.5          | 4.3.1          | 4.4.2          | 4.5.7          | 4.5.10         |
-| Jupyter Server | 2.5.0          | 2.14.2         |                | 2.15.0         | 2.18.2         | /              |
+| Jupyter Server | 2.5.0          | 2.14.2         |                | 2.15.0         | 2.18.2         | 2.21.0         |
 | Python (Server) | 3.10.10        | 3.12.5         | 3.12.7         | 3.12.10        | 3.14.5         | 3.14.7         |
 | notebook       | 6.5.3          | 6.5.7          |                |                |                | 7.5.0          |
 | nodejs         | /              |                | 22.11.0        | 22.13.0        | 26.2.0         | 26.8.0-alpha.0.0.0 |
@@ -29,11 +29,11 @@ See the list of Carto-Lab Versions and supported features or package versions.
 | Language Server:  pyright | /              |                | 1.1.389 (x)    | 1.1.400        | 1.1.409        | 1.1.411        |
 | Jupyter Real Time collaboration (RTC) | /              |                | 1.16.4 (o)     | 4.0.2 (x)      | 4.4.0          | 4.4.2          |
 | jupytergis     | /              | /              | /              | /              |                | 0.15.0         |
-| jupyterlab_widgets | 3.0.7          | 3.0.13         | 3.0.13         | 3.0.15         | 3.0.16         | /              |
+| jupyterlab_widgets | 3.0.7          | 3.0.13         | 3.0.13         | 3.0.15         | 3.0.16         | 3.0.17         |
 | Jupytext       | 1.14.5         | 1.16.4         |                | 1.17.1         | 1.19.3         | 1.19.5         |
 | Jupyterlab-git |                | 0.50.1         | 0.50.2         | 0.51.1         | 0.53.0         | 0.54.1         |
 | Spellchecker   | 0.7.3          | 0.8.4          |                |                |                | 0.9.0          |
-| nbextensions   | 0.7.0          |                |                |                |                | /              |
+| nbextensions   | 0.7.0          |                |                |                |                |                |
 | nbconvert      | 7.2.10         | 7.16.4         |                | 7.16.6         | 7.17.1         |                |
 | papermill      | 2.3.4          | 2.6.0          |                |                | 2.7.0          |                |
 
