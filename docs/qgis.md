@@ -3,6 +3,7 @@
 Carto-Lab Docker supports QGIS through a `:qgis` flavor. This image extends the base container by injecting the QGIS desktop engine and the `jupytergis-qgis` bridge.
 
 This allows you to:
+
 1. Open native `.qgz` files directly in the JupyterLab browser UI via JupyterGIS.
 2. Programmatically execute QGIS geoprocessing algorithms inside your Jupyter Notebooks using `import qgis.core`.
 

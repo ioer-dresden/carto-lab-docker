@@ -3,6 +3,7 @@
 The `:r` flavor of Carto-Lab Docker provides a pre-configured environment for spatial data science, statistical computing, and cartographic visualization in R.
 
 Key packages included:
+
 - [caret](https://topepo.github.io/caret/) & [tidymodels](https://www.tidymodels.org/) (Machine Learning)
 - [dplyr](https://dplyr.tidyverse.org/), [stringr](https://stringr.tidyverse.org/) & [tidyverse](https://www.tidyverse.org/) (Data Manipulation)
 - [ggplot2](https://ggplot2.tidyverse.org/), [hexbin](https://r-graph-gallery.com/100-high-density-scatterplot-with-binning.html) & [rcolorbrewer](https://r-graph-gallery.com/38-rcolorbrewers-palettes.html) (Plotting & Theming)
