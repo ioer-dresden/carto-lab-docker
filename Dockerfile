@@ -110,7 +110,7 @@ CMD source "$CONDA_ACTIVATE_PATH" "$JUPYTER_ENV_PATH"; \
     rm -f /tmp/ssh-agent.sock; \
     ssh-agent -a /tmp/ssh-agent.sock; \
     echo "## Configure jupyter lab defaults ##"; \
-    jupyter lab --generate-config; \
+    jupyter lab --generate-config -y; \
     mkdir -p /root/.jupyter/labconfig; \
     echo '{"appName": "Carto-Lab Docker '"$CARTOLAB_VERSION"'"}' > /root/.jupyter/labconfig/page_config.json; \
     echo "c.ServerApp.terminado_settings = {'shell_command': ['/bin/bash']}" >> "$JUPYTER_CONFIG"; \
