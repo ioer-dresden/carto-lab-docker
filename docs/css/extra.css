@@ -194,3 +194,22 @@ details[open] summary {
 details pre {
   margin-bottom: 0 !important;
 }
+
+/* ==========================================================================
+   Responsive & Wrapping Markdown Tables
+   ========================================================================== */
+.rst-content table.docutils,
+.rst-content table {
+  width: 100% !important;
+  table-layout: fixed !important;
+  display: table !important;
+}
+
+.rst-content table td,
+.rst-content table th {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  vertical-align: top;
+  padding: 10px 14px !important;
+}

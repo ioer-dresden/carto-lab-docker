@@ -14,7 +14,7 @@
 
 Carto-Lab Docker is addressing the **Geospatial Dependency Hell**! Spatial data science is notoriously difficult to setup, share, and preserve over time. Unlike general data science that is often plain Python or R, geospatial software depends on a nested hierarchy of compiled C/C++ system libraries: **GDAL, GEOS, and PROJ**. This creates three big challenges in academic spatial research:
 
-1. **"Dependency Hell" and Software Drift:** A minor mismatch between Conda channels or OS-level C-libraries can break projection algorithms, cause geometry calculations to fail, or render an analysis completely unrepeatable six months later.
+1. **"Dependency Hell" and Software Drift:** A minor mismatch between Conda channels or OS-level C-libraries can break projection algorithms, cause geometry calculations to fail, or render an analysis unrepeatable six months later.
 2. **Disconnected GUI GIS and Code:** Researchers are forced to choose between the visual interactivity of desktop GIS (QGIS, ArcGIS) and the programmatic reproducibility of Jupyter notebooks.
 3. **Reproducibility Crisis:** Published papers rarely provide the exact computational environment needed to re-generate their spatial figures and maps.
 
