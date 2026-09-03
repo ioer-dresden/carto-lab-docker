@@ -1,38 +1,46 @@
 #!/usr/bin/env python3
 """
-Extract versions from the Carto-Lab container and update docs/matrix.md automatically.
+Automated Compatibility Matrix Updater for Carto-Lab Docker.
+
 Usage:
-    python tests/update_matrix.py --tag dev
-    python tests/update_matrix.py --tag 1.2.0
+  # 1. Update only Jupyter + Python tables from base image:
+  python tests/update_matrix.py --column dev --target base
+
+  # 2. Update only R table from R flavor image:
+  python tests/update_matrix.py --column dev --target r
+
+  # 3. Or update all tables in one single step:
+  python tests/update_matrix.py --column dev --target all
+
+  # For a specific release (e.g. 1.2.0):
+  python tests/update_matrix.py --column 1.2.0 --base-image v1.2.0 --r-image r_v1.2.0
 """
 
 import argparse
 import json
+import os
 import re
 import subprocess
 from pathlib import Path
 
 MATRIX_FILE = Path("docs/matrix.md")
 
-# Script executed INSIDE the container to get all versions in 1 second
-CONTAINER_INSPECTOR = r"""
+# Script executed inside the container to dump environment packages in JSON
+INSPECTOR_SCRIPT = r"""
 import json, platform, subprocess
-from importlib.metadata import version, PackageNotFoundError
 
-def get_pkg_version(env_name, pkg):
-    # Try importlib metadata first via python in env
+def get_conda_packages(env_name):
     try:
-        cmd = f"/opt/conda/envs/{env_name}/bin/python -c \"from importlib.metadata import version; print(version('{pkg}'))\""
-        res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        res = subprocess.run(f"conda list -n {env_name} --json", shell=True, capture_output=True, text=True)
         if res.returncode == 0 and res.stdout.strip():
-            return res.stdout.strip()
+            return {p["name"].lower(): p["version"] for p in json.loads(res.stdout)}
     except Exception:
         pass
-    return "/"
+    return {}
 
 data = {}
 
-# 1. OS & Core System
+# System OS
 try:
     with open("/etc/os-release") as f:
         for line in f:
@@ -41,7 +49,7 @@ try:
 except Exception:
     data["Container OS"] = "/"
 
-# Conda
+# Conda CLI
 try:
     res = subprocess.run("conda --version", shell=True, capture_output=True, text=True)
     data["Conda"] = res.stdout.strip().split()[-1]
@@ -69,30 +77,16 @@ try:
 except Exception:
     data["nodejs"] = "/"
 
-# GDAL
-try:
-    res = subprocess.run("/opt/conda/envs/worker_env/bin/gdalinfo --version", shell=True, capture_output=True, text=True)
-    m = re.search(r"GDAL\s+([0-9\.]+)", res.stdout)
-    data["GDAL"] = m.group(1) if m else "/"
-except Exception:
-    data["GDAL"] = "/"
+# Package Dictionaries
+jupyter_pkgs = get_conda_packages("jupyter_env")
+worker_pkgs = get_conda_packages("worker_env")
+r_pkgs = get_conda_packages("r_env")
 
-# R version
-try:
-    res = subprocess.run("conda run -n r_env Rscript -e 'cat(R.version.string)'", shell=True, capture_output=True, text=True)
-    m = re.search(r"version\s+([0-9\.]+)", res.stdout)
-    data["R"] = m.group(1) if m else "/"
-    data["R (r-base)"] = data["R"]
-except Exception:
-    data["R"] = "/"
-    data["R (r-base)"] = "/"
-
-# 2. Jupyter Env Packages
+# Map Table 1 (jupyter_env)
 jupyter_map = {
     "Jupyter Lab": "jupyterlab",
     "Jupyter Server": "jupyter-server",
     "notebook": "notebook",
-    "IPython": "ipython",
     "Language Server: jupyterlab-lsp": "jupyterlab-lsp",
     "Language Server:  pyright": "pyright",
     "Jupyter Real Time collaboration (RTC)": "jupyter-collaboration",
@@ -101,16 +95,16 @@ jupyter_map = {
     "Jupytext": "jupytext",
     "Jupyterlab-git": "jupyterlab-git",
     "Spellchecker": "jupyterlab-spellchecker",
-    "nbextensions": "jupyter-contrib-nbextensions",
+    "nbextensions": "jupyter_contrib_nbextensions",
     "nbconvert": "nbconvert",
     "papermill": "papermill"
 }
-
 for label, pkg in jupyter_map.items():
-    data[label] = get_pkg_version("jupyter_env", pkg)
+    data[label] = jupyter_pkgs.get(pkg, "/")
 
-# 3. Worker Env Packages
+# Map Table 2 (worker_env)
 worker_map = {
+    "IPython": "ipython",
     "geopandas": "geopandas",
     "ipywidgets": "ipywidgets",
     "matplotlib": "matplotlib",
@@ -123,15 +117,19 @@ worker_map = {
     "Bokeh": "bokeh",
     "Rasterio": "rasterio",
     "rioxarray": "rioxarray",
-    "Mapnik": "mapnik"
+    # Checks libgdal-core first (lean setup), then falls back to libgdal or gdal
+    "GDAL": ["libgdal-core", "libgdal", "gdal"],
+    "Mapnik": "mapnik",
 }
 
 for label, pkg in worker_map.items():
-    data[label] = get_pkg_version("worker_env", pkg)
+  candidates = [pkg] if isinstance(pkg, str) else pkg
+  data[label] = next(
+      (worker_pkgs[c] for c in candidates if c in worker_pkgs), "/"
+  )
 
-# 4. R Packages (via conda list in r_env if present)
+# Map Table 3 (r_env)
 r_map = {
-    "R": "r-base",
     "R (r-base)": "r-base",
     "r-caret": "r-caret",
     "r-crayon": "r-crayon",
@@ -165,30 +163,20 @@ r_map = {
     "r-terra": "r-terra",
     "r-tidymodels": "r-tidymodels",
     "r-tidyverse": "r-tidyverse",
-    "unixodbc": "unixodbc",
+    "unixodbc": "unixodbc"
 }
-
-try:
-  res = subprocess.run(
-      "conda list -n r_env --json",
-      shell=True,
-      capture_output=True,
-      text=True,
-  )
-  if res.returncode == 0 and res.stdout.strip():
-    pkgs = {p["name"]: p["version"] for p in json.loads(res.stdout)}
-    for table_label, conda_pkg_name in r_map.items():
-      data[table_label] = pkgs.get(conda_pkg_name, "/")
-except Exception:
-  for table_label in r_map:
-    data[table_label] = "/"
+for label, pkg in r_map.items():
+    data[label] = r_pkgs.get(pkg, "/")
 
 print(json.dumps(data))
 """
 
 
-def extract_versions_from_docker():
-    print("Extracting package versions from running container...")
+def extract_versions(image_tag):
+    print(f"--> Inspecting container image '{image_tag}'...")
+    env = os.environ.copy()
+    env["TAG"] = image_tag
+
     cmd = [
         "docker",
         "compose",
@@ -198,113 +186,166 @@ def extract_versions_from_docker():
         "jupyterlab",
         "python",
         "-c",
-        CONTAINER_INSPECTOR,
+        INSPECTOR_SCRIPT,
     ]
-    res = subprocess.run(cmd, capture_output=True, text=True)
+    res = subprocess.run(cmd, env=env, capture_output=True, text=True)
     if res.returncode != 0:
-        print(f"Error extracting versions: {res.stderr}")
+        print(f"Error inspecting image '{image_tag}':\n{res.stderr}")
         exit(1)
 
-    # Find the JSON output block
-    output = res.stdout.strip().split("\n")[-1]
-    return json.loads(output)
+    # Extract JSON line from output
+    for line in reversed(res.stdout.strip().split("\n")):
+        if line.startswith("{") and line.endswith("}"):
+            return json.loads(line)
+    print("Failed to parse JSON output from container.")
+    exit(1)
 
 
 def get_last_known_version(cols, current_idx):
-  """Scans backwards to find the most recent non-empty version in the row."""
-  for i in range(current_idx - 1, 0, -1):
-    val = cols[i].strip()
-    if val:
-      return val
-  return ""
+    for i in range(current_idx - 1, 0, -1):
+        val = cols[i].strip()
+        if val:
+            return val
+    return ""
 
 
-def update_markdown_table(content, tag_name, versions):
-  """Parses markdown tables, adds/updates the tag column and only writes changes."""
-  lines = content.split("\n")
-  new_lines = []
-  in_table = False
-  header_col_index = None
+def update_table(content, target_section_header, column_name, versions):
+    lines = content.split("\n")
+    new_lines = []
+    in_target_section = False
+    in_table = False
+    header_col_index = None
 
-  for line in lines:
-    if line.strip().startswith("|") and not in_table:
-      in_table = True
-      cols = [c.strip() for c in line.split("|")[1:-1]]
+    for line in lines:
+        # Check section header
+        if line.strip().startswith("## "):
+            in_target_section = line.strip().startswith(target_section_header)
+            in_table = False
+            header_col_index = None
 
-      if tag_name in cols:
-        header_col_index = cols.index(tag_name)
+        if in_target_section:
+            # Table Header
+            if line.strip().startswith("|") and not in_table:
+                in_table = True
+                cols = [c.strip() for c in line.split("|")[1:-1]]
+                if column_name in cols:
+                    header_col_index = cols.index(column_name)
+                    new_lines.append(line)
+                else:
+                    header_col_index = len(cols)
+                    cols.append(column_name)
+                    new_lines.append(
+                        "| " + " | ".join(f"{c:<14}" for c in cols) + " |"
+                    )
+                continue
+
+            # Table Separator
+            if in_table and line.strip().startswith("| ---"):
+                cols = [c.strip() for c in line.split("|")[1:-1]]
+                while len(cols) < header_col_index + 1:
+                    cols.append("-" * 14)
+                new_lines.append(
+                    "| " + " | ".join(f"{c:<14}" for c in cols) + " |"
+                )
+                continue
+
+            # Table Data Rows
+            if in_table and line.strip().startswith("|"):
+                cols = [c.strip() for c in line.split("|")[1:-1]]
+                item_key = cols[0].strip()
+
+                if item_key in versions:
+                    extracted = versions[item_key]
+                    last_val = get_last_known_version(cols, header_col_index)
+
+                    if extracted and extracted != "/":
+                        cell_val = "" if extracted == last_val else extracted
+                    elif extracted == "/":
+                        cell_val = "" if last_val == "/" else "/"
+                    else:
+                        cell_val = ""
+
+                    if header_col_index < len(cols):
+                        cols[header_col_index] = cell_val
+                    else:
+                        cols.append(cell_val)
+
+                    new_lines.append(
+                        "| " + " | ".join(f"{c:<14}" for c in cols) + " |"
+                    )
+                    continue
+
+            if in_table and not line.strip().startswith("|"):
+                in_table = False
+                header_col_index = None
+
         new_lines.append(line)
-      else:
-        header_col_index = len(cols)
-        cols.append(tag_name)
-        new_lines.append("| " + " | ".join(f"{c:<14}" for c in cols) + " |")
-      continue
 
-    if in_table and line.strip().startswith("| ---"):
-      cols = [c.strip() for c in line.split("|")[1:-1]]
-      while len(cols) < header_col_index + 1:
-        cols.append("-" * 14)
-      new_lines.append("| " + " | ".join(f"{c:<14}" for c in cols) + " |")
-      continue
-
-    if in_table and line.strip().startswith("|"):
-      cols = [c.strip() for c in line.split("|")[1:-1]]
-      item_key = cols[0].strip()
-
-      extracted_val = versions.get(item_key, "")
-      last_val = get_last_known_version(cols, header_col_index)
-
-      # Determine if cell should be populated or left blank
-      if extracted_val and extracted_val != "/":
-        # If version matches last known version, leave blank
-        if extracted_val == last_val:
-          cell_val = ""
-        else:
-          cell_val = extracted_val
-      elif extracted_val == "/":
-        cell_val = "" if last_val == "/" else "/"
-      else:
-        cell_val = ""
-
-      # Update or append cell
-      if header_col_index < len(cols):
-        cols[header_col_index] = cell_val
-      else:
-        cols.append(cell_val)
-
-      new_lines.append("| " + " | ".join(f"{c:<14}" for c in cols) + " |")
-      continue
-
-    if in_table and not line.strip().startswith("|"):
-      in_table = False
-      header_col_index = None
-
-    new_lines.append(line)
-
-  return "\n".join(new_lines)
+    return "\n".join(new_lines)
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Auto-update docs/matrix.md from container versions."
+        description="Update docs/matrix.md from container images."
     )
     parser.add_argument(
-        "--tag",
+        "--column",
         default="dev",
-        help="Version tag/column name to update (default: dev)",
+        help="Column name in the markdown table (e.g. 'dev', '1.2.0')",
+    )
+    parser.add_argument(
+        "--target",
+        choices=["all", "base", "r"],
+        default="all",
+        help="Which tables to update: 'base' (Table 1 & 2), 'r' (Table 3), or 'all'",
+    )
+    parser.add_argument(
+        "--base-image",
+        default=None,
+        help="Docker image tag for base container (defaults to --column)",
+    )
+    parser.add_argument(
+        "--r-image",
+        default=None,
+        help="Docker image tag for R container (defaults to r_<column>)",
     )
     args = parser.parse_args()
 
-    versions = extract_versions_from_docker()
+    base_tag = args.base_image or args.column
+    r_tag = args.r_image or (
+        f"r_{args.column}"
+        if not args.column.startswith("r_")
+        else args.column
+    )
 
     if not MATRIX_FILE.exists():
-        print(f"File {MATRIX_FILE} not found!")
+        print(f"Error: {MATRIX_FILE} not found.")
         exit(1)
 
     content = MATRIX_FILE.read_text()
-    updated = update_markdown_table(content, args.tag, versions)
-    MATRIX_FILE.write_text(updated)
-    print(f"Successfully updated '{args.tag}' column in {MATRIX_FILE}!")
+
+    # 1. Update Base Tables (jupyter_env + worker_env)
+    if args.target in ("all", "base"):
+        base_versions = extract_versions(base_tag)
+        content = update_table(
+            content,
+            "## Server and JupyterLab UI Environment",
+            args.column,
+            base_versions,
+        )
+        content = update_table(
+            content, "## Python-Packages", args.column, base_versions
+        )
+        print("✓ Updated Table 1 (jupyter_env) and Table 2 (worker_env).")
+
+    # 2. Update R Table (r_env)
+    if args.target in ("all", "r"):
+        r_versions = extract_versions(r_tag)
+        content = update_table(content, "## R-Packages", args.column, r_versions)
+        print("✓ Updated Table 3 (r_env).")
+
+    MATRIX_FILE.write_text(content)
+    print(f"🎉 Successfully updated column '{args.column}' in {MATRIX_FILE}!")
 
 
 if __name__ == "__main__":
