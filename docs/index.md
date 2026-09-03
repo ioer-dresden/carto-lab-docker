@@ -12,25 +12,25 @@
 
 ## Why Carto-Lab Docker?
 
-Setting up and maintaining environments for spatial data science is a major hurdle. Managing dependencies for packages like GeoPandas, Rasterio, and QGIS can be complex and time-consuming. Carto-Lab Docker solves this by providing a ready-to-use solution that just works.
+Carto-Lab Docker is addressing the **Geospatial Dependency Hell**! Spatial data science is notoriously difficult to setup, share, and preserve over time. Unlike general data science that is often plain Python or R, geospatial software depends on a nested hierarchy of compiled C/C++ system libraries: **GDAL, GEOS, and PROJ**. This creates three big challenges in academic spatial research:
 
-It is aimed at researchers, students, and practitioners who value transparency, reproducibility, and reusability in their scientific workflows.
+1. **"Dependency Hell" and Software Drift:** A minor mismatch between Conda channels or OS-level C-libraries can break projection algorithms, cause geometry calculations to fail, or render an analysis completely unrepeatable six months later.
+2. **Disconnected GUI GIS and Code:** Researchers are forced to choose between the visual interactivity of desktop GIS (QGIS, ArcGIS) and the programmatic reproducibility of Jupyter notebooks.
+3. **Reproducibility Crisis:** Published papers rarely provide the exact computational environment needed to re-generate their spatial figures and maps.
 
 -----
 
-## Key Features
+## Carto-Lab's Solution
 
-**Reproducibility by Design**  
-Every Carto-Lab Docker version is tagged and archived. You can run code from years ago in its original environment, ensuring true long-term reproducibility for your publications and projects. See the [Example Notebooks](./notebooks.md) section for a list of papers that have been published with Carto-Lab Docker.
+Carto-Lab Docker is an **immutable, complete spatial laboratory**:
 
-**Real-Time Collaboration**  
-Work together with your team on code, notebooks, and spatial data simultaneously using our built-in [Live Collaboration](./collaboration.md) support. 
+| What Researchers Typically Face | How Carto-Lab Docker Solves It |
+| :--- | :--- |
+| **Local Conda / Pip Installs**<br>Fragile, prone to solver conflicts with GDAL/PROJ, difficult to transfer across Windows/Mac/Linux. | **Guaranteed Computational Snapshot**<br>The entire OS, C-libraries, and Python/R environments are frozen into tagged, permanent Docker releases. |
+| **Desktop GIS (QGIS / ArcGIS)**<br>Great visual tools, but manual point-and-click workflows are impossible to track, audit, or reproduce in papers. | **Integrated Headless & Web GIS**<br>Execute native QGIS/GRASS algorithms via code, inspect `.qgz` projects in the browser, and keep every analytical step scripted. |
+| **Institutional Cloud / JupyterHub**<br>Often locked behind complex IT bureaucracy, expensive cloud subscriptions, or strict data egress limits. | **Self-Contained & Deployable Anywhere**<br>Runs with zero bureaucracy: 3 commands on a personal laptop, or scaled across a lab server via rootless Docker. Zero Startup Time, & personalized! |
 
-**Integrated Web GIS**  
-Explore, style, and edit spatial data natively inside your JupyterLab browser interface. Carto-Lab Docker includes [JupyterGIS](./jupytergis.md), a full web-based GIS suite built for the Jupyter ecosystem.
-
-**Extensible and Open**  
-The entire project is open source. You can easily add your own packages or use our specialized container "flavors" to inject foundational geospatial engines into your workflow (GDAL, Grass, QGIS). Community contributions are welcome on [GitHub](https://github.com/ioer-dresden/carto-lab-docker).
+Ready to try it? Jump to our **[Quick-Start Guide](./quickstart.md)** to launch your first session in minutes.
 
 -----
 

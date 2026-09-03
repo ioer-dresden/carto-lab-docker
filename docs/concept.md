@@ -2,7 +2,7 @@
 
 On the surface, Carto-Lab Docker (CLD) is a tool that provides a JupyterLab environment. However, its true purpose is to implement a holistic **Research Data Management (RDM)** workflow designed specifically for the challenges of modern spatial data science. This page explains the "why" and "how" behind its design.
 
-The core problem is that spatial science research is notoriously difficult to reproduce. It relies on complex software with fragile dependencies (the infamous "dependency hell" of GDAL, QGIS, etc.), making it a significant hurdle to share, reuse, and verify research outputs in the spatial sciences. CLD is our solution: an integrated system that embeds RDM best practices directly into the research lifecycle.
+The core problem is that spatial science research is notoriously difficult to reproduce. It relies on complex software with fragile dependencies (the infamous "dependency hell" of **C-libraries, GDAL, PROJ, GEOS etc.**), making it a significant hurdle to share, reuse, and verify research outputs in the spatial sciences. CLD is our solution: an integrated system that embeds RDM best practices directly into the research lifecycle.
 
 ## Our Approach: A Three-Pillar RDM Infrastructure
 
@@ -27,7 +27,7 @@ Read the documentation on package setup [here](environments.md).
 
 **The Challenge:** Scientific research is rarely a solo effort. Teams need effective ways to work together on code and narrative, and onboarding new members can be a time-consuming technical challenge.
 
-**The CLD Solution:** CLD is built for team science. It includes features like live, real-time collaboration within a single Jupyter notebook, allowing multiple users to code and write simultaneously. For teams at IOER, we provide dedicated instances that eliminate setup for new members and get a pre-configured environment with Git access. This significantly reducing the learning curve and allows them to contribute from day one.
+**The CLD Solution:** CLD is built for team science. It includes features like live, real-time collaboration within a single Jupyter notebook, allowing multiple users to code and write simultaneously. For teams at IOER, we provide dedicated instances that eliminate setup for new members and get a pre-configured environment with Git access. This significantly **reduces** the learning curve and allows them to contribute from day one.
 
 Read the documentation on collaboration [here](collaboration.md).
 

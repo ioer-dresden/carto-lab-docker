@@ -1,77 +1,55 @@
 # Quick-Start
 
-Welcome to Carto-Lab Docker! This guide will get you running.
-
-Carto-Lab Docker is a containerized application. This means the software itself runs in a self-contained environment, which can be accessed in two main ways. Please read the descriptions below to find the path that's right for you.
+Welcome to Carto-Lab Docker! Choose the path that matches your situation:
 
 ---
 
-## Path 1: For Researchers, Students, and End-Users
+## Path 1: Using a Hosted Instance (Institutional Web Access)
 
-This is the most common path. You should follow these instructions if your goal is to **use** Carto-Lab Docker for your research, coursework, or analysis.
+Follow this path if your institution, instructor, or lab has already deployed an instance for you.
 
-#### Accessing Your Instance
+**Accessing Your Instance**
 
-**Prerequisites:** Your institution, instructor, or a colleague has already set up a Carto-Lab Docker instance for you and provided you with:
+You should have been provided with:
+1. A web address (URL), e.g. `https://cartolab-xyz.my-institution.de`
+2. A password or login token
 
-1.  A web address (URL), like `https://my-cartolab-xyz.my-university.de`
-2.  A password or login instructions
+Simply open the URL in your browser and log in. You are in a fully configured spatial lab with no local installation required.
 
-Simply open the URL in your browser and log in. That's it! You are now in a fully configured environment.
-
-**Next Step:** Proceed to our **[JupyterLab Guide](/jupyter/)** to learn how to navigate the interface and start your work.
-
-#### What if I don't have a URL?
-
-If you don't have a provided instance but want to use Carto-Lab Docker, please **do not proceed with the technical installation yourself** unless you are comfortable with system administration.
-
-Instead, contact your local IT support, administrator, or a tech-savvy colleague. You can send them a link to this page and ask them to follow the instructions in "Path 2" to set up an instance for you. This is how Carto-Lab Docker is designed to be used in a team environment—by empowering technical staff to support researchers.
+**Next Step:** Proceed to our **[JupyterLab Guide](/jupyter/)** to learn how to navigate the tools and start your work.
 
 ---
 
-## Path 2: For Administrators and Self-Hosters
+## Path 2: Running on Your Own Computer (Local Laptop or Server)
 
-Follow this path if your goal is to **install and manage** a new Carto-Lab Docker instance on a local computer or a server for yourself or your team.
+Follow this path if you want to run Carto-Lab Docker directly on your laptop, workstation, or virtual machine.
 
-**Prerequisites:** You must have [Docker](https://docs.docker.com/get-docker/) and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed.
+**Prerequisites:** [Docker Desktop / Engine](https://docs.docker.com/get-docker/) and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). *(On Windows, we strongly recommend using WSL2).*
 
-**Recommended Environment:** A Linux-based system. For Windows users, we strongly recommend using the **Windows Subsystem for Linux (WSL)** for optimal performance and compatibility.
+**1. Clone & Enter Repository**
 
-!!! note
-    This is the quick start guide for those who are familiar with docker. For more detailed step by step instructions, see [Step by Step: Running the Container](docker.md#step-by-step-running-the-container).
-
-#### 1. Clone the Repository
-
-Open your terminal and clone the project repository from GitHub:
 ```bash
 git clone https://github.com/ioer-dresden/carto-lab-docker.git
-```
-
-#### 2. Configure Your Instance
-
-Navigate into the new directory. Create a configuration file (`.env`) from the example and set a password.
-```bash
 cd carto-lab-docker
-cp .env.example .env
-# Now, open the .env file in a text editor and customize your instance
 ```
 
-#### 3. Launch the Container
+**2. Create Configuration**
 
-Create the default netork. This only needs to be done once:
+Copy the default settings:
+```bash
+cp .env.example .env
+```
+*(Optional: Open `.env` to set your custom `JUPYTER_PASSWORD` or leave default `eX4mP13p455w0Rd`).*
+
+**3. Launch**
+Create the internal network (one-time step) and start the container:
 ```bash
 docker network create lbsn-network
-```
-
-Start the Carto-Lab Docker container in the background:
-```bash
 docker compose up -d
 ```
 
-Docker will pull the latest image and start the JupyterLab server.
+**4. Open JupyterLab**
 
-#### 4. Access JupyterLab
+Open your browser at **[http://localhost:8888](http://localhost:8888)**. Your local `~/notebooks` directory is automatically mounted and ready.
 
-The instance is now running. It can be accessed on the host machine at **[http://localhost:8888](http://localhost:8888)**.
-
-**Next Step:** For details on advanced configuration, updates, and user management, see the **[Docker Container Setup Guide](/docker/)**.
+**Team Hosting?** If you are an IT administrator looking to deploy multi-user instances with rootless security across a server, see our **[Ansible Deployment Guide](ansible.md)**.

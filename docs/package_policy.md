@@ -12,7 +12,7 @@ Before requesting a new package for the default `worker_env`, please ensure it m
 
 1.  **Relevance:** The package must have a primary and broad application for spatial data science, cartography, or general data manipulation that benefits a majority of users.
 2.  **Maintenance:** The package must be actively maintained by its developers, with a track record of timely updates. We cannot include unmaintained or archived packages.
-3.  **Packaging:** The package must be available on the `conda-forge` channel. This is essential for our dependency resolution and stability management. Packages that are only available via `pip` are generally not considered for the base environment due to the risk of dependency conflicts. For important packages, we may add an exclusion to this rule.
+3.  **Packaging:** The package must be available on the `conda-forge` channel. This is essential for our dependency resolution and stability management. Packages that are only available via `pip` are generally not considered for the base environment due to the risk of dependency conflicts. For important packages, we may make an exception to this rule.
 4.  **Stability:** The package must not introduce known conflicts with the existing core stack of libraries (e.g., GeoPandas, Rasterio, HoloViz).
 5.  **License:** The package must have an OSI-approved open-source license that is compatible with the licenses of other packages in the environment.
 
