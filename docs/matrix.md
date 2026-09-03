@@ -116,9 +116,9 @@ See the list of Carto-Lab Versions and supported features or package versions.
 <details>
 <summary>Automated with <code>tests/update_matrix.py</code></summary>
 
-The matrix update script automatically runs temporary inspection containers using `docker compose run` and writes version bumps directly into this document. No manual `.env` edits are required.
+The matrix update script automatically runs temporary inspection containers using `docker compose run` and writes version bumps directly into this document. No manual `.env` edits are required.<br>
 
-### 1. Update the `dev` column (development)
+1. Update the `dev` column (development)
 
 Update individual tables sequentially:
 ```bash
@@ -134,9 +134,7 @@ Or update all tables in one step:
 python tests/update_matrix.py --column dev --target all
 ```
 
----
-
-### 2. Add a new column for a release (e.g. `1.2.0`)
+2. Add a new column for a release (e.g. `1.2.0`)
 
 ```bash
 # Updates base tables from :v1.2.0 and R table from :r_v1.2.0
