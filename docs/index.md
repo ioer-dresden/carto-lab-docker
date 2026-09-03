@@ -30,8 +30,6 @@ Carto-Lab Docker is an **immutable, complete spatial laboratory**:
 | **Desktop GIS (QGIS / ArcGIS)**<br>Great visual tools, but manual point-and-click workflows are impossible to track, audit, or reproduce in papers. | **Integrated Headless & Web GIS**<br>Execute native QGIS/GRASS algorithms via code, inspect `.qgz` projects in the browser, and keep every analytical step scripted. |
 | **Institutional Cloud / JupyterHub**<br>Often locked behind complex IT bureaucracy, expensive cloud subscriptions, or strict data egress limits. | **Self-Contained & Deployable Anywhere**<br>Runs with zero bureaucracy: 3 commands on a personal laptop, or scaled across a lab server via rootless Docker. Zero Startup Time, & personalized! |
 
-Ready to try it? Jump to our **[Quick-Start Guide](./quickstart.md)** to launch your first session in minutes.
-
 -----
 
 ## Get Started
