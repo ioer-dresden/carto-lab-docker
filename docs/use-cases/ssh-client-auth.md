@@ -119,8 +119,11 @@ How you register the key depends on how the container is being used:
 If this Carto-Lab environment is dedicated to a specific user, the key should be tied to their personal GitLab account. This ensures all CI/CD pipelines and pushes are correctly attributed to them.
 
 1. Send the copied public key to the user.
-2. Have the user log into GitLab and navigate to **Profile/Preferences** → **Access → SSH Keys** (or go directly to `/-/user_settings/ssh_keys`).
+2. Have the user log into GitLab and navigate to **Profile/Edit Profile** → **Access → SSH Keys** (or go directly to `/-/user_settings/ssh_keys`).
 3. The user pastes the key into the "Key" field and clicks **Add new key**.
+
+![SSH Keys in Gitlab](../images/ssh.webp)  
+_Fig.: Multiple SSH Keys added in Gitlab._
 
 ### Scenario B: Shared Bot / Automation Workspace
 
@@ -149,8 +152,8 @@ If you followed the guide and created a **password-less** key, you are completel
     
     Carto-Lab runs a global background SSH agent. You only need to unlock the key **once per container restart**. Open a single terminal in JupyterLab and run:
     
-    ```bash
-    ssh-add -t 28800 /root/.ssh/id_ed25519
-    ```
+
+        ssh-add -t 28800 /root/.ssh/id_ed25519
+
     
     Enter your passphrase. Because the agent is shared globally across the container, the visual Git extension and all other terminal tabs will instantly have access to the unlocked key.
