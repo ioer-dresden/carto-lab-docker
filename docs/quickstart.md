@@ -11,6 +11,7 @@ Follow this path if your institution, instructor, or lab has already deployed an
 **Accessing Your Instance**
 
 You should have been provided with:
+
 1. A web address (URL), e.g. `https://cartolab-xyz.my-institution.de`
 2. A password or login token
 
