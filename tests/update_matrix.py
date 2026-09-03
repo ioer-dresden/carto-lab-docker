@@ -210,60 +210,78 @@ def extract_versions_from_docker():
     return json.loads(output)
 
 
+def get_last_known_version(cols, current_idx):
+  """Scans backwards to find the most recent non-empty version in the row."""
+  for i in range(current_idx - 1, 0, -1):
+    val = cols[i].strip()
+    if val:
+      return val
+  return ""
+
+
 def update_markdown_table(content, tag_name, versions):
-    """Parses markdown tables, adds/updates the tag column."""
-    lines = content.split("\n")
-    new_lines = []
-    in_table = False
-    header_col_index = None
+  """Parses markdown tables, adds/updates the tag column and only writes changes."""
+  lines = content.split("\n")
+  new_lines = []
+  in_table = False
+  header_col_index = None
 
-    for line in lines:
-        if line.strip().startswith("|") and not in_table:
-            in_table = True
-            cols = [c.strip() for c in line.split("|")[1:-1]]
+  for line in lines:
+    if line.strip().startswith("|") and not in_table:
+      in_table = True
+      cols = [c.strip() for c in line.split("|")[1:-1]]
 
-            # Check if tag column already exists in table
-            if tag_name in cols:
-                header_col_index = cols.index(tag_name)
-                new_lines.append(line)
-            else:
-                # Add new tag column to header
-                header_col_index = len(cols)
-                cols.append(tag_name)
-                new_lines.append(
-                    "| " + " | ".join(f"{c:<12}" for c in cols) + " |"
-                )
-            continue
-
-        if in_table and line.strip().startswith("| ---"):
-            cols = [c.strip() for c in line.split("|")[1:-1]]
-            if len(cols) < header_col_index + 1:
-                cols.append("-" * 12)
-            new_lines.append("| " + " | ".join(f"{c:<12}" for c in cols) + " |")
-            continue
-
-        if in_table and line.strip().startswith("|"):
-            cols = [c.strip() for c in line.split("|")[1:-1]]
-            item_key = cols[0].strip()
-
-            val = versions.get(item_key, "")
-
-            # Update existing column or append
-            if header_col_index < len(cols):
-                cols[header_col_index] = val if val else cols[header_col_index]
-            else:
-                cols.append(val if val else "/")
-
-            new_lines.append("| " + " | ".join(f"{c:<12}" for c in cols) + " |")
-            continue
-
-        if in_table and not line.strip().startswith("|"):
-            in_table = False
-            header_col_index = None
-
+      if tag_name in cols:
+        header_col_index = cols.index(tag_name)
         new_lines.append(line)
+      else:
+        header_col_index = len(cols)
+        cols.append(tag_name)
+        new_lines.append("| " + " | ".join(f"{c:<14}" for c in cols) + " |")
+      continue
 
-    return "\n".join(new_lines)
+    if in_table and line.strip().startswith("| ---"):
+      cols = [c.strip() for c in line.split("|")[1:-1]]
+      while len(cols) < header_col_index + 1:
+        cols.append("-" * 14)
+      new_lines.append("| " + " | ".join(f"{c:<14}" for c in cols) + " |")
+      continue
+
+    if in_table and line.strip().startswith("|"):
+      cols = [c.strip() for c in line.split("|")[1:-1]]
+      item_key = cols[0].strip()
+
+      extracted_val = versions.get(item_key, "")
+      last_val = get_last_known_version(cols, header_col_index)
+
+      # Determine if cell should be populated or left blank
+      if extracted_val and extracted_val != "/":
+        # If version matches last known version, leave blank
+        if extracted_val == last_val:
+          cell_val = ""
+        else:
+          cell_val = extracted_val
+      elif extracted_val == "/":
+        cell_val = "" if last_val == "/" else "/"
+      else:
+        cell_val = ""
+
+      # Update or append cell
+      if header_col_index < len(cols):
+        cols[header_col_index] = cell_val
+      else:
+        cols.append(cell_val)
+
+      new_lines.append("| " + " | ".join(f"{c:<14}" for c in cols) + " |")
+      continue
+
+    if in_table and not line.strip().startswith("|"):
+      in_table = False
+      header_col_index = None
+
+    new_lines.append(line)
+
+  return "\n".join(new_lines)
 
 
 def main():
