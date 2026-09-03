@@ -18,7 +18,9 @@ docker build .
 or use the compose equivalent:
 
 ```bash
-BUILDKIT_PROGRESS=plain docker compose -f docker-compose.yml -f docker-compose.build.yml build
+BUILDKIT_PROGRESS=plain \
+    docker compose -f docker-compose.yml \
+    -f docker-compose.build.yml build
 ```
 
 Test with:
