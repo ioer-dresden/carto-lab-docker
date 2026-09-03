@@ -54,34 +54,40 @@
 }
 
 /* ==========================================================================
-   Multi-line Code Blocks (<pre><code>) Reset & Fix
+   Multi-line Code Blocks (<pre><code>) Styling
    ========================================================================== */
 .rst-content pre,
 pre {
   position: relative;
+  background-color: #f8f9fa !important;
+  border: 1px solid #e1e4e5 !important;
+  border-radius: 4px;
+  padding: 12px 14px !important;
+  margin: 14px 0 !important;
+  line-height: 1.45;
+  font-size: 13px;
   white-space: pre !important;
   overflow-x: auto;
-  border-radius: 4px;
 }
 
 .rst-content pre code,
 pre code {
-  color: inherit !important;
+  color: #2c3e50 !important;
   background-color: transparent !important;
   border: none !important;
   padding: 0 !important;
-  font-size: 85% !important;
+  font-size: inherit !important;
   white-space: pre !important;
   box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
-/* Code blocks inside admonitions */
+/* Code blocks inside admonitions (gives clean contrast against colored body) */
 .rst-content .admonition pre,
 .admonition pre {
-  background-color: #f5f5f5 !important;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  margin: 10px 0;
-  padding: 12px;
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  margin: 12px 0 !important;
 }
 
 /* ==========================================================================
