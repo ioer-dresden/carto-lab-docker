@@ -116,7 +116,7 @@ See the list of Carto-Lab Versions and supported features or package versions.
 <details>
 <summary>Automated with <code>tests/update_matrix.py</code></summary>
 
-The matrix update script automatically runs temporary inspection containers using `docker compose run` and writes version bumps directly into this document. No manual `.env` edits are required.<br>
+The matrix update script automatically runs temporary inspection containers using `docker compose run` and writes version bumps directly into this document. No manual `.env` edits are required.<br><br>
 
 1. Update the `dev` column (development)
 
