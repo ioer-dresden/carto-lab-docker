@@ -86,7 +86,7 @@ You can now open `notebooks/notebook.ipynb` in the Carto-Lab interface and begin
 
 !!! note "Keeping Templates Updated"
     To receive downstream updates from the base template in the future, you can use `cruft` instead of `cookieninja`:
-    ```bash
-    cruft create git@gitlab.hrz.tu-chemnitz.de:ioer/common/jupyter-base-template.git
-    ```
+
+        cruft create git@gitlab.hrz.tu-chemnitz.de:ioer/common/jupyter-base-template.git
+
     Later, run `cruft update` inside your project folder to apply upstream changes.

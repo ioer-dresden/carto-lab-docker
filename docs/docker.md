@@ -101,22 +101,24 @@ TAG=v1.1.0
 Or, use the bleeding-edge dev version for testing:
 ```bash
 TAG=dev
+# TAG=r_dev
 ```
+
+The tag `dev` stands for the baseline image (only Python), `r_dev` for the R flavor (Python+R). Note: We do not publish `dev`-images for the other flavors.
 
 !!! tip "Switching Flavors with Layered Overlays (`COMPOSE_FILE`)"
     To run an alternate flavor (e.g. QGIS, R, Mapnik, or GRASS), chain the base compose file with the flavor overlay in your `.env`:
 
-    ```bash
-    COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml
-    COMPOSE_PATH_SEPARATOR=:
-    ```
+        COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml
+        COMPOSE_PATH_SEPARATOR=:
+
+    These flavors will require locally building the images with `docker compose build`.
 
     If you are running in an environment managed by Ansible (or using local `docker-compose.override.yml` files for custom volumes or monitoring), append the override file as well:
 
-    ```bash
-    COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml:docker-compose.override.yml
-    COMPOSE_PATH_SEPARATOR=:
-    ```
+        COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml:docker-compose.override.yml
+        COMPOSE_PATH_SEPARATOR=:
+
 
 !!! danger "A Note on Build Stability"
     We aim to ensure the compatibility of all included geo-packages. However, upstream changes can sometimes cause build issues in our latest `dev` builds. For stable, production-ready work, **always use a specific versioned tag** from our registry.

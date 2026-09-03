@@ -129,7 +129,7 @@ After running this, refresh your browser (<kbd>F5</kbd>) and the new "qwikidata"
 !!! warning "Reproducibility is Your Responsibility"
     This method provides persistence, but it breaks the perfect reproducibility guarantee of the base Carto-Lab Docker image. You are now responsible for documenting and sharing your custom environment. For Conda, export your environment with `conda env export`:
     
-    `conda env export --prefix /envs/my_custom_env > my_custom_env.yml`
+        conda env export --prefix /envs/my_custom_env > my_custom_env.yml
 
     For `venv`, activate the environment from a terminal and generate a `requirements.txt` file (`pip freeze > requirements.txt`) and commit it to Git.
 

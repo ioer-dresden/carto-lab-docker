@@ -81,10 +81,10 @@ docker compose -f docker-compose.yml -f docker-compose.qgis.yml build \
 
 !!! tip
     As suggested in the above, add the overlay to your `.env` file so you don't need to type `-f` every time:
-    ```bash
-    COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml
-    COMPOSE_PATH_SEPARATOR=:
-    ```
+
+        COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml
+        COMPOSE_PATH_SEPARATOR=:
+
 
 See [the developer section](developers.md#manually-building-and-distributing-flavors) for more information.
 
