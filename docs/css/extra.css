@@ -1,3 +1,6 @@
+/* ==========================================================================
+   Theme Brand Header & Navigation Colors
+   ========================================================================== */
 .wy-side-nav-search {
   background: #0970B9;
 }
@@ -54,10 +57,12 @@
 }
 
 /* ==========================================================================
-   Multi-line Code Blocks (<pre><code>) Styling
+   Multi-line Code Blocks (<pre><code>) Styling (Consistent Gray)
    ========================================================================== */
 .rst-content pre,
-pre {
+pre,
+.rst-content .admonition pre,
+.admonition pre {
   position: relative;
   background-color: #f8f9fa !important;
   border: 1px solid #e1e4e5 !important;
@@ -71,7 +76,9 @@ pre {
 }
 
 .rst-content pre code,
-pre code {
+pre code,
+.rst-content .admonition pre code,
+.admonition pre code {
   color: #2c3e50 !important;
   background-color: transparent !important;
   border: none !important;
@@ -82,21 +89,9 @@ pre code {
   border-radius: 0 !important;
 }
 
-/* Code blocks inside admonitions (gives clean contrast against colored body) */
-.rst-content .admonition pre,
-.admonition pre {
-  background-color: #ffffff !important;
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
-  margin: 12px 0 !important;
-}
-
 /* ==========================================================================
-   Code Blocks & Clipboard Copy Button
+   Clipboard Copy Button (100% Transparent, Seamless Icon)
    ========================================================================== */
-pre {
-  position: relative;
-}
-
 .clipboard {
   position: absolute;
   top: 0.5rem;
@@ -105,14 +100,18 @@ pre {
   width: auto;
   height: auto;
   z-index: 10;
+  background: transparent !important;
 }
 
-.clipboard>.btn-clipboard {
+.clipboard>.btn-clipboard,
+.btn-clipboard,
+span.btn.btn-neutral.btn-clipboard,
+button.btn.btn-neutral.btn-clipboard {
   all: unset;
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   font-size: 1rem;
-  color: silver;
+  color: #999999 !important;
   cursor: pointer;
   display: inline-block;
   vertical-align: middle;
@@ -122,17 +121,11 @@ pre {
   width: 1.2em;
   height: 1.2em;
   position: relative;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
   user-select: none;
-}
-
-.clipboard>.btn-clipboard:hover {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  color: black;
 }
 
 .clipboard>.btn-clipboard::before {
@@ -141,24 +134,28 @@ pre {
   left: 0;
   top: 0;
   text-indent: 0;
-  color: silver;
+  color: #999999;
+}
+
+.clipboard>.btn-clipboard:hover,
+.btn-clipboard:hover,
+span.btn.btn-neutral.btn-clipboard:hover,
+button.btn.btn-neutral.btn-clipboard:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #2c3e50 !important;
 }
 
 .clipboard>.btn-clipboard:hover::before {
-  color: black;
+  color: #2c3e50;
 }
 
 .clipboard>.btn-clipboard:active {
   transform: none;
   transition: none;
   outline: none;
-}
-
-span.btn.btn-neutral.btn-clipboard:hover {
-  background-color: transparent !important;
-  color: black !important;
-  box-shadow: none !important;
-  border: none !important;
 }
 
 /* ==========================================================================
