@@ -42,6 +42,7 @@ docker compose -f docker-compose.yml -f docker-compose.mapnik.yml build \
 ## Versioning and release cycle
 
 Carto-Lab Docker uses a Trunk-based release flow:
+
 - Every push to `master-latest` automatically builds and updates the `:dev` (bleeding-edge) Docker image. 
 - To create a stable release and update the `:latest` and `:vX.Y.Z` images, you must generate a Git tag.
 

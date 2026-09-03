@@ -49,6 +49,28 @@ As the diagram illustrates, the workflow doesn't end with publication. It create
 
 2.  **Build Upon & Contribute:** They can then pull the corresponding Carto-Lab Docker image to their own machine or environment to extend the analysis, fix a bug, or apply the methods to new data. Their new contribution can then be published, continuing the cycle of open, incremental scientific progress.
 
+---
+
+## Scope & Boundaries: What Carto-Lab Is (and Is Not)
+
+To maintain long-term stability without becoming an unsustainable, bloated system, Carto-Lab Docker maintains strict architectural boundaries:
+
+| Carto-Lab Docker IS... | Carto-Lab Docker IS NOT... |
+| :--- | :--- |
+| **A curated spatial lab bench**<br>Pre-configured with a battle-tested C-stack (GDAL, GEOS, PROJ) and foundational GIS engines (QGIS, GRASS). | **A catch-all operating system**<br>We do not include niche, experimental, or unmaintained packages. Project-specific dependencies belong in in-notebook installs or child images. |
+| **A frozen, citable publication artifact**<br>Guarantees that your analysis, maps, and models will run with zero bit rot five years from now. | **An ephemeral demo sandbox (like Binder)**<br>It is built for sustained, persistent multi-gigabyte research, not 15-minute throwaway browser sessions. |
+| **A lightweight, unprivileged team container**<br>Runs on a laptop or scaled across a Linux server with rootless security and instant-on browser tabs. | **An enterprise multi-tenant cloud (like JupyterHub)**<br>It does not provide complex LDAP/SSO hierarchies, autoscaling Kubernetes pods, or dynamic cluster scheduling. |
+
+### Why Not Just Use Existing Tools?
+
+When colleagues or IT teams ask why Carto-Lab Docker was created instead of using off-the-shelf platforms:
+
+* **Why not JupyterHub?** JupyterHub is designed for university-wide student administration (quotas, dynamic pod provisioning, LDAP). However, its 3–5 minute startup latency, strict lack of root privileges (blocking custom C-extensions), and reliance on central IT make it too rigid for high-velocity research deadlines.
+* **Why not Binder (`repo2docker`)?** Binder is wonderful for 10-minute pedagogical demos, but it is ephemeral: sessions terminate after inactivity, resources are heavily throttled, and building a heavy 5 GB GIS image on-the-fly frequently fails.
+* **Why not bare-metal VMs?** Installing software directly on a Linux VM gives you freedom, but zero reproducibility. When the VM OS upgrades or packages drift, the research environment cannot be archived or shared with reviewers.
+
+Carto-Lab Docker occupies the **pragmatic middle ground**: the complete freedom of a local machine, the zero-friction accessibility of a browser tab, and the rock-solid reproducibility of a frozen container.
+
 ## Summary
 
-Carto-Lab Docker is more than just a tool—it's a workflow and a philosophy. By integrating environment management, collaboration, and publication, it embeds the principles of FAIR and Open Science directly into the daily work of researchers, turning good RDM practices from a theoretical ideal into a practical reality.
+Carto-Lab Docker combines computational workflow and a philosophy. By integrating environment management, collaboration, and publication, it embeds the principles of FAIR and Open Science directly into the daily work of researchers, turning good RDM practices from a theoretical ideal into a practical reality.
