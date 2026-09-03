@@ -48,7 +48,7 @@ See the list of Carto-Lab Versions and supported features or package versions.
 | ------------------------------------------------ | -----------  | -----------  | -----------  | ------------ | ------------ | ------------ |
 | Python (worker_env) | 3.9.15       | 3.12.5       | 3.12.7       | 3.13.3       | 3.12.13      | 3.12.14      |
 | IPython      | 8.12.0       | 8.26.0       | 8.29.0       | 9.2.0        | 9.14.0       | 9.17.1       |
-| R            | /            |              | 4.2.2        | 4.4.1        | 4.5.3        | /            |
+| R            | /            |              | 4.2.2        | 4.4.1        | 4.5.3        | 4.5.3        |
 | Mapnik       | 3.1          |              |              |              |              | /            |
 | geopandas    | 0.12.2       | 1.0.1        |              |              | 1.1.3        | 1.1.4        |
 | ipywidgets   | 8.0.6        | 8.1.5        |              | 8.1.7        | 8.1.8        | 8.1.9        |
@@ -71,39 +71,39 @@ See the list of Carto-Lab Versions and supported features or package versions.
 
 | ▼R Package - Carto-Lab Version ▶                 | 0.13.0      | 0.19.0      | 0.24.2      | 0.28.0       | 1.1.0        | dev          |
 | ------------------------------------------------ | -----------  | -----------  | -----------  | ------------ | ------------ | ------------ |
-| R (r-base)   | /            | /            | 4.4.1        |              | 4.5.3        | /            |
+| R (r-base)   | /            | /            | 4.4.1        |              | 4.5.3        | 4.5.3        |
 | r-caret      | /            | /            | 6.0_94       |              | 7.0_1        | 7.0_1        |
-| r-crayon     | /            | /            | 1.5.3        |              |              |              |
+| r-crayon     | /            | /            | 1.5.3        |              |              | 1.5.3        |
 | r-dplyr      | /            | /            | 1.1.4        |              | 1.2.1        | 1.2.1        |
 | r-devtools   | /            | /            | 2.4.5        |              | 2.5.2        | 2.5.2        |
 | r-e1071      | /            | /            | 1.7_16       |              | 1.7_17       | 1.7_17       |
 | r-forecast   | /            | /            | 8.23.0       | 8.24.0       | 9.0.2        | 9.0.2        |
 | r-ggplot2    | /            | /            | 3.5.1        | 3.5.2        | 4.0.3        | 4.0.3        |
-| r-hexbin     | /            | /            | 1.28.5       |              | 1.28.5       | 1.28.5       |
+| r-hexbin     | /            | /            | 1.28.5       |              | 1.28.5       | 1.28.6       |
 | r-htmltools  | /            | /            | 0.5.8.1      |              | 0.5.9        | 0.5.9        |
-| r-htmlwidgets | /            | /            | 1.6.4        |              |              |              |
-| r-irkernel   | /            | /            | 1.3.2        |              |              |              |
-| r-maps       | /            | /            | 3.4.2.1      | 3.4.3        |              |              |
-| r-mapdata    | /            | /            | 2.3.1        |              |              |              |
-| r-tmap       | /            | /            | 3.3_4        |              | 4.3          | 4.3          |
-| r-nycflights13 | /            | /            | 1.0.2        |              |              |              |
-| r-randomforest | /            | /            | 4.7_1.2      |              |              |              |
-| r-raster     | /            | /            | 3.6_30       | 3.6_32       |              |              |
+| r-htmlwidgets | /            | /            | 1.6.4        |              |              | 1.6.4        |
+| r-irkernel   | /            | /            | 1.3.2        |              |              | 1.3.2        |
+| r-maps       | /            | /            | 3.4.2.1      | 3.4.3        |              | 3.4.3        |
+| r-mapdata    | /            | /            | 2.3.1        |              |              | 2.3.1        |
+| r-tmap       | /            | /            | 3.3_4        |              | 4.3          | 4.4_1        |
+| r-nycflights13 | /            | /            | 1.0.2        |              |              | 1.0.2        |
+| r-randomforest | /            | /            | 4.7_1.2      |              |              | 4.7_1.2      |
+| r-raster     | /            | /            | 3.6_30       | 3.6_32       |              | 3.6_32       |
 | r-rastervis  | /            | /            |              |              | 0.51.7       | 0.51.7       |
-| r-rcurl      | /            | /            | 1.98_1.16    |              | 1.98_1.18    | 1.98_1.18    |
-| r-rcolorbrewer | /            | /            | 1.1_3        |              |              |              |
-| r-remotes    | /            | /            | 2.5.0        |              |              |              |
+| r-rcurl      | /            | /            | 1.98_1.16    |              | 1.98_1.18    | 1.98_1.19    |
+| r-rcolorbrewer | /            | /            | 1.1_3        |              |              | 1.1_3        |
+| r-remotes    | /            | /            | 2.5.0        |              |              | 2.5.0        |
 | r-reshape    | /            | /            |              |              | 0.8.10       | 0.8.10       |
 | r-rmarkdown  | /            | /            | 2.29         | 2.29         | 2.31         | 2.31         |
-| r-rodbc      | /            | /            | 1.3_23       | 1.3_26       | 1.3_26.1     | 1.3_26.1     |
-| r-rsqlite    | /            | /            | 2.3.8        | 2.4.2        | 3.53.1       | 3.53.1       |
+| r-rodbc      | /            | /            | 1.3_23       | 1.3_26       | 1.3_26.1     | 1.3_26.2     |
+| r-rsqlite    | /            | /            | 2.3.8        | 2.4.2        | 3.53.1       | 3.53.3       |
 | r-scales     | /            | /            | 1.3.0        |              | 1.4.0        | 1.4.0        |
-| r-sf         | /            | /            | 1.0_18       |              | 1.1_0        | 1.1_0        |
+| r-sf         | /            | /            | 1.0_18       |              | 1.1_0        | 1.1_2        |
 | r-stringr    | /            | /            | 1.5.1        |              | 1.6.0        | 1.6.0        |
-| r-shiny      | /            | /            | 1.9.1        | 1.11.1       | 1.13.0       | 1.13.0       |
-| r-terra      | /            | /            | 1.7_83       |              | 1.9_25       | 1.9_25       |
+| r-shiny      | /            | /            | 1.9.1        | 1.11.1       | 1.13.0       | 1.14.0       |
+| r-terra      | /            | /            | 1.7_83       |              | 1.9_25       | 1.9_34       |
 | r-tidymodels | /            | /            | 1.2.0        | 1.3.0        | 1.4.1        | 1.4.1        |
-| r-tidyverse  | /            | /            | 2.0.0        |              |              |              |
+| r-tidyverse  | /            | /            | 2.0.0        |              |              | 2.0.0        |
 | unixodbc     | /            | /            | 2.3.12       |              | 2.3.14       | 2.3.14       |
 
 !!! note 
@@ -122,6 +122,13 @@ python tests/update_matrix.py --tag dev
 
 # When cutting a release (e.g. 1.2.0):
 python tests/update_matrix.py --tag 1.2.0
+
+# To extract and populate R package versions for the dev column, run the script against the r_dev flavor:
+# Temporarily set TAG=r_dev in .env or run with:
+TAG=r_dev docker compose run --rm --no-deps jupyterlab python -c "$CONTAINER_INSPECTOR"
+
+# Or directly:
+TAG=r_dev python tests/update_matrix.py --tag dev
 ```
 
 </details>

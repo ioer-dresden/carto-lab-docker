@@ -130,24 +130,58 @@ for label, pkg in worker_map.items():
     data[label] = get_pkg_version("worker_env", pkg)
 
 # 4. R Packages (via conda list in r_env if present)
-r_pkgs = [
-    "r-caret", "r-crayon", "r-dplyr", "r-devtools", "r-e1071", "r-forecast",
-    "r-ggplot2", "r-hexbin", "r-htmltools", "r-htmlwidgets", "r-irkernel",
-    "r-maps", "r-mapdata", "r-tmap", "r-nycflights13", "r-randomforest",
-    "r-raster", "r-rastervis", "r-rcurl", "r-rcolorbrewer", "r-remotes",
-    "r-reshape", "r-rmarkdown", "r-rodbc", "r-rsqlite", "r-scales", "r-sf",
-    "r-stringr", "r-shiny", "r-terra", "r-tidymodels", "r-tidyverse", "unixodbc"
-]
+r_map = {
+    "R": "r-base",
+    "R (r-base)": "r-base",
+    "r-caret": "r-caret",
+    "r-crayon": "r-crayon",
+    "r-dplyr": "r-dplyr",
+    "r-devtools": "r-devtools",
+    "r-e1071": "r-e1071",
+    "r-forecast": "r-forecast",
+    "r-ggplot2": "r-ggplot2",
+    "r-hexbin": "r-hexbin",
+    "r-htmltools": "r-htmltools",
+    "r-htmlwidgets": "r-htmlwidgets",
+    "r-irkernel": "r-irkernel",
+    "r-maps": "r-maps",
+    "r-mapdata": "r-mapdata",
+    "r-tmap": "r-tmap",
+    "r-nycflights13": "r-nycflights13",
+    "r-randomforest": "r-randomforest",
+    "r-raster": "r-raster",
+    "r-rastervis": "r-rastervis",
+    "r-rcurl": "r-rcurl",
+    "r-rcolorbrewer": "r-rcolorbrewer",
+    "r-remotes": "r-remotes",
+    "r-reshape": "r-reshape",
+    "r-rmarkdown": "r-rmarkdown",
+    "r-rodbc": "r-rodbc",
+    "r-rsqlite": "r-rsqlite",
+    "r-scales": "r-scales",
+    "r-sf": "r-sf",
+    "r-stringr": "r-stringr",
+    "r-shiny": "r-shiny",
+    "r-terra": "r-terra",
+    "r-tidymodels": "r-tidymodels",
+    "r-tidyverse": "r-tidyverse",
+    "unixodbc": "unixodbc",
+}
 
 try:
-    res = subprocess.run("conda list -n r_env --json", shell=True, capture_output=True, text=True)
-    if res.returncode == 0:
-        pkgs_installed = {p["name"]: p["version"] for p in json.loads(res.stdout)}
-        for r_pkg in r_pkgs:
-            data[r_pkg] = pkgs_installed.get(r_pkg, "/")
+  res = subprocess.run(
+      "conda list -n r_env --json",
+      shell=True,
+      capture_output=True,
+      text=True,
+  )
+  if res.returncode == 0 and res.stdout.strip():
+    pkgs = {p["name"]: p["version"] for p in json.loads(res.stdout)}
+    for table_label, conda_pkg_name in r_map.items():
+      data[table_label] = pkgs.get(conda_pkg_name, "/")
 except Exception:
-    for r_pkg in r_pkgs:
-        data[r_pkg] = "/"
+  for table_label in r_map:
+    data[table_label] = "/"
 
 print(json.dumps(data))
 """
