@@ -18,7 +18,7 @@ See the list of Carto-Lab Versions and supported features or package versions.
 
 | ▼Feature or Package - Carto-Lab Docker Version ▶ | 0.13.0      | 0.19.0      | 0.24.2      | 0.28.0       | 1.1.0        | dev          |
 | ------------------------------------------------ | -----------    | -----------    | -----------    | ------------   | ------------   | ------------   |
-| Container OS   | Debian 11      | Debian 12      |                |                | Debian GNU/Linux 12 (bookworm) | Ubuntu 24.04.4 LTS |
+| Container OS   | Debian 11      | Debian 12      |                |                |                | Ubuntu 24.04.4 LTS |
 | Conda          | 23.3.1         | 24.7.1         | 24.11.0        | 25.3.1         | 26.5.0         | 26.7.1         |
 | Jupyter Lab    | 3.6.3          | 4.2.5          | 4.3.1          | 4.4.2          | 4.5.7          | 4.5.10         |
 | Jupyter Server | 2.5.0          | 2.14.2         |                | 2.15.0         | 2.18.2         | 2.21.0         |
