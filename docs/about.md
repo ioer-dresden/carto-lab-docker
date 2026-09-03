@@ -12,6 +12,10 @@ Our mission is to empower researchers by making robust, reproducible, and transp
 
 ## Project History
 
+For me as Lead Maintainer (Alexander Dunkel), Carto-Lab Docker was born out of genuine, firsthand frustration with the fragility of the geospatial software stack and the friction of shared infrastructure. Spatial data science lives at a difficult intersection. Researchers rely on complex, compiled C-libraries (GDAL, GEOS, PROJ) and desktop GIS engines, yet institutional JupyterHub clusters are often brittle, prone to outages, or overly bureaucratic for agile daily work.
+
+The project began as a quest for absolute reliability: a self-contained, dependable container that bridges the gap between deep systems architecture and day-to-day spatial research. It provides an environment where C-dependencies never collide, code runs identically five years later, and researchers can focus entirely on their maps and models without needing to become full-time system administrators.
+
 Carto-Lab Docker has evolved through distinct phases, reflecting its growth from a research project tool to a dedicated research infrastructure component.
 
 #### **Origins (2016 – 2023)**
