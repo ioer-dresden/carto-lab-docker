@@ -15,35 +15,10 @@ This guide explains how to connect your local VS Code to your isolated Carto-Lab
 
 ## 1. Administrator Setup (Server-Side)
 
-If your Carto-Lab environment was provisioned using our [Ansible Rootless Docker deployment](../ansible.md), the user namespace is highly secured by default. Before VS Code can connect, the system administrator must perform a few quick steps on the host VM to unlock SSH access for the VS Code server.
+If your Carto-Lab environment was provisioned using our [Ansible Rootless Docker deployment](../ansible.md), the user namespace is locked down by default. Before VS Code can connect, the system administrator must perform a few quick steps on the host VM to unlock SSH access. 
 
-Run these steps as `root` (or using `sudo`) on the host VM:
-
-### A. Unlock the Account for SSH Keys
-
-Ansible creates the rootless user as a "system" account, which locks the password. On strict Linux setups, OpenSSH will reject SSH keys for locked accounts. You must assign a mathematically impossible "dummy" password hash to trick OpenSSH into accepting the SSH key, while keeping the account completely secure from password attacks.
-
-```bash
-# Replace <username> with the actual service user (e.g., test, tao)
-sudo usermod -p '$1$dummy$dummy.dummy.dummy.dummy.' <username>
-```
-
-### B. Ensure SSH Access & Permissions
-
-If your server restricts SSH access using `AllowUsers`, you must add the new user to the list:
-```bash
-sudo nano /etc/ssh/sshd_config
-# Find AllowUsers and append the user, e.g.: AllowUsers admin <username>
-sudo systemctl restart ssh
-```
-
-Finally, ensure the user's SSH directory has strict permissions, or OpenSSH will silently reject the connection:
-
-```bash
-sudo chmod 755 /srv/<username>
-sudo chmod 700 /srv/<username>/.ssh
-sudo chmod 600 /srv/<username>/.ssh/authorized_keys
-```
+!!! tip
+    For full details and troubleshooting, see the guide on [Enabling SSH Access in Ansible](../ansible.md#step-4-enabling-ssh-access-for-advanced-users).
 
 ---
 
@@ -53,7 +28,7 @@ Once the administrator has configured the server and added your public SSH key t
 
 ### A. Install the Extension
 
-In your local VS Code, open the Extensions view (`Ctrl+Shift+X`) and install the official Microsoft extension: **Remote - SSH**.
+In your local VS Code, open the Extensions view (`Ctrl+Shift+X` or `Cmd+Shift+X`) and install the official Microsoft extension: **Remote - SSH**.
 
 ### B. Configure your SSH Host
 
@@ -71,11 +46,35 @@ Host cartolab-workspace
 
 ### C. Connect & Open the Workspace
 
-1. Press `Ctrl+Shift+P` again and select `Remote-SSH: Connect to Host...`
+You can open the workspace either directly from your terminal or via the VS Code interface.
+
+**Option 1: Quick-Launch via CLI / Alias (Recommended)**
+
+You can launch VS Code and directly open the remote workspace folder in a single command using the `--folder-uri` flag:
+
+```bash
+code --folder-uri "vscode-remote://ssh-remote+cartolab-workspace/srv/<username>/notebooks"
+```
+
+To make this a permanent one-word command, add a shell alias to your local `~/.bashrc`, `~/.zshrc`, or WSL environment:
+```bash
+alias cartolab='code --folder-uri "vscode-remote://ssh-remote+cartolab-workspace/srv/<username>/notebooks"'
+```
+
+Now, entering `cartolab` into your terminal opens VS Code straight into your notebooks directory. Tip: Windows PowerShell users can use the same `code --folder-uri "..."` command directly or create a PowerShell function in their `$PROFILE`.
+
+!!! tip "macOS Users: Enabling the `code` Command"
+    If running `code` in your terminal returns `command not found`, open VS Code, press `Cmd+Shift+P`, type `shell command`, and select:  
+
+    _Shell Command: Install 'code' command in PATH_.
+
+**Option 2: Connect via VS Code GUI**
+
+1. Press `Ctrl+Shift+P` (or `Cmd+Shift+P`) and select `Remote-SSH: Connect to Host...`
 2. Select **cartolab-workspace** from the list. 
 3. VS Code will open a new window and install its backend server (this takes a minute on the first connection).
 4. Once connected, click **Open Folder** in the Explorer pane.
-5. Navigate to your notebooks directory (usually `/srv/<username>/notebooks` or `~/notebooks` depending on the mount).
+5. Enter `/srv/<username>/notebooks` and click **OK**.
 
 ---
 
