@@ -109,7 +109,8 @@ To push or pull from a private GitLab Container Registry, HTTP-based authenticat
 
 Log in to the registry on your local build machine:
 ```bash
-echo "YOUR_TOKEN_PASSWORD" | docker login gcr.hrz.tu-chemnitz.de -u "YOUR_TOKEN_USERNAME" --password-stdin
+echo "YOUR_TOKEN_PASSWORD" | \
+    docker login gcr.hrz.tu-chemnitz.de -u "YOUR_TOKEN_USERNAME" --password-stdin
 ```
 
 **2. Build, Tag, and Push the Flavor**
