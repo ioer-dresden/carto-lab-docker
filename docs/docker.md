@@ -87,8 +87,8 @@ We provide several container variants for different needs via our container regi
 
 Because geospatial engines can be quite large, we provide specialized extensions (flavors):
 
-- **`:r_latest` / `:r_vX.Y.Z`**: Extends the base image with a full R environment.
-- **Mapnik, GRASS, QGIS**: Due to resource constraints, these massive images are not pushed to our public registry automatically. We provide simple overlay `docker-compose.<flavor>.yml` files so you can easily build and run them locally. Refer to [our documentation](./developers.md#manually-building-and-distributing-flavors) on how to build these flavors.
+- **`:r_latest` / **`:r_dev` / `:r_vX.Y.Z`**: Extends the base image with a full R environment.
+- **Mapnik, GRASS, QGIS**: Due to resource constraints, these images are not pushed to our public registry automatically. We provide simple overlay `docker-compose.<flavor>.yml` files so you can easily build and run them locally. See below or refer to [our full developer documentation](./developers.md#manually-building-and-distributing-flavors) on how to build these flavors.
 
 To use a different variant or version, edit the `TAG` variable in your `.env` file:
 
@@ -107,12 +107,12 @@ TAG=dev
 The tag `dev` stands for the baseline image (only Python), `r_dev` for the R flavor (Python+R). Note: We do not publish `dev`-images for the other flavors.
 
 !!! tip "Switching Flavors with Layered Overlays (`COMPOSE_FILE`)"
-    To run an alternate flavor (e.g. QGIS, R, Mapnik, or GRASS), chain the base compose file with the flavor overlay in your `.env`:
+    To run the flavors QGIS, Mapnik, or GRASS, chain the base compose file with the flavor overlay in your `.env`:
 
         COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml
         COMPOSE_PATH_SEPARATOR=:
 
-    These flavors will require locally building the images with `docker compose build`.
+    These flavors will then be locally build on top of the base/R images with `docker compose build`.
 
     If you are running in an environment managed by Ansible (or using local `docker-compose.override.yml` files for custom volumes or monitoring), append the override file as well:
 
