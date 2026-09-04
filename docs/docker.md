@@ -98,6 +98,9 @@ To use a different variant or version, edit the `TAG` variable in your `.env` fi
 TAG=v1.1.0
 ```
 
+!!! tip 
+    See our [Quay Image Registry](https://quay.io/repository/ioer-fdz/carto-lab-docker?tab=info) for available flavors and versions.
+
 Or, use the bleeding-edge dev version for testing:
 ```bash
 TAG=dev
