@@ -41,6 +41,10 @@ build dev r:
     - docker push quay.io/ioer-fdz/carto-lab-docker:r_dev || echo "Quay push failed."
   rules:
     - if: $CI_COMMIT_BRANCH == "master-latest"
+      changes:
+        - "r/**/*"
+        - Dockerfile
+        - "*.yml"
 
 # 2. Release builds (Runs only on Git Tags)
 build release base:
