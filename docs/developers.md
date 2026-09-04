@@ -165,6 +165,9 @@ JUPYTER_WEBURL=https://jupyterlab.example.org
 JUPYTER_WEBPORT=8888
 ```
 
+!!! warning
+    Carto-Lab Docker is not prepared to run on the public, unprotected web. Always make sure to use it behind a VPN or limit access to specific subnets (e.g. via nginx <code>deny all</code> and selective <code>allow</code> rules).
+
 ### Option A: Nginx (Recommended)
 
 Nginx handles WebSocket upgrades and large file uploads with minimal overhead:
