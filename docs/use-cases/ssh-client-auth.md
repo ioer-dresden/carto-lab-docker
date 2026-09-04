@@ -80,15 +80,7 @@ Depending on how your environment is deployed:
 
 **Option A: Managed Multi-User Servers (Ansible Automated)**
 
-If your server is managed via our [Ansible Deployment](../ansible.md) workflow, **no manual Docker Compose editing is required.**
-
-Simply run the reconciliation playbook on your control machine:
-```bash
-ansible-playbook 2.1_reconcile_cartolab.yml \
-  -l <target_host> --vault-id shared@prompt --vault-id hosts@prompt
-```
-
-Ansible will automatically detect the new `jupyter_deploy_key` in the user's `.ssh` directory, inject the volume mounts into `docker-compose.override.yml`, and restart the container with the key mounted to `/root/.ssh/id_ed25519:ro`.
+If your server is managed via our [Ansible Deployment](../ansible.md#step-3-fleet-maintenance-repairs-21_reconcile_cartolabyml) workflow, **no manual Docker Compose editing is required.** Run the `2.1_reconcile_cartolab.yml` and Ansible will automatically detect the new `jupyter_deploy_key` in the user's `.ssh` directory, inject the volume mounts into `docker-compose.override.yml`, and restart the container with the key mounted to `/root/.ssh/id_ed25519:ro`.
 
 **Option B: Standalone / Local Instances (Manual Docker Compose)**
 
@@ -120,7 +112,7 @@ docker compose up -d
 
 ---
 
-## 2. Register the Key in GitLab / GitHub
+## 2. User Setup: Register the Key in GitLab / GitHub
 
 Before the container can use the key, the public half must be authorized on your Git platform. 
 
