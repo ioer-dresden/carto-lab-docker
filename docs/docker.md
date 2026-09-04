@@ -113,14 +113,16 @@ The tag `dev` stands for the baseline image (only Python), `r_dev` for the R fla
     To run the flavors QGIS, Mapnik, or GRASS, chain the base compose file with the flavor overlay in your `.env`:
 
         COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml
-        COMPOSE_PATH_SEPARATOR=:
 
-    These flavors will then be locally build on top of the base/R images with `docker compose build`.
+    Then run:
 
-    If you are running in an environment managed by Ansible (or using local `docker-compose.override.yml` files for custom volumes or monitoring), append the override file as well:
+        docker compose build && docker compose up -d
+
+    If you are running in an environment managed by [Ansible](ansible.md) (or using local `docker-compose.override.yml` files for custom volumes or monitoring), append the override file as well:
 
         COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml:docker-compose.override.yml
-        COMPOSE_PATH_SEPARATOR=:
+
+    See further information in our [Developers Section](developers.md#manually-building-and-distributing-flavors).
 
 
 !!! danger "A Note on Build Stability"
