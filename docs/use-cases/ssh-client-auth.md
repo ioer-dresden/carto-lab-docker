@@ -155,13 +155,31 @@ If you created a **password-less** key (recommended), the user is completely rea
 * **Visual Git Extension:** Click the Git icon in the left JupyterLab sidebar to stage files, commit, push, and pull directly with the UI.
 * **Terminal:** Open a terminal tab inside JupyterLab and run `git push origin main` or `git fetch` without any credential prompts.
 
-!!! info "Using a Password-Protected Key (Optional)"
-    If you chose to secure your deploy key with a passphrase, the visual Git extension will fail until the key is unlocked in the background agent. 
+!!! tip "Terminal Users: Why does `ssh-add -l` say 'The agent has no identities'?"
+    If you open a terminal in JupyterLab and check `ssh-add -l`, you may see:
+
+        The agent has no identities.
+
+    **This is normal and does not mean Git is broken.** 
     
-    Carto-Lab runs a global background SSH agent. You only need to unlock the key **once per container restart**. Open a single terminal in JupyterLab and run:
+    OpenSSH authenticates using the `IdentityFile /root/.ssh/id_ed25519` defined in `/root/.ssh/config` directly from disk—it does not require the key to be pre-loaded into the background `ssh-agent`. Terminal commands like `git pull`, `git push`, or `ssh -T git@...` will work immediately out of the box.
+
+    **If you prefer or need to have the key explicitly loaded in the agent:**
+
+    * **Automatic loading on first use:** If `AddKeysToAgent yes` is configured in your SSH config, the very first time you execute a `git` command, OpenSSH will automatically inject the key into `ssh-agent`. Any subsequent `ssh-add -l` will show your key.
+    * **Manual loading:** You can manually load the key at any time by running:
+
+          ssh-add -t 28800 /root/.ssh/id_ed25519
+
+      Because Carto-Lab provides a global container-wide agent socket (`/tmp/ssh-agent.sock`), this single command makes the key active across all current and future terminal tabs.
+
+!!! info "Using a Password-Protected Key (Optional)"
+    If you chose to secure your deploy key with a passphrase, automated background commands and the visual Git extension cannot prompt for passwords interactively and will fail until the key is unlocked. 
+    
+    You only need to unlock the key **once per container restart**. Open a terminal in JupyterLab and run:
     
 
         ssh-add -t 28800 /root/.ssh/id_ed25519
 
     
-    Enter your passphrase. Because the agent is shared globally across the container, the visual Git extension and all other terminal tabs will instantly have access to the unlocked key.
+    Enter your passphrase. Because the agent is shared globally across the container, the visual Git extension and all terminal tabs will instantly have access to the unlocked key for the specified lifetime (8 hours in this example).
