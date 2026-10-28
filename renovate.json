@@ -1,0 +1,31 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "local>ioer/IT/renovate"
+    ],
+    "enabledManagers": [
+        "dockerfile",
+        "gitlabci"
+    ],
+    "packageRules": [
+        {
+            "description": "Base Miniforge runtime updates",
+            "matchPackageNames": [
+                "condaforge/miniforge3"
+            ],
+            "groupName": "miniforge-base",
+            "schedule": [
+                "before 6am on monday"
+            ],
+            "minimumReleaseAge": "3 days"
+        },
+        {
+            "description": "Internal CI/CD images",
+            "matchPackageNames": [
+                "gcr.hrz.tu-chemnitz.de/**",
+                "docker"
+            ],
+            "groupName": "ci-tools"
+        }
+    ]
+}
