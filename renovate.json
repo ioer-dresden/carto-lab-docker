@@ -1,12 +1,15 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-        "local>ioer/IT/renovate"
-    ],
-    "enabledManagers": [
-        "dockerfile",
-        "gitlabci"
-    ],
+  "extends": [
+    "local>ioer/IT/renovate"
+  ],
+  "enabledManagers": [
+    "dockerfile",
+    "gitlabci"
+  ],
+  "postUpgradeTasks": {
+    "commands": []
+  },
     "packageRules": [
         {
             "description": "Base Miniforge runtime updates",
