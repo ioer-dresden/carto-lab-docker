@@ -1,3 +1,9 @@
+## CHANGELOG
+
+### 2026-10-28
+
+- Update Miniconda Cidefault from `0.9.1` to 0.9.2
+
 # CHANGELOG
 
 
