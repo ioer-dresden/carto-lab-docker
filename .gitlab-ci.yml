@@ -83,7 +83,7 @@ build release r:
 
 # 3. Docs & Artifacts
 artifacts:
-  image: "gcr.hrz.tu-chemnitz.de/ioer/fdz/container-images/miniconda-cidefault:0.9.2"
+  image: "$CI_REGISTRY/ioer/fdz/container-images/miniconda-cidefault:0.9.2"
   before_script:
     # Inject Conda shell functions directly into the non-interactive CI shell
     - source /opt/conda/etc/profile.d/conda.sh
@@ -105,7 +105,7 @@ artifacts:
 
 mkdocs:
   stage: mkdocs
-  image: registry.gitlab.vgiscience.org/tools/mkdocs:0.4.0
+  image: "$CI_REGISTRY/ioer/fdz/container-images/mkdocs:0.5.0"
   script:
     - mkdocs build
     - cp *.svg "site/"
@@ -118,7 +118,7 @@ mkdocs:
 
 deploydocs:
   stage: deploydocs
-  image: "registry.gitlab.vgiscience.org/tud_ifk/rsync-ssh-alpine:alpine3.17-r0-v4"
+  image: "$CI_REGISTRY/ioer/fdz/container-images/rsync-ssh-alpine:alpine3.24.3-r0-v1"
   before_script:
   - eval $(ssh-agent -s)
   - echo "${SSH_PRIVKEY}" | ssh-add -
