@@ -1,5 +1,5 @@
 # https://github.com/conda-forge/miniforge/releases
-FROM condaforge/miniforge3:26.5.3-0
+FROM condaforge/miniforge3:26.9.4-0
 
 # build time args
 ARG ENVIRONMENT_FILE=environment_default.yml
