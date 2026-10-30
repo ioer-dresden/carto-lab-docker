@@ -33,12 +33,10 @@ RUN apt-get update \
 RUN conda config --remove channels defaults || true \
     && conda config --add channels conda-forge \
     && conda config --set channel_priority strict \
-    && conda config --set solver rattler \
-    && conda remove -n base conda-anaconda-tos --force --yes || true
+    && conda config --set solver rattler
 
-# Update all packages in base env, then create user env, and clean
-RUN mamba update --all --name base -c conda-forge --yes --quiet \
-    && mamba env create --file environment_jupyter.yml --name jupyter_env --quiet \
+# Create Jupyter server env, and clean
+RUN mamba env create --file environment_jupyter.yml --name jupyter_env --quiet \
     && mamba clean --all --force-pkgs-dirs --yes
 
 # create conda paths to be sourced
