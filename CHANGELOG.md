@@ -26,6 +26,9 @@
   ([`e58637b`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e58637bcbe3fe8e1f43b0ff5216e0a1f0fe6ad9a))
 
 - Update CHANGELOG.md
+  ([`28c4f46`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/28c4f46fd411d71c0c45f446bf16fbdab6510dad))
+
+- Update CHANGELOG.md
   ([`458afae`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/458afae5dacc3422ba3b3f063fc306dbdecfaf0d))
 
 - Update CHANGELOG.md
@@ -42,6 +45,13 @@
 
 - Update version matrix script to include R packages
   ([`bc25978`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/bc2597869a311228aa32d65302833e3eaca885fb))
+
+- **deps**: Update condaforge/miniforge3 docker tag to v26.9.4
+  ([`6f9df97`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/6f9df97b9cb69fa50d31f2584030f3b98db8f26e))
+
+- **deps**: Update gcr.hrz.tu-chemnitz.de/ioer/fdz/container-images/miniconda-cidefault docker tag
+  to v0.9.2
+  ([`4ca05c8`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4ca05c8d95cb8e80fb95ec27d7147eefba49b77a))
 
 ### Code Style
 
@@ -67,6 +77,15 @@
 
 - Try to reduce emory footprint (OOM) for build jobs
   ([`c633509`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c633509501d7e4cb567aa5d1b6e372091dd97b28))
+
+- **deps**: Add renovate automation
+  ([`610fded`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/610fded2a9cb3ea5075805d3d8e0b94e24915b7c))
+
+- **fix**: Exclude CHANGELOG.md automation from renovate
+  ([`a6bd0c6`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/a6bd0c6deb12040d90ab5443278648be7cc5d134))
+
+- **r_dev**: Only rebuild R when ./r changes or when base files change (exclude docs/ etc.)
+  ([`df5adbe`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/df5adbefb2329a30f96f2dae08d492d5b650903c))
 
 ### Documentation
 
@@ -117,6 +136,9 @@
 
 - Add step by step guide on how to build flavors
   ([`2b46e0d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2b46e0d7297d53c728188abaca94a400cb471c4b))
+
+- Add steps to load the ssh key in the jupyter terminal, too (beyond the git extension)
+  ([`2841d13`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2841d13caa9b73c15941f203c2dd2257a890dffd))
 
 - Add template example link
   ([`95d58f5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/95d58f5f39ff8bee6e2924cfd2b412bf4489f8b0))
@@ -245,6 +267,9 @@
 - **docker**: Add link to quay image registry
   ([`01a452e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/01a452ee039bb27a76fe15fe18daa1cb9cf36500))
 
+- **docker**: Clarify flavor build steps
+  ([`f45693d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/f45693d5157fca4a90768034eee8395ebf968372))
+
 - **docker**: Clarify flavor setup
   ([`fe3e922`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/fe3e922dd25d8a823d12572417aeb1c4d8a72350))
 
@@ -275,6 +300,9 @@
 - **ssh-client-auth**: Add motivation
   ([`ed3272e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ed3272edb3a6df8e9ab764bf1e1153e28e1de823))
 
+- **style**: Add command break
+  ([`2e4de53`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2e4de535ec734f2d1dda7f516a0863ab54efc2b5))
+
 - **style**: Add indentation
   ([`2354013`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2354013a627b28b409d73f72a677f94dc5b798dc))
 
@@ -300,8 +328,17 @@
 
 ### Refactoring
 
+- Drop support for notebook
+  ([`4b763f5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/4b763f5f949f7d4095777b32185e2fd60dbd37de))
+
 - Make sure that configuration generation is non-interactive and unattended
   ([`53d2bba`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/53d2bba2ca314e05df16c50cd268d0f5833283f2))
+
+- Migrate registry images
+  ([`93df6f1`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/93df6f175c58580d32a8bcbdd991f3a656bdee30))
+
+- Updating mamba base not recommended anymore
+  ([`19eb562`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/19eb5624b71c084ac00fb5ffb753af7a64a878d9))
 
 - **chore**: Use fully automated (py) script to extract/update versions in matrix table
   ([`03845eb`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/03845ebd7e3eab5d1754aa2e2f7b44513ee94184))
