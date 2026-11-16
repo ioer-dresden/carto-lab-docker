@@ -62,6 +62,7 @@ See the list of Carto-Lab Versions and supported features or package versions.
 | Rasterio       | 1.2.10         | 1.3.10         | 1.4.2          | 1.4.3          | 1.5.0          | 1.5.1          |
 | rioxarray      | /              | /              | /              | /              | 0.22.0         | 0.23.0         |
 | GDAL           | 3.3.3          | 3.9.2          | 3.10.0         | 3.10.3         | 3.12.3         | 3.13.3         |
+| PySal          |                |                |                |                |                |                |
 
 ## R-Packages (`r_env`)
 
