@@ -135,5 +135,5 @@ deploydocs:
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\tLogLevel QUIET\n\n" > ~/.ssh/config'
   script:
   - rsync -avu -zz --no-perms --omit-dir-times --chown=www-data:www-data --chmod=D775,F664 site/ "${PRODUCTION_DESTINATION}"/public/cartolab/
-  only:
-    - master-latest
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master-latest"
