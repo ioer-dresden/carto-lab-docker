@@ -22,8 +22,9 @@ build dev base:
   rules:
     - if: $CI_COMMIT_BRANCH == "master-latest"
       changes:
-        - Dockerfile
-        - "*.yml"
+          - Dockerfile
+          - environment_default.yml
+          - environment_jupyter.yml
 
 # In .gitlab-ci.yml
 build dev r:
@@ -47,7 +48,8 @@ build dev r:
       changes:
         - "r/**/*"
         - Dockerfile
-        - "*.yml"
+        - environment_default.yml
+        - environment_jupyter.yml
 
 # 2. Release builds (Runs only on Git Tags)
 build release base:
