@@ -3,7 +3,7 @@ assets = []
 version_variables = [
     ".version:__version__",
     "CITATION.cff:version",
-    "README.md:version.svg?v=",
+    "README.md:v",
 ]
 allow_zero_version = "true"
 commit_version_number = "true"
