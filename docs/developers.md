@@ -60,23 +60,6 @@ GitLab CI will detect this new tag and automatically build the immutable release
 !!! note
     Releases are created in GitLab. Only tags are automatically forwarded to GitHub. To create matching GitHub releases, release notes must be copied manually to GitHub tags.
 
-After the pipeline finishes, manually refresh the two hardcoded versions in the repo to break the GitHub caches:
-```bash
-# Get the new version string from the .version file
-version_var=$(sed -n "s#__version__ =\s*'\(.*\)'#\1#p" .version)
-
-# Update the version badge in README.md to break GitHub's image cache
-sed -i -E "s|(https://cartolab\.fdz\.ioer\.info/version\.svg)(\?v=[0-9\.]+)?|\1?v=${version_var}|" README.md
-
-# Update CITATION.cff with the latest version number
-sed -i -E "s|^(version:\s*)([0-9]+\.[0-9]+\.[0-9]+)|\1${version_var}|" CITATION.cff
-
-# Commit the changes
-git add CITATION.cff README.md && \
-    git commit -m "chore: update version badge and CITATION.cff to ${version_var}" && \
-    git push
-```
-
 If no release has been made for a long time, it is possible to manually update the changelog to include unpublished changes:
 ```bash
 semantic-release changelog

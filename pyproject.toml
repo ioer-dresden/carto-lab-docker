@@ -1,7 +1,10 @@
 [tool.semantic_release]
 assets = []
 version_variables = [
-    ".version:__version__",]
+    ".version:__version__",
+    "CITATION.cff:version",
+    "README.md:version.svg?v=",
+]
 allow_zero_version = "true"
 commit_version_number = "true"
 branch = "master-latest"
