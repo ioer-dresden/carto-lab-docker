@@ -31,6 +31,8 @@ All versions of CartoLab-Docker contain a `worker_env` with a number of base pac
 - [python-hll](https://github.com/AdRoll/python-hll)
 - [rasterio](https://rasterio.readthedocs.io/)
 - [geopy](https://geopy.readthedocs.io/) 
+- [rioxarray](https://vylor.github.io/rioxarray/)
+
 
 See the `environment_default.yml` file for the full list of packages available in the `worker_env`.
 

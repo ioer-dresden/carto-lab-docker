@@ -230,4 +230,4 @@ Once connected via SSH to their rootless shell, users have full control over the
 
         docker run -d --name postgis -e POSTGRES_PASSWORD=secret -p 5432:5432 postgis/postgis
 
-* **Code Remotely:** Attach a local text editor or IDE using [VS Code Remote Development](user-cases/vscode-remote.md).
+* **Code Remotely:** Attach a local text editor or IDE using [VS Code Remote Development](use-cases/vscode-remote.md).

@@ -70,7 +70,7 @@ e.g.: https://jupyterlab.example.org
 
 Default:
 ```bash
-JUPYTER_WEBURL=http://localhost/
+JUPYTER_WEBURL=http://localhost:8888
 ```
 
 ## Override path to environment.yml
@@ -133,7 +133,7 @@ COLLABORATIVE=true
 ```
 
 Live collaboration has been successfully tested 
-starting with Carto-Lab Docker 24.1.
+starting with Carto-Lab Docker 0.24.1.
 
 ## Disable jupytext extension
 

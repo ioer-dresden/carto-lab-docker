@@ -4,7 +4,7 @@
 
 From time to time, check that the base [Miniforge3 image](https://github.com/conda-forge/miniforge/releases) is up to date in the Dockerfile:
 ```Dockerfile
-FROM condaforge/miniforge3:26.5.3-0
+FROM condaforge/miniforge3:26.9.4 # e.g.
 ```
 
 This base Miniconda3 image specified in the Dockerfile is pulled from a remote registry.

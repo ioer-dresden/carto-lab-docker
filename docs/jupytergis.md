@@ -5,7 +5,7 @@ Carto-Lab Docker includes the base JupyterGIS in its server environment (`jupyte
 - The GIS editor, QGIS compatibility, and collaborative map visualizer are fully active in the browser because they run inside `jupyter_env`
 - If you want to use the jupytergis Python API inside a Jupyter Notebook (e.g. programmatically building maps via Python code), you will need to add `jupytergis` to your working environment as well. Currently, jupytergis is not made available by default in the `worker_env`.
 
-Furthermore, take a look at the [`:qgis` flavor of Carto-Lab](qgis.md), which explains how to extend the base image with full QGIS support, including the juyptergis-qgis bridge.
+Furthermore, take a look at the [`:qgis` flavor of Carto-Lab](qgis.md), which explains how to extend the base image with full QGIS support, including the jupytergis-qgis bridge.
 
 ## How to use
 

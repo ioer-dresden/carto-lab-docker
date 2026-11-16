@@ -17,7 +17,7 @@ You should have been provided with:
 
 Simply open the URL in your browser and log in. You are in a fully configured spatial lab with no local installation required.
 
-**Next Step:** Proceed to our **[JupyterLab Guide](/jupyter/)** to learn how to navigate the tools and start your work.
+**Next Step:** Proceed to our **[JupyterLab Guide](jupyter.md)** to learn how to navigate the tools and start your work.
 
 ---
 
