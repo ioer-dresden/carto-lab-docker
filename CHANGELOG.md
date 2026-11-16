@@ -1,7 +1,7 @@
 # CHANGELOG
 
 
-## Unreleased (:dev tag)
+## v1.2.0 (2026-11-16)
 
 ### Bug Fixes
 
@@ -24,6 +24,9 @@
 
 - Add telegraf.conf to gitignore, for catching mistakes
   ([`e58637b`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e58637bcbe3fe8e1f43b0ff5216e0a1f0fe6ad9a))
+
+- Update CHANGELOG.md
+  ([`03f2e04`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/03f2e040424a65ba9773e9c1d413888907598ced))
 
 - Update CHANGELOG.md
   ([`28c4f46`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/28c4f46fd411d71c0c45f446bf16fbdab6510dad))
@@ -69,14 +72,26 @@
 - Also build dev_r image on all latest changes and publish/overwrite
   ([`dfec1a5`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/dfec1a5398366c24d3fe03ff2d55753c27725579))
 
+- Be more explicit about which tags to push
+  ([`637248d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/637248d56e3383f7f3aa34b0d2768ee9348ec0ce))
+
 - Gracefully skip if Quay is down
   ([`3baf6af`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/3baf6afc9cca3ab2121dee0b2195650fad3046e5))
+
+- Only rebuild on actual environment or Dockerfile changes
+  ([`10304c3`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/10304c37b878c3bb842bb30026f1e7c75fd02c1f))
 
 - Revise release workflow; push dedicated :dev image with latest features and test releases
   ([`0c433fd`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/0c433fd06f1874c6f473fdab04f88e7e89f53eb9))
 
 - Try to reduce emory footprint (OOM) for build jobs
   ([`c633509`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/c633509501d7e4cb567aa5d1b6e372091dd97b28))
+
+- Use standardized filter branch
+  ([`f2313fc`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/f2313fcb515ca5a243fff79b5c595869000472a9))
+
+- Wait for r-dev and r-release for base
+  ([`6776c14`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/6776c142017e83db89d1ce06ec5ebe4dfec73abe))
 
 - **deps**: Add renovate automation
   ([`610fded`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/610fded2a9cb3ea5075805d3d8e0b94e24915b7c))
@@ -88,6 +103,9 @@
   ([`df5adbe`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/df5adbefb2329a30f96f2dae08d492d5b650903c))
 
 ### Documentation
+
+- A few more minor typo fixes and broken crosslinks
+  ([`e699c12`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e699c123f490cf51d379c5aee27e9fdf0d7c529f))
 
 - Add admonition for preventing implicit assumptions
   ([`31de7b9`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/31de7b9c65c1a85777d92ca0d4588c854959cfd0))
@@ -134,6 +152,9 @@
 - Add new flavors (tags) and explain updated stable versioning and release cycle
   ([`19e4528`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/19e45285379c0a53f7bb0eebcfbd8bd8c3b346f1))
 
+- Add pysal to matrix
+  ([`d9f47bf`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/d9f47bf9d3840dfb5dd77630d8a9c11ad9b3a5aa))
+
 - Add step by step guide on how to build flavors
   ([`2b46e0d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/2b46e0d7297d53c728188abaca94a400cb471c4b))
 
@@ -154,6 +175,9 @@
 
 - Clean up matrix table for v1.1.0
   ([`e3a33e2`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e3a33e2a0b6f519e9ee555549feb07a8161aa565))
+
+- Correct version string in README.md
+  ([`795c43d`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/795c43d941928e923d642c2dbb75c0e4a5b17850))
 
 - Document GIT_USER_NAME and GIT_USER_EMAIL env setting
   ([`2172437`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/21724374a1bd5211d9ee82f7ca6fb85163efdc74))
@@ -210,6 +234,9 @@
 - Remove verbose wording
   ([`ab19116`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/ab19116dcf312e9e503c3cd908cbe47390e3c6da))
 
+- Replace hardcoded version numbers with variables
+  ([`e19e933`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e19e933dbabf5e0ed7a201726970b9ed098de158))
+
 - Revise developer section to outline release workflow with :dev tag
   ([`e4ab49e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/e4ab49ea84ef13171cf195a7186fca5e880293c3))
 
@@ -239,6 +266,9 @@
 
 - Use correct link for gitlab profile ssh settings
   ([`00bbbfc`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/00bbbfc14cf7adbf8d47d00cf05a16307aed3738))
+
+- Various minor doc fixes
+  ([`833a7ed`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/833a7ed4206dd02ce0260f76e095771835e453d6))
 
 - **about**: Add perspective
   ([`0064725`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/0064725479c72d5ce5c27616daef4b7d57afba59))
@@ -336,6 +366,9 @@
 
 - Migrate registry images
   ([`93df6f1`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/93df6f175c58580d32a8bcbdd991f3a656bdee30))
+
+- Remove ad-hoc version update after release; move to pyproject.toml
+  ([`1f9b72e`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/1f9b72ee739a6362d1cd88a0e9790c1ea292f25e))
 
 - Updating mamba base not recommended anymore
   ([`19eb562`](https://gitlab.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker/-/commit/19eb5624b71c084ac00fb5ffb753af7a64a878d9))
