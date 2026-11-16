@@ -68,7 +68,7 @@ The canonical "source of truth" for the code resides in our **[primary GitLab re
 
 If you use Carto-Lab Docker in your research, please cite it to ensure the work is acknowledged.
 
-> Dunkel, A., Löchner, M. (2025). *Carto-Lab Docker: A computational environment for reproducible spatial science*. Maintained by the Research Data Centre (FDZ) of the Leibniz Institute of Ecological Urban and Regional Development (IOER). Version [vX.Y.Z]. URL: https://cartolab.fdz.ioer.info/
+> Dunkel, A., Löchner, M. (2026). *Carto-Lab Docker: A computational environment for reproducible spatial science*. Maintained by the Research Data Centre (FDZ) of the Leibniz Institute of Ecological Urban and Regional Development (IOER). Version [{{ v_version }}]. URL: https://cartolab.fdz.ioer.info/
 
 ## Acknowledgments
 

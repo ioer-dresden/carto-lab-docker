@@ -21,6 +21,9 @@ theme:
   custom_dir: docs/overrides
   logo: images/logo-white-text.svg
 
+hooks:
+  - docs_hooks.py
+
 extra_css:
   - css/extra.css
   - css/all.min.css

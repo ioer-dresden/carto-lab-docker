@@ -5,13 +5,13 @@ The following parameter can be set through editing the `.env` file:
 ## Carto-Lab Docker version tag
 
 The Carto-Lab Docker version tag to use
-e.g. TAG=v0.12.3; defaults to:
+e.g. TAG={{ v_version }}; defaults to:
 ```bash
 TAG=latest
 ```
 
 !!! note
-    It is always recommeneded to use an explicit version tag, e.g. `TAG=v0.16.3`.
+    It is always recommeneded to use an explicit version tag, e.g. `TAG={{ v_version }}`.
     In this case, you can go back to the Carto-Lab Docker version that was used 
     to run specific notebooks.
 

@@ -115,11 +115,11 @@ echo "YOUR_TOKEN_PASSWORD" | \
 
 **2. Build, Tag, and Push the Flavor**
 
-Set your environment variables to match the target flavor and the base image version you are building upon. In this example, we build the QGIS flavor based on `v1.1.0`:
+Set your environment variables to match the target flavor and the base image version you are building upon. In this example, we build the QGIS flavor based on `{{ v_version }}`:
 
 ```bash
 # Define targets
-export BASE_VERSION=v1.1.0
+export BASE_VERSION={{ v_version }}
 export FLAVOR=qgis
 export REGISTRY=gcr.hrz.tu-chemnitz.de/ioer/fdz/carto-lab-docker
 
@@ -142,7 +142,7 @@ Once the image is in the registry, deploying it to target instances is seamless:
 
 ```bash
 # In .env
-TAG=qgis_v1.1.0
+TAG=qgis_{{ v_version }}
 # Chain base compose with the flavor and optional local override:
 COMPOSE_FILE=docker-compose.yml:docker-compose.qgis.yml:docker-compose.override.yml
 COMPOSE_PATH_SEPARATOR=:

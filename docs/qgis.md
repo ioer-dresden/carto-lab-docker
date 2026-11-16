@@ -75,8 +75,8 @@ docker compose -f docker-compose.yml -f docker-compose.qgis.yml build \
 
 !!! note
     The above command will honor your current Carto-Lab flavor and version specified in your `.env`. That is,
-    if you have `TAG=v1.1.0`, QGIS will be built on top of the `v1.1.0` image from our registry. Vice versa, if
-    you want QGIS + the R flavor, use `TAG=r_v1.1.0` in your `.env`.
+    if you have `TAG={{ v_version }}`, QGIS will be built on top of the `{{ v_version }}` image from our registry. Vice versa, if
+    you want QGIS + the R flavor, use `TAG=r_{{ v_version }}` in your `.env`.
     
     For more information, see [the base container instructions](docker.md#configuration-container-versions) and [the developer section](developers.md#manually-building-and-distributing-flavors).
 

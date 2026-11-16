@@ -80,7 +80,7 @@ We provide several container variants for different needs via our container regi
 **Core Base Images:**
 
 - **`:latest`**: The current stable, production-ready image.
-- **`:vX.Y.Z`** *(e.g., `:v1.1.0`)*: Immutable, specific release versions. Strongly recommended for scientific reproducibility.
+- **`:vX.Y.Z`** *(e.g., `:{{ v_version }}`)*: Immutable, specific release versions. Strongly recommended for scientific reproducibility.
 - **`:dev`**: The bleeding-edge image built on every commit to `master-latest`. Contains new test features but may be unstable.
 
 **Language & Tool Flavors:**
@@ -95,7 +95,7 @@ To use a different variant or version, edit the `TAG` variable in your `.env` fi
 ```bash
 # In your .env file
 # Use a specific, reproducible base image
-TAG=v1.1.0
+TAG={{ v_version }}
 ```
 
 !!! tip 
