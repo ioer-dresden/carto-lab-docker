@@ -131,7 +131,7 @@ worker_map = {
     # Checks libgdal-core first (lean setup), then falls back to libgdal or gdal
     "GDAL": ["libgdal-core", "libgdal", "gdal"],
     "Mapnik": "mapnik",
-    "PySal": "pysal",
+    "PySal": ["pysal", "esda"],
 }
 
 for label, pkg in worker_map.items():
