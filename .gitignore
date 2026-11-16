@@ -5,3 +5,6 @@ dev/
 *drawio.bkp
 docker-compose.override.yml
 telegraf.conf
+site/
+__pycache__
+docs/changelog.md

@@ -124,7 +124,7 @@ COMPOSE_FILE=docker-compose.mapnik.yml
 
 ## Enable collaboration support
 
-Setting `COLLABORATIVE=true` will start the Jupyter server with [Real Time Collaboration (RTC)](/collaboration) extension enabled.
+Setting `COLLABORATIVE=true` will start the Jupyter server with [Real Time Collaboration (RTC)](collaboration.md) extension enabled.
 
 The default is `false`.
 

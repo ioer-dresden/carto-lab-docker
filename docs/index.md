@@ -48,7 +48,7 @@ To keep the base environment lightweight and stable, Carto-Lab Docker utilizes a
 *   🌱 **[GRASS GIS](./grass.md):** Includes the massive GRASS GIS engine and the `grass.jupyter` companion package for advanced topology and raster analytics.
 *   🗺️ **[Mapnik](./mapnik.md):** Includes the OpenStreetMap C++ rendering engine for high-performance map tile generation.
 
-![Packages Summary Graphic](/packages.png)
+![Packages Summary Graphic](packages.png)
 
 !!! info "Adding your own tools"
     The default environments provided in Carto-Lab Docker are for convenience and do not claim to be complete. See our documentation for several ways to [extend the environments](./environments.md) or create your own.
